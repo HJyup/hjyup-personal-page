@@ -8,14 +8,12 @@ export const metadata: Metadata = {
   description: 'Personal website of Danyil Butov',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-green-300">{children}</body>
     </html>
   );
-}
+};
+
+export default RootLayout;
