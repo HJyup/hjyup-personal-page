@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
-import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { ReactNode } from 'react';
+import type { Metadata } from 'next';
+import { JetBrains_Mono } from 'next/font/google';
 
-import "./globals.css";
+import './globals.css';
 
 const jetBrains = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Danyil Butov",
-  description: "Personal website of Danyil Butov",
+  title: 'Danyil Butov',
+  description: 'Personal website of Danyil Butov',
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jetBrains.className}>{children}</body>
+      <body className={jetBrains.className + ' bg-gray-50'}>{children}</body>
     </html>
   );
 }

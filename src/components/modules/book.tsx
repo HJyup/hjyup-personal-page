@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from "react";
-import { useAtom } from "jotai";
+import { FC, useEffect, useState } from 'react';
+import { useAtom } from 'jotai';
 
-import { BookPage } from "@/components/modules/book-page";
-import usePreloadTextures from "@/hooks/use-preload-textures";
-import { pageAtom, usePages } from "@/state/page";
+import { BookPage } from '@/components/modules/book-page';
+import usePreloadTextures from '@/hooks/use-preload-textures';
+import { pageAtom, usePages } from '@/state/page';
 
 export const Book: FC = ({ ...props }) => {
   const [page] = useAtom(pageAtom);

@@ -1,8 +1,8 @@
-import { useMemo, useRef, useState } from "react";
-import { useCursor, useTexture } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useAtom } from "jotai";
-import { easing } from "maath";
+import { FC, useMemo, useRef, useState } from 'react';
+import { useCursor, useTexture } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useAtom } from 'jotai';
+import { easing } from 'maath';
 import {
   Bone,
   BoxGeometry,
@@ -15,10 +15,10 @@ import {
   SRGBColorSpace,
   Uint16BufferAttribute,
   Vector3,
-} from "three";
-import { degToRad, MathUtils } from "three/src/math/MathUtils.js";
+} from 'three';
+import { degToRad, MathUtils } from 'three/src/math/MathUtils.js';
 
-import { pageAtom, usePages } from "@/state/page";
+import { pageAtom, usePages } from '@/state/page';
 
 const EASING_FACTOR = 0.5;
 const EASING_FACTOR_FOLD = 0.3;
@@ -59,30 +59,22 @@ for (let i = 0; i < position.count; i++) {
 }
 
 pageGeometry.setAttribute(
-  "skinIndex",
+  'skinIndex',
   new Uint16BufferAttribute(skinIndexes, 4),
 );
 pageGeometry.setAttribute(
-  "skinWeight",
+  'skinWeight',
   new Float32BufferAttribute(skinWeights, 4),
 );
 
-const whiteColor = new Color("white");
-const emissiveColor = new Color("lightblue");
+const whiteColor = new Color('white');
+const emissiveColor = new Color('lightblue');
 
 const pageMaterials = [
-  new MeshStandardMaterial({
-    color: whiteColor,
-  }),
-  new MeshStandardMaterial({
-    color: "#111",
-  }),
-  new MeshStandardMaterial({
-    color: whiteColor,
-  }),
-  new MeshStandardMaterial({
-    color: whiteColor,
-  }),
+  new MeshStandardMaterial({ color: whiteColor }),
+  new MeshStandardMaterial({ color: '#111' }),
+  new MeshStandardMaterial({ color: whiteColor }),
+  new MeshStandardMaterial({ color: whiteColor }),
 ];
 
 interface BookPageProps {
@@ -94,7 +86,7 @@ interface BookPageProps {
   bookClosed: boolean;
 }
 
-export const BookPage: React.FC<BookPageProps> = ({
+export const BookPage: FC<BookPageProps> = ({
   number,
   front,
   back,
@@ -104,15 +96,17 @@ export const BookPage: React.FC<BookPageProps> = ({
   ...props
 }) => {
   const pages = usePages();
+  const group = useRef<Group>(null);
+  const turnedAt = useRef<number>(0);
+  const lastOpened = useRef<boolean>(opened);
+  const turnedAtDate = useMemo(() => new Date(), []);
+  const [, setPage] = useAtom(pageAtom);
+  const [highlighted, setHighlighted] = useState(false);
   const [picture, picture2, pictureRoughness] = useTexture([
     `/textures/${front}.jpg`,
     `/textures/${back}.jpg`,
   ]);
   picture.colorSpace = picture2.colorSpace = SRGBColorSpace;
-  const group = useRef<Group>(null);
-  const turnedAt = useRef<number>(0);
-  const lastOpened = useRef<boolean>(opened);
-  const turnedAtDate = useMemo(() => new Date(), []);
 
   const skinnedMeshRef = useRef<SkinnedMesh>(null);
 
@@ -177,10 +171,6 @@ export const BookPage: React.FC<BookPageProps> = ({
       return;
     }
 
-    if (!skinnedMeshRef.current) {
-      return;
-    }
-
     const emissiveIntensity = highlighted ? 0.22 : 0;
 
     if (Array.isArray(skinnedMeshRef.current.material)) {
@@ -190,12 +180,9 @@ export const BookPage: React.FC<BookPageProps> = ({
         .material[5] as MeshStandardMaterial;
       material4.emissiveIntensity = material5.emissiveIntensity =
         MathUtils.lerp(material4.emissiveIntensity, emissiveIntensity, 0.1);
-    } else {
-      console.error("Expected material to be an array");
     }
 
     if (lastOpened.current !== opened) {
-      // eslint-disable-next-line @react-three/no-new-in-loop
       turnedAt.current = +date;
       lastOpened.current = opened;
     }
@@ -234,7 +221,7 @@ export const BookPage: React.FC<BookPageProps> = ({
       if (target) {
         easing.dampAngle(
           target.rotation,
-          "y",
+          'y',
           rotationAngle,
           EASING_FACTOR,
           delta,
@@ -248,7 +235,7 @@ export const BookPage: React.FC<BookPageProps> = ({
       if (target) {
         easing.dampAngle(
           target.rotation,
-          "x",
+          'x',
           foldRotationAngle * foldIntensity,
           EASING_FACTOR_FOLD,
           delta,
@@ -257,9 +244,6 @@ export const BookPage: React.FC<BookPageProps> = ({
     }
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setPage] = useAtom(pageAtom);
-  const [highlighted, setHighlighted] = useState(false);
   useCursor(highlighted);
 
   return (
