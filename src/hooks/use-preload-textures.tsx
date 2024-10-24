@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useTexture } from "@react-three/drei";
+import { useEffect } from 'react';
+import { useTexture } from '@react-three/drei';
 
-import { usePages } from "@/state/page";
+import { usePages } from '@/state/page';
 
 const usePreloadTextures = () => {
   const pages = usePages();

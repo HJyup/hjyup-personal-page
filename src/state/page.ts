@@ -1,13 +1,13 @@
-import { atom } from "jotai";
+import { atom } from 'jotai';
 
-import { PICTURES } from "@/const/pictures";
+import { PICTURES } from '@/const/pictures';
 
 export const pageAtom = atom(0);
 
 export const usePages = () => {
   const pages = [
     {
-      front: "book-cover",
+      front: 'book-cover',
       back: PICTURES[0],
     },
   ];
@@ -21,7 +21,7 @@ export const usePages = () => {
 
   pages.push({
     front: PICTURES[PICTURES.length - 1],
-    back: "book-back",
+    back: 'book-back',
   });
 
   return pages;
