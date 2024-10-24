@@ -6,8 +6,12 @@ import { Canvas } from '@react-three/fiber';
 
 import { Book } from '@/components/modules/book';
 import { Controls } from '@/components/modules/controls';
+import useWindowSize from '@/hooks/use-window-size';
 
 export default function Page() {
+  const size = useWindowSize();
+  const fov = size.width && size.width <= 750 ? 85 : 35;
+
   return (
     <main>
       <div className="h-screen flex justify-center items-center">
@@ -15,7 +19,7 @@ export default function Page() {
           shadows
           camera={{
             position: [2, 1, 6],
-            fov: window.innerWidth < 780 ? 85 : 35,
+            fov: fov,
           }}
         >
           <group position-x={0.9}>
