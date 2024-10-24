@@ -6,7 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { BookScene } from "@/components/modules/book-scene";
 import { Controls } from "@/components/modules/controls";
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       <div className="h-screen">
