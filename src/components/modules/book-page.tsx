@@ -3,7 +3,6 @@ import { useCursor, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useAtom } from "jotai";
 import { easing } from "maath";
-import PropTypes from "prop-types";
 import {
   Bone,
   BoxGeometry,
@@ -288,13 +287,4 @@ export const BookPage: React.FC<BookPageProps> = ({
       />
     </group>
   );
-};
-
-BookPage.propTypes = {
-  number: PropTypes.number.isRequired,
-  front: PropTypes.string.isRequired,
-  back: PropTypes.string.isRequired,
-  page: PropTypes.number.isRequired,
-  opened: PropTypes.bool.isRequired,
-  bookClosed: PropTypes.bool.isRequired,
 };
