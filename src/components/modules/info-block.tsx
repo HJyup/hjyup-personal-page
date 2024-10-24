@@ -6,7 +6,7 @@ import { cn } from '@/utils/utils';
 
 const InfoBlock = ({ data }: { data: MainDataType }) => {
   return (
-    <div className="md:m-0 m-5">
+    <div>
       <h1 className="underline pb-2 font-bold text-sm md:text-md">
         {data.title}
       </h1>

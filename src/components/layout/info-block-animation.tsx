@@ -21,7 +21,7 @@ const InfoBlockAnimation = ({
       exit="exit"
       variants={variants}
       transition={{ duration: 0.5 }}
-      className="flex items-center  w-full md:w-1/3 sm:ml-10 pointer-events-auto"
+      className="flex items-center w-screen md:w-1/3 sm:ml-10 pointer-events-auto m-5"
     >
       {children}
     </motion.div>

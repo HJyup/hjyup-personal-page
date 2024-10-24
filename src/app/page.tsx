@@ -10,7 +10,8 @@ import useWindowSize from '@/hooks/use-window-size';
 
 export default function Page() {
   const size = useWindowSize();
-  const fov = size.width && size.width <= 750 ? 85 : 35;
+  const fov =
+    size.width && size.width <= 1150 ? (size.width >= 750 ? 55 : 85) : 35;
 
   return (
     <main>
