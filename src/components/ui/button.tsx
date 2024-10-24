@@ -13,7 +13,11 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button className={cn('px-4 py-3', className)} onClick={onClick} {...props}>
+    <button
+      className={cn('px-4 py-3 md:text-lg text-md', className)}
+      onClick={onClick}
+      {...props}
+    >
       <p>{children}</p>
     </button>
   );
