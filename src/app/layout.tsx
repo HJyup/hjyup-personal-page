@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 import './globals.css';
 
-const jetBrains = JetBrains_Mono({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
 });
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jetBrains.className + ' bg-gray-50'}>{children}</body>
+      <body className={inter.className + ' bg-gray-50'}>{children}</body>
     </html>
   );
 }
