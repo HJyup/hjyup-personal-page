@@ -38,11 +38,13 @@ const InfoBlock = ({ data }: { data: MainDataType }) => {
                 {desc} <br />
               </p>
             ))}
-            {item.techStack && (
-              <p className="text-xs md:text-sm">
-                Tech stack: {item.techStack?.join(', ')}
-              </p>
-            )}
+            <div className="pt-3">
+              {item.techStack && (
+                <p className="text-xs md:text-sm">
+                  Tech stack: {item.techStack?.join(', ')}
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>

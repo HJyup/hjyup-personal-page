@@ -13,46 +13,61 @@ type ItemType = {
 
 const MAIN_DATA: MainDataType[] = [
   {
-    title: 'About me',
-    description: 'The section is under construction...',
-    items: [],
-  },
-  {
     title: 'Projects',
     description: "Here's listed projects that I've done.",
     items: [
+      {
+        name: 'Search Engine',
+        description: ['The project is in the planning stage.'],
+        techStack: [
+          'Golang',
+          'Buf Schema Registry',
+          'Microservices',
+          'Python',
+          'TensorFlow',
+        ],
+      },
       {
         name: 'FictAdvisor',
         link: 'https://fictadvisor.com',
         description: [
           'Platform for teacher evaluations and interactive timetables across all Universities faculties.',
         ],
-        techStack: ['React', 'Typescript', 'SCSS', 'MUI', 'React-query'],
+        techStack: ['Next.js', 'Typescript', 'SCSS', 'MUI', 'React-query'],
       },
       {
         name: 'ChipInAI',
         link: 'https://github.com/ChipInAI/chipIn-ai-mobile',
-        description: [
-          'AI-powered chatbot for financial planning and investment advice.',
-        ],
-        techStack: ['React', 'Typescript', 'SCSS', 'MUI', 'React-query'],
+        description: ['AI-powered mobile app for automated bill splitting.'],
+        techStack: ['React-Native', 'Typescript', 'Tailwind CSS', 'Expo'],
       },
       {
         name: 'Personal website',
         description: ['This website is a portfolio and a blog.'],
-        techStack: ['React', 'Typescript', 'SCSS', 'MUI', 'React-query'],
+        techStack: ['Next.js', 'Typescript', 'Tailwind CSS', 'Three.js'],
       },
     ],
   },
   {
     title: 'Experience',
-    description: 'The section is under construction...',
-    items: [],
-  },
-  {
-    title: 'Blog',
-    description: 'The section is under construction...',
-    items: [],
+    description: 'Here is my work experience.',
+    items: [
+      {
+        name: 'Solidgate',
+        link: 'https://solidgate.com',
+        description: [
+          'Have been working for a fintech company developing a business-to-business payment processing platform',
+          'that enables businesses to accept online payments in over 150 countries.',
+        ],
+        techStack: [
+          'React',
+          'Typescript',
+          'Golang',
+          'Buf Schema Registry',
+          'React-query',
+        ],
+      },
+    ],
   },
 ];
 

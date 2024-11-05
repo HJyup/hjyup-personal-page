@@ -11,7 +11,7 @@ import { AnimatedText } from './animated-text';
 import Header from './header';
 import InfoBlock from './info-block';
 
-const PAGES = ['General', 'About', 'Projects', 'Experience', 'Blog'];
+const PAGES = ['General', 'Projects', 'Experience'];
 
 export const Controls = () => {
   const [page, setPage] = useAtom(pageAtom);
