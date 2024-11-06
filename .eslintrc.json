@@ -8,8 +8,7 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@react-three/eslint-plugin/recommended"
+    "plugin:react-hooks/recommended"
   ],
   "env": {
     "browser": true,
@@ -19,8 +18,7 @@
     "@typescript-eslint",
     "simple-import-sort",
     "react",
-    "prettier",
-    "@react-three/eslint-plugin"
+    "prettier"
   ],
   "settings": {
     "react": {
