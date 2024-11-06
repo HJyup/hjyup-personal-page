@@ -1,46 +1,45 @@
-import { Contact } from '@/components/module/contact';
-import MainHeader from '@/components/module/main-header';
-import { MainLayout } from '@/components/module/main-layout';
-import { Section } from '@/components/module/section';
+'use client';
+
+import { useState } from 'react';
+
+import { Contact, MainHeader, MainLayout, Section } from '@/components/module';
+import { DemoAlert } from '@/components/module/temporary/demo-alert';
+import { SECTIONS } from '@/const';
 
 export default function Page() {
+  // Will be used for the animation of the modal
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [clickedItem, setClickedItem] = useState<string | null>(null);
+
+  const handleClick = (title: string) => {
+    setClickedItem(prev => (prev === title ? null : title));
+  };
+
   return (
-    <main className="flex items-center p-10 justify-center h-screen ">
-      <div className="absolute top-0 left-0 w-full h-5 bg-sky-600 text-center text-sm text-white font-light">
-        You are looking at a demo version of the website.
-      </div>
-      <MainLayout>
-        <MainHeader />
+    <MainLayout>
+      <DemoAlert />
 
-        <Contact />
+      <MainHeader />
 
-        <Section header="Education">
-          <Section.Item
-            logo="https://logonoid.com/images/university-of-edinburgh-logo.png"
-            title="The University of Edinburgh"
-            subtitle="Artificial Intelligence & Computer Science"
-            badge="Ongoing"
-          />
+      <Contact />
+
+      {SECTIONS.map(section => (
+        <Section key={section.header} header={section.header}>
+          {section.items.map((item, index) => (
+            <>
+              <Section.Item
+                key={item.title}
+                logo={item.logo}
+                title={item.title}
+                subtitle={item.subtitle}
+                badge={item.badge}
+                onClick={() => handleClick(item.title)}
+              />
+              {index < section.items.length - 1 && <Section.Separator />}
+            </>
+          ))}
         </Section>
-
-        <Section header="Professional Experience">
-          <Section.Item
-            logo="https://cdn-1.webcatalog.io/catalog/solidgate/solidgate-icon.png?v=1714781239646"
-            title="Solidgate"
-            subtitle="Fintech payment processing platform that helps businesses accept online payments across 150+ countries"
-            badge="Present"
-          />
-        </Section>
-
-        <Section header="Projects">
-          <Section.Item
-            logo="https://cdn-1.webcatalog.io/catalog/solidgate/solidgate-icon.png?v=1714781239646"
-            title="Solidgate"
-            subtitle="Software Engineer"
-            badge="Ongoing"
-          />
-        </Section>
-      </MainLayout>
-    </main>
+      ))}
+    </MainLayout>
   );
 }

@@ -1,8 +1,9 @@
-import { ReactNode } from 'react';
+'use client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Badge } from '../ui/badge';
-import { Separator } from '../ui/separator';
+import { ReactNode } from 'react';
+import { motion } from 'framer-motion';
+
+import { Avatar, AvatarFallback, AvatarImage, Badge, Separator } from '../ui';
 
 const Section = ({
   children,
@@ -24,35 +25,45 @@ const SectionItem = ({
   title,
   subtitle,
   badge,
+  onClick,
 }: {
-  logo: string;
+  logo?: string;
   title: string;
   subtitle: string;
-  badge: string;
+  badge?: string;
+  onClick?: () => void;
 }) => {
   return (
-    <div className="flex gap-3 items-center mt-3">
+    <motion.div
+      className="flex gap-3 items-center p-2 rounded-lg cursor-pointer"
+      whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 0, 0, 0.03)' }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: 'spring', stiffness: 150 }}
+      onClick={onClick}
+    >
       <Avatar>
-        <AvatarImage src={logo} />
+        {logo && <AvatarImage src={logo} />}
         <AvatarFallback>{title.slice(0, 2)}</AvatarFallback>
       </Avatar>
       <div className="flex-auto">
-        <div className="font-bold">{title}</div>
+        <div>{title}</div>
         <div className="text-sm text-muted-foreground">{subtitle}</div>
       </div>
-      <div className="pl-5 self-start">
-        <Badge variant="outline">{badge}</Badge>
-      </div>
-    </div>
+      {badge && (
+        <div className="pl-5 self-start">
+          <Badge variant="outline">{badge}</Badge>
+        </div>
+      )}
+    </motion.div>
   );
 };
 
 const SectionHeader = ({ children }: { children: ReactNode }) => {
-  return <div className="text-lg font-bold">{children}</div>;
+  return <div className="text-lg font-bold mb-5">{children}</div>;
 };
 
 const SectionSeparator = () => {
-  return <Separator />;
+  return <Separator className="my-2" />;
 };
 
 Section.Item = SectionItem;
