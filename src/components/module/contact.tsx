@@ -1,7 +1,14 @@
 import { ReactNode } from 'react';
-import { GithubIcon, InstagramIcon, LinkedinIcon } from 'lucide-react';
+import {
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  MailIcon,
+} from 'lucide-react';
 
-import { LinkButton } from '../ui/link-button';
+import { LINKS } from '@/const';
+
+import { LinkButton } from '../ui';
 
 const ContactLayout = ({ children }: { children: ReactNode }) => {
   return <div className="flex gap-2 mt-5">{children}</div>;
@@ -10,26 +17,17 @@ const ContactLayout = ({ children }: { children: ReactNode }) => {
 const Contact = () => {
   return (
     <Contact.Layout>
-      <LinkButton
-        href="https://www.instagram.com/danyilbutov/"
-        size="icon"
-        variant="outline"
-      >
+      <LinkButton href={LINKS.INSTAGRAM} size="icon" variant="outline">
         <InstagramIcon />
       </LinkButton>
-      <LinkButton
-        href="https://www.instagram.com/danyilbutov/"
-        size="icon"
-        variant="outline"
-      >
+      <LinkButton href={LINKS.LINKEDIN} size="icon" variant="outline">
         <LinkedinIcon />
       </LinkButton>
-      <LinkButton
-        href="https://www.instagram.com/danyilbutov/"
-        size="icon"
-        variant="outline"
-      >
+      <LinkButton href={LINKS.GITHUB} size="icon" variant="outline">
         <GithubIcon />
+      </LinkButton>
+      <LinkButton href={LINKS.MAIL} size="icon" variant="outline">
+        <MailIcon />
       </LinkButton>
     </Contact.Layout>
   );
