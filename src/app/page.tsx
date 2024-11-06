@@ -1,7 +1,8 @@
 import { Contact } from '@/components/module/contact';
+import MainHeader from '@/components/module/main-header';
 import { MainLayout } from '@/components/module/main-layout';
 import { Section } from '@/components/module/section';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui';
+
 export default function Page() {
   return (
     <main className="flex items-center p-10 justify-center h-screen ">
@@ -9,16 +10,7 @@ export default function Page() {
         You are looking at a demo version of the website.
       </div>
       <MainLayout>
-        <div className="flex items-center gap-4">
-          <Avatar>
-            <AvatarImage src="https://github.com/hjYup.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <div>
-            <div className="text-2xl font-bold">Danyil Butov</div>
-            <div>Software Engineer</div>
-          </div>
-        </div>
+        <MainHeader />
 
         <Contact />
 
