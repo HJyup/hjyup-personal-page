@@ -6,7 +6,7 @@ export const SECTIONS = [
         logo: 'https://logonoid.com/images/university-of-edinburgh-logo.png',
         title: 'The University of Edinburgh',
         subtitle: 'Artificial Intelligence & Computer Science',
-        badge: 'Ongoing',
+        badge: '2024 - 2028',
       },
     ],
   },
@@ -18,7 +18,7 @@ export const SECTIONS = [
         title: 'Solidgate',
         subtitle:
           'Fintech payment processing platform that helps businesses accept online payments across 150+ countries',
-        badge: 'Present',
+        badge: 'Aug 2023 - Present',
       },
     ],
   },
@@ -26,29 +26,24 @@ export const SECTIONS = [
     header: 'Projects',
     items: [
       {
+        logo: '/search-engine.jpg',
         title: 'Search Engine',
         subtitle:
           'A search engine that allows users to search for information across the web using AI',
-        badge: 'Planned',
-      },
-      {
-        title: 'ChipInAI',
-        subtitle:
-          'An app that scans restaurant bills, automatically itemizes group charges, and effortlessly calculates each person’s share for easy and accurate bill splitting',
         badge: 'Ongoing',
       },
       {
         logo: 'https://github.com/hjYup.png',
         title: 'Personal Website',
         subtitle: 'Personal website to showcase my projects and skills',
-        badge: 'Ongoing',
+        badge: 'Nov 2024',
       },
       {
         logo: 'https://avatars.githubusercontent.com/u/80922066?s=200&v=4',
         title: 'FictAdvisor',
         subtitle:
           'Developed a platform for teacher evaluations and interactive timetables across all Universities faculties',
-        badge: 'Finished',
+        badge: 'Feb 2023 - Apr 2023',
       },
     ],
   },
