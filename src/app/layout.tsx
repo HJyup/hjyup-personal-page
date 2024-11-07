@@ -23,7 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          inter.className + 'h-screen w-screen p-10 flex justify-center'
+          inter.className +
+          'h-screen w-screen flex justify-around overflow-x-hidden items-center'
         }
       >
         {children}

@@ -1,10 +1,28 @@
 import { ReactNode } from 'react';
+import { motion, MotionProps } from 'framer-motion';
 
-const MainLayout = ({ children }: { children: ReactNode }) => {
+import { cn } from '@/lib/utils';
+
+interface MainLayoutProps extends MotionProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const MainLayout = ({
+  children,
+  className,
+  ...motionProps
+}: MainLayoutProps) => {
   return (
-    <div className="flex flex-col justify-center lg:w-1/3 md:w-1/2">
+    <motion.div
+      className={cn(
+        className,
+        'flex flex-col justify-center w-1/3 overflow-y-auto p-5 overflow-x-hidden',
+      )}
+      {...motionProps}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
