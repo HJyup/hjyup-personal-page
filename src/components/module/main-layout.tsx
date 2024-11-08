@@ -15,10 +15,7 @@ const MainLayout = ({
 }: MainLayoutProps) => {
   return (
     <motion.div
-      className={cn(
-        className,
-        'flex flex-col justify-center w-1/3 overflow-y-auto p-5 overflow-x-hidden',
-      )}
+      className={cn(className, 'flex flex-col w-1/3 p-10 pt-16')}
       {...motionProps}
     >
       {children}

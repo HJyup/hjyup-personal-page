@@ -2,6 +2,9 @@
 
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { LinkIcon } from 'lucide-react';
+
+import { SectionItemType } from '@/const/sections';
 
 import { Avatar, AvatarFallback, AvatarImage, Separator } from '../ui';
 
@@ -11,67 +14,70 @@ const Section = ({
 }: {
   children: ReactNode;
   header?: string;
-}) => {
-  return (
-    <div className="mb-3 mt-3">
-      {header && <Section.Header>{header}</Section.Header>}
-      <div className="flex flex-col gap-3">{children}</div>
-    </div>
-  );
-};
+}) => (
+  <div className="mb-3 mt-3">
+    {header && <Section.Header>{header}</Section.Header>}
+    <div className="flex flex-col gap-3">{children}</div>
+  </div>
+);
 
 const SectionItem = ({
-  logo,
-  title,
-  subtitle,
-  badge,
+  sectionItem,
   onClick,
-  isHighlighted,
 }: {
-  logo?: string;
-  title: string;
-  subtitle: string;
-  badge?: string;
-  isHighlighted?: boolean;
+  sectionItem: SectionItemType;
   onClick?: () => void;
 }) => {
-  return (
-    <motion.div
-      className="flex gap-3 items-center py-1 px-2 rounded-lg cursor-pointer"
-      whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 0, 0, 0.03)' }}
-      whileTap={{ scale: 0.95 }}
-      animate={
-        isHighlighted
-          ? { scale: 1.05, backgroundColor: 'rgba(0, 0, 0, 0.03)' }
-          : {}
-      }
-      transition={{ type: 'spring', stiffness: 150 }}
-      onClick={onClick}
-    >
-      <Avatar>
-        {logo && <AvatarImage src={logo} />}
-        <AvatarFallback>{title.slice(0, 2)}</AvatarFallback>
-      </Avatar>
-      <div className="flex-auto">
-        <div className="flex items-center justify-between">
-          <div>{title}</div>
-          <div>
-            {badge && <div className="pl-5 self-start text-xs">{badge}</div>}
-          </div>
-        </div>
-        <div className="text-sm text-muted-foreground">{subtitle}</div>
-      </div>
+  const commonProps = {
+    className: `flex gap-3 items-center py-2 px-2 rounded-lg cursor-pointer`,
+    whileHover: { scale: 1.05, backgroundColor: 'rgba(0, 0, 0, 0.03)' },
+    whileTap: { scale: 0.95 },
+    transition: { type: 'spring', stiffness: 150 },
+  };
+
+  return sectionItem.href ? (
+    <motion.a {...commonProps} href={sectionItem.href} target="_blank">
+      <SectionItemContent sectionItem={sectionItem} />
+    </motion.a>
+  ) : (
+    <motion.div {...commonProps} onClick={onClick}>
+      <SectionItemContent sectionItem={sectionItem} />
     </motion.div>
   );
 };
 
-const SectionHeader = ({ children }: { children: ReactNode }) => {
-  return <div className="text-lg font-bold mb-5">{children}</div>;
-};
+const SectionItemContent = ({
+  sectionItem,
+}: {
+  sectionItem: SectionItemType;
+}) => (
+  <>
+    <Avatar>
+      {sectionItem.logo && <AvatarImage src={sectionItem.logo} />}
+      <AvatarFallback>{sectionItem.title.slice(0, 2)}</AvatarFallback>
+    </Avatar>
+    <div className="flex-auto">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {sectionItem.title}{' '}
+          {sectionItem.href && <LinkIcon className="w-3 h-3" />}
+        </div>
+        {sectionItem.date && (
+          <div className="pl-5 self-start text-xs">{sectionItem.date}</div>
+        )}
+      </div>
+      <div className="text-sm text-muted-foreground">
+        {sectionItem.subtitle}
+      </div>
+    </div>
+  </>
+);
 
-const SectionSeparator = () => {
-  return <Separator className="my-2" />;
-};
+const SectionHeader = ({ children }: { children: ReactNode }) => (
+  <div className="text-lg font-bold mb-2">{children}</div>
+);
+
+const SectionSeparator = () => <Separator />;
 
 Section.Item = SectionItem;
 Section.Header = SectionHeader;

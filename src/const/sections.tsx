@@ -1,4 +1,17 @@
-export const SECTIONS = [
+export type SectionType = {
+  header: string;
+  items: SectionItemType[];
+};
+
+export type SectionItemType = {
+  logo: string;
+  title: string;
+  subtitle: string;
+  date?: string;
+  href?: string;
+};
+
+export const SECTIONS: SectionType[] = [
   {
     header: 'Education',
     items: [
@@ -6,7 +19,8 @@ export const SECTIONS = [
         logo: 'https://logonoid.com/images/university-of-edinburgh-logo.png',
         title: 'The University of Edinburgh',
         subtitle: 'Artificial Intelligence & Computer Science',
-        badge: '2024 - 2028',
+        date: '2024 - 2028',
+        href: 'https://www.ed.ac.uk/',
       },
     ],
   },
@@ -18,7 +32,8 @@ export const SECTIONS = [
         title: 'Solidgate',
         subtitle:
           'Fintech payment processing platform that helps businesses accept online payments across 150+ countries',
-        badge: 'Aug 2023 - Present',
+        date: 'Aug 2023 - Present',
+        href: 'https://www.solidgate.com/',
       },
     ],
   },
@@ -30,20 +45,20 @@ export const SECTIONS = [
         title: 'Search Engine',
         subtitle:
           'A search engine that allows users to search for information across the web using AI',
-        badge: 'Ongoing',
+        date: 'Ongoing',
       },
       {
         logo: 'https://github.com/hjYup.png',
         title: 'Personal Website',
         subtitle: 'Personal website to showcase my projects and skills',
-        badge: 'Nov 2024',
+        date: 'Nov 2024',
       },
       {
         logo: 'https://avatars.githubusercontent.com/u/80922066?s=200&v=4',
         title: 'FictAdvisor',
         subtitle:
           'Developed a platform for teacher evaluations and interactive timetables across all Universities faculties',
-        badge: 'Feb 2023 - Apr 2023',
+        date: 'Feb 2023 - Apr 2023',
       },
     ],
   },
