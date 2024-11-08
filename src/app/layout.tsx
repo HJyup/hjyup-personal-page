@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          'h-screen w-screen flex justify-around overflow-x-hidden items-center'
+          'min-h-screen w-screen flex justify-around overflow-x-hidden items-center'
         }
       >
         {children}
