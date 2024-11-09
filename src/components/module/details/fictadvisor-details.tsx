@@ -1,6 +1,5 @@
-import { ImageBlock, LinkButton } from '@/components/ui';
+import { LinkButton } from '@/components/ui';
 import { SECTIONS } from '@/const';
-import fictadvisorVideo from '@/videos/fict-teacher.mov';
 
 import { SectionDetails } from '../section-details';
 
@@ -17,42 +16,50 @@ const FictAdvisorDetails = () => {
 
       <SectionDetails.Wrapper>
         <SectionDetails.Text>
-          As a key member of the Student Council, I played a significant role in
-          developing a comprehensive university website called FictAdvisor. My
-          responsibilities included collaborating with other council members to
-          gather requirements, designing the user interface, and implementing
-          various features to enhance the user experience.
+          As an active member of the Student Council at Ukrainian University, I
+          played a key role in developing the university's FictAdvisor website.
+          My responsibilities included collaborating with fellow council members
+          to gather requirements, designing an intuitive user interface, and
+          implementing features aimed at enhancing the overall user experience.
         </SectionDetails.Text>
       </SectionDetails.Wrapper>
 
-      <ImageBlock
-        images={[
-          '/fictadvisor/main.png',
-          '/fictadvisor/schedule.png',
-          '/fictadvisor/search.png',
-        ]}
-      />
+      <SectionDetails.Wrapper>
+        <SectionDetails.Carousel
+          images={[
+            { image: '/fictadvisor/main.png' },
+            { image: '/fictadvisor/schedule.png' },
+            { image: '/fictadvisor/search.png' },
+            { image: '/fictadvisor/register.png' },
+          ]}
+          caption="Main Page"
+        />
+      </SectionDetails.Wrapper>
 
       <SectionDetails.Wrapper>
         <SectionDetails.Text>
-          This website provides comprehensive information about the Student
+          FictAdvisor provides comprehensive information about the Student
           Council of FIOT, including its organizational structure and events.
-          Additionally, users can manage their group schedules and evaluate
-          faculty members. These features were implemented to assist students in
-          their academic endeavors and facilitate course navigation.
+          Additionally, the platform enables users to manage their group
+          schedules and review faculty members. These features were designed to
+          support students academically and help them with course selection and
+          navigation.
         </SectionDetails.Text>
       </SectionDetails.Wrapper>
 
-      <SectionDetails.Video
-        video={fictadvisorVideo}
-        caption="How the teacher's page looks"
-      />
+      <SectionDetails.Wrapper>
+        <SectionDetails.Video
+          video="/fictadvisor/teacher.mp4"
+          caption="Teacher Profile Page Overview"
+        />
+      </SectionDetails.Wrapper>
 
       <SectionDetails.Wrapper>
         <SectionDetails.Text>
-          This project was my first experience in developing a website and
-          working in a team. I learned a lot about the importance of
-          communication and collaboration in project development.
+          Within our community, we also established a tech school aimed at
+          helping students build practical skills across various fields. My role
+          involved creating test tasks for incoming students and evaluating
+          their performance on assignments and homework.
         </SectionDetails.Text>
       </SectionDetails.Wrapper>
 
@@ -64,6 +71,7 @@ const FictAdvisorDetails = () => {
           variant="secondary"
           href="https://ficeadvisor.com"
           target="_blank"
+          className="w-full md:w-fit"
         >
           Visit the website
         </LinkButton>
