@@ -1,7 +1,5 @@
 import { LinkButton } from '@/components/ui';
 import { SECTIONS } from '@/const';
-import oldAnimationVideo from '@/videos/old-animation-personal.mov';
-import personalWebVideo from '@/videos/personal-page-animation.mov';
 
 import { SectionDetails } from '../section-details';
 
@@ -23,38 +21,35 @@ const PersonalWebDetails = () => {
 
       <SectionDetails.Wrapper>
         <SectionDetails.Text>
-          Welcome to my personal website! This platform showcases my projects
-          and skills, reflecting my personality through a minimalist design and
-          typewriter-style notes. Each section, such as a project, transitions
-          smoothly like turning the pages of a book. On the left side, you'll
-          find elegantly styled text providing detailed information about each
-          project.
+          Welcome to my personal website! I created this site to showcase my
+          projects and achievements. The design is intentionally minimalistic,
+          putting the focus on the content itself. I aimed to make the layout
+          scalable, simplifying the process of updating and adding new content.
         </SectionDetails.Text>
       </SectionDetails.Wrapper>
 
-      <SectionDetails.Video
-        video={personalWebVideo}
-        caption="Old version of the website"
-      />
-
       <SectionDetails.Wrapper>
         <SectionDetails.Text>
-          However, I soon realized that I wanted to make it more interactive and
-          easier to expand or modify the structure. My goal is to create a
-          'charming database' of all my achievements. Therefore, I decided to
-          focus more on the projects themselves.
+          Before developing the current version, I explored a concept for a
+          personal webpage designed as an interactive book using Three.js. The
+          idea was to create a unique, book-like experience for users as they
+          browsed through my information.
         </SectionDetails.Text>
       </SectionDetails.Wrapper>
 
-      <SectionDetails.Video
-        video={oldAnimationVideo}
-        caption="Old animation of the current website"
-      />
+      <SectionDetails.Wrapper>
+        <SectionDetails.Video
+          video="/personal-page/old_web.mp4"
+          caption="First Iteration of the Website"
+        />
+      </SectionDetails.Wrapper>
 
       <SectionDetails.Wrapper>
         <SectionDetails.Text>
-          The current version of the website is a result of these changes. I
-          hope you like it!
+          Currently, I'm working on a “pretty database” concept to organize my
+          achievements and personal thoughts. Here, you’ll find posts about
+          various technologies, my personal insights, and of course, more
+          projects to come. I hope you enjoy exploring it!
         </SectionDetails.Text>
       </SectionDetails.Wrapper>
 
@@ -66,6 +61,7 @@ const PersonalWebDetails = () => {
           variant="secondary"
           href="https://old.danyilbutov.com"
           target="_blank"
+          className="w-full md:w-fit"
         >
           Visit the old website
         </LinkButton>
