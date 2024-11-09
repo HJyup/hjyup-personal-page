@@ -10,7 +10,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';

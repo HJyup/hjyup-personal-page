@@ -32,9 +32,11 @@ const SectionItem = ({
     className: 'flex gap-3 items-center py-2 px-2 rounded-lg cursor-pointer',
     whileHover: {
       scale: 1.05,
-      backgroundColor: window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'rgba(0, 0, 0, 0.2)'
-        : 'rgba(0, 0, 0, 0.03)',
+      backgroundColor:
+        typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'rgba(0, 0, 0, 0.2)'
+          : 'rgba(0, 0, 0, 0.03)',
     },
     whileTap: { scale: 0.95 },
     transition: { type: 'spring', stiffness: 150 },
