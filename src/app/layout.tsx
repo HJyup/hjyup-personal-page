@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
@@ -14,14 +14,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Danyil Butov',
   description: 'Personal website of Danyil Butov',
+  icons: {
+    icon: 'https://github.com/hjYup.png',
+  },
+};
+
+export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
-  icons: {
-    icon: 'https://github.com/hjYup.png',
-  },
-  viewport: 'width=device-width, initial-scale=1',
 };
 
 export default function RootLayout({
