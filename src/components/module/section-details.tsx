@@ -1,10 +1,9 @@
 import { ReactNode } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import Autoplay from 'embla-carousel-autoplay';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import { SectionItemType } from '@/const';
-import { cn } from '@/lib/utils';
 
 import {
   Badge,
@@ -25,13 +24,13 @@ const SectionDetailsHeader = ({
 }) => (
   <div
     key={sectionItem?.title}
-    className="flex gap-5 items-center py-0 px-0 md:py-1 md:px-2 rounded-lg justify-center md:justify-start"
+    className="flex gap-5 items-center py-0 px-0 md:py-1 md:px-2 justify-center md:justify-start"
   >
-    <Avatar className="w-10 md:h-12 md:w-12 ml-2 md:ml-0">
-      {sectionItem.logo && <AvatarImage src={sectionItem.logo} />}
+    <Avatar className="w-10 md:h-11 md:w-11 ml-2 md:ml-0">
+      <AvatarImage src={sectionItem.logo} />
       <AvatarFallback>{sectionItem.title.slice(0, 2)}</AvatarFallback>
     </Avatar>
-    <div>
+    <div className="flex flex-col gap-1 w-/3">
       <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between">
         <div className="text-sm md:text-base">{sectionItem?.title}</div>
       </div>
@@ -45,15 +44,23 @@ const SectionDetailsHeader = ({
 const SectionDetailsText = ({ children }: { children: ReactNode }) => (
   <div className="text-sm text-muted-foreground md:text-md">{children}</div>
 );
-
-const SectionDetailsImage = ({ image }: { image: string }) => (
-  <Image
-    className={cn('object-contain w-full h-full bg-card rounded-lg')}
-    src={image}
-    width={500}
-    height={500}
-    alt={image}
-  />
+const SectionDetailsImage = ({
+  image,
+  alt,
+}: {
+  image: StaticImageData;
+  alt?: string;
+}) => (
+  <div className="relative w-full h-full">
+    <Image
+      className="object-contain w-full h-full bg-card rounded-lg"
+      src={image}
+      width={500}
+      height={300}
+      layout="responsive"
+      alt={alt ?? image.src}
+    />
+  </div>
 );
 
 const SectionDetailsVideo = ({
@@ -65,7 +72,7 @@ const SectionDetailsVideo = ({
 }) => (
   <div className="flex flex-col justify-center items-center">
     <video
-      className={cn('w-full h-full bg-card rounded-lg overflow-hidden')}
+      className="w-full h-full bg-card rounded-lg overflow-hidden"
       src={video}
       autoPlay
       loop
@@ -104,24 +111,29 @@ const SectionDetailsCarousel = ({
   autoPlay = true,
   caption,
 }: {
-  images: { image: string }[];
+  images: {
+    image: StaticImageData;
+    alt?: string;
+  }[];
   autoPlay?: boolean;
   caption?: string;
 }) => (
-  <Carousel
-    opts={{ align: 'center', loop: true }}
-    plugins={autoPlay ? [Autoplay({ delay: 2000 })] : []}
-    className="flex flex-col justify-center items-center"
-  >
-    <CarouselContent>
-      {images.map(({ image }, index) => (
-        <CarouselItem key={index}>
-          <SectionDetailsImage image={image} />
-        </CarouselItem>
-      ))}
-    </CarouselContent>
+  <div className="flex flex-col justify-center items-center">
+    <Carousel
+      opts={{ align: 'center', loop: true }}
+      plugins={autoPlay ? [Autoplay({ delay: 2000 })] : []}
+      className="flex flex-col justify-center items-center"
+    >
+      <CarouselContent>
+        {images.map(({ image, alt }, index) => (
+          <CarouselItem key={index}>
+            <SectionDetailsImage image={image} alt={alt} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
     {caption && <div className="text-xs text-muted-foreground">{caption}</div>}
-  </Carousel>
+  </div>
 );
 
 SectionDetails.Header = SectionDetailsHeader;

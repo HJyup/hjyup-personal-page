@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 
+import { useMobile } from '@/hook/use-mobile';
 import { cn } from '@/lib/utils';
 
 import { SectionDetails } from '../module';
@@ -12,7 +13,7 @@ const modalAnimations = (isMobile: boolean) => ({
   backdrop: {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
-    exit: { opacity: 0 },
+    exit: isMobile ? {} : { opacity: 0 },
   },
   content: {
     initial: { scale: 0.9, opacity: 0 },
@@ -22,7 +23,7 @@ const modalAnimations = (isMobile: boolean) => ({
   },
 });
 
-const Modal = ({
+const ModalBase = ({
   onClose,
   children,
   isMobile,
@@ -34,7 +35,7 @@ const Modal = ({
   return (
     <motion.div
       className={cn(
-        'inset-0 bg-black/50 flex justify-center items-center z-10 overflow-y-auto lg:mx-2 overflow-hidden w-full',
+        'inset-0 bg-black/50 flex justify-center items-center z-10 overflow-y-auto overflow-hidden w-full dark:bg-black/60',
         !isMobile && 'fixed',
       )}
       onClick={onClose}
@@ -48,16 +49,47 @@ const Modal = ({
         onClick={e => e.stopPropagation()}
         {...modalAnimations(isMobile).content}
       >
-        {isMobile && (
-          <SectionDetails.Wrapper>
-            <Button variant="ghost" size="icon" onClick={onClose}>
-              <ArrowLeft className="w-4 h-4" /> Back
-            </Button>
-          </SectionDetails.Wrapper>
-        )}
         {children}
       </motion.div>
     </motion.div>
+  );
+};
+
+const Modal = ({
+  onClose,
+  children,
+}: {
+  onClose: () => void;
+  children: ReactNode;
+}) => {
+  const isMobile = useMobile();
+  return (
+    <ModalBase onClose={onClose} isMobile={isMobile}>
+      {children}
+    </ModalBase>
+  );
+};
+
+const ModalMobile = ({
+  onClose,
+  children,
+}: {
+  onClose: () => void;
+  children: ReactNode;
+}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <ModalBase onClose={onClose} isMobile={true}>
+      <SectionDetails.Wrapper>
+        <Button variant="ghost" size="sm" onClick={onClose} className="p-1">
+          <ArrowLeft className="w-4 h-4" /> Back
+        </Button>
+      </SectionDetails.Wrapper>
+      {children}
+    </ModalBase>
   );
 };
 
@@ -72,5 +104,6 @@ const ModalWrapper = ({
 };
 
 Modal.Wrapper = ModalWrapper;
+Modal.Mobile = ModalMobile;
 
 export { Modal };
