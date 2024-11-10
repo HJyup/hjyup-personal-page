@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} w-full flex flex-col justify-around items-center`}
+        className={`${inter.className} w-full min-h-screen flex flex-col items-center bg-background lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"

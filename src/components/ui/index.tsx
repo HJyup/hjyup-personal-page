@@ -5,3 +5,4 @@ export * from './carousel';
 export * from './link-button';
 export * from './modal';
 export * from './separator';
+export * from './skeleton';

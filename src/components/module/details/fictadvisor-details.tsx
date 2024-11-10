@@ -3,6 +3,10 @@ import { SECTIONS } from '@/const';
 
 import { SectionDetails } from '../section-details';
 
+import mainImage from '/public/fictadvisor/main.webp';
+import scheduleImage from '/public/fictadvisor/schedule.webp';
+import searchImage from '/public/fictadvisor/search.webp';
+
 const FictAdvisorDetails = () => {
   return (
     <SectionDetails>
@@ -27,10 +31,9 @@ const FictAdvisorDetails = () => {
       <SectionDetails.Wrapper>
         <SectionDetails.Carousel
           images={[
-            { image: '/fictadvisor/main.png' },
-            { image: '/fictadvisor/schedule.png' },
-            { image: '/fictadvisor/search.png' },
-            { image: '/fictadvisor/register.png' },
+            { image: mainImage, alt: 'Main Page' },
+            { image: scheduleImage, alt: 'Schedule Page' },
+            { image: searchImage, alt: 'Search Page' },
           ]}
           caption="Main Page"
         />
@@ -49,7 +52,7 @@ const FictAdvisorDetails = () => {
 
       <SectionDetails.Wrapper>
         <SectionDetails.Video
-          video="/fictadvisor/teacher.mp4"
+          video="fictadvisor/teacher.webm"
           caption="Teacher Profile Page Overview"
         />
       </SectionDetails.Wrapper>

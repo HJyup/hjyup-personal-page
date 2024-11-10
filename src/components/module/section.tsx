@@ -60,7 +60,7 @@ const SectionItemContent = ({
   sectionItem: SectionItemType;
 }) => (
   <>
-    <Avatar className="h-10 w-10 md:h-12 md:w-12">
+    <Avatar className="h-10 w-10 md:h-11 md:w-11">
       {sectionItem.logo && <AvatarImage src={sectionItem.logo} />}
       <AvatarFallback>{sectionItem.title.slice(0, 2)}</AvatarFallback>
     </Avatar>

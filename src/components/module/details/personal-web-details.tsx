@@ -39,7 +39,7 @@ const PersonalWebDetails = () => {
 
       <SectionDetails.Wrapper>
         <SectionDetails.Video
-          video="/personal-page/old_web.mp4"
+          video="personal-page/old_web.webm"
           caption="First Iteration of the Website"
         />
       </SectionDetails.Wrapper>

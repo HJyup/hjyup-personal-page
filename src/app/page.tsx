@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 
 import {
   Contact,
@@ -17,27 +17,35 @@ const RenderMainLayout = ({
   handleOpenModal,
 }: {
   handleOpenModal: (sectionItem: SectionItemType) => void;
-}) => (
-  <MainLayout>
-    <MainHeader />
+}) => {
+  const memoizedSections = useMemo(
+    () =>
+      SECTIONS.map(section => (
+        <Section key={section.header} header={section.header}>
+          {section.items.map((item, index) => (
+            <Fragment key={item.title}>
+              <Section.Item
+                sectionItem={item}
+                onClick={() => handleOpenModal(item)}
+              />
+              {index < section.items.length - 1 && <Section.Separator />}
+            </Fragment>
+          ))}
+        </Section>
+      )),
+    [handleOpenModal],
+  );
 
-    <Contact />
+  return (
+    <MainLayout>
+      <MainHeader />
 
-    {SECTIONS.map(section => (
-      <Section key={section.header} header={section.header}>
-        {section.items.map((item, index) => (
-          <React.Fragment key={item.title}>
-            <Section.Item
-              sectionItem={item}
-              onClick={() => handleOpenModal(item)}
-            />
-            {index < section.items.length - 1 && <Section.Separator />}
-          </React.Fragment>
-        ))}
-      </Section>
-    ))}
-  </MainLayout>
-);
+      <Contact />
+
+      {memoizedSections}
+    </MainLayout>
+  );
+};
 
 export default function Page() {
   const [selectedSectionItem, setSelectedSectionItem] =
@@ -48,22 +56,24 @@ export default function Page() {
     setSelectedSectionItem(sectionItem);
   };
 
-  const isMainLayoutVisible = selectedSectionItem === null;
+  const closeModal = () => setSelectedSectionItem(null);
 
   return (
     <>
-      {isMobile ? (
-        isMainLayoutVisible && (
-          <RenderMainLayout handleOpenModal={handleOpenModal} />
-        )
-      ) : (
+      {(isMobile && !selectedSectionItem) || !isMobile ? (
         <RenderMainLayout handleOpenModal={handleOpenModal} />
-      )}
+      ) : null}
 
       <Modal.Wrapper isOpen={!!selectedSectionItem}>
-        <Modal onClose={() => setSelectedSectionItem(null)} isMobile={isMobile}>
-          <SectionModalDetails sectionItem={selectedSectionItem} />
-        </Modal>
+        {isMobile ? (
+          <Modal.Mobile onClose={closeModal}>
+            <SectionModalDetails sectionItem={selectedSectionItem} />
+          </Modal.Mobile>
+        ) : (
+          <Modal onClose={closeModal}>
+            <SectionModalDetails sectionItem={selectedSectionItem} />
+          </Modal>
+        )}
       </Modal.Wrapper>
     </>
   );
