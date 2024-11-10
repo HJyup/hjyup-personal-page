@@ -84,7 +84,7 @@ const ModalMobile = ({
   return (
     <ModalBase onClose={onClose} isMobile={true}>
       <SectionDetails.Wrapper>
-        <Button variant="ghost" size="sm" onClick={onClose} className="p-1">
+        <Button variant="ghost" size="sm" onClick={onClose} className="mb-2">
           <ArrowLeft className="w-4 h-4" /> Back
         </Button>
       </SectionDetails.Wrapper>
