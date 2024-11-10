@@ -4,7 +4,7 @@ export type SectionType = {
 };
 
 export type SectionItemType = {
-  logo: string;
+  logo?: string;
   title: string;
   subtitle: string;
   date?: string;
@@ -41,7 +41,6 @@ export const SECTIONS: SectionType[] = [
     header: 'Projects',
     items: [
       {
-        logo: '/search-engine.jpg',
         title: 'Search Engine',
         subtitle:
           'A search engine that allows users to search for information across the web using AI',

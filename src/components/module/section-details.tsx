@@ -24,7 +24,7 @@ const SectionDetailsHeader = ({
 }) => (
   <div
     key={sectionItem?.title}
-    className="flex gap-5 items-center py-0 px-0 md:py-1 md:px-2 justify-start"
+    className="flex gap-5 items-center py-0 px-2 md:py-1 justify-start"
   >
     <Avatar className="w-10 md:h-11 md:w-11 ml-2 md:ml-0">
       <AvatarImage src={sectionItem.logo} />
