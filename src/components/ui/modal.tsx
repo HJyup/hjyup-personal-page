@@ -44,7 +44,7 @@ const ModalBase = ({
       <motion.div
         className={cn(
           'bg-background rounded-none lg:rounded-xl p-5 md:p-10 w-full flex flex-col shadow-lg overflow-y-auto lg:max-w-[50rem] lg:max-h-[60rem]',
-          isMobile && 'min-h-screen',
+          isMobile && 'min-h-dvh',
         )}
         onClick={e => e.stopPropagation()}
         {...modalAnimations(isMobile).content}
