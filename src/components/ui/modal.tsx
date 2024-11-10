@@ -19,7 +19,7 @@ const modalAnimations = (isMobile: boolean) => ({
     initial: { scale: 0.9, opacity: 0 },
     animate: { scale: 1, opacity: 1 },
     exit: isMobile ? {} : { scale: 0.9, opacity: 0 },
-    transition: { type: 'spring', stiffness: 400, damping: 25 },
+    transition: isMobile ? {} : { type: 'spring', stiffness: 400, damping: 25 },
   },
 });
 
