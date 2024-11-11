@@ -14,7 +14,7 @@ import {
 } from '../ui';
 
 const SectionDetails = ({ children }: { children: ReactNode }) => (
-  <div className="flex flex-col gap-3">{children}</div>
+  <div className="flex flex-col gap-3 py-5">{children}</div>
 );
 
 const SectionDetailsHeader = ({
@@ -26,7 +26,7 @@ const SectionDetailsHeader = ({
     key={sectionItem?.title}
     className="flex gap-5 items-center py-0 px-2 md:py-1 justify-start"
   >
-    <Avatar className="w-10 md:h-11 md:w-11 ml-2 md:ml-0">
+    <Avatar className="w-10 md:h-11 md:w-11 ml-2 md:ml-0 flex-shrink-0">
       <AvatarImage src={sectionItem.logo} />
       <AvatarFallback>{sectionItem.title.slice(0, 2)}</AvatarFallback>
     </Avatar>
@@ -42,7 +42,7 @@ const SectionDetailsHeader = ({
 );
 
 const SectionDetailsText = ({ children }: { children: ReactNode }) => (
-  <div className="text-sm text-muted-foreground md:text-md">{children}</div>
+  <div className="text-sm md:text-md font-light leading-6">{children}</div>
 );
 const SectionDetailsImage = ({
   image,

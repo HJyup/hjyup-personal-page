@@ -17,7 +17,7 @@ export const SECTIONS: SectionType[] = [
     items: [
       {
         logo: 'https://logonoid.com/images/university-of-edinburgh-logo.png',
-        title: 'The University of Edinburgh',
+        title: 'University of Edinburgh',
         subtitle: 'Artificial Intelligence & Computer Science',
         date: '2024 - 2028',
         href: 'https://www.ed.ac.uk/',
