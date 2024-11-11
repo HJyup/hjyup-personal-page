@@ -65,13 +65,13 @@ const SectionItemContent = ({
       <AvatarFallback>{sectionItem.title.slice(0, 2)}</AvatarFallback>
     </Avatar>
     <div className="flex-auto">
-      <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between">
+      <div className="flex flex-row items-start md:items-center justify-between gap-3">
         <div className="flex items-center gap-2 text-sm md:text-base">
           {sectionItem.title}{' '}
           {sectionItem.href && <LinkIcon className="w-3 h-3" />}
         </div>
         {sectionItem.date && (
-          <div className="pb-2 md:pb-0 pl-0 md:pl-5 self-start text-xs text-muted-foreground">
+          <div className="pb-2 md:pb-0 pl-0 md:pl-5 self-start text-xs text-muted-foreground whitespace-nowrap">
             {sectionItem.date}
           </div>
         )}
@@ -84,7 +84,7 @@ const SectionItemContent = ({
 );
 
 const SectionHeader = ({ children }: { children: ReactNode }) => (
-  <div className="text-md font-bold mb-2 md:text-lg">{children}</div>
+  <div className="text-md font-bold mb-2 md:text-lg mt-3">{children}</div>
 );
 
 const SectionSeparator = () => <Separator />;

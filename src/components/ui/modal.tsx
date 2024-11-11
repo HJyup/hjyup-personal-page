@@ -9,6 +9,8 @@ import { SectionDetails } from '../module';
 
 import { Button } from './button';
 
+// TODO: Refactor and divide this component into main component and module to not using modules inside the ui package
+
 const modalAnimations = (isMobile: boolean) => ({
   backdrop: {
     initial: { opacity: 0 },
@@ -84,7 +86,7 @@ const ModalMobile = ({
   return (
     <ModalBase onClose={onClose} isMobile={true}>
       <SectionDetails.Wrapper>
-        <Button variant="ghost" size="sm" onClick={onClose} className="mb-2">
+        <Button variant="ghost" size="sm" onClick={onClose} className="text-xs">
           <ArrowLeft className="w-4 h-4" /> Back
         </Button>
       </SectionDetails.Wrapper>
