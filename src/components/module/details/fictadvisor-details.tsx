@@ -35,7 +35,7 @@ const FictAdvisorDetails = () => {
             { image: scheduleImage, alt: 'Schedule Page' },
             { image: searchImage, alt: 'Search Page' },
           ]}
-          caption=""
+          caption="Main pages overview"
         />
       </SectionDetails.Wrapper>
 
