@@ -28,8 +28,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: ReactNode;
+  modal: ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -43,6 +45,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          {modal}
         </ThemeProvider>
       </body>
     </html>
