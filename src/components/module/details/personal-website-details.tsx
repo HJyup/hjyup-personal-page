@@ -3,7 +3,7 @@ import { SECTIONS } from '@/const';
 
 import { SectionDetails } from '../section-details';
 
-const PersonalWebDetails = () => {
+const PersonalWebsiteDetails = () => {
   return (
     <SectionDetails>
       <SectionDetails.Header sectionItem={SECTIONS[2].items[1]} />
@@ -70,4 +70,4 @@ const PersonalWebDetails = () => {
   );
 };
 
-export { PersonalWebDetails };
+export { PersonalWebsiteDetails };

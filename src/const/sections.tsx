@@ -9,6 +9,7 @@ export type SectionItemType = {
   subtitle: string;
   date?: string;
   href?: string;
+  layoutHref?: string;
 };
 
 export const SECTIONS: SectionType[] = [
@@ -45,12 +46,14 @@ export const SECTIONS: SectionType[] = [
         subtitle:
           'A search engine that allows users to search for information across the web using AI',
         date: 'Ongoing',
+        layoutHref: '/post/search-engine',
       },
       {
         logo: 'https://github.com/hjYup.png',
         title: 'Personal Website',
         subtitle: 'Personal website to showcase my projects and skills',
         date: 'Nov 2024',
+        layoutHref: '/post/personal-page',
       },
       {
         logo: 'https://avatars.githubusercontent.com/u/80922066?s=200&v=4',
@@ -58,6 +61,7 @@ export const SECTIONS: SectionType[] = [
         subtitle:
           'Developed a platform for teacher evaluations and interactive timetables across all Universities faculties',
         date: 'Feb 2023 - Apr 2023',
+        layoutHref: '/post/fict-advisor',
       },
     ],
   },

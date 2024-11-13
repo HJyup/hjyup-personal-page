@@ -3,6 +3,7 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { LinkIcon } from 'lucide-react';
+import Link from 'next/link';
 
 import { SectionItemType } from '@/const/sections';
 
@@ -21,13 +22,7 @@ const Section = ({
   </div>
 );
 
-const SectionItem = ({
-  sectionItem,
-  onClick,
-}: {
-  sectionItem: SectionItemType;
-  onClick?: () => void;
-}) => {
+const SectionItem = ({ sectionItem }: { sectionItem: SectionItemType }) => {
   const commonProps = {
     className: 'flex gap-3 items-center py-2 px-2 rounded-lg cursor-pointer',
     whileHover: {
@@ -42,15 +37,15 @@ const SectionItem = ({
     transition: { type: 'spring', stiffness: 150 },
   };
 
-  const Wrapper = sectionItem.href ? motion.a : motion.div;
-  const wrapperProps = sectionItem.href
-    ? { href: sectionItem.href, target: '_blank' }
-    : { onClick };
-
   return (
-    <Wrapper {...commonProps} {...wrapperProps}>
-      <SectionItemContent sectionItem={sectionItem} />
-    </Wrapper>
+    <Link
+      href={`/redirect?url=${sectionItem.layoutHref || sectionItem.href}`}
+      passHref
+    >
+      <motion.div {...commonProps}>
+        <SectionItemContent sectionItem={sectionItem} />
+      </motion.div>
+    </Link>
   );
 };
 
