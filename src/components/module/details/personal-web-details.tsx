@@ -1,12 +1,16 @@
 import { LinkButton } from '@/components/ui';
-import { SECTIONS } from '@/const';
+import { SectionItemType } from '@/const';
 
 import { SectionDetails } from '../section-details';
 
-const PersonalWebDetails = () => {
+const PersonalWebDetails = ({
+  sectionItem,
+}: {
+  sectionItem: SectionItemType;
+}) => {
   return (
     <SectionDetails>
-      <SectionDetails.Header sectionItem={SECTIONS[2].items[1]} />
+      <SectionDetails.Header sectionItem={sectionItem} />
       <SectionDetails.Separator />
       <SectionDetails.TechStack
         techStack={[

@@ -14,9 +14,9 @@ const MainHeader = () => {
         </div>
       </div>
       <div className="text-xs text-muted-foreground mt-2 md:text-sm">
-        AI and CS student at the University of Edinburgh, specializing in
-        frontend development with React.js. Experienced in fintech and
-        educational platforms.
+        Software developer focused on web technologies and distributed systems.
+        Currently pursuing CS & AI at Edinburgh, building scalable applications
+        and exploring new technologies.
       </div>
     </>
   );

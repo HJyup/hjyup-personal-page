@@ -1,5 +1,5 @@
 import { LinkButton } from '@/components/ui';
-import { SECTIONS } from '@/const';
+import { SectionItemType } from '@/const';
 
 import { SectionDetails } from '../section-details';
 
@@ -7,10 +7,14 @@ import mainImage from '/public/fictadvisor/main.webp';
 import scheduleImage from '/public/fictadvisor/schedule.webp';
 import searchImage from '/public/fictadvisor/search.webp';
 
-const FictAdvisorDetails = () => {
+const FictAdvisorDetails = ({
+  sectionItem,
+}: {
+  sectionItem: SectionItemType;
+}) => {
   return (
     <SectionDetails>
-      <SectionDetails.Header sectionItem={SECTIONS[2].items[2]} />
+      <SectionDetails.Header sectionItem={sectionItem} />
 
       <SectionDetails.Separator />
 

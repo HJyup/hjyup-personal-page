@@ -17,7 +17,7 @@ const MainLayout = ({
     <motion.div
       className={cn(
         className,
-        'flex flex-col w-full min-h-dvh px-6 py-10 md:w-2/3 xl:w-1/3 md:px-10 md:py-16',
+        'flex flex-col w-full min-h-dvh px-6 py-10 md:w-2/5 md:px-10 md:py-16',
       )}
       {...motionProps}
     >

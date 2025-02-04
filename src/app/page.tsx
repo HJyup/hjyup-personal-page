@@ -39,10 +39,11 @@ const RenderMainLayout = ({
   return (
     <MainLayout>
       <MainHeader />
-
       <Contact />
-
       {memoizedSections}
+      <div className="text-center text-sm text-muted-foreground mt-10">
+        Thanks for visiting!
+      </div>
     </MainLayout>
   );
 };
@@ -58,12 +59,13 @@ export default function Page() {
 
   const closeModal = () => setSelectedSectionItem(null);
 
+  const shouldShowMainLayout = !selectedSectionItem || !isMobile;
+
   return (
     <>
-      {(isMobile && !selectedSectionItem) || !isMobile ? (
+      {shouldShowMainLayout && (
         <RenderMainLayout handleOpenModal={handleOpenModal} />
-      ) : null}
-
+      )}
       <Modal.Wrapper isOpen={!!selectedSectionItem}>
         {isMobile ? (
           <Modal.Mobile onClose={closeModal}>

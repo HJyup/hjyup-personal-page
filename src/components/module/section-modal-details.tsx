@@ -1,7 +1,7 @@
 import {
   FictAdvisorDetails,
   PersonalWebDetails,
-  SearchEngineDetails,
+  TranslatifyDetails,
 } from '@/components/module/details';
 import { SectionItemType } from '@/const';
 
@@ -14,12 +14,12 @@ const SectionModalDetails = ({ sectionItem }: ModalContentProps) => {
   if (!sectionItem) return null;
 
   switch (sectionItem.title) {
+    case 'Translatify':
+      return <TranslatifyDetails sectionItem={sectionItem} />;
     case 'FictAdvisor':
-      return <FictAdvisorDetails />;
-    case 'Search Engine':
-      return <SearchEngineDetails />;
+      return <FictAdvisorDetails sectionItem={sectionItem} />;
     case 'Personal Website':
-      return <PersonalWebDetails />;
+      return <PersonalWebDetails sectionItem={sectionItem} />;
     default:
       return null;
   }

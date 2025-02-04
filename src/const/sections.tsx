@@ -41,16 +41,36 @@ export const SECTIONS: SectionType[] = [
     header: 'Projects',
     items: [
       {
-        title: 'Search Engine',
+        title: 'Translatify',
         subtitle:
-          'A search engine that allows users to search for information across the web using AI',
+          'Designed and implemented a high-performance real-time chat application with asynchronous translation',
         date: 'Ongoing',
+      },
+      {
+        title: 'Feature Flags',
+        subtitle:
+          'Built a TypeScript feature flag library supporting flag dependencies, real-time updates',
+        date: 'Jan 2025',
+        href: 'https://github.com/HJyup/hjyup-flags',
       },
       {
         logo: 'https://github.com/hjYup.png',
         title: 'Personal Website',
         subtitle: 'Personal website to showcase my projects and skills',
         date: 'Nov 2024',
+      },
+    ],
+  },
+  {
+    header: 'Volunteering',
+    items: [
+      {
+        title: 'HackTheBurgh XI',
+        logo: 'https://2023.hacktheburgh.com/static/logos/htblogo.png',
+        subtitle:
+          'Collaborated with the tech team to develop a hackathon platform',
+        date: 'Dec 2024 - Jan 2025',
+        href: 'https://hacktheburgh.com/',
       },
       {
         logo: 'https://avatars.githubusercontent.com/u/80922066?s=200&v=4',
