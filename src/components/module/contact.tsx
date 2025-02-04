@@ -12,7 +12,9 @@ import { LINKS } from '@/const';
 import { LinkButton } from '../ui';
 
 const ContactLayout = ({ children }: { children: ReactNode }) => (
-  <div className="flex gap-2 mt-5 justify-start">{children}</div>
+  <div className="flex gap-2 mt-5 justify-center md:justify-start">
+    {children}
+  </div>
 );
 
 const Contact = () => {
