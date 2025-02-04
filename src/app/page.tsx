@@ -51,7 +51,7 @@ export default function Page() {
         </Section>
 
         <div className="text-center text-xs text-muted-foreground mt-10">
-          Built with ❤️ by Danyil Butov
+          Built with ❤️ by me.
         </div>
       </MainLayout>
     </>
