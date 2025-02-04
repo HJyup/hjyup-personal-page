@@ -66,13 +66,10 @@ const ProjectItem = ({ item }: { item: ProjectSection }) => {
     >
       <div className="flex flex-col gap-2 bg-muted/50 p-3 rounded-lg w-full hover:bg-muted/70 transition-colors">
         <div className="flex items-center justify-between">
-          <div className="text-sm flex items-center gap-2">
+          <div className="text-sm md:text-base flex items-center gap-2">
             {item.title}
             {item.href && <LinkIcon className="w-3 h-3" />}
           </div>
-          {item.date && (
-            <div className="text-xs text-muted-foreground">{item.date}</div>
-          )}
         </div>
         <div className="text-xs text-muted-foreground">{item.subtitle}</div>
       </div>

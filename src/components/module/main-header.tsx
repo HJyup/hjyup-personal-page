@@ -2,8 +2,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui';
 
 const MainHeader = () => {
   return (
-    <div className="flex flex-col items-center md:items-start gap-4 pl-2">
-      <div className="flex items-center gap-4 pl-2">
+    <div className="flex flex-col items-center md:items-start gap-4 md:pl-2">
+      <div className="flex items-center gap-4 md:pl-2">
         <Avatar className="h-10 w-10 md:h-11 md:w-11">
           <AvatarImage src="https://github.com/hjYup.png" />
           <AvatarFallback>DB</AvatarFallback>
