@@ -14,10 +14,10 @@ const NavigationBar = () => {
 
   return (
     <nav className="flex justify-between items-center fixed top-0 w-full px-6 py-2 bg-background/80 backdrop-blur-md border-white/10 z-10">
-      <div className="text-sm font-bold">
+      <div className="text-xs md:text-sm font-bold">
         danyilbutov<span className="text-muted-foreground">.com</span>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-1 md:gap-2">
         {linkButtons.map(({ href, Icon }, index) => (
           <LinkButton key={index} size="icon" href={href} variant="ghost">
             <Icon className="dark:text-muted-foreground" size={16} />

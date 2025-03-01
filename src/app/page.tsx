@@ -67,7 +67,7 @@ export default function Page() {
             <ScrollDown />
           </div>
 
-          <div className="flex w-full items-center justify-center my-10 p-4">
+          <div className="flex w-full items-center justify-center my-10 p-1 md:p-4">
             <MainContent>
               <Card.Wrapper id="education">
                 <Card.Title
