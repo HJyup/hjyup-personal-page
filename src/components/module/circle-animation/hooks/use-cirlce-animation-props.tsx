@@ -1,6 +1,10 @@
 import { useMemo } from 'react';
 
+import { calculateFloatX, calculateFloatY } from '@/lib/utils';
+
 import { Config, Particle } from '../types/types';
+
+const DRAG_CONSTRAINT_RADIUS = 30;
 
 const useParticleGenerator = (config: Config) => {
   return useMemo(() => {
@@ -8,25 +12,24 @@ const useParticleGenerator = (config: Config) => {
 
     return Array.from({ length: numberOfParticles }, (_, i) => {
       const angle = (i / numberOfParticles) * Math.PI * 2;
-      const x = Math.cos(angle) * radius;
-      const y = Math.sin(angle) * radius;
+      const finalX = Math.cos(angle) * radius;
+      const finalY = Math.sin(angle) * radius;
 
       const randomOffsetMagnitude = Math.random() * 400 + 200;
       const randomAngle = Math.random() * Math.PI * 2;
-      const randomX = Math.cos(randomAngle) * randomOffsetMagnitude;
-      const randomY = Math.sin(randomAngle) * randomOffsetMagnitude;
-
-      const sizeVariation = 0.8 + Math.random() * 0.4;
+      const initialX = Math.cos(randomAngle) * randomOffsetMagnitude;
+      const initialY = Math.sin(randomAngle) * randomOffsetMagnitude;
 
       return {
         id: i,
         angle,
-        finalX: x,
-        finalY: y,
-        initialX: randomX,
-        initialY: randomY,
-        size: dotSize * sizeVariation,
+        finalX,
+        finalY,
+        initialX,
+        initialY,
+        size: dotSize,
         delay: i * 0.01,
+        isDragging: false,
       };
     });
   }, [config]);
@@ -37,56 +40,62 @@ const useAnimationVariants = (particles: Particle[]) => {
     return {
       animation: (i: number) => {
         const particle = particles[i];
-        const angle = particle.angle;
-        const delay = particle.delay * 4;
+        const { angle, initialX, initialY, finalX, finalY, delay } = particle;
 
         const baseFloatRadius = 5 + Math.sin(angle * 3) * 4;
         const phaseShift = i * 0.12;
         const secondaryPhaseShift = i * 0.05 + Math.PI / 3;
-
-        const floatX = (phase: number) =>
-          Math.cos(phase) * baseFloatRadius +
-          Math.sin(phase * 2.3) * (baseFloatRadius * 0.4);
-
-        const floatY = (phase: number) =>
-          Math.sin(phase) * baseFloatRadius +
-          Math.cos(phase * 2.7) * (baseFloatRadius * 0.5);
+        const exitY = initialY + 300 + Math.random() * 200;
 
         return {
           x: [
-            particle.initialX,
-            particle.initialX * 0.6 + particle.finalX * 0.4,
-            particle.finalX,
-            particle.finalX + floatX(phaseShift),
-            particle.finalX + floatX(phaseShift + 1.2),
-            particle.finalX + floatX(phaseShift + 2.4),
-            particle.finalX + floatX(phaseShift + 3.6),
-            particle.finalX + floatX(secondaryPhaseShift),
-            particle.finalX * 0.8 + particle.initialX * 0.2,
-            particle.initialX,
+            initialX,
+            initialX * 0.6 + finalX * 0.4,
+            finalX,
+            finalX + calculateFloatX(baseFloatRadius, phaseShift),
+            finalX + calculateFloatX(baseFloatRadius, phaseShift + 1.2),
+            finalX + calculateFloatX(baseFloatRadius, phaseShift + 2.4),
+            finalX + calculateFloatX(baseFloatRadius, phaseShift + 3.6),
+            finalX + calculateFloatX(baseFloatRadius, secondaryPhaseShift),
+            finalX * 0.7 + initialX * 0.3 + Math.random() * 20 - 10,
+            initialX,
           ],
           y: [
-            particle.initialY,
-            particle.initialY * 0.6 + particle.finalY * 0.4,
-            particle.finalY,
-            particle.finalY + floatY(phaseShift),
-            particle.finalY + floatY(phaseShift + 1.5),
-            particle.finalY + floatY(phaseShift + 3),
-            particle.finalY + floatY(phaseShift + 4.5),
-            particle.finalY + floatY(secondaryPhaseShift),
-            particle.finalY * 0.8 + particle.initialY * 0.2,
-            particle.initialY,
+            initialY,
+            initialY * 0.6 + finalY * 0.4,
+            finalY,
+            finalY + calculateFloatY(baseFloatRadius, phaseShift),
+            finalY + calculateFloatY(baseFloatRadius, phaseShift + 1.5),
+            finalY + calculateFloatY(baseFloatRadius, phaseShift + 3),
+            finalY + calculateFloatY(baseFloatRadius, phaseShift + 4.5),
+            finalY + calculateFloatY(baseFloatRadius, secondaryPhaseShift),
+            finalY + 100 + Math.random() * 50,
+            exitY,
           ],
           opacity: [0, 0.4, 0.9, 1, 0.95, 1, 0.9, 0.8, 0.5, 0],
           scale: [0, 1.2, 1, 1.05, 0.97, 1.03, 0.98, 0.9, 0.7, 0],
           transition: {
             duration: 12,
             ease: 'easeInOut',
-            delay,
+            delay: delay * 4,
             repeat: Infinity,
             repeatType: 'loop' as const,
             repeatDelay: 0.3,
           },
+        };
+      },
+      drag: {
+        scale: 1.2,
+        zIndex: 10,
+      },
+      dragConstraints: (i: number) => {
+        const { finalX, finalY } = particles[i];
+
+        return {
+          top: finalY - DRAG_CONSTRAINT_RADIUS,
+          left: finalX - DRAG_CONSTRAINT_RADIUS,
+          right: finalX + DRAG_CONSTRAINT_RADIUS,
+          bottom: finalY + DRAG_CONSTRAINT_RADIUS,
         };
       },
     };
@@ -97,7 +106,20 @@ const useCircleAnimation = (config: Config) => {
   const particles = useParticleGenerator(config);
   const variants = useAnimationVariants(particles);
 
-  return { particles, variants };
+  const handleDragStart = (id: number) => {
+    particles[id].isDragging = true;
+  };
+
+  const handleDragEnd = (id: number) => {
+    particles[id].isDragging = false;
+  };
+
+  return {
+    particles,
+    variants,
+    handleDragStart,
+    handleDragEnd,
+  };
 };
 
 export { useCircleAnimation };

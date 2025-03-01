@@ -9,10 +9,14 @@ const Particle = memo(
     particle,
     variants,
     index,
+    onDragStart,
+    onDragEnd,
   }: {
     particle: ReturnType<typeof useCircleAnimation>['particles'][0];
     variants: ReturnType<typeof useCircleAnimation>['variants'];
     index: number;
+    onDragStart: () => void;
+    onDragEnd: () => void;
   }) => (
     <motion.div
       className="absolute rounded-full dark:bg-white bg-black"
@@ -25,6 +29,11 @@ const Particle = memo(
         marginTop: `-${particle.size / 2}px`,
       }}
       animate={variants.animation(index)}
+      drag={true}
+      dragConstraints={variants.dragConstraints(index)}
+      whileDrag="drag"
+      onDragStart={onDragStart}
+      onDragEnd={onDragEnd}
       custom={index}
     />
   ),
@@ -37,7 +46,8 @@ interface CircleAnimationProps {
 }
 
 const CircleAnimation = ({ config }: CircleAnimationProps) => {
-  const { particles, variants } = useCircleAnimation(config);
+  const { particles, variants, handleDragStart, handleDragEnd } =
+    useCircleAnimation(config);
 
   return (
     <div className="relative w-full h-full flex items-center justify-center">
@@ -54,6 +64,8 @@ const CircleAnimation = ({ config }: CircleAnimationProps) => {
             particle={particle}
             variants={variants}
             index={i}
+            onDragStart={() => handleDragStart(particle.id)}
+            onDragEnd={() => handleDragEnd(particle.id)}
           />
         ))}
       </div>

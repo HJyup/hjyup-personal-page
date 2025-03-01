@@ -58,7 +58,7 @@ export default function Page() {
           scrollToSection={scrollToSection}
         />
 
-        <div>
+        <div className="w-full">
           <div
             className="h-screen relative overflow-hidden w-full mx-auto flex justify-center items-center"
             id="start"
@@ -125,6 +125,9 @@ export default function Page() {
             </MainContent>
           </div>
         </div>
+      </div>
+      <div className="text-center text-sm text-muted-foreground my-10">
+        Thx. More to come!
       </div>
     </>
   );

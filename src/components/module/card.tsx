@@ -25,7 +25,7 @@ const Wrapper = ({
   children: React.ReactNode;
   id: string;
 }) => (
-  <div id={id} className="my-12 md:mb-16 lg:mb-24 px-2 md:px-0">
+  <div id={id} className="my-16 md:mb-20 lg:mb-24 px-2 md:px-0">
     {children}
   </div>
 );
@@ -49,7 +49,7 @@ const Card = ({
 }) => (
   <motion.div
     className={cn(
-      'flex flex-col gap-3 md:gap-4 bg-neutral-50 dark:bg-neutral-950 rounded-lg p-4 md:p-6 shadow-sm mb-6 md:mb-8',
+      'flex flex-col gap-3 md:gap-4 bg-neutral-50 dark:bg-neutral-950 rounded-lg p-4 md:p-6 shadow-sm mb-10 md:mb-12',
       link && !disabled ? 'cursor-pointer' : '',
       disabled ? 'opacity-60 cursor-not-allowed' : '',
       className,
