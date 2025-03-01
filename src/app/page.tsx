@@ -111,8 +111,7 @@ export default function Page() {
                 <Card.Card
                   title="file-sync-tool (FST)"
                   subtitle="Creator & Lead Developer"
-                  date="Nov 2024 - Present"
-                  disabled
+                  date="Ongoing"
                   description="Developed an efficient file synchronization utility that uses commit-based differential algorithms."
                 />
                 <Card.Card

@@ -37,7 +37,7 @@ const Card = ({
   link,
   description,
   className,
-  disabled = false,
+  onTap,
 }: {
   title: string;
   subtitle: string;
@@ -45,20 +45,34 @@ const Card = ({
   link?: string;
   description: string;
   className?: string;
-  disabled?: boolean;
+  onTap?: () => void;
 }) => (
   <motion.div
     className={cn(
       'flex flex-col gap-3 md:gap-4 bg-neutral-50 dark:bg-neutral-950 rounded-lg p-4 md:p-6 shadow-sm mb-10 md:mb-12',
-      link && !disabled ? 'cursor-pointer' : '',
-      disabled ? 'opacity-60 cursor-not-allowed' : '',
+      (link || onTap) &&
+        'cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-900',
       className,
     )}
-    whileHover={{ scale: disabled ? 1 : 1.02, transition: { duration: 0.3 } }}
-    whileTap={{ scale: disabled ? 1 : 0.98 }}
-    onClick={() =>
-      link && !disabled && window.open(link, '_blank', 'noopener,noreferrer')
-    }
+    whileHover={{
+      scale: link || onTap ? 1.02 : 1,
+      transition: { duration: 0.3, ease: 'easeOut' },
+    }}
+    whileTap={{
+      scale: link || onTap ? 0.98 : 1,
+      transition: { duration: 0.1 },
+    }}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    onClick={() => {
+      if (link) {
+        window.open(link, '_blank', 'noopener,noreferrer');
+      }
+      if (onTap) {
+        onTap();
+      }
+    }}
   >
     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-1 md:gap-0">
       <div className="flex flex-col">
@@ -66,7 +80,7 @@ const Card = ({
           <h2 className="text-base md:text-lg lg:text-xl font-medium text-primary mr-2 line-clamp-1">
             {title}
           </h2>
-          {link && !disabled && (
+          {link && (
             <a
               href={link}
               target="_blank"
