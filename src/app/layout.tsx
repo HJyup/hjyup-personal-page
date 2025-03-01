@@ -1,13 +1,14 @@
 import { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Fauna_One } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
 
-const inter = Inter({
+const faunaOne = Fauna_One({
   subsets: ['latin'],
+  weight: ['400'],
   display: 'swap',
 });
 
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} flex flex-col items-center bg-background lg:justify-center`}
+        className={`${faunaOne.className} flex flex-col items-center bg-background lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"
