@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link as LucideLink } from 'lucide-react';
+import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 
@@ -28,6 +29,60 @@ const Wrapper = ({
   <div id={id} className="my-16 md:mb-20 lg:mb-24 px-2 md:px-0">
     {children}
   </div>
+);
+
+const ImageCard = ({
+  image,
+  title,
+  description,
+  link,
+  disabled,
+  id,
+}: {
+  image: string;
+  title: string;
+  description: string;
+  link?: string;
+  disabled?: boolean;
+  id: number;
+}) => (
+  <motion.div
+    key={id}
+    className={`flex flex-col gap-3 sm:w-[375px] w-[290px] flex-shrink-0 rounded-lg ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
+  >
+    <Image
+      src={image}
+      className="rounded-lg sm:h-[375px] sm:w-[375px] h-[290px] w-[290px]"
+      alt={title}
+      width={250}
+      height={250}
+    />
+    <div>
+      <div className="flex items-center">
+        <h3 className="text-sm sm:text-lg font-bold mr-2 hover:text-primary transition-colors duration-200">
+          {title}
+          {link && !disabled && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${title} website`}
+              className="inline-flex pl-2 shrink-0 hover:scale-110 transition-transform duration-200"
+              onClick={e => e.stopPropagation()}
+            >
+              <LucideLink className="text-blue-400" size={12} />
+            </a>
+          )}
+        </h3>
+      </div>
+      <p className="text-xs sm:text-sm text-muted-foreground my-2">
+        {description}
+      </p>
+      {disabled && (
+        <p className="text-xs text-muted-foreground/50 italic">Coming soon</p>
+      )}
+    </div>
+  </motion.div>
 );
 
 const Card = ({
@@ -113,6 +168,7 @@ const Section = {
   Title,
   Wrapper,
   Card,
+  ImageCard,
 };
 
 export default Section;

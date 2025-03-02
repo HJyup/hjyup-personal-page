@@ -11,9 +11,10 @@ import {
 import {
   EducationSection,
   ExperienceSection,
+  PostsSection,
   ProjectSection,
 } from '@/components/module/sections';
-import { SECTIONS } from '@/const/sections';
+import { SECTIONS } from '@/const/navigation';
 
 const MainContent = ({ children }: { children: React.ReactNode }) => (
   <div className="w-full md:w-2/3 mx-auto md:p-6 p-2 md:m-6 m-2">
@@ -73,6 +74,8 @@ export default function Page() {
 
           <div className="flex w-full items-center justify-center my-10 p-1 md:p-4">
             <MainContent>
+              <PostsSection />
+
               <EducationSection />
 
               <ExperienceSection />
