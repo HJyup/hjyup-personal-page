@@ -6,20 +6,19 @@ Welcome to my personal page! Here, you'll find a collection of my achievements a
 
 
 ## Tools
-Next.js, Typescript, Framer-motion, Three.js, Tailwind
+Next.js, Typescript, Framer-motion, Three.js (previous versions), Tailwind
 
 
 ## Features
 
 - Light/dark mode
 - Detailed overview about experiences
-- Post feature and linking post to specific section (in development)
+- Post feature and linking post to specific section
 
 
-## Screenshot
+## Screenshots
 
-<img width="1800" alt="Screenshot 2024-11-11 at 14 10 03" src="https://github.com/user-attachments/assets/cacbe36b-6202-4f4d-b6a5-cdb22aa7b236">
-
+<img width="1494" alt="Screenshot 2025-03-02 at 18 15 20" src="https://github.com/user-attachments/assets/721890fd-c96a-4667-9bef-e3b68c420884" />
 
 
 ## Run Locally
