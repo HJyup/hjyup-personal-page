@@ -11,7 +11,7 @@ import {
 } from '@/components/module/sections';
 import { SECTIONS } from '@/const/navigation';
 
-export const MainContent = ({ children }: { children: React.ReactNode }) => (
+const MainContent = ({ children }: { children: React.ReactNode }) => (
   <div className="w-full md:w-2/3 mx-auto md:p-6 p-2 md:m-6 m-2">
     {children}
   </div>
