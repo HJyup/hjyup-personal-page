@@ -58,7 +58,7 @@ export default function Page() {
 
       <div className="w-full">
         <div
-          className="h-screen relative overflow-hidden w-full mx-auto flex justify-center items-center"
+          className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden"
           id="start"
         >
           <MainAnimation />
