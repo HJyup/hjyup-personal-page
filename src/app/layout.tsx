@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
 import { Fauna_One } from 'next/font/google';
 
@@ -51,6 +52,7 @@ export default function RootLayout({
 
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
