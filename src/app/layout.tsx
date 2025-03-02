@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Fauna_One } from 'next/font/google';
 
+import { NavigationBar } from '@/components/module';
+import Footer from '@/components/module/footer';
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
@@ -43,7 +45,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <NavigationBar />
+
           {children}
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

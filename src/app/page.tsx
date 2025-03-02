@@ -2,12 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import {
-  MainAnimation,
-  NavigationBar,
-  ScrollDown,
-  Sidebar,
-} from '@/components/module';
+import { MainAnimation, ScrollDown, Sidebar } from '@/components/module';
 import {
   EducationSection,
   ExperienceSection,
@@ -16,7 +11,7 @@ import {
 } from '@/components/module/sections';
 import { SECTIONS } from '@/const/navigation';
 
-const MainContent = ({ children }: { children: React.ReactNode }) => (
+export const MainContent = ({ children }: { children: React.ReactNode }) => (
   <div className="w-full md:w-2/3 mx-auto md:p-6 p-2 md:m-6 m-2">
     {children}
   </div>
@@ -54,40 +49,34 @@ export default function Page() {
   }, [activeSection]);
 
   return (
-    <>
-      <NavigationBar />
-      <div className="flex w-full">
-        <Sidebar
-          sections={SECTIONS}
-          activeSection={activeSection}
-          scrollToSection={scrollToSection}
-        />
+    <div className="flex w-full">
+      <Sidebar
+        sections={SECTIONS}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+      />
 
-        <div className="w-full">
-          <div
-            className="h-screen relative overflow-hidden w-full mx-auto flex justify-center items-center"
-            id="start"
-          >
-            <MainAnimation />
-            <ScrollDown />
-          </div>
+      <div className="w-full">
+        <div
+          className="h-screen relative overflow-hidden w-full mx-auto flex justify-center items-center"
+          id="start"
+        >
+          <MainAnimation />
+          <ScrollDown />
+        </div>
 
-          <div className="flex w-full items-center justify-center my-10 p-1 md:p-4">
-            <MainContent>
-              <PostsSection />
+        <div className="flex w-full items-center justify-center my-10 p-1 md:p-4">
+          <MainContent>
+            <PostsSection />
 
-              <EducationSection />
+            <EducationSection />
 
-              <ExperienceSection />
+            <ExperienceSection />
 
-              <ProjectSection />
-            </MainContent>
-          </div>
+            <ProjectSection />
+          </MainContent>
         </div>
       </div>
-      <div className="text-center text-sm text-muted-foreground my-10">
-        Thx. More to come!
-      </div>
-    </>
+    </div>
   );
 }

@@ -19,7 +19,7 @@ const PostsSection = () => {
       />
 
       <Carousel>
-        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselPrevious className="hidden lg:flex" variant="ghost" />
         <CarouselContent>
           {POSTS.map(post => (
             <CarouselItem key={post.id} className="lg:basis-6/12 basis-12/12">
@@ -34,7 +34,7 @@ const PostsSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselNext className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" variant="ghost" />
       </Carousel>
     </Card.Wrapper>
   );

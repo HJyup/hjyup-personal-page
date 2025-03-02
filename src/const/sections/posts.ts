@@ -11,28 +11,28 @@ export const POSTS: Post[] = [
   {
     id: 1,
     image: '/posts/post1.png',
-    title: 'Professional Software Engineering Portfolio',
-    disabled: true,
-    link: '...',
+    title: 'Me as a Software Engineer',
+    disabled: false,
+    link: '/posts/intro',
     description:
-      'Comprehensive analysis of technical expertise and professional development in software engineering.',
+      'A showcase of my skills and experiences in software engineering.',
   },
   {
     id: 2,
     image: '/posts/post2.png',
-    title: 'Optimizing Conversational Outcome Prediction',
+    title: 'Conversations with Monte Carlo Tree Search',
     disabled: true,
     link: '...',
     description:
-      'Advanced implementation of Monte Carlo Tree Search algorithms for strategic dialogue optimization.',
+      'Exploring how Monte Carlo Tree Search algorithms can predict conversation outcomes.',
   },
   {
     id: 3,
     image: '/posts/post3.png',
-    title: 'Efficient Context Caching for AI Applications',
+    title: 'Context Caching Techniques for AI Systems',
     disabled: true,
     link: '...',
     description:
-      'Innovative context caching methodologies enhancing performance in AI-powered code review systems.',
+      'Context caching techniques that enhance performance in AI-driven applications, illustrated through a code review tool.',
   },
 ];
