@@ -58,7 +58,7 @@ export default function Page() {
 
       <div className="w-full">
         <div
-          className="relative flex h-[60dvh] md:h-[68dvh] w-full items-center justify-center overflow-hidden"
+          className="relative flex h-[60dvh] md:h-[68dvh] w-full items-center justify-center overflow-hidden pt-10"
           id="start"
         >
           <MainAnimation />
