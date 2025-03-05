@@ -25,11 +25,16 @@ const Title = ({
 const Wrapper = ({
   children,
   id,
+  className,
 }: {
   children: React.ReactNode;
   id: string;
+  className?: string;
 }) => (
-  <div id={id} className="my-16 md:mb-20 lg:mb-24 px-2 md:px-0">
+  <div
+    id={id}
+    className={cn('my-10 md:mb-12 lg:mb-16 px-2 md:px-0', className)}
+  >
     {children}
   </div>
 );
@@ -54,11 +59,11 @@ const ImageCard = ({
   return (
     <motion.div
       key={id}
-      className={`flex flex-col gap-3 sm:w-[375px] w-[290px] flex-shrink-0 rounded-lg ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
+      className={`flex flex-col gap-3 sm:w-[350px] w-[275px] flex-shrink-0 rounded-lg ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
     >
       <Image
         src={image}
-        className="rounded-lg sm:h-[375px] sm:w-[375px] h-[290px] w-[290px]"
+        className="rounded-lg sm:h-[350px] sm:w-[350px] h-[275px] w-[275px]"
         alt={title}
         width={250}
         height={250}
@@ -118,10 +123,6 @@ const Card = ({
           'cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-900',
         className,
       )}
-      whileHover={{
-        scale: link || onTap ? 1.02 : 1,
-        transition: { duration: 0.3, ease: 'easeOut' },
-      }}
       whileTap={{
         scale: link || onTap ? 0.98 : 1,
         transition: { duration: 0.1 },

@@ -83,11 +83,12 @@ const Page = () => {
         </Post.TextBlock>
 
         <Post.TextBlock>
-          My current focus is on becoming a language-agnostic engineer capable
-          of architecting and implementing solutions across different technology
-          stacks. While I maintain expertise in specific technologies, I believe
-          the true value lies in understanding fundamental principles and
-          patterns that transcend specific tools or frameworks.
+          I'm currently focusing on becoming a language-agnostic engineer
+          capable of architecting and implementing solutions across different
+          technology stacks. While I maintain expertise in specific
+          technologies, I believe the true value lies in understanding
+          fundamental principles and patterns that transcend specific tools or
+          frameworks.
         </Post.TextBlock>
       </Post.ContentBlock>
 

@@ -1,10 +1,8 @@
 interface Particle {
   id: number;
   angle: number;
-  finalX: number;
-  finalY: number;
-  initialX: number;
-  initialY: number;
+  x: number;
+  y: number;
   size: number;
   delay: number;
 }
@@ -23,8 +21,8 @@ interface Config {
 
 const DEFAULT_CONFIG: Config = {
   numberOfParticles: 20,
-  radius: 120,
-  dotSize: 15,
+  radius: 100,
+  dotSize: 13,
 };
 
 export type { AnimationConfig, Config, Particle };

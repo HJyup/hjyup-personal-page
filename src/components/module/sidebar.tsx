@@ -11,7 +11,7 @@ const Sidebar = ({
   activeSection: string;
   scrollToSection: (sectionId: string) => void;
 }) => (
-  <div className="w-fit sticky top-0 h-screen px-6 items-center md:flex hidden">
+  <div className="w-fit sticky top-0 h-screen px-6 items-center xl:flex hidden">
     <nav className="flex flex-col space-y-2 relative">
       {sections.map(
         section =>

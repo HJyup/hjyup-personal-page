@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { MainAnimation, ScrollDown, Sidebar } from '@/components/module';
+import { MainAnimation, Sidebar } from '@/components/module';
 import {
   EducationSection,
   ExperienceSection,
@@ -12,7 +12,7 @@ import {
 import { SECTIONS } from '@/const/navigation';
 
 const MainContent = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-full md:w-2/3 mx-auto md:p-6 p-2 md:m-6 m-2">
+  <div className="w-full md:p-6 p-2 md:m-6 m-2 flex flex-col lg:grid md:grid-cols-5">
     {children}
   </div>
 );
@@ -58,22 +58,29 @@ export default function Page() {
 
       <div className="w-full">
         <div
-          className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden"
+          className="relative flex h-[60dvh] md:h-[68dvh] w-full items-center justify-center overflow-hidden"
           id="start"
         >
           <MainAnimation />
-          <ScrollDown />
         </div>
 
-        <div className="flex w-full items-center justify-center my-10 p-1 md:p-4">
+        <div className="flex items-center justify-center my-10 p-1 md:p-4">
           <MainContent>
-            <PostsSection />
+            <div className="w-full md:col-start-2 md:col-span-5">
+              <PostsSection />
+            </div>
 
-            <EducationSection />
+            <div className="w-full md:col-start-2 md:col-span-3">
+              <EducationSection />
+            </div>
 
-            <ExperienceSection />
+            <div className="w-full md:col-start-2 md:col-span-3">
+              <ExperienceSection />
+            </div>
 
-            <ProjectSection />
+            <div className="w-full md:col-start-2 md:col-span-3">
+              <ProjectSection />
+            </div>
           </MainContent>
         </div>
       </div>
