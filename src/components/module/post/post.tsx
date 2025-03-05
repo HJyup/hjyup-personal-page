@@ -1,5 +1,12 @@
 import { LucideLink } from 'lucide-react';
+import { Roboto } from 'next/font/google';
 import Image from 'next/image';
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+});
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -76,7 +83,7 @@ const TitleLinks = ({
 
 const ContentBlock = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 my-10 sm:my-16">
+    <div className="flex flex-col justify-center items-center gap-8 md:gap-10 my-12 sm:my-16">
       {children}
     </div>
   );
@@ -101,7 +108,7 @@ const ContentTitle = ({
 
 const TextBlock = ({ children }: { children: React.ReactNode }) => {
   return (
-    <p className="text-sm md:text-md leading-7 md:leading-8">{children}</p>
+    <p className={`${roboto.className} text-base/8 opacity-75`}>{children}</p>
   );
 };
 
@@ -132,14 +139,6 @@ const ImageBlock = ({
   );
 };
 
-const TextSecondary = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <span className="text-sm md:text-md leading-7 md:leading-8 text-muted-foreground">
-      {children}
-    </span>
-  );
-};
-
 const TextLink = ({
   children,
   href,
@@ -150,7 +149,7 @@ const TextLink = ({
   return (
     <a
       href={href}
-      className="bg-muted/75 px-2 rounded-md inline-flex gap-1 items-center my-1 hover:bg-muted-foreground/10 transition-colors duration-200"
+      className={`${roboto.className} bg-muted/75 px-2 rounded-md inline-flex gap-1 items-center my-1 hover:bg-muted-foreground/10 transition-colors duration-200`}
     >
       {children}
       <LucideLink className="text-blue-400" size={12} />
@@ -166,7 +165,6 @@ const Post = {
   ContentBlock,
   ContentTitle,
   TextBlock,
-  TextSecondary,
   ImageBlock,
   TextLink,
 };
