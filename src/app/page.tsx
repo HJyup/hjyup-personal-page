@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { MainAnimation, Sidebar } from '@/components/module';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@/components/module/sections';
 import { SECTIONS } from '@/const/navigation';
 
-const MainContent = ({ children }: { children: React.ReactNode }) => (
+const MainContent = ({ children }: { children: ReactNode }) => (
   <div className="w-full md:p-6 p-2 md:m-6 m-2 flex flex-col lg:grid md:grid-cols-5">
     {children}
   </div>

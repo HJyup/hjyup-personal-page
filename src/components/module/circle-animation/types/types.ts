@@ -7,12 +7,6 @@ interface Particle {
   delay: number;
 }
 
-interface AnimationConfig {
-  duration: number;
-  ease?: string | number[];
-  times?: number[];
-}
-
 interface Config {
   numberOfParticles: number;
   radius: number;
@@ -25,5 +19,5 @@ const DEFAULT_CONFIG: Config = {
   dotSize: 13,
 };
 
-export type { AnimationConfig, Config, Particle };
+export type { Config, Particle };
 export { DEFAULT_CONFIG };

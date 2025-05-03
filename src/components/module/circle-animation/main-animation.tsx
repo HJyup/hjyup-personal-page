@@ -3,7 +3,7 @@
 import { DEFAULT_CONFIG } from './types/types';
 import CircleAnimation from './circle-animation';
 
-const MainAnimation: React.FC = () => {
+const MainAnimation = () => {
   return (
     <div className="relative w-full h-screen flex items-center justify-center">
       <CircleAnimation config={DEFAULT_CONFIG} />

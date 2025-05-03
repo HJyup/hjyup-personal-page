@@ -44,23 +44,10 @@ public/_next-video
 
 .env
 
-# next-video
-src/videos/*
-!src/videos/*.json
-!src/videos/*.js
-!src/videos/*.ts
-public/_next-video
+.idea
 
 # next-video
 src/videos/*
 !src/videos/*.json
 !src/videos/*.js
 !src/videos/*.ts
-public/_next-video
-
-# next-video
-src/videos/*
-!src/videos/*.json
-!src/videos/*.js
-!src/videos/*.ts
-public/_next-video

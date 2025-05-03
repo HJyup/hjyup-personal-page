@@ -1,5 +1,6 @@
 'use client';
 
+import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Link as LucideLink } from 'lucide-react';
 import Image from 'next/image';
@@ -27,7 +28,7 @@ const Wrapper = ({
   id,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   id: string;
   className?: string;
 }) => (
@@ -106,7 +107,7 @@ const Card = ({
   onTap,
 }: {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   date: string;
   link?: string;
   description: string;
@@ -162,16 +163,23 @@ const Card = ({
               </a>
             )}
           </div>
-          <p className="text-muted-foreground mt-1 text-xs md:text-sm lg:text-base line-clamp-1">
-            {subtitle}
-          </p>
+          {subtitle && (
+            <p className="text-muted-foreground mt-1 text-xs md:text-sm lg:text-base line-clamp-1">
+              {subtitle}
+            </p>
+          )}
         </div>
         <div className="text-xs md:text-sm text-muted-foreground/50 mt-1 md:mt-0">
           <p>{date}</p>
         </div>
       </div>
       {description && (
-        <div className="mt-2 md:mt-4 text-muted-foreground/75 text-xs md:text-sm">
+        <div
+          className={cn(
+            'text-muted-foreground/75 text-xs md:text-sm',
+            subtitle && 'mt-2 md:mt-4 ',
+          )}
+        >
           <p className="line-clamp-3 md:line-clamp-none">{description}</p>
         </div>
       )}

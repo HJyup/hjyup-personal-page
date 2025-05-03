@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { LucideLink } from 'lucide-react';
 import { Roboto } from 'next/font/google';
 import Image from 'next/image';
@@ -8,7 +9,7 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const Wrapper = ({ children }: { children: React.ReactNode }) => {
+const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex flex-col w-full px-4 sm:px-6 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto lg:my-40 md:my-32 my-28">
       {children}
@@ -16,7 +17,7 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const TitleWrapper = ({ children }: { children: React.ReactNode }) => {
+const TitleWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex flex-row justify-center items-center w-full md:gap-5 gap-2">
       {children}
@@ -81,7 +82,7 @@ const TitleLinks = ({
   );
 };
 
-const ContentBlock = ({ children }: { children: React.ReactNode }) => {
+const ContentBlock = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex flex-col justify-center items-center gap-8 md:gap-10 my-12 sm:my-16">
       {children}
@@ -93,7 +94,7 @@ const ContentTitle = ({
   children,
   id,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   id: string;
 }) => {
   return (
@@ -106,7 +107,7 @@ const ContentTitle = ({
   );
 };
 
-const TextBlock = ({ children }: { children: React.ReactNode }) => {
+const TextBlock = ({ children }: { children: ReactNode }) => {
   return (
     <p className={`${roboto.className} text-base/8 opacity-75`}>{children}</p>
   );
@@ -143,7 +144,7 @@ const TextLink = ({
   children,
   href,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   href: string;
 }) => {
   return (
