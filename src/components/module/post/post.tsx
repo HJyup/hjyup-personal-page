@@ -84,7 +84,7 @@ const TitleLinks = ({
 
 const ContentBlock = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-8 md:gap-10 my-12 sm:my-16">
+    <div className="flex flex-col justify-center items-center gap-8 md:gap-10 mt-12 mb-8 sm:mt-16 sm:mb-12">
       {children}
     </div>
   );
@@ -98,10 +98,7 @@ const ContentTitle = ({
   id: string;
 }) => {
   return (
-    <h2
-      id={id}
-      className="text-xl md:text-2xl font-bold mt-4 md:mt-5 mb-4 md:mb-6"
-    >
+    <h2 id={id} className="text-xl md:text-2xl font-bold mt-4 md:mt-6">
       {children}
     </h2>
   );

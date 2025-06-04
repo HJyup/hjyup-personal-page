@@ -69,6 +69,9 @@ const Carousel = forwardRef<
       {
         ...opts,
         axis: orientation === 'horizontal' ? 'x' : 'y',
+        dragFree: true,
+        containScroll: 'trimSnaps',
+        align: 'start',
       },
       plugins,
     );
@@ -144,7 +147,10 @@ const Carousel = forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn('relative', className)}
+          className={cn(
+            'relative cursor-grab active:cursor-grabbing',
+            className,
+          )}
           role="region"
           aria-roledescription="carousel"
           {...props}

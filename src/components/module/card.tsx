@@ -97,6 +97,64 @@ const ImageCard = ({
   );
 };
 
+const SubCard = ({
+  title,
+  dateRange,
+  link,
+  description,
+  className,
+}: {
+  title: string;
+  dateRange?: string;
+  link?: string;
+  description?: string;
+  className?: string;
+}) => {
+  const router = useRouter();
+
+  return (
+    <div
+      className={cn(
+        'flex flex-col gap-2 p-3 md:p-4 bg-neutral-900/40 backdrop-blur-sm rounded-lg hover:bg-neutral-900/80 transition-all duration-200',
+        link && 'cursor-pointer',
+        className,
+      )}
+      onClick={() => {
+        if (link) {
+          if (link.startsWith('http')) {
+            window.open(link, '_blank', 'noopener,noreferrer');
+          } else {
+            router.push(link);
+          }
+        }
+      }}
+    >
+      <div className="flex flex-row items-center gap-1 sm:gap-2">
+        <h4 className="text-sm md:text-base font-medium text-foreground/90 line-clamp-1">
+          {title}
+        </h4>
+        {link && (
+          <LucideLink className="w-3 h-3 text-blue-400/70 flex-shrink-0 flex" />
+        )}
+      </div>
+      {dateRange && (
+        <span className="text-xs text-muted-foreground/70 font-medium whitespace-nowrap">
+          {dateRange}
+        </span>
+      )}
+      {description && (
+        <p className="text-xs md:text-sm text-muted-foreground/80 leading-relaxed">
+          {description}
+        </p>
+      )}
+    </div>
+  );
+};
+
+const SubInfo = ({ children }: { children: ReactNode }) => {
+  return <div className="flex flex-col gap-4 mt-4 md:mt-5">{children}</div>;
+};
+
 const Card = ({
   title,
   subtitle,
@@ -105,6 +163,7 @@ const Card = ({
   description,
   className,
   onTap,
+  children,
 }: {
   title: string;
   subtitle?: string;
@@ -113,6 +172,7 @@ const Card = ({
   description: string;
   className?: string;
   onTap?: () => void;
+  children?: ReactNode;
 }) => {
   const router = useRouter();
 
@@ -156,7 +216,7 @@ const Card = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${title} website`}
-                className="flex-shrink-0"
+                className="flex-shrink-0 hover:opacity-80 transition-opacity duration-200"
                 onClick={e => e.stopPropagation()}
               >
                 <LucideLink className="text-blue-400" size={12} />
@@ -164,25 +224,26 @@ const Card = ({
             )}
           </div>
           {subtitle && (
-            <p className="text-muted-foreground mt-1 text-xs md:text-sm lg:text-base line-clamp-1">
+            <p className="text-muted-foreground mt-1 text-xs md:text-sm lg:text-base line-clamp-1 tracking-wide">
               {subtitle}
             </p>
           )}
         </div>
-        <div className="text-xs md:text-sm text-muted-foreground/50 mt-1 md:mt-0">
+        <div className="text-xs md:text-sm text-muted-foreground/50 mt-1 md:mt-0 font-medium">
           <p>{date}</p>
         </div>
       </div>
       {description && (
         <div
           className={cn(
-            'text-muted-foreground/75 text-xs md:text-sm',
-            subtitle && 'mt-2 md:mt-4 ',
+            'text-muted-foreground/75 text-xs md:text-sm leading-relaxed',
+            subtitle && 'mt-1 md:mt-2',
           )}
         >
           <p className="line-clamp-3 md:line-clamp-none">{description}</p>
         </div>
       )}
+      {children && <div onClick={e => e.stopPropagation()}>{children}</div>}
     </motion.div>
   );
 };
@@ -192,6 +253,8 @@ const Section = {
   Wrapper,
   Card,
   ImageCard,
+  SubCard,
+  SubInfo,
 };
 
 export default Section;

@@ -14,25 +14,19 @@ const ProjectSection = () => {
         description="Personal projects and open source contributions"
       />
       <Card.Card
-        title="HackTheBurgh XII"
-        subtitle="Tech Team Lead"
-        date="Ongoing"
-        description="Was part of the technical team for Scotland's premier student hackathon, managing infrastructure for 200+ participants."
-      />
-      <Card.Card
         title="Project Share Webpage"
         subtitle="Vice President"
-        date="Ongoing"
+        date="In Progress"
         description="Created and developed the official webpage for Project Share in Comp-soc."
       />
       <Card.Card
         title="mlt-agents-tool"
-        date="Ongoing"
+        date="In Progress"
         description="Built a native macOS app integrating AI agents for intelligent calendar synchronization and customizable task management, enhancing user productivity."
       />
       <Card.Card
         title="file-sync-tool"
-        date="Ongoing"
+        date="In Progress"
         description="Developed an efficient file synchronization utility that uses commit-based differential algorithms."
       />
 
