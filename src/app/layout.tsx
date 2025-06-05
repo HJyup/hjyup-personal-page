@@ -1,17 +1,15 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
-import { Fauna_One } from 'next/font/google';
+import { Lato } from 'next/font/google';
 
-import { NavigationBar } from '@/components/module';
-import Footer from '@/components/module/footer';
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
 
-const faunaOne = Fauna_One({
+const lato = Lato({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '700', '900'],
   display: 'swap',
 });
 
@@ -38,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${faunaOne.className} flex flex-col items-center bg-background lg:justify-center`}
+        className={`${lato.className} flex flex-col items-center bg-background lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"
@@ -46,11 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavigationBar />
-
           {children}
-
-          <Footer />
         </ThemeProvider>
         <Analytics />
       </body>

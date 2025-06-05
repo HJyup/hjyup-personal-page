@@ -1,4 +1,3 @@
-export { default as Card } from './card';
-export { default as MainAnimation } from './circle-animation/main-animation';
-export { default as NavigationBar } from './navigation-bar';
-export { default as Sidebar } from './sidebar';
+export { default as AskAiSection } from './ask-ai-section';
+export { default as TypographyControls } from './typography-controls';
+export { default as WelcomeSection } from './welcome-section';
