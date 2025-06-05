@@ -17,10 +17,12 @@ const TypographyControls = ({
   onBoldChange,
   onItalicChange,
   onUnderlineChange,
-  className = "",
+  className = '',
 }: TypographyControlsProps) => {
   return (
-    <div className={`format-buttons flex bg-white rounded-lg overflow-hidden shadow-lg h-fit mt-2 ${className}`}>
+    <div
+      className={`format-buttons flex bg-white rounded-lg overflow-hidden shadow-lg h-fit mt-2 ${className}`}
+    >
       <button
         onClick={() => onBoldChange(!isBold)}
         className={`text-4xl font-extrabold transition-all px-4 py-2 ${
@@ -57,4 +59,4 @@ const TypographyControls = ({
   );
 };
 
-export default TypographyControls; 
+export default TypographyControls;
