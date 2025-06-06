@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
-import { Lato } from 'next/font/google';
+import { Lato, Pangolin } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
 
@@ -11,6 +11,13 @@ const lato = Lato({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
   display: 'swap',
+});
+
+const caveat = Pangolin({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+  variable: '--font-caveat',
 });
 
 export const metadata: Metadata = {
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${lato.className} flex flex-col items-center bg-background lg:justify-center`}
+        className={`${lato.className} ${caveat.variable} flex flex-col items-center bg-background lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"

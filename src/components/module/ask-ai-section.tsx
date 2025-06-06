@@ -17,11 +17,11 @@ const AskAiSection = ({ className = '' }: AskAiSectionProps) => {
         Ask AI about me
       </button>
       <div className="ask-ai-btn text-xs text-zinc-500 italic text-end pr-2">
-        I’m still building this feature — but hey, now you’ve got a reason to{' '}
+        I’m still building this{' '}
         <span className="underline decoration-blue-500 underline-offset-2 decoration-wavy">
-          come back
-        </span>
-        .
+          feature
+        </span>{' '}
+        — but hey, now you’ve got a reason to come back .
       </div>
     </div>
   );

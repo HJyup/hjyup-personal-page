@@ -30,7 +30,7 @@ const useTypography = (
     if (isItalic) classes.push('italic');
     else classes.push('not-italic');
 
-    if (isUnderline) classes.push('underline underline-offset-[0.2em]');
+    if (isUnderline) classes.push('underline underline-offset-[0.5em]');
     else classes.push('no-underline');
 
     return classes.join(' ');

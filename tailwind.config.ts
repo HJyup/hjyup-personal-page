@@ -62,6 +62,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
+        caveat: ['var(--font-caveat)', ...fontFamily.serif],
       },
       keyframes: {
         'accordion-down': {
