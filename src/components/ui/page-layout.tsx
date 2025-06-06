@@ -7,7 +7,9 @@ import { cn } from '@/lib/utils';
 import AnimatedLine from './animated-line';
 
 export interface LineConfig {
-  position: number; // 1-6 for grid position
+  position: number;
+  start?: number;
+  span?: number;
   color?: string;
   className?: string;
 }
@@ -44,7 +46,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
           <AnimatedLine
             key={`vertical-${index}`}
             className={cn(
-              `col-start-${line.position} row-start-1 row-span-6 vertical-line h-full`,
+              `col-start-${line.position} row-start-${line.start || 1} row-span-${line.span || 6} vertical-line h-full`,
               line.className,
             )}
             color={line.color}
@@ -56,7 +58,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
           <AnimatedLine
             key={`horizontal-${index}`}
             className={cn(
-              `row-start-${line.position} col-start-1 horizontal-line col-span-6 w-full`,
+              `row-start-${line.position} col-start-${line.start || 1} horizontal-line col-span-${line.span || 6} w-full`,
               line.className,
             )}
             color={line.color}

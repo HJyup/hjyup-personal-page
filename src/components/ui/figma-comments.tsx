@@ -25,20 +25,20 @@ interface FigmaCommentsProps {
 const projectComments: Comment[] = [
   {
     id: '1',
-    author: 'Tomasmailo',
+    author: 'Tomas Maillo',
     content:
-      "looks real good. i'm not sure about the comments like 'this button links...'.",
+      "Looks really good. I'm not sure about the comments like 'this button links...'.",
     timestamp: '2 hours ago',
     profileUrl: 'https://tomasmaillo.com/',
     avatar: 'https://avatars.githubusercontent.com/u/38633386?v=4',
   },
   {
     id: '2',
-    author: 'Product Designer',
+    author: 'Kay',
     content:
-      'The cards have nice hover states but they feel like placeholders. Show screenshots, user flows, or even quick video demos of the actual products.',
+      'This design is absolutely fire 🔥 — you’re really cooking, man. I love the secondary font choice, it’s super clean. Maybe try experimenting with a few different primary fonts too — something like Eurostile could be interesting',
     timestamp: '1 hour ago',
-    profileUrl: 'https://dribbble.com/product-designer',
+    profileUrl: 'https://itskay.co/',
   },
   {
     id: '3',

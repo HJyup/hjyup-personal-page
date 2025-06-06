@@ -1,145 +1,129 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
 import { Link } from 'lucide-react';
 
-interface AnimatedCardProps {
+gsap.registerPlugin(MorphSVGPlugin);
+
+interface ProjectCardProps {
   title: string;
   className?: string;
-  variant?: 'orange' | 'blue' | 'purple' | 'green';
+  theme?: 'orange' | 'blue' | 'purple' | 'green';
 }
 
-const AnimatedCard: React.FC<AnimatedCardProps> = ({
+const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   className = '',
-  variant = 'orange',
-}: AnimatedCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const circle2Ref = useRef<SVGCircleElement>(null);
+  theme = 'orange',
+}: ProjectCardProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animatedCircleRef = useRef<SVGCircleElement>(null);
 
-  const getColors = () => {
-    switch (variant) {
-      case 'orange':
-        return {
-          primary: '#FFB74D',
-          secondary: '#FF6B35',
-        };
-      case 'blue':
-        return {
-          primary: '#90CAF9',
-          secondary: '#1D4ED8',
-        };
-      case 'purple':
-        return {
-          primary: '#CE93D8',
-          secondary: '#7C3AED',
-        };
-      case 'green':
-        return {
-          primary: '#81C784',
-          secondary: '#16A34A',
-        };
-      default:
-        return {
-          primary: '#FFB74D',
-          secondary: '#FF6B35',
-        };
-    }
+  const getThemeColors = () => {
+    const themes = {
+      orange: {
+        primary: '#FFB74D',
+        secondary: '#FF6B35',
+      },
+      blue: {
+        primary: '#90CAF9',
+        secondary: '#1D4ED8',
+      },
+      purple: {
+        primary: '#CE93D8',
+        secondary: '#7C3AED',
+      },
+      green: {
+        primary: '#81C784',
+        secondary: '#16A34A',
+      },
+    };
+
+    return themes[theme] || themes.orange;
   };
 
-  const colors = getColors();
+  const colors = getThemeColors();
 
-  useEffect(() => {
-    const card = cardRef.current;
-    const circle2 = circle2Ref.current;
+  useGSAP(() => {
+    const container = containerRef.current;
+    const circle = animatedCircleRef.current;
 
-    if (!card || !circle2) return;
+    if (!container || !circle) return;
 
-    // Initial fade in animation with a bounce effect
-    gsap.fromTo(
-      card,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: 'elastic.out(1, 0.5)',
-      },
-    );
+    const initializeAnimations = () => {
+      gsap.fromTo(
+        container,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: 'elastic.out(1, 0.5)',
+        },
+      );
 
-    // Set initial transform origin for circles
-    gsap.set([circle2], {
-      transformOrigin: '50% 50%',
-    });
+      gsap.set([circle], { transformOrigin: '50% 50%' });
 
-    // Create a timeline for more complex animations
-    const tl = gsap.timeline({ repeat: -1 });
+      const animationTimeline = gsap.timeline({ repeat: -1 });
 
-    // Rotation animations with easing
-    tl.to(
-      circle2,
-      {
-        rotation: -360,
-        duration: 6,
-        ease: 'power1.inOut',
-      },
-      '-=8',
-    );
+      animationTimeline.to(
+        circle,
+        {
+          rotation: -360,
+          duration: 6,
+          ease: 'power1.inOut',
+        },
+        '-=8',
+      );
 
-    // Morphing effect
-    gsap.to([circle2], {
-      scale: 1.1,
-      duration: 2,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-      stagger: 0.2,
-    });
+      gsap.to([circle], {
+        scale: 1.1,
+        duration: 2,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.2,
+      });
 
-    // Add a subtle floating effect
-    gsap.to([circle2], {
-      y: -10,
-      duration: 2,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-      stagger: 0.1,
-    });
+      gsap.to([circle], {
+        y: -10,
+        duration: 2,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.1,
+      });
+    };
+
+    initializeAnimations();
   }, []);
 
   return (
-    <div
-      ref={cardRef}
-      className={`flex flex-col hover:cursor-pointer overflow-hidden ${className}`}
-    >
-      <div className="w-full h-[90%]">
+    <div ref={containerRef} className={`flex flex-col ${className}`}>
+      <div
+        className="w-full h-[90%] flex items-center justify-center"
+        style={{ backgroundColor: colors.primary }}
+      >
         <svg
           viewBox="0 0 400 400"
-          className="w-full h-full"
-          preserveAspectRatio="xMidYMid slice"
-          style={{ backgroundColor: colors.primary }}
+          className="w-2/3 h-2/3 flex items-center justify-center"
+          preserveAspectRatio="xMidYMid meet"
         >
           <circle
+            ref={animatedCircleRef}
             cx="200"
             cy="200"
-            r="100"
-            fill={colors.primary}
-            fillOpacity="0.9"
-          />
-
-          <circle
-            ref={circle2Ref}
-            cx="200"
-            cy="200"
-            r="100"
+            r="150"
             fill={colors.secondary}
             fillOpacity="0.8"
           />
         </svg>
       </div>
       <div className="h-[10%] w-full flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-800 group-hover:underline">
+        <h3 className="text-lg font-semibold text-gray-800 hover:underline cursor-pointer">
           {title}
         </h3>
         <Link className="text-blue-500 h-4 w-4" />
@@ -148,4 +132,4 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   );
 };
 
-export default AnimatedCard;
+export default ProjectCard;

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
-import { Lato, Pangolin } from 'next/font/google';
+import { Caveat, Lato } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
 
@@ -9,11 +9,11 @@ import './globals.css';
 
 const lato = Lato({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: ['100', '300', '400', '700', '900'],
   display: 'swap',
 });
 
-const caveat = Pangolin({
+const caveat = Caveat({
   subsets: ['latin'],
   weight: ['400'],
   display: 'swap',
