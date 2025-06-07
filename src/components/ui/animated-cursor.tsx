@@ -1,61 +1,61 @@
-import React from 'react';
-
 interface AnimatedCursorProps {
   className?: string;
   color?: string;
   name?: string;
 }
 
-const AnimatedCursor: React.FC<AnimatedCursorProps> = ({
+const COLOUR_MAPPER = {
+  pink: {
+    fill: '#ec4899',
+    stroke: '#be185d',
+    bg: 'bg-pink-500',
+  },
+  blue: {
+    fill: '#3b82f6',
+    stroke: '#1d4ed8',
+    bg: 'bg-blue-500',
+  },
+  green: {
+    fill: '#10b981',
+    stroke: '#059669',
+    bg: 'bg-green-500',
+  },
+  purple: {
+    fill: '#8b5cf6',
+    stroke: '#7c3aed',
+    bg: 'bg-purple-500',
+  },
+  red: {
+    fill: '#ef4444',
+    stroke: '#dc2626',
+    bg: 'bg-red-500',
+  },
+  orange: {
+    fill: '#f97316',
+    stroke: '#ea580c',
+    bg: 'bg-orange-500',
+  },
+  yellow: {
+    fill: '#eab308',
+    stroke: '#ca8a04',
+    bg: 'bg-yellow-500',
+  },
+  indigo: {
+    fill: '#6366f1',
+    stroke: '#4f46e5',
+    bg: 'bg-indigo-500',
+  },
+} as const;
+
+type ColorVariant = keyof typeof COLOUR_MAPPER;
+
+const AnimatedCursor = ({
   className = '',
   color = 'pink',
   name = 'User',
-}) => {
-  const colorVariants = {
-    pink: {
-      fill: '#ec4899',
-      stroke: '#be185d',
-      bg: 'bg-pink-500',
-    },
-    blue: {
-      fill: '#3b82f6',
-      stroke: '#1d4ed8',
-      bg: 'bg-blue-500',
-    },
-    green: {
-      fill: '#10b981',
-      stroke: '#059669',
-      bg: 'bg-green-500',
-    },
-    purple: {
-      fill: '#8b5cf6',
-      stroke: '#7c3aed',
-      bg: 'bg-purple-500',
-    },
-    red: {
-      fill: '#ef4444',
-      stroke: '#dc2626',
-      bg: 'bg-red-500',
-    },
-    orange: {
-      fill: '#f97316',
-      stroke: '#ea580c',
-      bg: 'bg-orange-500',
-    },
-    yellow: {
-      fill: '#eab308',
-      stroke: '#ca8a04',
-      bg: 'bg-yellow-500',
-    },
-    indigo: {
-      fill: '#6366f1',
-      stroke: '#4f46e5',
-      bg: 'bg-indigo-500',
-    },
-  };
-
+}: AnimatedCursorProps) => {
   const selectedColor =
-    colorVariants[color as keyof typeof colorVariants] || colorVariants.pink;
+    COLOUR_MAPPER[color as ColorVariant] || COLOUR_MAPPER.pink;
 
   return (
     <div className={`pointer-events-none z-20 ${className}`}>

@@ -2,7 +2,7 @@ interface WelcomeSectionProps {
   className?: string;
 }
 
-const WelcomeSection = ({ className = '' }: WelcomeSectionProps) => {
+const WelcomeSection = ({ className }: WelcomeSectionProps) => {
   return (
     <div
       className={`yellow-block font-extrabold text-2xl flex flex-col justify-between leading-snug pt-10 pb-5 px-5 w-full h-full bg-yellow-400 ${className}`}

@@ -17,7 +17,7 @@ const TypographyControls = ({
   onBoldChange,
   onItalicChange,
   onUnderlineChange,
-  className = '',
+  className,
 }: TypographyControlsProps) => {
   return (
     <div

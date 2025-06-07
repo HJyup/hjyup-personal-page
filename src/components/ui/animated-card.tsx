@@ -14,7 +14,28 @@ interface ProjectCardProps {
   theme?: 'orange' | 'blue' | 'purple' | 'green';
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const THEME_MAPPER = {
+  orange: {
+    primary: '#FFB74D',
+    secondary: '#FF6B35',
+  },
+  blue: {
+    primary: '#90CAF9',
+    secondary: '#1D4ED8',
+  },
+  purple: {
+    primary: '#CE93D8',
+    secondary: '#7C3AED',
+  },
+  green: {
+    primary: '#81C784',
+    secondary: '#16A34A',
+  },
+} as const;
+
+type ThemeVariant = keyof typeof THEME_MAPPER;
+
+const ProjectCard = ({
   title,
   className = '',
   theme = 'orange',
@@ -22,30 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const animatedCircleRef = useRef<SVGCircleElement>(null);
 
-  const getThemeColors = () => {
-    const themes = {
-      orange: {
-        primary: '#FFB74D',
-        secondary: '#FF6B35',
-      },
-      blue: {
-        primary: '#90CAF9',
-        secondary: '#1D4ED8',
-      },
-      purple: {
-        primary: '#CE93D8',
-        secondary: '#7C3AED',
-      },
-      green: {
-        primary: '#81C784',
-        secondary: '#16A34A',
-      },
-    };
-
-    return themes[theme] || themes.orange;
-  };
-
-  const colors = getThemeColors();
+  const colors = THEME_MAPPER[theme as ThemeVariant] || THEME_MAPPER.orange;
 
   useGSAP(() => {
     const container = containerRef.current;

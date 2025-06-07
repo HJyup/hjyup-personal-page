@@ -1,15 +1,15 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
-import { Caveat, Lato } from 'next/font/google';
+import { Caveat, Quicksand } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
 
-const lato = Lato({
+const quicksand = Quicksand({
   subsets: ['latin'],
-  weight: ['100', '300', '400', '700', '900'],
+  weight: ['300', '400', '500', '700'],
   display: 'swap',
 });
 
@@ -22,7 +22,8 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: 'Danyil Butov',
-  description: 'Personal website of Danyil Butov',
+  description:
+    'Computer Science Student at the University of Edinburgh. Working at Solidgate',
   icons: {
     icon: 'https://github.com/hjYup.png',
   },
@@ -41,9 +42,9 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${lato.className} ${caveat.variable} flex flex-col items-center bg-background lg:justify-center`}
+        className={`${quicksand.className} ${caveat.variable} flex flex-col items-center bg-background lg:justify-center scroll-smooth`}
       >
         <ThemeProvider
           attribute="class"
