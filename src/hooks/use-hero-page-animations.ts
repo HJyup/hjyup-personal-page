@@ -4,41 +4,53 @@ import gsap from 'gsap';
 
 gsap.registerPlugin(useGSAP);
 
-const usePageAnimations = () => {
+const SELECTORS = {
+  VERTICAL_LINE: '.vertical-line',
+  HORIZONTAL_LINE: '.horizontal-line',
+  ANIMATED_CURSOR: '.animated-cursor',
+  ANIMATED_CURSOR_INNER: '.animated-cursor div div',
+  YELLOW_BLOCK: '.yellow-block',
+  FORMAT_BUTTONS: '.format-buttons',
+  ASK_AI_BTN: '.ask-ai-btn',
+  STACKED_CARDS: '.stacked-cards',
+  LUCIDE_SPARKLES: '.lucide-sparkles',
+} as const;
+
+const useHeroPageAnimations = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       if (!containerRef.current) return;
 
-      gsap.set(['.vertical-line', '.horizontal-line'], {
+      gsap.set([SELECTORS.VERTICAL_LINE, SELECTORS.HORIZONTAL_LINE], {
         backgroundColor: '#60a5fa',
         scaleX: 0,
         scaleY: 0,
       });
 
-      gsap.set('.animated-cursor', {
+      gsap.set(SELECTORS.ANIMATED_CURSOR, {
         opacity: 0,
         scale: 0.8,
         x: -100,
         y: -100,
       });
 
-      gsap.set('.animated-cursor div div', {
+      gsap.set(SELECTORS.ANIMATED_CURSOR_INNER, {
         opacity: 0,
         y: -10,
         scale: 0.8,
       });
 
-      gsap.set(['.yellow-block', '.format-buttons'], {
+      gsap.set([SELECTORS.YELLOW_BLOCK, SELECTORS.FORMAT_BUTTONS], {
         opacity: 0,
       });
 
-      gsap.set('.ask-ai-btn', {
+      gsap.set(SELECTORS.ASK_AI_BTN, {
         opacity: 0,
       });
 
-      gsap.set('.stacked-cards', {
+      gsap.set(SELECTORS.STACKED_CARDS, {
         opacity: 0,
         y: 20,
       });
@@ -46,7 +58,7 @@ const usePageAnimations = () => {
       const tl = gsap.timeline();
 
       tl.fromTo(
-        '.horizontal-line',
+        SELECTORS.HORIZONTAL_LINE,
         {
           scaleX: 0,
           scaleY: 5,
@@ -61,7 +73,7 @@ const usePageAnimations = () => {
         },
       )
         .fromTo(
-          ['.vertical-line'],
+          [SELECTORS.VERTICAL_LINE],
           {
             scaleY: 0,
             scaleX: 5,
@@ -77,7 +89,7 @@ const usePageAnimations = () => {
           '<',
         )
         .to(
-          ['.vertical-line', '.horizontal-line'],
+          [SELECTORS.VERTICAL_LINE, SELECTORS.HORIZONTAL_LINE],
           {
             backgroundColor: '#71717a',
             duration: 0.5,
@@ -86,7 +98,7 @@ const usePageAnimations = () => {
           '-=0.8',
         )
         .to(
-          '.animated-cursor',
+          SELECTORS.ANIMATED_CURSOR,
           {
             opacity: 1,
             scale: 1,
@@ -98,7 +110,7 @@ const usePageAnimations = () => {
           '-=1.1',
         )
         .to(
-          '.animated-cursor div div',
+          SELECTORS.ANIMATED_CURSOR_INNER,
           {
             opacity: 1,
             y: 0,
@@ -108,7 +120,7 @@ const usePageAnimations = () => {
           '-=0.5',
         )
         .to(
-          '.yellow-block',
+          SELECTORS.YELLOW_BLOCK,
           {
             opacity: 1,
             y: 0,
@@ -117,7 +129,7 @@ const usePageAnimations = () => {
           '-=0.9',
         )
         .to(
-          ['.format-buttons'],
+          [SELECTORS.FORMAT_BUTTONS],
           {
             opacity: 1,
             y: 0,
@@ -127,7 +139,7 @@ const usePageAnimations = () => {
           '-=0.9',
         )
         .to(
-          ['.ask-ai-btn'],
+          [SELECTORS.ASK_AI_BTN],
           {
             opacity: 1,
             duration: 0.3,
@@ -135,7 +147,7 @@ const usePageAnimations = () => {
           '-=0.9',
         )
         .to(
-          '.stacked-cards',
+          SELECTORS.STACKED_CARDS,
           {
             opacity: 1,
             y: 0,
@@ -145,28 +157,34 @@ const usePageAnimations = () => {
           '-=0.5',
         );
 
-      const askAiBtn = containerRef.current.querySelector('.ask-ai-btn');
+      const askAiBtn = containerRef.current.querySelector(SELECTORS.ASK_AI_BTN);
       if (askAiBtn) {
         const handleMouseEnter = () => {
-          gsap.to([askAiBtn, askAiBtn.querySelector('.lucide-sparkles')], {
-            duration: 0.1,
-            ease: 'power2.out',
-            onStart: () => {
-              gsap.to(askAiBtn.querySelector('.lucide-sparkles'), {
-                rotation: 15,
-                duration: 0.2,
-                ease: 'power2.out',
-              });
+          gsap.to(
+            [askAiBtn, askAiBtn.querySelector(SELECTORS.LUCIDE_SPARKLES)],
+            {
+              duration: 0.1,
+              ease: 'power2.out',
+              onStart: () => {
+                gsap.to(askAiBtn.querySelector(SELECTORS.LUCIDE_SPARKLES), {
+                  rotation: 15,
+                  duration: 0.2,
+                  ease: 'power2.out',
+                });
+              },
             },
-          });
+          );
         };
 
         const handleMouseLeave = () => {
-          gsap.to([askAiBtn, askAiBtn.querySelector('.lucide-sparkles')], {
-            rotation: 0,
-            duration: 0.2,
-            ease: 'power2.out',
-          });
+          gsap.to(
+            [askAiBtn, askAiBtn.querySelector(SELECTORS.LUCIDE_SPARKLES)],
+            {
+              rotation: 0,
+              duration: 0.2,
+              ease: 'power2.out',
+            },
+          );
         };
 
         askAiBtn.addEventListener('mouseenter', handleMouseEnter);
@@ -184,4 +202,4 @@ const usePageAnimations = () => {
   return { containerRef };
 };
 
-export default usePageAnimations;
+export default useHeroPageAnimations;

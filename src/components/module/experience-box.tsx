@@ -85,7 +85,7 @@ export const HackathonBox = ({ className }: { className?: string }) => (
   </ExperienceBox>
 );
 
-export const EmptyBox = ({ className }: { className?: string }) => (
+export const NasaSpaceAppsBox = ({ className }: { className?: string }) => (
   <ExperienceBox
     className={cn('flex flex-col justify-between p-4', className)}
     backgroundColor="bg-yellow-400"
@@ -99,7 +99,7 @@ export const EmptyBox = ({ className }: { className?: string }) => (
   </ExperienceBox>
 );
 
-export const RedBox = ({ className }: { className?: string }) => (
+export const ProjectShareBox = ({ className }: { className?: string }) => (
   <ExperienceBox
     className={cn('p-2 grid-cols-2 flex justify-around flex-col', className)}
     backgroundColor="bg-violet-400"

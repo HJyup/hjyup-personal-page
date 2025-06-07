@@ -10,9 +10,9 @@ import {
 
 import {
   CompSocBox,
-  EmptyBox,
   HackathonBox,
-  RedBox,
+  NasaSpaceAppsBox,
+  ProjectShareBox,
   SolidgateBox,
   UniversityBox,
 } from './experience-box';
@@ -40,13 +40,13 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
 
       <div className="row-start-1 col-start-1 row-span-2 col-span-4 m-4" />
 
-      <RedBox className={EXPERIENCE_BOX_POSITIONS.redBox} />
+      <ProjectShareBox className={EXPERIENCE_BOX_POSITIONS.redBox} />
 
       <CompSocBox className={EXPERIENCE_BOX_POSITIONS.compSocBox} />
 
       <SolidgateBox className={EXPERIENCE_BOX_POSITIONS.solidgateBox} />
 
-      <EmptyBox className={EXPERIENCE_BOX_POSITIONS.emptyBox} />
+      <NasaSpaceAppsBox className={EXPERIENCE_BOX_POSITIONS.emptyBox} />
 
       <UniversityBox className={EXPERIENCE_BOX_POSITIONS.universityBox} />
 

@@ -5,15 +5,17 @@ import {
   HeroSection,
   ProjectsSection,
 } from '@/components/module';
-import usePageAnimations from '@/hooks/use-page-animations';
+import useHeroPageAnimations from '@/hooks/use-hero-page-animations';
+import useProjectPageAnimations from '@/hooks/use-project-page-animations';
 
 export default function Home() {
-  const { containerRef } = usePageAnimations();
+  const { containerRef: heroContainerRef } = useHeroPageAnimations();
+  const { containerRef: projectsContainerRef } = useProjectPageAnimations();
 
   return (
     <>
-      <HeroSection ref={containerRef} />
-      <ProjectsSection />
+      <HeroSection ref={heroContainerRef} />
+      <ProjectsSection ref={projectsContainerRef} />
       <ExperienceSection />
     </>
   );
