@@ -5,11 +5,13 @@ import { forwardRef } from 'react';
 import { FigmaComments, PageLayout } from '@/components/ui';
 import AnimatedCard from '@/components/ui/animated-card';
 import AnimatedCursor from '@/components/ui/animated-cursor';
+import { COMMON_CLASSES, CSS_CLASSES } from '@/const/css-classes';
 import {
   DESIGN_ANNOTATIONS,
   PROJECT_CARDS,
   PROJECTS_LAYOUT_CONFIG,
 } from '@/const/layout-configs';
+import { cn } from '@/lib/utils';
 
 interface ProjectsSectionProps {
   className?: string;
@@ -20,7 +22,7 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
     return (
       <PageLayout
         ref={ref}
-        className={`${className}`}
+        className={className}
         backgroundColor={PROJECTS_LAYOUT_CONFIG.backgroundColor}
         verticalLines={PROJECTS_LAYOUT_CONFIG.verticalLines}
         horizontalLines={PROJECTS_LAYOUT_CONFIG.horizontalLines}
@@ -75,34 +77,48 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
         </div>
 
         <AnimatedCursor
-          className="projects-animated-cursor col-start-6 row-start-2 self-center justify-self-center"
+          className={cn(
+            CSS_CLASSES.PROJECTS_ANIMATED_CURSOR,
+            'col-start-6 row-start-2 self-center justify-self-center',
+          )}
           color="blue"
           name="Danyil Butov"
         />
 
         <div
-          className={`${DESIGN_ANNOTATIONS.horizontalMeasurement.position} flex items-start justify-start pt-5 px-2`}
+          className={cn(
+            DESIGN_ANNOTATIONS.horizontalMeasurement.position,
+            'flex items-start justify-start pt-5 px-2',
+          )}
           data-animate-on-scroll
         >
           <div className="flex w-full items-center justify-start">
-            <div className="flex-1 h-px bg-blue-400" />
-            <span className="px-2 text-xs font-mono text-blue-400">
+            <div className={COMMON_CLASSES.MEASUREMENT.LINE.HORIZONTAL} />
+            <span className={cn(COMMON_CLASSES.MEASUREMENT.LABEL, 'px-2')}>
               {DESIGN_ANNOTATIONS.horizontalMeasurement.label}
             </span>
-            <div className="flex-1 h-px bg-blue-400" />
+            <div className={COMMON_CLASSES.MEASUREMENT.LINE.HORIZONTAL} />
           </div>
         </div>
 
         <div
-          className={`${DESIGN_ANNOTATIONS.verticalMeasurement.position} flex flex-col w-full p-2 justify-start`}
+          className={cn(
+            DESIGN_ANNOTATIONS.verticalMeasurement.position,
+            'flex flex-col w-full p-2 justify-start',
+          )}
           data-animate-on-scroll
         >
           <div className="flex h-full flex-col items-center justify-center w-fit">
-            <div className="flex-1 w-px bg-blue-400" />
-            <span className="p-2 text-xs font-mono text-blue-400 transform rotate-90 bg-white">
+            <div className={COMMON_CLASSES.MEASUREMENT.LINE.VERTICAL} />
+            <span
+              className={cn(
+                COMMON_CLASSES.MEASUREMENT.LABEL,
+                'p-2 transform rotate-90 bg-white',
+              )}
+            >
               {DESIGN_ANNOTATIONS.verticalMeasurement.label}
             </span>
-            <div className="flex-1 w-px bg-blue-400" />
+            <div className={COMMON_CLASSES.MEASUREMENT.LINE.VERTICAL} />
           </div>
         </div>
 
@@ -111,5 +127,7 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
     );
   },
 );
+
+ProjectsSection.displayName = 'ProjectsSection';
 
 export default ProjectsSection;

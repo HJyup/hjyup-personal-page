@@ -1,5 +1,8 @@
 'use client';
 
+import { COMMON_CLASSES, CSS_CLASSES } from '@/const/css-classes';
+import { cn } from '@/lib/utils';
+
 interface TypographyControlsProps {
   isBold: boolean;
   isItalic: boolean;
@@ -21,37 +24,47 @@ const TypographyControls = ({
 }: TypographyControlsProps) => {
   return (
     <div
-      className={`format-buttons flex bg-white rounded-lg overflow-hidden shadow-lg h-fit mt-2 ${className}`}
+      className={cn(
+        CSS_CLASSES.FORMAT_BUTTONS,
+        'flex bg-white rounded-lg overflow-hidden shadow-lg h-fit mt-2',
+        className,
+      )}
     >
       <button
         onClick={() => onBoldChange(!isBold)}
-        className={`text-4xl font-extrabold transition-all px-4 py-2 ${
+        className={cn(
+          COMMON_CLASSES.TYPOGRAPHY_BUTTON.BASE,
+          'font-extrabold',
           isBold
-            ? 'text-blue-600 bg-blue-50'
-            : 'text-zinc-400 hover:text-blue-500 hover:bg-blue-50'
-        }`}
+            ? COMMON_CLASSES.TYPOGRAPHY_BUTTON.ACTIVE
+            : COMMON_CLASSES.TYPOGRAPHY_BUTTON.INACTIVE,
+        )}
       >
         B
       </button>
       <div className="w-px h-8 bg-zinc-300 self-center" />
       <button
         onClick={() => onItalicChange(!isItalic)}
-        className={`text-4xl italic transition-all px-5 py-2 ${
+        className={cn(
+          COMMON_CLASSES.TYPOGRAPHY_BUTTON.BASE,
+          'italic px-5',
           isItalic
-            ? 'text-blue-600 bg-blue-50'
-            : 'text-zinc-400 hover:text-blue-500 hover:bg-blue-50'
-        }`}
+            ? COMMON_CLASSES.TYPOGRAPHY_BUTTON.ACTIVE
+            : COMMON_CLASSES.TYPOGRAPHY_BUTTON.INACTIVE,
+        )}
       >
         I
       </button>
       <div className="w-px h-8 bg-zinc-300 self-center" />
       <button
         onClick={() => onUnderlineChange(!isUnderline)}
-        className={`text-4xl underline transition-all px-4 py-2 ${
+        className={cn(
+          COMMON_CLASSES.TYPOGRAPHY_BUTTON.BASE,
+          'underline',
           isUnderline
-            ? 'text-blue-600 bg-blue-50'
-            : 'text-zinc-400 hover:text-blue-500 hover:bg-blue-50'
-        }`}
+            ? COMMON_CLASSES.TYPOGRAPHY_BUTTON.ACTIVE
+            : COMMON_CLASSES.TYPOGRAPHY_BUTTON.INACTIVE,
+        )}
       >
         U
       </button>

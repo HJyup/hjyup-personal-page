@@ -2,9 +2,7 @@ export { default as AskAiSection } from './ask-ai-section';
 export { default as ExperienceBox } from './experience-box';
 export {
   CompSocBox,
-  EmptyBox,
   HackathonBox,
-  RedBox,
   SolidgateBox,
   UniversityBox,
 } from './experience-box';
