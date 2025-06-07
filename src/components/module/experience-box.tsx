@@ -33,11 +33,8 @@ const ExperienceBox = ({
 };
 
 export const CompSocBox = ({ className }: { className?: string }) => (
-  <ExperienceBox
-    className={cn('flex', className)}
-    backgroundColor="bg-violet-400"
-  >
-    <p className="text-violet-800 font-semibold text-5xl tracking-tighter p-2">
+  <ExperienceBox className={cn('flex', className)} backgroundColor="bg-red-400">
+    <p className="text-red-800 font-semibold text-5xl tracking-tighter p-2">
       Comp-soc <span className="text-4xl font-extralight">committee</span>
     </p>
   </ExperienceBox>
@@ -82,7 +79,7 @@ export const HackathonBox = ({ className }: { className?: string }) => (
     <p className="row-start-1 text-lime-800 text-xl p-2">
       Organisator of the Hackathon
     </p>
-    <p className="text-lime-800 font-bold text-2xl text-end self-end row-start-2 pr-2">
+    <p className="text-lime-800 font-bold text-2xl text-end self-end row-start-2 p-2">
       HackTheBurgh XI
     </p>
   </ExperienceBox>
@@ -90,22 +87,29 @@ export const HackathonBox = ({ className }: { className?: string }) => (
 
 export const EmptyBox = ({ className }: { className?: string }) => (
   <ExperienceBox
-    className={cn('flex flex-col p-4', className)}
+    className={cn('flex flex-col justify-between p-4', className)}
     backgroundColor="bg-yellow-400"
   >
-    <p className="text-yellow-800 font-bold text-2xl text-end self-end row-start-2 pr-2">
-      Placeholder
+    <p className="text-yellow-800 font-bold text-2xl text-center row-start-2 pr-2">
+      Nasa Space Apps Challenge
+    </p>
+    <p className="text-yellow-700 text-xl mb-5">
+      Built a model with a team to predict the likelihood of forest fires
     </p>
   </ExperienceBox>
 );
 
 export const RedBox = ({ className }: { className?: string }) => (
   <ExperienceBox
-    className={cn('p-2 grid-cols-2', className)}
-    backgroundColor="bg-red-400"
+    className={cn('p-2 grid-cols-2 flex justify-around flex-col', className)}
+    backgroundColor="bg-violet-400"
   >
-    <p className="text-red-800 font-bold text-2xl text-end self-end row-start-2 pr-2">
-      Placeholder
+    <p className="text-violet-800 font-bold text-3xl row-start-2 pr-2">
+      Project share
+    </p>
+    <p className="text-violet-700 text-xl w-5/6">
+      Vice president of the project share society. Rebuilt the website from
+      scratch.
     </p>
   </ExperienceBox>
 );

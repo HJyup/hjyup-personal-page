@@ -59,18 +59,16 @@ const ProjectsSection = ({ className }: ProjectsSectionProps) => {
         </span>
       </div>
 
-      {PROJECT_CARDS.map(project => (
-        <div
-          key={project.title}
-          className={`${project.gridPosition} flex items-center justify-center p-4`}
-        >
+      <div className="col-start-2 row-start-3 col-span-4 row-span-3 flex gap-4 p-4">
+        {PROJECT_CARDS.map((project, index) => (
           <AnimatedCard
+            key={index}
             title={project.title}
             theme={project.theme}
             className="w-full h-full"
           />
-        </div>
-      ))}
+        ))}
+      </div>
 
       <AnimatedCursor
         className="animated-cursor col-start-6 row-start-2 self-center justify-self-center"

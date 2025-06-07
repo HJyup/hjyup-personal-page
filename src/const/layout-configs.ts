@@ -12,14 +12,14 @@ export const HERO_LAYOUT_CONFIG = {
 export const PROJECTS_LAYOUT_CONFIG = {
   backgroundColor: 'bg-white',
   verticalLines: [
-    { position: 2, color: 'bg-blue-300' },
-    { position: 6, color: 'bg-blue-300' },
-    { position: 5, color: 'bg-blue-300', start: 6 },
+    { position: 2, color: 'bg-blue-400' },
+    { position: 6, color: 'bg-blue-400' },
+    { position: 5, color: 'bg-blue-400', start: 6 },
   ] as LineConfig[],
   horizontalLines: [
-    { position: 2, color: 'bg-blue-300' },
-    { position: 3, color: 'bg-blue-300' },
-    { position: 6, color: 'bg-blue-300' },
+    { position: 2, color: 'bg-blue-400' },
+    { position: 3, color: 'bg-blue-400' },
+    { position: 6, color: 'bg-blue-400' },
   ] as LineConfig[],
 };
 
