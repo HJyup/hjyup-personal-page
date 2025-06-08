@@ -1,6 +1,8 @@
 const Footer = () => (
   <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-center md:justify-around items-center gap-4 md:gap-0 mb-10 px-4">
-    <p className="text-sm md:text-xs text-muted-foreground font-bold">Edinburgh, UK</p>
+    <p className="text-sm md:text-xs text-muted-foreground font-bold">
+      Edinburgh, UK
+    </p>
     <a
       href="mailto:danyil.butov.tech@gmail.com"
       className="text-sm md:text-xs text-muted-foreground font-bold hover:text-white hover:cursor-pointer text-center"
