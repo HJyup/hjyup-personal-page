@@ -41,7 +41,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
       <div
         ref={ref}
         className={cn(
-          'w-full h-screen grid grid-cols-6 grid-rows-6 snap-start',
+          'w-full h-screen grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 grid-rows-6',
           backgroundColor,
           className,
         )}
@@ -50,7 +50,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
           <AnimatedLine
             key={`vertical-${index}`}
             className={cn(
-              `col-start-${line.position} row-start-${line.start || 1} row-span-${line.span || 6} vertical-line h-full`,
+              `col-start-${line.position} row-start-${line.start || 1} row-span-${line.span || 6} vertical-line h-full opacity-50 md:opacity-100`,
               line.className,
             )}
             color={line.color}
@@ -62,7 +62,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
           <AnimatedLine
             key={`horizontal-${index}`}
             className={cn(
-              `row-start-${line.position} col-start-${line.start || 1} horizontal-line col-span-${line.span || 6} w-full`,
+              `row-start-${line.position} col-start-${line.start || 1} horizontal-line col-span-${line.span || 6} w-full opacity-50 md:opacity-100`,
               line.className,
             )}
             color={line.color}
