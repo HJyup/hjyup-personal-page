@@ -4,10 +4,14 @@ import { forwardRef } from 'react';
 
 import { PageLayout } from '@/components/ui';
 import AnimatedCursor from '@/components/ui/animated-cursor';
-import { HERO_LAYOUT_CONFIG } from '@/const/layout-configs';
 import useTypography from '@/hooks/use-typography';
 
 import { AskAiSection, TypographyControls, WelcomeSection } from './index';
+
+const heroLayoutConfig = {
+  verticalLines: [{ position: 2 }, { position: 6 }],
+  horizontalLines: [{ position: 3 }, { position: 4 }, { position: 5 }],
+};
 
 interface HeroSectionProps {
   className?: string;
@@ -31,8 +35,8 @@ const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>(
       <PageLayout
         ref={ref}
         className={className}
-        verticalLines={HERO_LAYOUT_CONFIG.verticalLines}
-        horizontalLines={HERO_LAYOUT_CONFIG.horizontalLines}
+        verticalLines={heroLayoutConfig.verticalLines}
+        horizontalLines={heroLayoutConfig.horizontalLines}
       >
         <h1
           className={`col-start-2 col-span-5 row-start-3 text-8xl flex items-end z-10 text-zinc-200 leading-[0.774] ms-[-8px] ${classes}`}

@@ -5,13 +5,45 @@ import { forwardRef } from 'react';
 import { FigmaComments, PageLayout } from '@/components/ui';
 import AnimatedCard from '@/components/ui/animated-card';
 import AnimatedCursor from '@/components/ui/animated-cursor';
-import { COMMON_CLASSES, CSS_CLASSES } from '@/const/css-classes';
-import {
-  DESIGN_ANNOTATIONS,
-  PROJECT_CARDS,
-  PROJECTS_LAYOUT_CONFIG,
-} from '@/const/layout-configs';
 import { cn } from '@/lib/utils';
+
+const LAYOUT_CONFIG = {
+  backgroundColor: 'bg-white',
+  verticalLines: [
+    { position: 2, color: 'bg-blue-400' },
+    { position: 6, color: 'bg-blue-400' },
+    { position: 5, color: 'bg-blue-400', start: 6 },
+  ],
+  horizontalLines: [
+    { position: 2, color: 'bg-blue-400' },
+    { position: 3, color: 'bg-blue-400' },
+    { position: 6, color: 'bg-blue-400' },
+  ],
+};
+
+const CARDS_CONFIG = [
+  {
+    title: 'Project Share',
+    theme: 'purple' as const,
+    gridPosition: 'col-start-2 col-span-2 row-start-3 row-span-3',
+  },
+  {
+    title: 'MicroSketch',
+    theme: 'green' as const,
+    gridPosition: 'col-start-4 col-span-2 row-start-3 row-span-3',
+  },
+];
+
+const DESIGN_ANNOTATIONS = {
+  horizontalMeasurement: {
+    label: '320px',
+    position: 'col-start-2 col-span-2 row-start-6',
+  },
+  verticalMeasurement: {
+    label: '240px',
+    position: 'col-start-6 row-start-3 row-span-3',
+  },
+};
 
 interface ProjectsSectionProps {
   className?: string;
@@ -23,9 +55,9 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
       <PageLayout
         ref={ref}
         className={className}
-        backgroundColor={PROJECTS_LAYOUT_CONFIG.backgroundColor}
-        verticalLines={PROJECTS_LAYOUT_CONFIG.verticalLines}
-        horizontalLines={PROJECTS_LAYOUT_CONFIG.horizontalLines}
+        backgroundColor={LAYOUT_CONFIG.backgroundColor}
+        verticalLines={LAYOUT_CONFIG.verticalLines}
+        horizontalLines={LAYOUT_CONFIG.horizontalLines}
       >
         <h1 className="col-start-2 col-span-4 row-start-2 font-bold text-4xl flex z-10 text-black items-center p-4">
           <span className="main-text">
@@ -66,7 +98,7 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
         </div>
 
         <div className="col-start-2 row-start-3 col-span-4 row-span-3 flex gap-4 p-4">
-          {PROJECT_CARDS.map((project, index) => (
+          {CARDS_CONFIG.map((project, index) => (
             <AnimatedCard
               key={index}
               title={project.title}
@@ -78,28 +110,12 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
 
         <AnimatedCursor
           className={cn(
-            CSS_CLASSES.PROJECTS_ANIMATED_CURSOR,
+            'projects-animated-cursor',
             'col-start-6 row-start-2 self-center justify-self-center',
           )}
           color="blue"
           name="Danyil Butov"
         />
-
-        <div
-          className={cn(
-            DESIGN_ANNOTATIONS.horizontalMeasurement.position,
-            'flex items-start justify-start pt-5 px-2',
-          )}
-          data-animate-on-scroll
-        >
-          <div className="flex w-full items-center justify-start">
-            <div className={COMMON_CLASSES.MEASUREMENT.LINE.HORIZONTAL} />
-            <span className={cn(COMMON_CLASSES.MEASUREMENT.LABEL, 'px-2')}>
-              {DESIGN_ANNOTATIONS.horizontalMeasurement.label}
-            </span>
-            <div className={COMMON_CLASSES.MEASUREMENT.LINE.HORIZONTAL} />
-          </div>
-        </div>
 
         <div
           className={cn(
@@ -109,16 +125,16 @@ const ProjectsSection = forwardRef<HTMLDivElement, ProjectsSectionProps>(
           data-animate-on-scroll
         >
           <div className="flex h-full flex-col items-center justify-center w-fit">
-            <div className={COMMON_CLASSES.MEASUREMENT.LINE.VERTICAL} />
+            <div className="flex-1 w-px bg-blue-400" />
             <span
               className={cn(
-                COMMON_CLASSES.MEASUREMENT.LABEL,
+                'text-xs font-mono text-blue-400',
                 'p-2 transform rotate-90 bg-white',
               )}
             >
               {DESIGN_ANNOTATIONS.verticalMeasurement.label}
             </span>
-            <div className={COMMON_CLASSES.MEASUREMENT.LINE.VERTICAL} />
+            <div className="flex-1 w-px bg-blue-400" />
           </div>
         </div>
 

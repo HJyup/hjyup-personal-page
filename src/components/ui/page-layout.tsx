@@ -6,19 +6,23 @@ import { cn } from '@/lib/utils';
 
 import AnimatedLine from './animated-line';
 
-export interface LineConfig {
-  position: number;
-  start?: number;
-  span?: number;
-  color?: string;
-  className?: string;
-}
-
 export interface PageLayoutProps {
   children?: ReactNode;
   className?: string;
-  verticalLines?: LineConfig[];
-  horizontalLines?: LineConfig[];
+  verticalLines?: {
+    position: number;
+    start?: number;
+    span?: number;
+    color?: string;
+    className?: string;
+  }[];
+  horizontalLines?: {
+    position: number;
+    start?: number;
+    span?: number;
+    color?: string;
+    className?: string;
+  }[];
   backgroundColor?: string;
 }
 

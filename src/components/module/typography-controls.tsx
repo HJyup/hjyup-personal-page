@@ -1,6 +1,5 @@
 'use client';
 
-import { COMMON_CLASSES, CSS_CLASSES } from '@/const/css-classes';
 import { cn } from '@/lib/utils';
 
 interface TypographyControlsProps {
@@ -25,7 +24,7 @@ const TypographyControls = ({
   return (
     <div
       className={cn(
-        CSS_CLASSES.FORMAT_BUTTONS,
+        'format-buttons',
         'flex bg-white rounded-lg overflow-hidden shadow-lg h-fit mt-2',
         className,
       )}
@@ -33,11 +32,11 @@ const TypographyControls = ({
       <button
         onClick={() => onBoldChange(!isBold)}
         className={cn(
-          COMMON_CLASSES.TYPOGRAPHY_BUTTON.BASE,
+          'text-4xl transition-all px-4 py-2',
           'font-extrabold',
           isBold
-            ? COMMON_CLASSES.TYPOGRAPHY_BUTTON.ACTIVE
-            : COMMON_CLASSES.TYPOGRAPHY_BUTTON.INACTIVE,
+            ? 'text-blue-600 bg-blue-50'
+            : 'text-zinc-400 hover:text-blue-500 hover:bg-blue-50',
         )}
       >
         B
@@ -46,11 +45,11 @@ const TypographyControls = ({
       <button
         onClick={() => onItalicChange(!isItalic)}
         className={cn(
-          COMMON_CLASSES.TYPOGRAPHY_BUTTON.BASE,
+          'text-4xl transition-all px-4 py-2',
           'italic px-5',
           isItalic
-            ? COMMON_CLASSES.TYPOGRAPHY_BUTTON.ACTIVE
-            : COMMON_CLASSES.TYPOGRAPHY_BUTTON.INACTIVE,
+            ? 'text-blue-600 bg-blue-50'
+            : 'text-zinc-400 hover:text-blue-500 hover:bg-blue-50',
         )}
       >
         I
@@ -59,11 +58,11 @@ const TypographyControls = ({
       <button
         onClick={() => onUnderlineChange(!isUnderline)}
         className={cn(
-          COMMON_CLASSES.TYPOGRAPHY_BUTTON.BASE,
+          'text-4xl transition-all px-4 py-2',
           'underline',
           isUnderline
-            ? COMMON_CLASSES.TYPOGRAPHY_BUTTON.ACTIVE
-            : COMMON_CLASSES.TYPOGRAPHY_BUTTON.INACTIVE,
+            ? 'text-blue-600 bg-blue-50'
+            : 'text-zinc-400 hover:text-blue-500 hover:bg-blue-50',
         )}
       >
         U

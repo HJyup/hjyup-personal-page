@@ -3,10 +3,23 @@
 import { Info } from 'lucide-react';
 
 import { PageLayout } from '@/components/ui';
-import {
-  EXPERIENCE_BOX_POSITIONS,
-  EXPERIENCE_LAYOUT_CONFIG,
-} from '@/const/layout-configs';
+
+const LAYOUT_CONFIG = {
+  verticalLines: [
+    { position: 2, color: 'bg-zinc-800' },
+    { position: 6, color: 'bg-zinc-800' },
+  ],
+  horizontalLines: [{ position: 6, color: 'bg-zinc-800' }],
+};
+
+const EXPERIENCE_BOX_POSITIONS = {
+  redBox: 'col-start-2 row-start-5 col-span-2',
+  compSocBox: 'col-start-4 row-start-5',
+  solidgateBox: 'col-start-5 row-start-5',
+  emptyBox: 'col-start-5 row-start-3 row-span-2',
+  universityBox: 'col-start-3 row-start-4 col-span-2',
+  hackathonBox: 'col-start-2 row-start-4',
+};
 
 import {
   CompSocBox,
@@ -26,8 +39,8 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
   return (
     <PageLayout
       className={className}
-      verticalLines={EXPERIENCE_LAYOUT_CONFIG.verticalLines}
-      horizontalLines={EXPERIENCE_LAYOUT_CONFIG.horizontalLines}
+      verticalLines={LAYOUT_CONFIG.verticalLines}
+      horizontalLines={LAYOUT_CONFIG.horizontalLines}
     >
       <div className="col-start-2 row-start-1 col-span-4 flex justify-around items-center gap-6 m-10 pt-20">
         <p className="text-white font-bold text-6xl">More Than Just Projects</p>
@@ -37,8 +50,6 @@ const ExperienceSection = ({ className }: ExperienceSectionProps) => {
           the highlights.
         </p>
       </div>
-
-      <div className="row-start-1 col-start-1 row-span-2 col-span-4 m-4" />
 
       <ProjectShareBox className={EXPERIENCE_BOX_POSITIONS.redBox} />
 

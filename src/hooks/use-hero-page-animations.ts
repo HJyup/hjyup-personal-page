@@ -2,8 +2,6 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
-import { CSS_CLASSES } from '@/const/css-classes';
-
 gsap.registerPlugin(useGSAP);
 
 const useHeroPageAnimations = () => {
@@ -13,40 +11,34 @@ const useHeroPageAnimations = () => {
     () => {
       if (!containerRef.current) return;
 
-      gsap.set(
-        [`.${CSS_CLASSES.VERTICAL_LINE}`, `.${CSS_CLASSES.HORIZONTAL_LINE}`],
-        {
-          backgroundColor: '#60a5fa',
-          scaleX: 0,
-          scaleY: 0,
-        },
-      );
+      gsap.set(['.vertical-line', '.horizontal-line'], {
+        backgroundColor: '#60a5fa',
+        scaleX: 0,
+        scaleY: 0,
+      });
 
-      gsap.set(`.${CSS_CLASSES.ANIMATED_CURSOR}`, {
+      gsap.set('.animated-cursor', {
         opacity: 0,
         scale: 0.8,
         x: -100,
         y: -100,
       });
 
-      gsap.set(`.${CSS_CLASSES.ANIMATED_CURSOR} div div`, {
+      gsap.set('.animated-cursor div div', {
         opacity: 0,
         y: -10,
         scale: 0.8,
       });
 
-      gsap.set(
-        [`.${CSS_CLASSES.YELLOW_BLOCK}`, `.${CSS_CLASSES.FORMAT_BUTTONS}`],
-        {
-          opacity: 0,
-        },
-      );
-
-      gsap.set(`.${CSS_CLASSES.ASK_AI_BTN}`, {
+      gsap.set(['.yellow-block', '.format-buttons'], {
         opacity: 0,
       });
 
-      gsap.set(`.${CSS_CLASSES.STACKED_CARDS}`, {
+      gsap.set('.ask-ai-btn', {
+        opacity: 0,
+      });
+
+      gsap.set('.stacked-cards', {
         opacity: 0,
         y: 20,
       });
@@ -54,7 +46,7 @@ const useHeroPageAnimations = () => {
       const tl = gsap.timeline();
 
       tl.fromTo(
-        `.${CSS_CLASSES.HORIZONTAL_LINE}`,
+        '.horizontal-line',
         {
           scaleX: 0,
           scaleY: 5,
@@ -69,7 +61,7 @@ const useHeroPageAnimations = () => {
         },
       )
         .fromTo(
-          [`.${CSS_CLASSES.VERTICAL_LINE}`],
+          ['.vertical-line'],
           {
             scaleY: 0,
             scaleX: 5,
@@ -85,7 +77,7 @@ const useHeroPageAnimations = () => {
           '<',
         )
         .to(
-          [`.${CSS_CLASSES.VERTICAL_LINE}`, `.${CSS_CLASSES.HORIZONTAL_LINE}`],
+          ['.vertical-line', '.horizontal-line'],
           {
             backgroundColor: '#71717a',
             duration: 0.5,
@@ -94,7 +86,7 @@ const useHeroPageAnimations = () => {
           '-=0.8',
         )
         .to(
-          `.${CSS_CLASSES.ANIMATED_CURSOR}`,
+          '.animated-cursor',
           {
             opacity: 1,
             scale: 1,
@@ -106,7 +98,7 @@ const useHeroPageAnimations = () => {
           '-=1.1',
         )
         .to(
-          `.${CSS_CLASSES.ANIMATED_CURSOR} div div`,
+          '.animated-cursor div div',
           {
             opacity: 1,
             y: 0,
@@ -116,7 +108,7 @@ const useHeroPageAnimations = () => {
           '-=0.5',
         )
         .to(
-          `.${CSS_CLASSES.YELLOW_BLOCK}`,
+          '.yellow-block',
           {
             opacity: 1,
             y: 0,
@@ -125,7 +117,7 @@ const useHeroPageAnimations = () => {
           '-=0.9',
         )
         .to(
-          [`.${CSS_CLASSES.FORMAT_BUTTONS}`],
+          ['.format-buttons'],
           {
             opacity: 1,
             y: 0,
@@ -135,7 +127,7 @@ const useHeroPageAnimations = () => {
           '-=0.9',
         )
         .to(
-          [`.${CSS_CLASSES.ASK_AI_BTN}`],
+          ['.ask-ai-btn'],
           {
             opacity: 1,
             duration: 0.3,
@@ -143,7 +135,7 @@ const useHeroPageAnimations = () => {
           '-=0.9',
         )
         .to(
-          `.${CSS_CLASSES.STACKED_CARDS}`,
+          '.stacked-cards',
           {
             opacity: 1,
             y: 0,
@@ -153,45 +145,28 @@ const useHeroPageAnimations = () => {
           '-=0.5',
         );
 
-      const askAiBtn = containerRef.current.querySelector(
-        `.${CSS_CLASSES.ASK_AI_BTN}`,
-      );
+      const askAiBtn = containerRef.current.querySelector('.ask-ai-btn');
       if (askAiBtn) {
         const handleMouseEnter = () => {
-          gsap.to(
-            [
-              askAiBtn,
-              askAiBtn.querySelector(`.${CSS_CLASSES.LUCIDE_SPARKLES}`),
-            ],
-            {
-              duration: 0.1,
-              ease: 'power2.out',
-              onStart: () => {
-                gsap.to(
-                  askAiBtn.querySelector(`.${CSS_CLASSES.LUCIDE_SPARKLES}`),
-                  {
-                    rotation: 15,
-                    duration: 0.2,
-                    ease: 'power2.out',
-                  },
-                );
-              },
+          gsap.to([askAiBtn, askAiBtn.querySelector('.lucide-sparkles')], {
+            duration: 0.1,
+            ease: 'power2.out',
+            onStart: () => {
+              gsap.to(askAiBtn.querySelector('.lucide-sparkles'), {
+                rotation: 15,
+                duration: 0.2,
+                ease: 'power2.out',
+              });
             },
-          );
+          });
         };
 
         const handleMouseLeave = () => {
-          gsap.to(
-            [
-              askAiBtn,
-              askAiBtn.querySelector(`.${CSS_CLASSES.LUCIDE_SPARKLES}`),
-            ],
-            {
-              rotation: 0,
-              duration: 0.2,
-              ease: 'power2.out',
-            },
-          );
+          gsap.to([askAiBtn, askAiBtn.querySelector('.lucide-sparkles')], {
+            rotation: 0,
+            duration: 0.2,
+            ease: 'power2.out',
+          });
         };
 
         askAiBtn.addEventListener('mouseenter', handleMouseEnter);
