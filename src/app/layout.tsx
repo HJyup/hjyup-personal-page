@@ -1,17 +1,15 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
-import { Fauna_One } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-import { NavigationBar } from '@/components/module';
-import Footer from '@/components/module/footer';
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
 
-const faunaOne = Fauna_One({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
 });
 
@@ -38,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${faunaOne.className} flex flex-col items-center bg-background lg:justify-center`}
+        className={`${montserrat.className} flex flex-col items-center bg-zinc-50 lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"
@@ -46,11 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavigationBar />
-
           {children}
-
-          <Footer />
         </ThemeProvider>
         <Analytics />
       </body>
