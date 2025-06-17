@@ -5,75 +5,79 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <div className="text-black flex flex-col pt-16 sm:pt-20 md:pt-28 justify-center px-4 sm:px-6 lg:px-8">
+    <div className="text-black flex flex-col pt-20 sm:pt-24 md:pt-32 justify-center px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col w-full items-center h-full">
         <div className="w-full max-w-6xl">
-          <div className="text-muted-foreground text-lg sm:text-xl">
-            Danyil Butov
-          </div>
-          <div className="text-lg sm:text-xl">Software Developer</div>
-          <div className="text-muted-foreground text-xs sm:text-sm mt-8 sm:mt-12">
-            About
-          </div>
-          <div className="text-base sm:text-lg lg:text-xl mt-3 xl:w-2/3 lg:w-3/4 md:w-5/6 w-full leading-relaxed">
-            Computer Science & AI student at the
-            University&nbsp;of&nbsp;Edinburgh and a software developer at
-            Solidgate. I love crafting solutions to real-world problems. It's my
-            third iteration of my portfolio.
-            Built&nbsp;with&nbsp;care&nbsp;and&nbsp;a&nbsp;touch&nbsp;of&nbsp;fun.
+          <div id="about" className="scroll-mt-20">
+            <div className="text-muted-foreground text-lg sm:text-xl">
+              Danyil Butov
+            </div>
+            <div className="text-lg sm:text-xl">Software Developer</div>
+            <div className="text-muted-foreground text-xs sm:text-sm mt-8 sm:mt-12">
+              About
+            </div>
+            <div className="text-base sm:text-lg lg:text-xl mt-3 xl:w-2/3 lg:w-3/4 md:w-5/6 w-full leading-relaxed">
+              Computer Science & AI student at the
+              University&nbsp;of&nbsp;Edinburgh and a software developer at
+              Solidgate. I love crafting solutions to real-world problems. It's
+              my third iteration of my portfolio.
+              Built&nbsp;with&nbsp;care&nbsp;and&nbsp;a&nbsp;touch&nbsp;of&nbsp;fun.
+            </div>
           </div>
           <div className="flex flex-col lg:flex-row lg:justify-between w-full gap-6 lg:gap-8">
             <div className="w-full lg:w-1/2">
-              <div className="text-muted-foreground text-xs sm:text-sm mt-8 sm:mt-12">
-                Experience
-              </div>
-              <div className="flex flex-col gap-3 mt-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                    <div className="bg-blue-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
-                    <a
-                      href="https://solidgate.com"
-                      target="_blank"
-                      className="hover:underline text-sm sm:text-base truncate"
-                      rel="noreferrer"
-                    >
-                      Solidgate
-                    </a>
-                  </div>
-                  <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
-                    2023 - Present
-                  </div>
+              <div id="experience" className="scroll-mt-20">
+                <div className="text-muted-foreground text-xs sm:text-sm mt-8 sm:mt-12">
+                  Experience
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                    <div className="bg-violet-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
-                    <a
-                      href="https://projectshare.comp-soc.com/"
-                      target="_blank"
-                      className="hover:underline text-sm sm:text-base truncate"
-                      rel="noreferrer"
-                    >
-                      Vice President of Project Share
-                    </a>
+                <div className="flex flex-col gap-3 mt-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                      <div className="bg-blue-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
+                      <a
+                        href="https://solidgate.com"
+                        target="_blank"
+                        className="hover:underline text-sm sm:text-base truncate"
+                        rel="noreferrer"
+                      >
+                        Solidgate
+                      </a>
+                    </div>
+                    <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
+                      2023 - Present
+                    </div>
                   </div>
-                  <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
-                    2025 - Present
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                      <div className="bg-violet-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
+                      <a
+                        href="https://projectshare.comp-soc.com/"
+                        target="_blank"
+                        className="hover:underline text-sm sm:text-base truncate"
+                        rel="noreferrer"
+                      >
+                        Vice President of Project Share
+                      </a>
+                    </div>
+                    <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
+                      2025 - Present
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                    <div className="bg-red-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
-                    <a
-                      href="https://comp-soc.com/"
-                      target="_blank"
-                      className="hover:underline text-sm sm:text-base truncate"
-                      rel="noreferrer"
-                    >
-                      Committee Member of Comp Soc
-                    </a>
-                  </div>
-                  <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
-                    2025 - Present
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                      <div className="bg-red-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
+                      <a
+                        href="https://comp-soc.com/"
+                        target="_blank"
+                        className="hover:underline text-sm sm:text-base truncate"
+                        rel="noreferrer"
+                      >
+                        Committee Member of Comp Soc
+                      </a>
+                    </div>
+                    <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
+                      2025 - Present
+                    </div>
                   </div>
                 </div>
               </div>
@@ -94,11 +98,11 @@ export default function Page() {
                     2025 - 07 - 15
                   </div>
                 </div>
-                <div className="flex items-center justify-between hover:border-1 hover:border-zinc-200">
+                <div className="flex items-center justify-between select-none">
                   <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                     <div className="bg-violet-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
                     <span className="blur-sm text-sm sm:text-base truncate">
-                      My restrospective on Kowalski design course
+                      Somevery very important stuff
                     </span>
                   </div>
                   <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
@@ -109,7 +113,7 @@ export default function Page() {
                   <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                     <div className="bg-red-400 w-1.5 h-1.5 rounded-full flex-shrink-0" />
                     <span className="blur-sm text-sm sm:text-base truncate">
-                      Monte-carlo stuff (i know u're watching)
+                      The other stuff
                     </span>
                   </div>
                   <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
@@ -121,7 +125,10 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center w-full my-8 sm:my-12 lg:my-16">
+      <div
+        id="projects"
+        className="scroll-mt-20 flex flex-col items-center w-full my-8 sm:my-12 lg:my-16"
+      >
         <div className="columns-1 sm:columns-2 gap-3 w-full space-y-3">
           <div className="bg-gray-100 h-[40vh] sm:h-[50vh] rounded-2xl sm:rounded-3xl break-inside-avoid"></div>
           <div className="bg-gray-100 h-[50vh] sm:h-[50vh] rounded-2xl sm:rounded-3xl break-inside-avoid flex justify-end items-end">
