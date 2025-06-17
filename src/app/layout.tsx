@@ -1,18 +1,10 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
-import { Montserrat } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-});
-
 export const metadata: Metadata = {
   title: 'Danyil Butov',
   description: 'Personal website of Danyil Butov',
@@ -36,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.className} flex flex-col items-center bg-zinc-50 lg:justify-center`}
+        className={`flex flex-col items-center bg-zinc-50 lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"
