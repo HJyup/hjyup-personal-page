@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
 
+import { Navbar } from '@/components/ui';
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
@@ -36,6 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
         <Analytics />
