@@ -6,7 +6,11 @@ interface GridLayoutProps {
   className?: string;
 }
 
-export function GridLayout({ children, id = 'projects', className = '' }: GridLayoutProps) {
+export function GridLayout({
+  children,
+  id = 'projects',
+  className = '',
+}: GridLayoutProps) {
   return (
     <div
       id={id}
@@ -17,4 +21,4 @@ export function GridLayout({ children, id = 'projects', className = '' }: GridLa
       </div>
     </div>
   );
-} 
+}
