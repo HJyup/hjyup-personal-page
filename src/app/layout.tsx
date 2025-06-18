@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
 
-import { Navbar } from '@/components/ui';
 import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`flex flex-col items-center bg-zinc-50 lg:justify-center`}
+        className={`flex flex-col items-center bg-background lg:justify-center`}
       >
         <ThemeProvider
           attribute="class"
@@ -37,7 +36,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
           {children}
         </ThemeProvider>
         <Analytics />
