@@ -5,7 +5,7 @@
 /* Removing `@layer base` fixes dark mode */
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Snow white */
+    --background: 0 0% 98%; /* Snow white */
     --foreground: 240 10% 3.9%;
 
     --muted: 240 4.8% 95.9%;
