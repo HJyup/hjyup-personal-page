@@ -107,35 +107,14 @@
   }
 
   ::selection {
-    background: rgba(147, 197, 253, 0.3); /* blue-300 with opacity */
-    color: rgb(30, 58, 138); /* blue-900 */
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1);
-  }
-
-  ::-moz-selection {
     background: rgba(147, 197, 253, 0.3);
     color: rgb(30, 58, 138);
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
   }
-}
 
-/* Glassmorphism navbar animations */
-@keyframes liquid-glow {
-  0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.3;
-  }
-  33% {
-    transform: scale(1.05) rotate(120deg);
-    opacity: 0.5;
-  }
-  66% {
-    transform: scale(0.95) rotate(240deg);
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(1) rotate(360deg);
-    opacity: 0.3;
+  .dark ::selection {
+    background: rgba(59, 130, 246, 0.4);
+    color: rgb(191, 219, 254);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 }
