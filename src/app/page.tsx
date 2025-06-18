@@ -1,6 +1,15 @@
 'use client';
 
 import {
+  CompassIcon,
+  FileIcon,
+  PencilIcon,
+  ProjectorIcon,
+  SendIcon,
+  Settings,
+} from 'lucide-react';
+
+import {
   About,
   Blog,
   Experience,
@@ -25,9 +34,32 @@ export default function Page() {
       <GridLayout>
         <NotesCard />
         <GrayPlaceholderCard />
-        <GrayPlaceholderCard />
         <MusicCard />
-        <GrayPlaceholderCard />
+        <div className="h-[23vh] rounded-3xl break-inside-avoid bg-gray-100 dark:bg-zinc-800 backdrop-blur-xl">
+          <div className="flex flex-col p-5 h-full bg-gray-100 dark:bg-zinc-800 rounded-3xl justify-center">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className=" text-zinc-500 dark:text-zinc-300 bg-gray-200 dark:bg-zinc-900 w-full p-3 rounded-2xl flex gap-2 items-center text-base sm:text-lg px-5">
+                <FileIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                <span className="truncate">Projects library</span>
+              </h3>
+            </div>
+
+            <div className="flex gap-2 flex-1">
+              <div className="flex-1 bg-gradient-to-br bg-gray-200 h-24 dark:bg-zinc-900 rounded-2xl p-4 flex flex-col items-center justify-center  hover:scale-[1.02] transition-all duration-200 cursor-pointer group">
+                <SendIcon className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 text-zinc-500 dark:text-zinc-300" />
+              </div>
+              <div className="flex-1 bg-gradient-to-br bg-gray-200 h-24 dark:bg-zinc-900 rounded-2xl p-4 flex flex-col items-center justify-center  hover:scale-[1.02] transition-all duration-200 cursor-pointer group">
+                <PencilIcon className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 text-zinc-500 dark:text-zinc-300" />
+              </div>
+              <div className="flex-1 bg-gradient-to-br bg-gray-200 h-24 dark:bg-zinc-900 rounded-2xl p-4 flex flex-col items-center justify-center  hover:scale-[1.02] transition-all duration-200 cursor-pointer group">
+                <CompassIcon className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 text-zinc-500 dark:text-zinc-300" />
+              </div>
+              <div className="flex-1 bg-gradient-to-br bg-gray-200 h-24 dark:bg-zinc-900 rounded-2xl p-4 flex flex-col items-center justify-center  hover:scale-[1.02] transition-all duration-200 cursor-pointer group">
+                <Settings className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 text-zinc-500 dark:text-zinc-300" />
+              </div>
+            </div>
+          </div>
+        </div>
         <GrayPlaceholderCard />
       </GridLayout>
     </div>

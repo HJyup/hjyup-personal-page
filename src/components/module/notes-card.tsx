@@ -56,7 +56,7 @@ export function NotesCard() {
                 ))}
               </div>
               {index < notes.length - 1 && (
-                <div className="border-b border-gray-200 w-full mt-0.5" />
+                <div className="border-b border-zinc-200 dark:border-zinc-700 w-full mt-0.5" />
               )}
             </div>
           ))}
