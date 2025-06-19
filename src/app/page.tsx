@@ -4,12 +4,11 @@ import {
   About,
   Blog,
   Experience,
-  GithubCard,
-  LinkedinCard,
   MusicCard,
   NotesCard,
   PhotoCard,
   ProjectCard,
+  SocialLinksCard,
 } from '@/components/module';
 import { GrayPlaceholderCard, GridLayout } from '@/components/ui';
 
@@ -61,9 +60,8 @@ export default function Page() {
         <MusicCard />
         <div className="flex gap-3">
           <PhotoCard photos={photos} />
-          <div className="flex flex-col gap-3 w-1/2 bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl p-2 h-[23vh]">
-            <GithubCard />
-            <LinkedinCard />
+          <div className="w-1/2 bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl p-3 h-[23vh]">
+            <SocialLinksCard />
           </div>
         </div>
         <GrayPlaceholderCard />
