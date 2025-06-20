@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { WIDGET_GRID_STYLES, WidgetComponentType } from '@/const/widgets';
+import { WidgetComponentType } from '@/const/widgets';
 import { createWidgetComponent } from '@/lib/widget-factory';
 import {
   type DropTarget,
@@ -78,12 +78,12 @@ export function WidgetGrid({ photos }: WidgetGridProps) {
   const columnsArray = getColumnEntries(widgetsByColumn);
 
   return (
-    <div className={WIDGET_GRID_STYLES.container}>
-      <div className={WIDGET_GRID_STYLES.columnsWrapper}>
+    <div className="scroll-mt-20 flex flex-col items-center w-full my-8 sm:my-12 lg:my-16">
+      <div className="flex flex-col sm:flex-row gap-3 w-full">
         {columnsArray.map(([columnIndex, columnWidgets]) => (
           <div
             key={columnIndex}
-            className={`${WIDGET_GRID_STYLES.column} relative`}
+            className={`flex flex-col gap-3 w-full sm:w-1/2 relative`}
             onDragOver={
               isEditMode
                 ? e => {
@@ -141,7 +141,9 @@ export function WidgetGrid({ photos }: WidgetGridProps) {
                     dropTarget,
                     parseInt(columnIndex),
                     index,
-                  ) && <div className={WIDGET_GRID_STYLES.dropIndicator} />}
+                  ) && (
+                    <div className="absolute -top-1 left-0 right-0 h-0.5 bg-blue-400 rounded-full z-40" />
+                  )}
 
                 {createWidgetComponent(
                   widget.component as WidgetComponentType,
