@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { FileInput } from 'lucide-react';
 import Image from 'next/image';
 
 interface Photo {
@@ -99,7 +100,7 @@ export function PhotoCard({ photos, className = '' }: PhotoCardProps) {
               // @ts-expect-error - Framer Motion types are not compatible with React 19
               className="dark:text-zinc-300 text-sm font-medium bg-white/20 text-zinc-100 dark:bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-full"
             >
-              Click for another
+              <FileInput className="w-4 h-4" />
             </motion.div>
           </motion.div>
         </motion.div>
