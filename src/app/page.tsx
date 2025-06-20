@@ -1,16 +1,8 @@
 'use client';
 
-import {
-  About,
-  Blog,
-  Experience,
-  MusicCard,
-  NotesCard,
-  PhotoCard,
-  ProjectCard,
-  SocialLinksCard,
-} from '@/components/module';
-import { GrayPlaceholderCard, GridLayout } from '@/components/ui';
+import { About, Blog, Experience } from '@/components/module';
+import { EditToggle, WidgetGrid } from '@/components/ui';
+import { WidgetEditProvider } from '@/provider/widget-edit-provider';
 
 const photos = [
   {
@@ -42,31 +34,22 @@ const photos = [
 
 export default function Page() {
   return (
-    <div className="text-black flex flex-col pt-16 sm:pt-20 md:pt-24 justify-center px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col w-full items-center h-full">
-        <div className="w-full max-w-6xl">
-          <About />
-          <div className="flex flex-col lg:flex-row lg:justify-between w-full gap-6 lg:gap-8">
-            <Experience />
-            <Blog />
+    <WidgetEditProvider>
+      <div className="text-black flex flex-col pt-16 sm:pt-20 md:pt-24 justify-center px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col w-full items-center h-full">
+          <div className="w-full max-w-6xl">
+            <About />
+            <div className="flex flex-col lg:flex-row lg:justify-between w-full gap-6 lg:gap-8">
+              <Experience />
+              <Blog />
+            </div>
           </div>
         </div>
-      </div>
 
-      <GridLayout>
-        <NotesCard />
-        <ProjectCard />
-        <GrayPlaceholderCard />
-        <MusicCard />
-        <div className="flex gap-3">
-          <PhotoCard photos={photos} />
-          <div className="w-1/2 bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl p-3 h-[23vh]">
-            <SocialLinksCard />
-          </div>
-        </div>
-        <GrayPlaceholderCard />
-        <GrayPlaceholderCard />
-      </GridLayout>
-    </div>
+        <WidgetGrid photos={photos} />
+
+        <EditToggle />
+      </div>
+    </WidgetEditProvider>
   );
 }
