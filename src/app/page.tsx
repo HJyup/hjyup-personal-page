@@ -1,36 +1,8 @@
 'use client';
 
 import { About, Blog, Experience } from '@/components/module';
-import { EditToggle, WidgetGrid } from '@/components/ui';
+import { EditToggle, WidgetGrid } from '@/components/module/widgets';
 import { WidgetEditProvider } from '@/provider/widget-edit-provider';
-
-const photos = [
-  {
-    src: '/photo_library/edinburgh_1.jpeg',
-    alt: 'Edinburgh',
-    date: 'Jun 2025',
-  },
-  {
-    src: '/photo_library/lnd_1.jpeg',
-    alt: 'LND',
-    date: 'Mar 2025',
-  },
-  {
-    src: '/photo_library/paris_1.jpeg',
-    alt: 'Paris',
-    date: 'May 2025',
-  },
-  {
-    src: '/photo_library/paris_2.jpeg',
-    alt: 'Paris',
-    date: 'May 2025',
-  },
-  {
-    src: '/photo_library/paris_3.jpeg',
-    alt: 'Paris',
-    date: 'May 2025',
-  },
-];
 
 export default function Page() {
   return (
@@ -46,7 +18,7 @@ export default function Page() {
           </div>
         </div>
 
-        <WidgetGrid photos={photos} />
+        <WidgetGrid />
 
         <EditToggle />
       </div>

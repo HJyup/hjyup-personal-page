@@ -16,12 +16,12 @@ export function EditToggle() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mb-10">
+    <div className="hidden flex-col items-center justify-center mb-10 xl:flex">
       <button
         onClick={handleClick}
         className={`
-          px-5 py-1.5 w-fit rounded-2xl sm:rounded-3xl break-inside-avoid 
-          flex items-center justify-center transition-all duration-300
+          flex px-5 py-1.5 w-fit rounded-2xl sm:rounded-3xl break-inside-avoid 
+          items-center justify-center transition-all duration-300
           ${
             isEditMode
               ? 'bg-blue-500 hover:bg-blue-600 text-white'
