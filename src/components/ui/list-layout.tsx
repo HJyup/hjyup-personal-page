@@ -35,9 +35,7 @@ export function ListLayout({ title, items, className = '' }: ListLayoutProps) {
               {item.href ? (
                 <a
                   href={item.href}
-                  target="_blank"
                   className="hover:underline text-sm sm:text-base truncate dark:text-zinc-300"
-                  rel="noreferrer"
                 >
                   {item.title}
                 </a>
