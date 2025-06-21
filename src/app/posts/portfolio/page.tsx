@@ -11,7 +11,7 @@ const PortfolioPage = () => {
     <div className="text-black flex flex-col pt-16 sm:pt-20 md:pt-24 justify-center px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col w-full items-center h-full">
         <div className="w-full max-w-6xl">
-          <div className="text-sm text-zinc-600 dark:text-zinc-400 font-light flex items-center gap-2 my-5">
+          <div className="text-sm text-zinc-600 dark:text-zinc-400 font-light flex items-center gap-2 mb-5">
             <Link href="/" className="flex items-center gap-2 hover:underline">
               <ArrowLeftIcon className="w-4 h-4" />
               Back to Home
@@ -20,6 +20,7 @@ const PortfolioPage = () => {
           <div className="mb-8 sm:mb-12 lg:mb-16">
             <Image
               src="/posts/portfolio_dark.png"
+              draggable={false}
               className="rounded-2xl shadow-sm w-full hidden dark:block"
               alt="Portfolio showcase"
               width={1000}
@@ -28,6 +29,7 @@ const PortfolioPage = () => {
             />
             <Image
               src="/posts/portfolio_light.png"
+              draggable={false}
               className="rounded-2xl shadow-sm w-full block dark:hidden"
               alt="Portfolio showcase"
               width={1000}
@@ -38,10 +40,10 @@ const PortfolioPage = () => {
 
           <div className="space-y-12 sm:space-y-16 lg:space-y-20">
             <section className="space-y-6 sm:space-y-8">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-zinc-900 dark:text-white">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl text-zinc-900 dark:text-white">
                 About this website
               </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-zinc-600 dark:text-zinc-400 font-light xl:w-2/3 lg:w-3/4 md:w-5/6 w-full">
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-zinc-600 dark:text-zinc-400 xl:w-2/3 lg:w-3/4 md:w-5/6 w-full">
                 A current approach to portfolio design, balancing minimalism
                 with personality through widget-based interactions.
               </p>
@@ -53,7 +55,7 @@ const PortfolioPage = () => {
               </h2>
               <div className="space-y-8 sm:space-y-10">
                 <div className="flex gap-4 sm:gap-6 lg:gap-8">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-light text-zinc-400 dark:text-zinc-600 mt-1 flex-shrink-0">
+                  <span className="text-xl sm:text-2xl lg:text-3xl text-zinc-300 dark:text-zinc-700 mt-1 flex-shrink-0">
                     01
                   </span>
                   <div className="flex-1 space-y-3 sm:space-y-4 min-w-0">
@@ -69,7 +71,7 @@ const PortfolioPage = () => {
                 </div>
 
                 <div className="flex gap-4 sm:gap-6 lg:gap-8">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-light text-zinc-400 dark:text-zinc-600 mt-1 flex-shrink-0">
+                  <span className="text-xl sm:text-2xl lg:text-3xl text-zinc-300 dark:text-zinc-700 mt-1 flex-shrink-0">
                     02
                   </span>
                   <div className="flex-1 space-y-3 sm:space-y-4 min-w-0">
@@ -218,7 +220,7 @@ const PortfolioPage = () => {
               <h2 className="text-lg sm:text-xl lg:text-2xl font-medium text-zinc-900 dark:text-white">
                 What's next
               </h2>
-              <p className="text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
+              <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-500">
                 I'm still exploring ideas around how minimalistic design can
                 coexist with rich, layered components — and how to express
                 hierarchy between modules without breaking visual simplicity.
