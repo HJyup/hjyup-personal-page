@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircleIcon, FolderIcon } from 'lucide-react';
+import { FolderIcon } from 'lucide-react';
 
 import GithubLogo from '@/components/logo/github-logo';
 
