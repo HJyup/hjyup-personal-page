@@ -32,8 +32,8 @@ const notes: Note[] = [
 
 export function NotesCard() {
   return (
-    <div className="bg-gray-100 dark:bg-zinc-800 h-[50vh] sm:h-[50vh] rounded-2xl sm:rounded-3xl break-inside-avoid flex justify-end items-end">
-      <div className="w-5/6 bg-white dark:bg-zinc-900 rounded-t-2xl rounded-br-2xl sm:rounded-t-3xl sm:rounded-br-3xl">
+    <div className="bg-gray-100 dark:bg-zinc-800 h-[50vh] sm:h-[50vh] rounded-2xl sm:rounded-3xl break-inside-avoid flex justify-center items-end">
+      <div className="w-5/6 bg-white dark:bg-zinc-900 rounded-t-2xl sm:rounded-t-3xl">
         <div className="w-full h-[5vh] sm:h-[6vh] bg-gradient-to-t from-[#fabd00] to-[#fed202] dark:from-[#DAA500] dark:to-[#fabd00] rounded-t-2xl sm:rounded-t-3xl flex items-center text-white text-base sm:text-lg gap-2 sm:gap-3 px-4 sm:px-6 lg:px-8">
           <FolderClosed className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
           <span className="truncate">Notes</span>

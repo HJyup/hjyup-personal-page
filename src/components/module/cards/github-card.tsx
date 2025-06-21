@@ -14,8 +14,8 @@ export function GithubCard({ className = '' }: GithubCardProps) {
     >
       <div className="flex items-center justify-between w-full">
         <div className="text-zinc-400 text-md flex items-center gap-2">
-          <FolderIcon className="w-5 h-5 text-green-500" />
-          <span className="text-white font-bold">8</span> repositories
+          <FolderIcon className="w-5 h-5 text-white-500" fill="currentColor" />
+          <span className="text-white font-bold">3</span> pinned repositories
         </div>
         <GithubLogo className="h-12 w-12 text-white" />
       </div>

@@ -28,9 +28,15 @@ const widgetMap = {
   'music-card': createEditableWidget(MusicCard),
   'github-card': createEditableWidget(GithubCard),
   'projects-logo-card': createEditableWidget(ProjectsLogoCard),
-  'photo-social-container': (id: string) => (
+  'photo-container': createEditableWidget(PhotoCard),
+  'contact-card': (id: string) => (
     <EditableWidget id={id}>
-      <PhotoCard />
+      <div className="flex flex-col gap-2">
+        <div className="h-[25vh] flex items-center justify-center gap-3">
+          <div className="w-full h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl " />
+          <div className="w-full h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl" />
+        </div>
+      </div>
     </EditableWidget>
   ),
 } as const satisfies Record<WidgetComponentType, WidgetRenderer>;
