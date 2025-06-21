@@ -49,7 +49,7 @@ export function ProjectsLogoCard({ className = '' }: ProjectsLogoCardProps) {
           viewBox="0 0 134 90"
           fill="white"
           xmlns="http://www.w3.org/2000/svg"
-          className={`w-[60%] h-[60%] transition-colors duration-300 text-zinc-800 dark:text-white ${!isEditMode ? 'group-hover:text-violet-400' : ''}`}
+          className={`w-[60%] h-[60%] transition-colors duration-300 text-zinc-800 dark:text-white ${!isEditMode ? 'group-hover:text-violet-600' : ''}`}
         >
           <path
             d="M26.8003 8.93335H125.067V71.4667H116.134V80.4H26.8003V62.5333H17.8669V44.6667H8.93359V35.7333H26.8003V8.93335Z"
