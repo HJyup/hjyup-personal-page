@@ -1,42 +1,17 @@
 'use client';
 
-import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 
 import { DEFAULT_WIDGETS, Widget } from '@/const/widgets';
 
-export type { Widget };
+import { WidgetEditContext } from './context';
+import {
+  moveWidgetInList,
+  removeWidgetFromList,
+  reorderWidgetsInColumnList,
+} from './widget-operations';
 
-interface WidgetEditContextType {
-  isEditMode: boolean;
-  draggedWidgetId: string | null;
-  widgets: Widget[];
-  setEditMode: (isEdit: boolean) => void;
-  setDraggedWidget: (id: string | null) => void;
-  removeWidget: (id: string) => void;
-  moveWidget: (widgetId: string, newColumn: number, newOrder: number) => void;
-  reorderWidgetsInColumn: (column: number, newOrder: Widget[]) => void;
-  saveWidgets: () => void;
-}
-
-const WidgetEditContext = createContext<WidgetEditContextType | undefined>(
-  undefined,
-);
-
-export function useWidgetEdit() {
-  const context = useContext(WidgetEditContext);
-  if (!context) {
-    throw new Error('useWidgetEdit must be used within a WidgetEditProvider');
-  }
-  return context;
-}
-
-interface WidgetEditProviderProps {
+export interface WidgetEditProviderProps {
   children: ReactNode;
   initialWidgets?: Widget[];
 }
@@ -61,50 +36,19 @@ export function WidgetEditProvider({
   }, []);
 
   const removeWidget = useCallback((id: string) => {
-    setWidgets(prev => prev.filter(widget => widget.id !== id));
+    setWidgets(prev => removeWidgetFromList(prev, id));
   }, []);
 
   const moveWidget = useCallback(
     (widgetId: string, newColumn: number, newOrder: number) => {
-      setWidgets(prev => {
-        const updatedWidgets = prev.map(widget => {
-          if (widget.id === widgetId) {
-            return { ...widget, column: newColumn, order: newOrder };
-          }
-          return widget;
-        });
-
-        const targetColumnWidgets = updatedWidgets
-          .filter(w => w.column === newColumn && w.id !== widgetId)
-          .sort((a, b) => a.order - b.order);
-
-        targetColumnWidgets.forEach((widget, index) => {
-          if (index >= newOrder) {
-            const widgetIndex = updatedWidgets.findIndex(
-              w => w.id === widget.id,
-            );
-            updatedWidgets[widgetIndex] = { ...widget, order: index + 1 };
-          }
-        });
-
-        return updatedWidgets;
-      });
+      setWidgets(prev => moveWidgetInList(prev, widgetId, newColumn, newOrder));
     },
     [],
   );
 
   const reorderWidgetsInColumn = useCallback(
     (column: number, newOrder: Widget[]) => {
-      setWidgets(prev => {
-        const otherWidgets = prev.filter(w => w.column !== column);
-        const reorderedWidgets = newOrder.map((widget, index) => ({
-          ...widget,
-          order: index,
-          column,
-        }));
-
-        return [...otherWidgets, ...reorderedWidgets];
-      });
+      setWidgets(prev => reorderWidgetsInColumnList(prev, column, newOrder));
     },
     [],
   );
@@ -114,7 +58,7 @@ export function WidgetEditProvider({
     setEditMode(false);
   }, [setEditMode]);
 
-  const value: WidgetEditContextType = {
+  const value = {
     isEditMode,
     draggedWidgetId,
     widgets,

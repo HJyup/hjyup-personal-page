@@ -1,7 +1,7 @@
 import React from 'react';
 import { FolderIcon } from 'lucide-react';
 
-import GithubLogo from '@/components/logo/github-logo';
+import { Github } from '@/components/ui/icons';
 
 interface GithubCardProps {
   className?: string;
@@ -17,7 +17,7 @@ export function GithubCard({ className = '' }: GithubCardProps) {
           <FolderIcon className="w-5 h-5 text-white-500" fill="currentColor" />
           <span className="text-white font-bold">3</span> pinned repositories
         </div>
-        <GithubLogo className="h-12 w-12 text-white" />
+        <Github className="h-12 w-12 text-white" />
       </div>
       <div className="flex flex-col gap-2">
         <div className="text-zinc-400 text-sm">
