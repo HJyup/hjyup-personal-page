@@ -58,7 +58,7 @@ export function EditableWidget({
         ${className}
         ${isCurrentlyDragged ? 'opacity-60 scale-105 rotate-1 z-50' : ''}
         ${isOtherWidgetDragged ? 'blur-sm opacity-40 scale-95' : ''}
-        ${!draggedWidgetId ? 'hover:scale-[1.02] hover:ring-2 hover:ring-blue-400 hover:ring-opacity-60 hover:rounded-2xl sm:hover:rounded-3xl' : ''}
+        ${!draggedWidgetId && !isEditMode ? 'hover:scale-[1.02] hover:ring-2 hover:ring-blue-400 hover:ring-opacity-60 hover:rounded-2xl sm:hover:rounded-3xl' : ''}
       `}
     >
       {children}

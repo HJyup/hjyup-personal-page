@@ -2,26 +2,18 @@
 
 import React, { useState } from 'react';
 
-import { WidgetComponentType } from '@/const/widgets';
-import { createWidgetComponent } from '@/lib/widget-factory';
 import {
   type DropTarget,
   getColumnEntries,
   groupWidgetsByColumn,
   handleWidgetDrop,
   isDropTargetActive,
-} from '@/lib/widget-utils';
+} from '@/components/module/widgets/utils/widget-utils';
 import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
-interface WidgetGridProps {
-  photos: Array<{
-    src: string;
-    alt: string;
-    date: string;
-  }>;
-}
+import { mapWidgetToComponent } from './utils/widget-mapper';
 
-export function WidgetGrid({ photos }: WidgetGridProps) {
+export function WidgetGrid() {
   const {
     widgets,
     isEditMode,
@@ -145,11 +137,7 @@ export function WidgetGrid({ photos }: WidgetGridProps) {
                     <div className="absolute -top-1 left-0 right-0 h-0.5 bg-blue-400 rounded-full z-40" />
                   )}
 
-                {createWidgetComponent(
-                  widget.component as WidgetComponentType,
-                  widget.id,
-                  { photos },
-                )}
+                {mapWidgetToComponent(widget.component, widget.id)}
               </div>
             ))}
 
