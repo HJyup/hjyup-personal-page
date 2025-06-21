@@ -8,6 +8,7 @@ const blogItems = [
     title: 'How i built this website?',
     date: '2025 - 07 - 15',
     colorClass: 'bg-zinc-400',
+    href: '/posts/portfolio',
   },
   {
     id: 'important-stuff',

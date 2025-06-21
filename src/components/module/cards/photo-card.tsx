@@ -40,7 +40,7 @@ export function PhotoCard() {
   if (!currentPhoto) {
     return (
       <div
-        className={`bg-gray-100 dark:bg-zinc-800 h-[23vh] rounded-2xl sm:rounded-3xl break-inside-avoid w-1/2 relative`}
+        className={`bg-gray-100 dark:bg-zinc-800 h-[45vh] rounded-2xl sm:rounded-3xl break-inside-avoid relative`}
       />
     );
   }
@@ -48,7 +48,7 @@ export function PhotoCard() {
   return (
     <motion.div
       // @ts-expect-error - Framer Motion types are not compatible with React 19
-      className={`bg-gray-100 dark:bg-zinc-800 h-[40vh] rounded-2xl sm:rounded-3xl break-inside-avoid w-full relative ${isEditMode ? '' : 'cursor-pointer'} overflow-hidden group`}
+      className={`bg-gray-100 dark:bg-zinc-800 h-[45vh] rounded-2xl sm:rounded-3xl break-inside-avoid w-full relative ${isEditMode ? '' : 'cursor-pointer'} overflow-hidden group`}
       onClick={handlePhotoChange}
       whileHover={isEditMode ? undefined : { scale: 1.02 }}
       whileTap={isEditMode ? undefined : { scale: 0.98 }}
