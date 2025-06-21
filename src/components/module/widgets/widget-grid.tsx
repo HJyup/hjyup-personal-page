@@ -9,7 +9,7 @@ import {
   handleWidgetDrop,
   isDropTargetActive,
 } from '@/components/module/widgets/utils/widget-utils';
-import { useWidgetEdit } from '@/provider/widget-edit-provider';
+import { useWidgetEdit } from '@/provider/context';
 
 import { mapWidgetToComponent } from './utils/widget-mapper';
 

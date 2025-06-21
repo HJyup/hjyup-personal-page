@@ -11,7 +11,7 @@ const PortfolioPage = () => {
     <div className="text-black flex flex-col pt-16 sm:pt-20 md:pt-24 justify-center px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col w-full items-center h-full">
         <div className="w-full max-w-6xl">
-          <div className="text-sm text-zinc-600 dark:text-zinc-400 font-light flex items-center gap-2 mb-5">
+          <div className="text-sm text-zinc-600 dark:text-zinc-400 flex items-center gap-2 mb-5">
             <Link href="/" className="flex items-center gap-2 hover:underline">
               <ArrowLeftIcon className="w-4 h-4" />
               Back to Home
@@ -44,8 +44,8 @@ const PortfolioPage = () => {
                 About this website
               </h1>
               <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-zinc-600 dark:text-zinc-400 xl:w-2/3 lg:w-3/4 md:w-5/6 w-full">
-                A current approach to portfolio design, balancing minimalism
-                with personality through widget-based interactions.
+                A fresh take on portfolio design. Balancing minimalism with
+                personality using widget-based interactions.
               </p>
             </section>
 
@@ -56,32 +56,33 @@ const PortfolioPage = () => {
               <div className="space-y-8 sm:space-y-10">
                 <div className="flex gap-4 sm:gap-6 lg:gap-8">
                   <span className="text-xl sm:text-2xl lg:text-3xl text-zinc-300 dark:text-zinc-700 mt-1 flex-shrink-0">
-                    01
+                    1
                   </span>
                   <div className="flex-1 space-y-3 sm:space-y-4 min-w-0">
                     <h3 className="text-base sm:text-lg lg:text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                      Initial iterations
+                      Previous iterations
                     </h3>
                     <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                      Two redesigns in my first year—one overly complex
-                      interactive book, another so minimal it felt generic. Both
-                      missed the mark.
+                      I originally planned to redesign my portfolio once a year.
+                      But in my first year of university, I did it twice. One
+                      version was an over-engineered interactive book; the other
+                      was so minimal it lacked identity. Neither felt right.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-4 sm:gap-6 lg:gap-8">
                   <span className="text-xl sm:text-2xl lg:text-3xl text-zinc-300 dark:text-zinc-700 mt-1 flex-shrink-0">
-                    02
+                    2
                   </span>
                   <div className="flex-1 space-y-3 sm:space-y-4 min-w-0">
                     <h3 className="text-base sm:text-lg lg:text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                      Finding balance
+                      Finding direction
                     </h3>
                     <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                      The challenge: create something clean and clear while
-                      maintaining personality. Pure minimalism can become
-                      invisible.
+                      This version was more deliberate. I wanted something clean
+                      and structured but also personal and expressive. This
+                      became my foundation.
                     </p>
                   </div>
                 </div>
@@ -94,18 +95,12 @@ const PortfolioPage = () => {
               </h2>
               <div className="space-y-6 sm:space-y-8">
                 <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  I started looking for a balance: clean and simple, but still
-                  me. One day, while working on my laptop, I paid closer
-                  attention to the widgets on my desktop. That's when the idea
-                  hit me — what if I used widgets as the core layout of my
-                  portfolio?
-                </p>
-                <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Widgets felt like the perfect design element: compact,
-                  expressive, and modular. They gave me a way to present
-                  projects, music, photos, and personal elements in a clear,
-                  structured layout while still leaving room for personality in
-                  each tile.
+                  While working on my laptop, I just payed close attention to
+                  how widgets present information — modular, compact, and
+                  expressive. That sparked the idea: what if my entire portfolio
+                  worked like a widget layout? Each section could be
+                  self-contained yet connected. Perfect for showcasing projects
+                  and other pieces of my life.
                 </p>
               </div>
               <div className="flex flex-col justify-center gap-4">
@@ -122,8 +117,8 @@ const PortfolioPage = () => {
               <div className="space-y-6 sm:space-y-8">
                 <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   This pushed me to think of interactions as atomic, reusable
-                  components. That mindset shaped the entire layout - something
-                  interactive, expressive, and scalable.
+                  components. That mindset shaped the entire layout. It felt
+                  very interactive, expressive, and scalable.
                 </p>
                 <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   I wanted this page to blend my experience as a developer with
@@ -144,7 +139,7 @@ const PortfolioPage = () => {
 
             <section className="space-y-8 sm:space-y-10">
               <h2 className="text-lg sm:text-xl lg:text-2xl font-medium text-zinc-900 dark:text-white">
-                Design philosophy
+                Main principles
               </h2>
               <div className="grid gap-8 sm:gap-10 md:grid-cols-2">
                 <div className="space-y-4 sm:space-y-5">
@@ -222,7 +217,7 @@ const PortfolioPage = () => {
               </h2>
               <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-500">
                 I'm still exploring ideas around how minimalistic design can
-                coexist with rich, layered components — and how to express
+                coexist with rich, layered components and how to express
                 hierarchy between modules without breaking visual simplicity.
                 You'll see more of that in future widgets.
               </p>

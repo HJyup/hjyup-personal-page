@@ -6,7 +6,7 @@ import { FileInput } from 'lucide-react';
 import Image from 'next/image';
 
 import { PHOTOS } from '@/const/photos';
-import { useWidgetEdit } from '@/provider/widget-edit-provider';
+import { useWidgetEdit } from '@/provider/context';
 
 interface Photo {
   src: string;

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { useWidgetEdit } from '@/provider/widget-edit-provider';
+import { useWidgetEdit } from '@/provider/context';
 
 interface ProjectsLogoCardProps {
   className?: string;
