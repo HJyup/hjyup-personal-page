@@ -8,9 +8,6 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Danyil Butov',
   description: 'Personal website of Danyil Butov',
-  icons: {
-    icon: 'https://github.com/hjYup.png',
-  },
 };
 
 export const viewport: Viewport = {
