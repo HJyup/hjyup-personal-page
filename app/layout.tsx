@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata, Viewport } from 'next';
 
+import { WidgetEditProvider } from '@/provider/widget-edit-provider';
+
 import { ThemeProvider } from '../provider/theme-provider';
 
 import './globals.css';
@@ -33,7 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <WidgetEditProvider>{children}</WidgetEditProvider>
         </ThemeProvider>
         <Analytics />
       </body>

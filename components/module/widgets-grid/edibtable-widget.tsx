@@ -3,7 +3,7 @@
 import React, { ReactNode } from 'react';
 import { X } from 'lucide-react';
 
-import { useWidgetEdit } from '../../../lib/widgets/use-widget-edit-context';
+import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
 interface EditableWidgetProps {
   id: string;

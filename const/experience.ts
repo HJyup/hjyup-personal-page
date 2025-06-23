@@ -1,8 +1,4 @@
-import React from 'react';
-
-import { ListLayout } from '../ui/list-layout';
-
-const experienceItems = [
+export const EXPERIENCE = [
   {
     id: 'solidgate',
     title: 'Solidgate',
@@ -25,7 +21,3 @@ const experienceItems = [
     colorClass: 'bg-red-400',
   },
 ];
-
-export function Experience() {
-  return <ListLayout title="Experience" items={experienceItems} />;
-}

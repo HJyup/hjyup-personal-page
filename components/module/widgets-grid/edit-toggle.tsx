@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { useWidgetEdit } from '../../../lib/widgets/use-widget-edit-context';
+import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
 export function EditToggle() {
   const { isEditMode, setEditMode, saveWidgets } = useWidgetEdit();
