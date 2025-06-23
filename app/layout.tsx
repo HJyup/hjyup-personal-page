@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 
 import { WidgetEditProvider } from '@/provider/widget-edit-provider';
@@ -37,6 +38,7 @@ export default function RootLayout({
         >
           <WidgetEditProvider>{children}</WidgetEditProvider>
         </ThemeProvider>
+        <SpeedInsights />
         <Analytics />
       </body>
     </html>
