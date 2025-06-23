@@ -1,18 +1,47 @@
 'use client';
 
-import { ReactNode, useCallback, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
 import { DEFAULT_WIDGETS, Widget } from '../const/widgets';
-import { WidgetEditContext } from '../lib/widgets/use-widget-edit-context';
 import {
   moveWidgetInList,
+  removeWidgetFromList,
   reorderWidgetsInColumnList,
 } from '../lib/widgets/widget-operations';
-import { removeWidgetFromList } from '../lib/widgets/widget-operations';
 
 export interface WidgetEditProviderProps {
   children: ReactNode;
   initialWidgets?: Widget[];
+}
+
+export interface WidgetEditContextType {
+  isEditMode: boolean;
+  draggedWidgetId: string | null;
+  widgets: Widget[];
+  setEditMode: (isEdit: boolean) => void;
+  setDraggedWidget: (id: string | null) => void;
+  removeWidget: (id: string) => void;
+  moveWidget: (widgetId: string, newColumn: number, newOrder: number) => void;
+  reorderWidgetsInColumn: (column: number, newOrder: Widget[]) => void;
+  saveWidgets: () => void;
+}
+
+const WidgetEditContext = createContext<WidgetEditContextType | undefined>(
+  undefined,
+);
+
+export function useWidgetEdit(): WidgetEditContextType {
+  const context = useContext(WidgetEditContext);
+  if (!context) {
+    throw new Error('useWidgetEdit must be used within a WidgetEditProvider');
+  }
+  return context;
 }
 
 export function WidgetEditProvider({
@@ -25,9 +54,7 @@ export function WidgetEditProvider({
 
   const setEditMode = useCallback((isEdit: boolean) => {
     setIsEditMode(isEdit);
-    if (!isEdit) {
-      setDraggedWidgetId(null);
-    }
+    if (!isEdit) setDraggedWidgetId(null);
   }, []);
 
   const setDraggedWidget = useCallback((id: string | null) => {
@@ -57,7 +84,7 @@ export function WidgetEditProvider({
     setEditMode(false);
   }, [setEditMode]);
 
-  const value = {
+  const contextValue: WidgetEditContextType = {
     isEditMode,
     draggedWidgetId,
     widgets,
@@ -70,7 +97,7 @@ export function WidgetEditProvider({
   };
 
   return (
-    <WidgetEditContext.Provider value={value}>
+    <WidgetEditContext.Provider value={contextValue}>
       {children}
     </WidgetEditContext.Provider>
   );

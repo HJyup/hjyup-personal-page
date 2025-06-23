@@ -1,7 +1,6 @@
 'use client';
 import React, { useCallback, useMemo, useState } from 'react';
 
-import { useWidgetEdit } from '@/lib/widgets/use-widget-edit-context';
 import {
   type DropTarget,
   getColumnEntries,
@@ -9,6 +8,7 @@ import {
   handleWidgetDrop,
 } from '@/lib/widgets/utils';
 import { shouldDropAtEnd } from '@/lib/widgets/utils';
+import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
 import { DroppableCell } from './dropable-cell';
 import { DroppableColumn } from './dropable-column';

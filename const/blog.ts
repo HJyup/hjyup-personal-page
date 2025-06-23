@@ -1,8 +1,4 @@
-import React from 'react';
-
-import { ListLayout } from '../ui/list-layout';
-
-const blogItems = [
+export const BLOG = [
   {
     id: 'website-build',
     title: 'How i built this website?',
@@ -27,7 +23,3 @@ const blogItems = [
     isDisabled: true,
   },
 ];
-
-export function Blog() {
-  return <ListLayout title="Blog" items={blogItems} />;
-}
