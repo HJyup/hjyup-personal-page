@@ -1,48 +1,23 @@
+<img width="943" alt="widget-logo" src="https://github.com/user-attachments/assets/52c7a17b-95ae-44b4-a29f-c15fce5877d6" />
 
-# Personal Webpage
+# Personal Portfolio
 
-Welcome to my personal page! Here, you'll find a collection of my achievements along with some personal reflections. Feel free to explore and dive into the code to see how everything works. Enjoy exploring!
+This is the third iteration of my personal portfolio, rebuilt with a strong focus on design and modularity.
 
-
-
-## Tools
-Next.js, Typescript, Framer-motion, Three.js (previous versions), Tailwind
-
+The UI is centered around a flexible, widget-based system — easy to extend, responsive by default, and designed to grow with the project. It lays the foundation for future features while keeping things lightweight and minimal.
 
 ## Features
 
-- Light/dark mode
-- Detailed overview about experiences
-- Post feature and linking post to specific section
+- **Light/Dark Mode** – Seamless theme switching with smooth transitions.
+- **Widget Editing** – Add, remove, and reorder widgets (desktop only).
+- **Widget Animations** – Each widget comes with its own subtle, unique animation.
 
+## Installation
 
-## Screenshots
-
-<img width="1494" alt="Screenshot 2025-03-02 at 18 15 20" src="https://github.com/user-attachments/assets/721890fd-c96a-4667-9bef-e3b68c420884" />
-
-
-## Run Locally
-
-Clone the project
+Clone the repository and run the following commands:
 
 ```bash
-  git clone https://github.com/HJyup/hjyup-personal-page.git
+pnpm install
+pnpm dev
 ```
-
-Install dependencies
-
-```bash
-  pnpm install
-```
-
-Start the server
-
-```bash
-  pnpm run start
-```
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
 
