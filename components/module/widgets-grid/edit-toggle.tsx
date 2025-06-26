@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
@@ -15,8 +15,22 @@ export function EditToggle() {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isEditMode) {
+        saveWidgets();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isEditMode, saveWidgets]);
+
   return (
-    <div className="hidden flex-col items-center justify-center mb-10 xl:flex">
+    <div className="hidden flex-col items-center justify-center mb-10 xl:flex text-sm">
       <button
         onClick={handleClick}
         className={`

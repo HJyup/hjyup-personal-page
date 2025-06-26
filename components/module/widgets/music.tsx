@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { PauseIcon, PlayIcon } from 'lucide-react';
 import Image from 'next/image';
 
+import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
+
 interface MusicWidgetProps {
   title?: string;
   artist?: string;
   albumArt?: string;
   albumArtAlt?: string;
+  className?: string;
 }
 
 export function MusicWidget({
@@ -14,6 +17,7 @@ export function MusicWidget({
   artist = 'Lorde',
   albumArt = '/music/melodrama.png',
   albumArtAlt = 'Album cover',
+  className = '',
 }: MusicWidgetProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -21,49 +25,70 @@ export function MusicWidget({
     setIsPlaying(!isPlaying);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handlePlayPause();
+    }
+  };
+
   return (
-    <div className="bg-[#37425e] min-h-[20vh] rounded-2xl sm:rounded-3xl break-inside-avoid p-3 sm:p-4 lg:p-5 flex flex-row items-center gap-3 sm:gap-4 lg:gap-5">
-      <Image
-        className={`rounded-lg sm:rounded-xl shadow-xl w-32 h-32 lg:w-48 lg:h-48 flex-shrink-0 object-cover transition-transform duration-300 ${
-          isPlaying ? 'scale-105 rotate-1' : 'scale-100 rotate-0'
-        }`}
-        src={albumArt}
-        alt={albumArtAlt}
-        width={220}
-        height={220}
-      />
-      <div className="flex flex-col items-start text-left w-full min-w-0">
-        <div className="text-[#c1ccee] text-xs sm:text-sm">
-          {isPlaying ? 'NOW PLAYING' : 'PAUSED'}
-        </div>
-        <div className="text-[#fcfcfc] text-lg sm:text-xl lg:text-2xl font-medium truncate w-full">
-          {title}
-        </div>
-        <div className="text-[#c1ccee] text-base sm:text-lg truncate w-full">
-          {artist}
-        </div>
-        <button
-          onClick={handlePlayPause}
-          className={`text-[#fcfcfc] text-sm sm:text-base lg:text-lg rounded-full gap-2 flex justify-center items-center mt-2 px-3 py-1 sm:px-4 sm:py-1.5 transition-all duration-300 min-w-0 transform active:scale-95 ${
-            isPlaying
-              ? 'bg-[#0374d4] hover:bg-[#0374d4] shadow-lg shadow-blue-500/20'
-              : 'bg-[#56617c] hover:bg-[#6b7590]'
+    <MediumWidgetLayout className={className}>
+      <div
+        className="bg-gray-100 dark:bg-zinc-800 h-full w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6"
+        role="region"
+        aria-label={`Music player - ${title} by ${artist}`}
+      >
+        <Image
+          className={`rounded-lg sm:rounded-xl shadow-lg aspect-square w-32 md:w-36 lg:w-40 xl:w-44 flex-shrink-0 object-cover transition-transform duration-300 ${
+            isPlaying ? 'scale-105' : 'scale-100'
           }`}
-        >
-          {isPlaying ? (
-            <PauseIcon
-              className="w-3 h-3 sm:w-4 sm:h-4 text-[#fcfcfc] flex-shrink-0 transition-transform duration-200"
-              fill="#fcfcfc"
-            />
-          ) : (
-            <PlayIcon
-              className="w-3 h-3 sm:w-4 sm:h-4 text-[#fcfcfc] flex-shrink-0 transition-transform duration-200"
-              fill="#fcfcfc"
-            />
-          )}
-          <span className="truncate">{isPlaying ? 'Pause' : 'Play'}</span>
-        </button>
+          src={albumArt}
+          alt={`${albumArtAlt} for ${title} by ${artist}`}
+          width={250}
+          height={250}
+        />
+        <div className="flex flex-col items-start text-left w-full min-w-0 flex-1">
+          <div
+            className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm"
+            aria-live="polite"
+          >
+            {isPlaying ? 'NOW PLAYING' : 'PAUSED'}
+          </div>
+          <h3 className="text-zinc-900 dark:text-zinc-100 text-lg sm:text-xl font-medium truncate w-full">
+            {title}
+          </h3>
+          <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg truncate w-full">
+            {artist}
+          </p>
+          <button
+            onClick={handlePlayPause}
+            onKeyDown={handleKeyDown}
+            className={`text-white text-sm sm:text-base rounded-full gap-2 flex justify-center items-center mt-2 px-3 py-1 sm:px-4 sm:py-1.5 transition-all duration-300 min-w-0 transform active:scale-95 focus:outline-none ${
+              isPlaying
+                ? 'bg-blue-500 hover:bg-blue-600 shadow-lg'
+                : 'bg-zinc-400 dark:bg-zinc-600 hover:bg-zinc-500 dark:hover:bg-zinc-500'
+            }`}
+            aria-label={`${isPlaying ? 'Pause' : 'Play'} ${title} by ${artist}`}
+            type="button"
+          >
+            {isPlaying ? (
+              <PauseIcon
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 transition-transform duration-200"
+                fill="white"
+                aria-hidden="true"
+              />
+            ) : (
+              <PlayIcon
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 transition-transform duration-200"
+                fill="white"
+                aria-hidden="true"
+              />
+            )}
+            <span className="truncate">{isPlaying ? 'Pause' : 'Play'}</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </MediumWidgetLayout>
   );
 }

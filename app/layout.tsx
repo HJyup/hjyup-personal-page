@@ -8,6 +8,7 @@ import { WidgetEditProvider } from '@/provider/widget-edit-provider';
 import { ThemeProvider } from '../provider/theme-provider';
 
 import './globals.css';
+
 export const metadata: Metadata = {
   title: 'Danyil Butov',
   description: 'Personal website of Danyil Butov',

@@ -5,6 +5,7 @@ import React from 'react';
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';
 import { useWidgetEdit } from '@/provider/widget-edit-provider';
+import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
 interface LogosWidgetProps {
   className?: string;
@@ -14,19 +15,37 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
   const { isEditMode } = useWidgetEdit();
 
   return (
-    <div
-      className={`h-[25vh] flex items-center justify-center gap-3 ${className}`}
-    >
+    <MediumWidgetLayout className={className}>
       <div
-        className={`w-1/2 h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex justify-center items-center group ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.02]' : ''}`}
+        className="h-full flex items-center justify-center gap-3 sm:gap-4 lg:gap-5"
+        role="region"
+        aria-label="Partner organizations and projects"
       >
-        <Htb className="w-[60%] h-[60%]" isEditMode={isEditMode} />
+        <a
+          href="https://hacktheburgh.com/"
+          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
+          aria-label="Visit HackTheBurgh hackathon website"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Htb
+            className="w-[60%] h-[60%] transition-transform duration-300 group-hover:scale-105"
+            isEditMode={isEditMode}
+          />
+        </a>
+        <a
+          href="https://projectshare.comp-soc.com/"
+          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
+          aria-label="Visit ProjectShare platform by CompSoc"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ProjectShare
+            className="w-[60%] h-[60%] transition-transform duration-300 group-hover:scale-105"
+            isEditMode={isEditMode}
+          />
+        </a>
       </div>
-      <div
-        className={`w-1/2 h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex justify-center items-center group ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.02]' : ''}`}
-      >
-        <ProjectShare className="w-[60%] h-[60%]" isEditMode={isEditMode} />
-      </div>
-    </div>
+    </MediumWidgetLayout>
   );
 }

@@ -1,14 +1,33 @@
 import React from 'react';
 
-interface ListItem {
+export interface ListItem {
   id: string;
   title: string;
   href?: string;
   date: string;
-  colorClass: string;
+  colour:
+    | 'pink'
+    | 'blue'
+    | 'green'
+    | 'yellow'
+    | 'purple'
+    | 'orange'
+    | 'red'
+    | 'gray';
   isBlurred?: boolean;
   isDisabled?: boolean;
 }
+
+const colourClassMap = {
+  pink: 'bg-pink-500',
+  blue: 'bg-blue-500',
+  green: 'bg-green-500',
+  yellow: 'bg-yellow-500',
+  purple: 'bg-purple-500',
+  orange: 'bg-orange-500',
+  red: 'bg-red-500',
+  gray: 'bg-gray-500',
+};
 
 interface ListLayoutProps {
   title: string;
@@ -30,7 +49,7 @@ export function ListLayout({ title, items, className = '' }: ListLayoutProps) {
           >
             <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
               <div
-                className={`${item.colorClass} w-1.5 h-1.5 rounded-full flex-shrink-0`}
+                className={`${colourClassMap[item.colour]} w-1.5 h-1.5 rounded-full flex-shrink-0`}
               />
               {item.href ? (
                 <a
