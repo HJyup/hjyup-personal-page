@@ -12,7 +12,7 @@ export function NotesWidget({ className = '' }: NotesWidgetProps) {
   return (
     <BigWidgetLayout className={className}>
       <div
-        className="bg-gray-100 dark:bg-zinc-800 h-full w-full rounded-2xl sm:rounded-3xl flex justify-center items-end"
+        className=" h-full w-full rounded-2xl sm:rounded-3xl flex justify-center items-end"
         role="region"
         aria-label="Personal notes and thoughts"
       >

@@ -15,7 +15,7 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
   const { isEditMode } = useWidgetEdit();
 
   return (
-    <MediumWidgetLayout className={className}>
+    <MediumWidgetLayout className={className} isBackground={false}>
       <div
         className="h-full flex items-center justify-center gap-3 sm:gap-4 lg:gap-5"
         role="region"
@@ -23,7 +23,7 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
       >
         <a
           href="https://hacktheburgh.com/"
-          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
+          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
           aria-label="Visit HackTheBurgh hackathon website"
           target="_blank"
           rel="noopener noreferrer"
@@ -35,7 +35,7 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
         </a>
         <a
           href="https://projectshare.comp-soc.com/"
-          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
+          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
           aria-label="Visit ProjectShare platform by CompSoc"
           target="_blank"
           rel="noopener noreferrer"
