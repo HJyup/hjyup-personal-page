@@ -12,9 +12,10 @@ export const GITHUB_WIDGET: {
       'A microservice application with async translation. (sandbox project)',
   },
   {
-    name: 'HJyup/mlt-agents-api',
+    name: 'HJyup/mtl-agents-preview',
     type: 'on-hold',
     link: 'https://github.com/HJyup/mtl-agents-preview',
-    description: 'Using multiple AI agents in just one hotkey. (macOS project)',
+    description:
+      'Using multiple AI agents in just one hotkey. (preview project)',
   },
 ];
