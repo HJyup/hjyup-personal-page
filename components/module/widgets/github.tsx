@@ -2,9 +2,9 @@ import React from 'react';
 import { FolderIcon } from 'lucide-react';
 
 import GithubIcon from '@/components/ui/icons/github';
+import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
 import { GITHUB_WIDGET } from '@/const/github-projects';
 import { cn } from '@/lib/utils';
-import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
 const TypeBadgeMapper = {
   finished: 'bg-green-500',
@@ -36,7 +36,10 @@ function GithubWidgetItem({
       )}
     >
       <div className="flex items-center gap-2 mb-1">
-        <a href={link} className="text-zinc-700 dark:text-zinc-300 text-sm hover:underline">
+        <a
+          href={link}
+          className="text-zinc-700 dark:text-zinc-300 text-sm hover:underline"
+        >
           {name}
         </a>
         <div
@@ -67,7 +70,9 @@ export function GithubWidget({ className = '' }: { className?: string }) {
               fill="currentColor"
               aria-hidden="true"
             />
-            <span className="text-zinc-900 dark:text-zinc-100 font-bold text-base sm:text-lg">3</span>
+            <span className="text-zinc-900 dark:text-zinc-100 font-bold text-base sm:text-lg">
+              3
+            </span>
             <span>pinned repositories</span>
           </div>
           <GithubIcon
