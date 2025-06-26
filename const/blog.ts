@@ -1,16 +1,18 @@
-export const BLOG = [
+import { ListItem } from '@/components/ui/layout/list-layout';
+
+export const BLOG: ListItem[] = [
   {
     id: 'website-build',
     title: 'How i built this website?',
     date: '2025 - 07 - 15',
-    colorClass: 'bg-zinc-400',
+    colour: 'gray',
     href: '/posts/portfolio',
   },
   {
     id: 'important-stuff',
     title: 'Somevery very important stuff',
     date: 'Coming soon',
-    colorClass: 'bg-violet-400',
+    colour: 'purple',
     isBlurred: true,
     isDisabled: true,
   },
@@ -18,7 +20,7 @@ export const BLOG = [
     id: 'other-stuff',
     title: 'The other stuff',
     date: 'Coming soon',
-    colorClass: 'bg-red-400',
+    colour: 'red',
     isBlurred: true,
     isDisabled: true,
   },

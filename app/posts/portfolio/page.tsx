@@ -91,9 +91,7 @@ const PortfolioPage = () => {
             layout? Each section could be self-contained yet connected. Perfect
             for showcasing projects and other pieces of my life.
           </p>
-          <div className="lg:w-2/3">
-            <MusicWidget />
-          </div>
+          <MusicWidget className="mx-0" />
         </section>
 
         <section>

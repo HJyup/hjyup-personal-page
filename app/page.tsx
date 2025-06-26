@@ -1,6 +1,6 @@
 import { EditToggle } from '@/components/module/widgets-grid/edit-toggle';
 import { WidgetGrid } from '@/components/module/widgets-grid/widget-grid';
-import { ListLayout } from '@/components/ui/list-layout';
+import { ListLayout } from '@/components/ui/layout/list-layout';
 import { BLOG } from '@/const/blog';
 import { EXPERIENCE } from '@/const/experience';
 

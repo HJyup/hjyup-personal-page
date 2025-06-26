@@ -4,6 +4,7 @@ import { FolderIcon } from 'lucide-react';
 import GithubIcon from '@/components/ui/icons/github';
 import { GITHUB_WIDGET } from '@/const/github-projects';
 import { cn } from '@/lib/utils';
+import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
 const TypeBadgeMapper = {
   finished: 'bg-green-500',
@@ -11,48 +12,85 @@ const TypeBadgeMapper = {
   'on-hold': 'bg-red-500',
 } as const;
 
+const TypeLabels = {
+  finished: 'Completed project',
+  'in-progress': 'Work in progress',
+  'on-hold': 'On hold',
+} as const;
+
 function GithubWidgetItem({
   className,
   name,
   type,
   description,
+  link,
 }: (typeof GITHUB_WIDGET)[number] & { className?: string }) {
   const color = TypeBadgeMapper[type];
+  const statusLabel = TypeLabels[type];
 
   return (
-    <div className={cn('text-zinc-400 text-sm', className)}>
-      <div className="flex items-center gap-2">
-        {name}
-        <div className={cn('w-2 h-2 rounded-full', color)} />
+    <article
+      className={cn(
+        'text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mb-1 sm:mb-3',
+        className,
+      )}
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <a href={link} className="text-zinc-700 dark:text-zinc-300 text-sm hover:underline">
+          {name}
+        </a>
+        <div
+          className={cn('w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full', color)}
+          aria-label={statusLabel}
+          title={statusLabel}
+        />
       </div>
-      <div className="text-zinc-200">{description}</div>
-    </div>
+      <p className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed">
+        {description}
+      </p>
+    </article>
   );
 }
 
 export function GithubWidget({ className = '' }: { className?: string }) {
   return (
-    <div
-      className={`bg-zinc-950 h-[25vh] rounded-2xl sm:rounded-3xl break-inside-avoid p-4 px-5 ${className}`}
-    >
-      <div className="flex items-center justify-between w-full">
-        <div className="text-zinc-400 text-md flex items-center gap-2">
-          <FolderIcon className="w-5 h-5 text-white-500" fill="currentColor" />
-          <span className="text-white font-bold">3</span> pinned repositories
-        </div>
-        <GithubIcon className="h-12 w-12 text-white" />
-      </div>
-      <div className="flex flex-col gap-2">
-        {GITHUB_WIDGET.map(item => (
-          <GithubWidgetItem
-            key={item.name}
-            className="text-zinc-400 text-sm"
-            name={item.name}
-            type={item.type}
-            description={item.description}
+    <MediumWidgetLayout className={className}>
+      <div
+        className="bg-gray-100 dark:bg-zinc-800 h-full w-full p-4 sm:p-5 lg:p-6 flex flex-col rounded-2xl sm:rounded-3xl"
+        role="region"
+        aria-label="GitHub repositories showcase"
+      >
+        <header className="flex items-center justify-between w-full mb-3 sm:mb-4">
+          <div className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base flex items-center gap-2 sm:gap-3">
+            <FolderIcon
+              className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-700 dark:text-zinc-300"
+              fill="currentColor"
+              aria-hidden="true"
+            />
+            <span className="text-zinc-900 dark:text-zinc-100 font-bold text-base sm:text-lg">3</span>
+            <span>pinned repositories</span>
+          </div>
+          <GithubIcon
+            className="h-8 w-8 sm:h-10 sm:w-10 text-zinc-700 dark:text-zinc-300"
+            aria-label="GitHub"
           />
-        ))}
+        </header>
+        <div
+          className="flex flex-col gap-1 flex-1 overflow-hidden"
+          role="list"
+          aria-label="Repository list"
+        >
+          {GITHUB_WIDGET.map(item => (
+            <GithubWidgetItem
+              key={item.name}
+              name={item.name}
+              type={item.type}
+              description={item.description}
+              link={item.link}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </MediumWidgetLayout>
   );
 }

@@ -1,28 +1,45 @@
 import React from 'react';
-import Image from 'next/image';
+
+import { BigWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
 interface ProjectWidgetProps {
-  imageSrc?: string;
-  imageAlt?: string;
+  videoSrc?: string;
   className?: string;
+  title?: string;
+  description?: string;
 }
 
 export function ProjectWidget({
-  imageSrc = '/photos/project_share.png',
-  imageAlt = 'Project showcase',
+  videoSrc = '/videos/project-showcase.mov',
   className = '',
+  title = 'Project Showcase',
+  description = 'A showcase of the latest project development',
 }: ProjectWidgetProps) {
   return (
-    <div
-      className={`relative bg-gray-100 dark:bg-zinc-800 h-[35vh] sm:h-[45vh] rounded-2xl sm:rounded-3xl break-inside-avoid flex items-end justify-center ${className} flex justify-center items-center`}
-    >
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        width={1200}
-        height={1200}
-        className="w-11/12 h-11/12 object-cover rounded-2xl sm:rounded-3xl absolute z-0"
-      />
-    </div>
+    <BigWidgetLayout className={className}>
+      <div
+        className="relative bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl overflow-hidden h-full w-full"
+        role="region"
+        aria-label="Project showcase video"
+      >
+        <video
+          src={videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover rounded-2xl sm:rounded-3xl focus:outline-none"
+          aria-label={`${title} - ${description}`}
+          title={title}
+          tabIndex={0}
+        />
+        <div 
+          className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300"
+          aria-hidden="true"
+        >
+          {title}
+        </div>
+      </div>
+    </BigWidgetLayout>
   );
 }

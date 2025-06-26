@@ -2,20 +2,19 @@ export const GITHUB_WIDGET: {
   name: string;
   type: 'finished' | 'in-progress' | 'on-hold';
   description: string;
+  link: string;
 }[] = [
   {
-    name: 'HJyup/micro-sketch.git',
+    name: 'HJyup/translatify',
     type: 'finished',
-    description: 'Micro-frontend framework for building web applications.',
-  },
-  {
-    name: 'HJyup/fst-tool.git',
-    type: 'in-progress',
-    description: 'Recreation of git command line tool using go and cobra.',
+    link: 'https://github.com/HJyup/translatify',
+    description:
+      'A microservice application with async translation. (sandbox project)',
   },
   {
     name: 'HJyup/mlt-agents-api',
     type: 'on-hold',
+    link: 'https://github.com/HJyup/mtl-agents-preview',
     description: 'Using multiple AI agents in just one hotkey. (macOS project)',
   },
 ];

@@ -2,18 +2,22 @@ import { ComponentType } from 'react';
 
 import { WidgetComponentType } from '@/const/widgets';
 
+import { BooksWidget } from '../widgets/books';
 import { GithubWidget } from '../widgets/github';
 import { LogosWidget } from '../widgets/logos';
 import { MusicWidget } from '../widgets/music';
 import { NotesWidget } from '../widgets/notes';
-import { PhotoWidget } from '../widgets/photo';
+import { PhotosMapsWidget } from '../widgets/photos-maps';
 import { ProjectWidget } from '../widgets/project';
 
-export const widgetRegistry: Record<WidgetComponentType, ComponentType> = {
+export const widgetRegistry: Partial<
+  Record<WidgetComponentType, ComponentType>
+> = {
+  'books-card': BooksWidget,
   'github-card': GithubWidget,
   'music-card': MusicWidget,
   'notes-card': NotesWidget,
-  'photo-container': PhotoWidget,
+  'photos-maps-card': PhotosMapsWidget,
   'project-card': ProjectWidget,
   'projects-logo-card': LogosWidget,
 };
