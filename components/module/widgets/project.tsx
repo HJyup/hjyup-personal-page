@@ -33,7 +33,7 @@ export function ProjectWidget({
           title={title}
           tabIndex={0}
         />
-        <div 
+        <div
           className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300"
           aria-hidden="true"
         >

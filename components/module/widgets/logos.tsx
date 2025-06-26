@@ -4,8 +4,8 @@ import React from 'react';
 
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';
-import { useWidgetEdit } from '@/provider/widget-edit-provider';
 import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
+import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
 interface LogosWidgetProps {
   className?: string;

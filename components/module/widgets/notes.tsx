@@ -1,8 +1,8 @@
 import React from 'react';
 import { FolderClosed } from 'lucide-react';
 
-import { NOTES } from '@/const/notes';
 import { BigWidgetLayout } from '@/components/ui/layout/widget-layouts';
+import { NOTES } from '@/const/notes';
 
 interface NotesWidgetProps {
   className?: string;
