@@ -71,7 +71,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
               aria-hidden="true"
             />
             <span className="text-zinc-900 dark:text-zinc-100 font-bold text-base sm:text-lg">
-              3
+              {GITHUB_WIDGET.length}
             </span>
             <span>pinned repositories</span>
           </div>
