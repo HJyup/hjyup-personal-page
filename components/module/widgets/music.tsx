@@ -35,7 +35,7 @@ export function MusicWidget({
   return (
     <MediumWidgetLayout className={className}>
       <div
-        className="bg-gray-100 dark:bg-zinc-800 h-full w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6"
+        className=" h-full w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6"
         role="region"
         aria-label={`Music player - ${title} by ${artist}`}
       >

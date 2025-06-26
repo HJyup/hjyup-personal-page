@@ -7,7 +7,7 @@ export function BooksWidget({ className = '' }: { className?: string }) {
   return (
     <MediumWidgetLayout className={className}>
       <div
-        className="bg-gray-100 dark:bg-zinc-800 h-full w-full p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6 relative overflow-hidden rounded-2xl sm:rounded-3xl"
+        className="h-full w-full p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6 relative overflow-hidden rounded-2xl sm:rounded-3xl"
         role="region"
         aria-label="Books reading tracker"
       >

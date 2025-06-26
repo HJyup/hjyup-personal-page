@@ -38,7 +38,7 @@ function GithubWidgetItem({
       <div className="flex items-center gap-2 mb-1">
         <a
           href={link}
-          className="text-zinc-700 dark:text-zinc-300 text-sm hover:underline"
+          className="text-zinc-700 dark:text-zinc-300 text-md hover:underline"
         >
           {name}
         </a>
@@ -48,7 +48,7 @@ function GithubWidgetItem({
           title={statusLabel}
         />
       </div>
-      <p className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed">
+      <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">
         {description}
       </p>
     </article>
@@ -59,7 +59,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
   return (
     <MediumWidgetLayout className={className}>
       <div
-        className="bg-gray-100 dark:bg-zinc-800 h-full w-full p-4 sm:p-5 lg:p-6 flex flex-col rounded-2xl sm:rounded-3xl"
+        className=" h-full w-full p-4 sm:p-5 lg:p-6 flex flex-col rounded-2xl sm:rounded-3xl"
         role="region"
         aria-label="GitHub repositories showcase"
       >
