@@ -136,11 +136,11 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
 
   const logoInfo: Record<string, LogoInfo> = {
     htb: {
-      title: 'HackTheBurgh',
+      title: '⭐ HackTheBurgh',
       description: 'Largest Scotland Hackathon',
     },
     projectshare: {
-      title: 'Project share',
+      title: '💻 Project share',
       description:
         'Community where enthusiastic students bring their projects to life',
     },

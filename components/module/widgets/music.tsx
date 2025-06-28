@@ -46,6 +46,7 @@ export function MusicWidget({
           src={albumArt}
           alt={`${albumArtAlt} for ${title} by ${artist}`}
           width={250}
+          draggable={false}
           height={250}
         />
         <div className="flex flex-col items-start text-left w-full min-w-0 flex-1">
