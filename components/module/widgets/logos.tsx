@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { InfoIcon } from 'lucide-react';
+import { CircleArrowOutUpRightIcon, InfoIcon } from 'lucide-react';
 
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';
@@ -50,7 +50,7 @@ function BackdropOverlay({ isVisible, onClose }: BackdropOverlayProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-30 backdrop-blur-lg bg-black/20 dark:bg-black/40 cursor-pointer"
+          className="fixed inset-0 z-30 backdrop-blur-xl dark:bg-black/40 bg-black/10"
           onClick={onClose}
           onTouchEnd={onClose}
           role="button"
@@ -75,7 +75,7 @@ function InfoTooltip({ info, isVisible }: InfoTooltipProps) {
           <p className="text-lg font-medium text-zinc-950 dark:text-zinc-50 drop-shadow-sm">
             {info.title}
           </p>
-          <p className="text-sm text-zinc-700 dark:text-zinc-400 mt-1 drop-shadow-sm">
+          <p className="text-sm text-muted-foreground mt-1 drop-shadow-sm">
             {info.description}
           </p>
         </motion.div>
@@ -111,7 +111,7 @@ function LogoContainer({
       </a>
 
       <button
-        className="absolute bottom-3 left-3 w-8 h-8 bg-white/10 dark:bg-zinc-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
+        className="absolute bottom-3 left-3 w-10 h-10 bg-white/10 dark:bg-zinc-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
         onMouseEnter={() => onMouseEnter(logoKey)}
         onMouseLeave={onMouseLeave}
         onClick={e => {
@@ -121,7 +121,7 @@ function LogoContainer({
         }}
         aria-label={`Show ${info.title} information`}
       >
-        <InfoIcon className="w-5 h-5 text-zinc-500 dark:text-zinc-500" />
+        <CircleArrowOutUpRightIcon className="w-5 h-5 text-zinc-500 dark:text-zinc-500" />
       </button>
 
       <InfoTooltip info={info} isVisible={isActive} />
@@ -136,8 +136,8 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
 
   const logoInfo: Record<string, LogoInfo> = {
     htb: {
-      title: '⭐ HackTheBurgh',
-      description: 'Largest Scotland Hackathon',
+      title: '🏆 HackTheBurgh',
+      description: 'Organiser of the largest Scotland Hackathon',
     },
     projectshare: {
       title: '💻 Project share',
