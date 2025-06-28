@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 
+import { MainLayout } from '@/components/ui/layout/main-layout';
 import { WidgetEditProvider } from '@/provider/widget-edit-provider';
 
 import { ThemeProvider } from '../provider/theme-provider';
@@ -28,16 +29,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`flex flex-col items-center bg-background lg:justify-center`}
-      >
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <WidgetEditProvider>{children}</WidgetEditProvider>
+          <WidgetEditProvider>
+            <MainLayout>{children}</MainLayout>
+          </WidgetEditProvider>
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />
