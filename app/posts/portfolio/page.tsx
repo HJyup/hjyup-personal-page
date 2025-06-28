@@ -72,8 +72,8 @@ const PortfolioPage = () => {
                 </h3>
                 <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   This version was more deliberate. I wanted something clean and
-                  structured but also personal and expressive. This became my
-                  foundation.
+                  structured but also personal and expressive. It became the
+                  foundation for everything that followed.
                 </p>
               </div>
             </div>
@@ -86,12 +86,12 @@ const PortfolioPage = () => {
           </h2>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8">
             While working on my laptop, I just payed close attention to how
-            widgets present information — modular, compact, and expressive. That
-            sparked the idea: what if my entire portfolio worked like a widget
-            layout? Each section could be self-contained yet connected. Perfect
-            for showcasing projects and other pieces of my life.
+            widgets present information. They are modular, compact, and
+            expressive. That sparked the idea: what if my entire portfolio
+            worked like a widget layout? Perfect for showcasing projects and
+            other pieces of my life.
           </p>
-          <MusicWidget className="mx-0" />
+          <MusicWidget className="!mx-0" />
         </section>
 
         <section>
@@ -100,9 +100,7 @@ const PortfolioPage = () => {
           </h2>
           <div className="space-y-6">
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              This pushed me to think of interactions as atomic, reusable
-              components. That mindset shaped the entire layout. It felt very
-              interactive, expressive, and scalable.
+              It felt very interactive, expressive, and scalable.
             </p>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
               I wanted this page to blend my experience as a developer with my
@@ -113,9 +111,7 @@ const PortfolioPage = () => {
             </p>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
               The widget system also allows for dynamic interactions—you can
-              actually edit and rearrange them in real-time. This isn't just
-              aesthetic; it reflects how I think about user interfaces:
-              flexible, intuitive, and empowering.
+              actually edit and rearrange them in real-time.
             </p>
           </div>
         </section>
@@ -199,10 +195,10 @@ const PortfolioPage = () => {
             What's next
           </h2>
           <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-500">
-            I'm still exploring ideas around how minimalistic design can coexist
-            with rich, layered components and how to express hierarchy between
-            modules without breaking visual simplicity. You'll see more of that
-            in future widgets.
+            I’m actively building new widgets and refining their interactivity.
+            As more features are added, I’m also exploring better UX patterns to
+            make everything feel intuitive and engaging. It’s a fun process.
+            Check back soon for updates!
           </p>
         </section>
       </PostContentContainer>
