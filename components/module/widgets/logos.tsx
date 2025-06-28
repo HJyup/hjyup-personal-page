@@ -52,6 +52,9 @@ function BackdropOverlay({ isVisible, onClose }: BackdropOverlayProps) {
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-30 backdrop-blur-lg bg-black/20 dark:bg-black/40 cursor-pointer"
           onClick={onClose}
+          onTouchEnd={onClose}
+          role="button"
+          aria-label="Close information overlay"
         />
       )}
     </AnimatePresence>
@@ -67,12 +70,12 @@ function InfoTooltip({ info, isVisible }: InfoTooltipProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 5 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-full mt-3 z-50"
+          className="absolute top-full mt-3 z-50 max-w-xs sm:max-w-sm"
         >
-          <p className="text-lg font-medium text-zinc-950 dark:text-zinc-50 whitespace-nowrap drop-shadow-sm">
+          <p className="text-lg font-medium text-zinc-950 dark:text-zinc-50 drop-shadow-sm">
             {info.title}
           </p>
-          <p className="text-sm text-zinc-700 dark:text-zinc-300 whitespace-nowrap mt-1 drop-shadow-sm">
+          <p className="text-sm text-zinc-700 dark:text-zinc-400 mt-1 drop-shadow-sm">
             {info.description}
           </p>
         </motion.div>
@@ -111,7 +114,11 @@ function LogoContainer({
         className="absolute bottom-3 left-3 w-8 h-8 bg-white/10 dark:bg-zinc-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
         onMouseEnter={() => onMouseEnter(logoKey)}
         onMouseLeave={onMouseLeave}
-        onClick={() => onInfoClick(logoKey)}
+        onClick={e => {
+          e.preventDefault();
+          e.stopPropagation();
+          onInfoClick(logoKey);
+        }}
         aria-label={`Show ${info.title} information`}
       >
         <InfoIcon className="w-5 h-5 text-zinc-500 dark:text-zinc-500" />
@@ -144,6 +151,7 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
   const handleInfoClick = (logoKey: string) => {
     if (isEditMode) return;
     setClickedInfo(clickedInfo === logoKey ? null : logoKey);
+    setHoveredInfo(null);
   };
 
   const handleMouseEnter = (logoKey: string) => {
@@ -158,6 +166,7 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
 
   const handleBackdropClose = () => {
     setClickedInfo(null);
+    setHoveredInfo(null);
   };
 
   return (

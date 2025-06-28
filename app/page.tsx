@@ -21,9 +21,9 @@ export default function Page() {
             </div>
             <div className="text-base sm:text-lg lg:text-xl mt-3 xl:w-2/3 lg:w-3/4 md:w-5/6 w-full leading-relaxed dark:text-zinc-300">
               CS student at University of Edinburgh and software developer at
-              Solidgate. Im passionate about building products that are not only
-              functional but also beautiful and easy to use. This is my third
-              iteration of my portfolio. Built with love and care.
+              Solidgate. I'm passionate about building products that are not
+              only functional but also beautiful and easy to use. This is my
+              third iteration of my portfolio. Built with love and care.
             </div>
           </div>
           <div className="flex flex-col lg:flex-row lg:justify-between w-full gap-6 lg:gap-8">
