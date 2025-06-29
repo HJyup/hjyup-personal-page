@@ -72,10 +72,10 @@ function InfoTooltip({ info, isVisible }: InfoTooltipProps) {
           transition={{ duration: 0.2 }}
           className="absolute top-full mt-3 z-50 max-w-xs sm:max-w-sm"
         >
-          <p className="text-lg font-medium text-zinc-950 dark:text-zinc-50 drop-shadow-sm">
+          <p className="text-lg md:text-xl font-medium text-zinc-950 dark:text-zinc-50 drop-shadow-sm">
             {info.title}
           </p>
-          <p className="text-sm text-muted-foreground mt-1 drop-shadow-sm">
+          <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 mt-2 drop-shadow-sm">
             {info.description}
           </p>
         </motion.div>
@@ -111,7 +111,7 @@ function LogoContainer({
       </a>
 
       <button
-        className="absolute bottom-3 left-3 w-10 h-10 bg-white/10 dark:bg-zinc-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
+        className="absolute bottom-3 left-3 w-8 h-8 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
         onMouseEnter={() => onMouseEnter(logoKey)}
         onMouseLeave={onMouseLeave}
         onClick={e => {
@@ -121,7 +121,7 @@ function LogoContainer({
         }}
         aria-label={`Show ${info.title} information`}
       >
-        <CircleArrowOutUpRightIcon className="w-5 h-5 text-zinc-500 dark:text-zinc-500" />
+        <CircleArrowOutUpRightIcon className="w-4 h-4 text-zinc-500" />
       </button>
 
       <InfoTooltip info={info} isVisible={isActive} />

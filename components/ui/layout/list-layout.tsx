@@ -61,7 +61,7 @@ export function ListLayout({ title, items, className = '' }: ListLayoutProps) {
               ) : (
                 <span
                   className={`text-sm sm:text-base truncate dark:text-zinc-300 ${
-                    item.isBlurred ? 'blur-sm' : ''
+                    item.isBlurred ? 'blur-[6px]' : ''
                   }`}
                 >
                   {item.title}
