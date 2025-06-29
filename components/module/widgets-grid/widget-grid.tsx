@@ -1,6 +1,13 @@
 'use client';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
+import { Widget } from '@/const/widgets';
 import {
   type DropTarget,
   getColumnEntries,
@@ -29,6 +36,10 @@ export function WidgetGrid() {
     () => groupWidgetsByColumn(widgets),
     [widgets],
   );
+  const stableWidgetsByColumn = useRef(widgetsByColumn);
+  useEffect(() => {
+    stableWidgetsByColumn.current = widgetsByColumn;
+  }, [widgetsByColumn]);
 
   const columnsArray = useMemo(
     () =>
@@ -60,7 +71,7 @@ export function WidgetGrid() {
       const dropSuccess = handleWidgetDrop(
         draggedId,
         widgets,
-        widgetsByColumn,
+        stableWidgetsByColumn.current,
         column,
         index,
         moveWidget,
@@ -68,45 +79,48 @@ export function WidgetGrid() {
       );
       if (dropSuccess) setDraggedWidget(null);
     },
-    [
-      isEditMode,
-      widgets,
-      widgetsByColumn,
-      moveWidget,
-      reorderWidgetsInColumn,
-      setDraggedWidget,
-    ],
+    [isEditMode, widgets, moveWidget, reorderWidgetsInColumn, setDraggedWidget],
+  );
+
+  const renderCell = useCallback(
+    (widget: Widget, idx: number, colIndex: number) => (
+      <DroppableCell
+        key={widget.id}
+        columnIndex={colIndex}
+        itemIndex={idx}
+        dropTarget={dropTarget}
+        isEditMode={isEditMode}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
+        <EditableWidget id={widget.id}>
+          <WidgetMapper type={widget.component} />
+        </EditableWidget>
+      </DroppableCell>
+    ),
+    [dropTarget, isEditMode, handleDragOver, handleDrop],
+  );
+
+  const renderColumn = useCallback(
+    ([colIndex, columnWidgets]: readonly [number, Widget[]]) => (
+      <DroppableColumn
+        key={colIndex}
+        columnIndex={colIndex}
+        length={columnWidgets.length}
+        isEditMode={isEditMode}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
+        {columnWidgets.map((widget, idx) => renderCell(widget, idx, colIndex))}
+      </DroppableColumn>
+    ),
+    [isEditMode, handleDragOver, handleDrop, renderCell],
   );
 
   return (
     <div className="scroll-mt-20 flex flex-col items-center w-full my-8 sm:my-12 lg:my-16">
       <div className="flex flex-col sm:flex-row gap-3 w-full">
-        {columnsArray.map(([colIndex, columnWidgets]) => (
-          <DroppableColumn
-            key={colIndex}
-            columnIndex={colIndex}
-            length={columnWidgets.length}
-            isEditMode={isEditMode}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
-          >
-            {columnWidgets.map((widget, idx) => (
-              <DroppableCell
-                key={widget.id}
-                columnIndex={colIndex}
-                itemIndex={idx}
-                dropTarget={dropTarget}
-                isEditMode={isEditMode}
-                onDragOver={handleDragOver}
-                onDrop={handleDrop}
-              >
-                <EditableWidget id={widget.id}>
-                  <WidgetMapper type={widget.component} />
-                </EditableWidget>
-              </DroppableCell>
-            ))}
-          </DroppableColumn>
-        ))}
+        {columnsArray.map(renderColumn)}
       </div>
     </div>
   );
