@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
 export function BooksWidget({ className = '' }: { className?: string }) {
+  const BLUR_DATA_URL =
+    'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mNcMk+ungEIGGEMACpGA8EdsHxuAAAAAElFTkSuQmCC';
+
   return (
     <MediumWidgetLayout className={className}>
       <div
@@ -13,11 +16,13 @@ export function BooksWidget({ className = '' }: { className?: string }) {
       >
         <Image
           className="w-24 lg:w-32 h-36 lg:h-48 flex-shrink-0"
-          src="/books/design_of_things.jpg"
+          src="https://m.media-amazon.com/images/I/41rHjQCElcL._SY445_SX342_.jpg"
           alt="The Design of Everyday Things"
           width={288}
           draggable={false}
           height={432}
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
         />
 
         {/* Main content */}
