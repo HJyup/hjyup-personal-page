@@ -15,7 +15,7 @@ interface MusicWidgetProps {
 export function MusicWidget({
   title = 'Supercut',
   artist = 'Lorde',
-  albumArt = '/music/melodrama.png',
+  albumArt = 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8d/0d/15/8d0d1532-493b-52ec-6a29-a239ced6931b/17UMGIM81023.rgb.jpg/632x632bb.webp',
   albumArtAlt = 'Album cover',
   className = '',
 }: MusicWidgetProps) {
@@ -32,6 +32,9 @@ export function MusicWidget({
     }
   };
 
+  const BLUR_DATA_URL =
+    'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mOUS19SzwAEjDAGACM9A1PjZKmWAAAAAElFTkSuQmCC';
+
   return (
     <MediumWidgetLayout className={className}>
       <div
@@ -46,8 +49,10 @@ export function MusicWidget({
           src={albumArt}
           alt={`${albumArtAlt} for ${title} by ${artist}`}
           width={250}
-          draggable={false}
           height={250}
+          draggable={false}
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
         />
         <div className="flex flex-col items-start text-left w-full min-w-0 flex-1">
           <div
