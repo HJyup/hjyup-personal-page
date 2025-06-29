@@ -1,11 +1,5 @@
 'use client';
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { Widget } from '@/const/widgets';
 import {
@@ -36,10 +30,6 @@ export function WidgetGrid() {
     () => groupWidgetsByColumn(widgets),
     [widgets],
   );
-  const stableWidgetsByColumn = useRef(widgetsByColumn);
-  useEffect(() => {
-    stableWidgetsByColumn.current = widgetsByColumn;
-  }, [widgetsByColumn]);
 
   const columnsArray = useMemo(
     () =>
@@ -71,7 +61,7 @@ export function WidgetGrid() {
       const dropSuccess = handleWidgetDrop(
         draggedId,
         widgets,
-        stableWidgetsByColumn.current,
+        widgetsByColumn,
         column,
         index,
         moveWidget,
@@ -79,7 +69,14 @@ export function WidgetGrid() {
       );
       if (dropSuccess) setDraggedWidget(null);
     },
-    [isEditMode, widgets, moveWidget, reorderWidgetsInColumn, setDraggedWidget],
+    [
+      isEditMode,
+      widgets,
+      widgetsByColumn,
+      moveWidget,
+      reorderWidgetsInColumn,
+      setDraggedWidget,
+    ],
   );
 
   const renderCell = useCallback(
