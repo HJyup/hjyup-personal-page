@@ -75,10 +75,17 @@ export function GithubWidget({ className = '' }: { className?: string }) {
             </span>
             <span>pinned repositories</span>
           </div>
-          <GithubIcon
-            className="h-8 w-8 sm:h-10 sm:w-10 text-zinc-700 dark:text-zinc-300"
-            aria-label="GitHub"
-          />
+          <a
+            href="https://github.com/HJyup"
+            className="hover:cursor-pointer hover:scale-110 transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon
+              className="h-8 w-8 sm:h-10 sm:w-10 text-zinc-700 dark:text-zinc-300"
+              aria-label="GitHub"
+            />
+          </a>
         </header>
         <div
           className="flex flex-col gap-1 flex-1 overflow-hidden"

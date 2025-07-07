@@ -3,15 +3,20 @@ import SvgIcon from './internal/svg-icon';
 export interface LinkedinIconProps {
   className?: string;
   size?: 'inherit' | 'small' | 'normal' | 'large';
+  showHoverColor?: boolean;
 }
 
-export function Linkedin({ className, size }: LinkedinIconProps) {
+export function Linkedin({
+  className,
+  size,
+  showHoverColor,
+}: LinkedinIconProps) {
   return (
     <SvgIcon
       className={className}
       size={size}
       viewBox="0 0 310 310"
-      color="white"
+      color={showHoverColor ? '#0077B5' : 'white'}
     >
       <g id="XMLID_801_">
         <path

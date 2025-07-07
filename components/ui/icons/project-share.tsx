@@ -3,14 +3,12 @@ import SvgIcon from './internal/svg-icon';
 export interface ProjectShareIconProps {
   className?: string;
   size?: 'inherit' | 'small' | 'normal' | 'large';
-  isEditMode?: boolean;
   showHoverColor?: boolean;
 }
 
 export function ProjectShare({
   className,
   size,
-  isEditMode,
   showHoverColor,
 }: ProjectShareIconProps) {
   return (

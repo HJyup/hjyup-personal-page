@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CircleArrowOutUpRightIcon, InfoIcon } from 'lucide-react';
+import { CircleArrowOutUpRightIcon } from 'lucide-react';
 
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';

@@ -3,23 +3,22 @@ import { ComponentType } from 'react';
 import { WidgetComponentType } from '@/const/widgets';
 
 import { BooksWidget } from '../widgets/books';
+import { EmailWidget } from '../widgets/email';
 import { GithubWidget } from '../widgets/github';
 import { LogosWidget } from '../widgets/logos';
 import { MusicWidget } from '../widgets/music';
 import { NotesWidget } from '../widgets/notes';
-import { PhotosMapsWidget } from '../widgets/photos-maps';
-import { ProjectWidget } from '../widgets/project';
 
 export const widgetRegistry: Partial<
   Record<WidgetComponentType, ComponentType>
 > = {
   'books-card': BooksWidget,
   'github-card': GithubWidget,
+  'email-card': EmailWidget,
   'music-card': MusicWidget,
   'notes-card': NotesWidget,
-  'photos-maps-card': PhotosMapsWidget,
-  'project-card': ProjectWidget,
   'projects-logo-card': LogosWidget,
+  // 'contact-card': ContactWidget,
 };
 
 export function WidgetMapper({
