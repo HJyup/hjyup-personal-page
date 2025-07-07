@@ -175,7 +175,7 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
 
       <MediumWidgetLayout className={className} isBackground={false}>
         <div
-          className="h-full flex items-center justify-center gap-3 sm:gap-4 lg:gap-5"
+          className="h-full flex items-center justify-center gap-3"
           role="region"
           aria-label="Partner organizations and projects"
         >
