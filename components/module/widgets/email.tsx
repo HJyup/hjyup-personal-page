@@ -9,9 +9,7 @@ export function EmailWidget({
   className?: string;
 }) {
   const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState(
-    'Hi Danyil,\nI really like your webpage! Can I connect with you?',
-  );
+  const [message, setMessage] = useState('');
 
   const handleSendEmail = () => {
     const mailtoLink = `mailto:danyil.butov.tech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
