@@ -1,11 +1,46 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import { MusicWidget } from '@/components/module/widgets/music';
 import PostsLayout, {
   PostContentContainer,
 } from '@/components/ui/layout/posts';
+
+export const metadata: Metadata = {
+  title: 'About This Website | Danyil Butov',
+  description:
+    'A fresh take on portfolio design. Balancing minimalism with personality using widget-based interactions. Learn about the journey and principles behind this website.',
+  keywords: [
+    'portfolio',
+    'web design',
+    'Next.js',
+    'React',
+    'widgets',
+    'UI/UX',
+    'software developer',
+  ],
+  openGraph: {
+    title: 'About This Website | Danyil Butov',
+    description:
+      'A fresh take on portfolio design. Balancing minimalism with personality using widget-based interactions.',
+    images: [
+      {
+        url: '/posts/portfolio_light.png',
+        width: 1000,
+        height: 600,
+        alt: 'Portfolio showcase',
+      },
+    ],
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About This Website | Danyil Butov',
+    description:
+      'A fresh take on portfolio design. Balancing minimalism with personality using widget-based interactions.',
+    images: ['/posts/portfolio_light.png'],
+  },
+};
 
 const PortfolioPage = () => {
   return (
@@ -195,9 +230,9 @@ const PortfolioPage = () => {
             What's next
           </h2>
           <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-500">
-            I’m actively building new widgets and refining their interactivity.
-            As more features are added, I’m also exploring better UX patterns to
-            make everything feel intuitive and engaging. It’s a fun process.
+            I'm actively building new widgets and refining their interactivity.
+            As more features are added, I'm also exploring better UX patterns to
+            make everything feel intuitive and engaging. It's a fun process.
             Check back soon for updates!
           </p>
         </section>

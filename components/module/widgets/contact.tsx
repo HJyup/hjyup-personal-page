@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -50,10 +48,15 @@ function ContactContainer({
         </div>
       </div>
 
-      <button className="flex items-center justify-center gap-2 text-sm sm:text-base text-zinc-900 dark:text-zinc-300 w-full rounded-lg sm:rounded-full border border-gray-300 dark:border-zinc-700 py-2.5 sm:py-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-200 min-h-[44px] sm:min-h-0">
+      <a
+        href="#"
+        className="flex items-center justify-center gap-2 text-sm sm:text-base text-zinc-900 dark:text-zinc-300 w-full rounded-lg sm:rounded-full border border-gray-300 dark:border-zinc-700 py-2.5 sm:py-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors duration-200 min-h-[44px] sm:min-h-0"
+        role="button"
+        aria-label={ariaLabel}
+      >
         <span className="truncate">View Profile</span>
         <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
-      </button>
+      </a>
     </div>
   );
 }

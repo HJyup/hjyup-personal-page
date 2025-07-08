@@ -30,14 +30,20 @@ const colourClassMap = {
 };
 
 interface ListLayoutProps {
+  id: string;
   title: string;
   items: ListItem[];
   className?: string;
 }
 
-export function ListLayout({ title, items, className = '' }: ListLayoutProps) {
+export function ListLayout({
+  id,
+  title,
+  items,
+  className = '',
+}: ListLayoutProps) {
   return (
-    <div className={`w-full lg:w-1/2 ${className}`}>
+    <section aria-labelledby={id} className={`w-full lg:w-1/2 ${className}`}>
       <div className="text-muted-foreground text-xs sm:text-sm mt-8 sm:mt-12 lg:mt-12">
         {title}
       </div>
@@ -74,6 +80,6 @@ export function ListLayout({ title, items, className = '' }: ListLayoutProps) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
