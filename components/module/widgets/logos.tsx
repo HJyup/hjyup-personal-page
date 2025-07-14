@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CircleArrowOutUpRightIcon } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';
@@ -100,7 +100,7 @@ function LogoContainer({
     <div className={`relative w-1/2 max-w-xs h-full ${isActive ? 'z-40' : ''}`}>
       <a
         href={href}
-        className={`w-full h-full bg-gray-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none transition-all duration-300 ${
+        className={`w-full h-full bg-zinc-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none transition-all duration-300 ${
           !isEditMode ? 'cursor-pointer hover:scale-[1.01]' : ''
         } ${isActive ? 'scale-[1.02]' : ''}`}
         aria-label={ariaLabel}
@@ -111,7 +111,7 @@ function LogoContainer({
       </a>
 
       <button
-        className="absolute bottom-3 left-3 w-8 h-8 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
+        className="absolute bottom-3 left-3 w-8 h-8 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
         onMouseEnter={() => onMouseEnter(logoKey)}
         onMouseLeave={onMouseLeave}
         onClick={e => {
@@ -121,7 +121,7 @@ function LogoContainer({
         }}
         aria-label={`Show ${info.title} information`}
       >
-        <CircleArrowOutUpRightIcon className="w-4 h-4 text-zinc-500" />
+        <ArrowUpRight className="w-4 h-4 text-zinc-500" />
       </button>
 
       <InfoTooltip info={info} isVisible={isActive} />

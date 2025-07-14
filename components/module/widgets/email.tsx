@@ -6,7 +6,7 @@ import { ArrowUpWideNarrowIcon, FolderOutputIcon, Send } from 'lucide-react';
 import { BigWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
 export function EmailWidget({
-  className = 'flex items-end justify-end',
+  className = 'flex items-end justify-center',
 }: {
   className?: string;
 }) {
@@ -20,7 +20,7 @@ export function EmailWidget({
 
   return (
     <BigWidgetLayout className={className}>
-      <div className="w-[96%] bg-white dark:bg-zinc-900 h-[90%] rounded-tl-2xl sm:rounded-tl-3xl flex flex-col relative overflow-hidden rounded-br-2xl sm:rounded-br-3xl">
+      <div className="w-[90%] bg-white dark:bg-zinc-900 h-[90%] rounded-t-2xl sm:rounded-t-3xl flex flex-col relative overflow-hidden">
         <div className="bg-gray-200/30 dark:bg-zinc-800/20 w-full h-12 flex px-6 items-center justify-between border-b border-gray-200 dark:border-zinc-700">
           <div className="flex items-center gap-6">
             <div className="flex gap-2 justify-center">
