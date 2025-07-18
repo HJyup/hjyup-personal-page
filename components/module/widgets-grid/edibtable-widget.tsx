@@ -54,11 +54,11 @@ export function EditableWidget({
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       className={`
-        group relative cursor-move select-none transition-all duration-200 break-inside-avoid
+        group relative cursor-move select-none transition-all duration-200 ease-out-cubic motion-reduce:transition-none break-inside-avoid
         ${className}
-        ${isCurrentlyDragged ? 'opacity-60 scale-105 rotate-1 z-50' : ''}
-        ${isOtherWidgetDragged ? 'blur-sm opacity-40 scale-95' : ''}
-        ${!draggedWidgetId && !isEditMode ? 'hover:scale-[1.02] hover:ring-2 hover:ring-blue-400 hover:ring-opacity-60 hover:rounded-2xl sm:hover:rounded-3xl' : ''}
+        ${isCurrentlyDragged ? 'opacity-60 scale-105 rotate-1 z-50 motion-reduce:scale-100 motion-reduce:rotate-0' : ''}
+        ${isOtherWidgetDragged ? 'blur-sm opacity-40 scale-95 motion-reduce:scale-100 motion-reduce:blur-none' : ''}
+        ${!draggedWidgetId && !isEditMode ? 'hover:scale-[1.02] hover:ring-2 hover:ring-blue-400 hover:ring-opacity-60 hover:rounded-2xl sm:hover:rounded-3xl motion-reduce:hover:scale-100' : ''}
       `}
     >
       {children}
@@ -66,7 +66,7 @@ export function EditableWidget({
       {!draggedWidgetId && (
         <button
           onClick={handleRemove}
-          className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-lg transition-all duration-200 z-30 opacity-0 group-hover:opacity-100 transform hover:scale-110"
+          className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-lg transition-all duration-200 ease-out-cubic motion-reduce:transition-none z-30 opacity-0 group-hover:opacity-100 transform hover:scale-110 motion-reduce:hover:scale-100 motion-reduce:transform-none"
           aria-label="Remove widget"
         >
           <X className="w-4 h-4" />
@@ -74,7 +74,7 @@ export function EditableWidget({
       )}
 
       {!draggedWidgetId && (
-        <div className="absolute inset-0 bg-blue-500 bg-opacity-5 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+        <div className="absolute inset-0 bg-blue-500 bg-opacity-5 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out-quad motion-reduce:transition-none" />
       )}
     </div>
   );

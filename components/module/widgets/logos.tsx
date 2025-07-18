@@ -2,66 +2,37 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';
 import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
 import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
-interface LogoInfo {
+interface Logo {
   title: string;
   description: string;
-}
-
-interface BackdropOverlayProps {
-  isVisible: boolean;
-  onClose: () => void;
-}
-
-interface InfoTooltipProps {
-  info: LogoInfo;
-  isVisible: boolean;
-}
-
-interface LogoContainerProps {
-  logoKey: string;
+  key: string;
   href: string;
   ariaLabel: string;
-  info: LogoInfo;
-  children: React.ReactNode;
-  isActive: boolean;
-  isEditMode: boolean;
-  onInfoClick: (logoKey: string) => void;
-  onMouseEnter: (logoKey: string) => void;
-  onMouseLeave: () => void;
+  icon: (props: {
+    className: string;
+    showHoverColor: boolean;
+  }) => React.ReactNode;
 }
 
-interface LogosWidgetProps {
+interface Props {
   className?: string;
 }
 
-function BackdropOverlay({ isVisible, onClose }: BackdropOverlayProps) {
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-30 backdrop-blur-xl dark:bg-black/40 bg-black/10"
-          onClick={onClose}
-          onTouchEnd={onClose}
-          role="button"
-          aria-label="Close information overlay"
-        />
-      )}
-    </AnimatePresence>
-  );
-}
-
-function InfoTooltip({ info, isVisible }: InfoTooltipProps) {
+function Tooltip({
+  title,
+  description,
+  isVisible,
+}: {
+  title: string;
+  description: string;
+  isVisible: boolean;
+}) {
   return (
     <AnimatePresence>
       {isVisible && (
@@ -69,14 +40,14 @@ function InfoTooltip({ info, isVisible }: InfoTooltipProps) {
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 5 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="absolute top-full mt-3 z-50 max-w-xs sm:max-w-sm"
         >
           <p className="text-lg md:text-xl font-medium text-zinc-950 dark:text-zinc-50 drop-shadow-sm">
-            {info.title}
+            {title}
           </p>
           <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 mt-2 drop-shadow-sm">
-            {info.description}
+            {description}
           </p>
         </motion.div>
       )}
@@ -84,94 +55,46 @@ function InfoTooltip({ info, isVisible }: InfoTooltipProps) {
   );
 }
 
-function LogoContainer({
-  logoKey,
-  href,
-  ariaLabel,
-  info,
-  children,
-  isActive,
-  isEditMode,
-  onInfoClick,
-  onMouseEnter,
-  onMouseLeave,
-}: LogoContainerProps) {
-  return (
-    <div className={`relative w-1/2 max-w-xs h-full ${isActive ? 'z-40' : ''}`}>
-      <a
-        href={href}
-        className={`w-full h-full bg-zinc-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none transition-all duration-300 ${
-          !isEditMode ? 'cursor-pointer hover:scale-[1.01]' : ''
-        } ${isActive ? 'scale-[1.02]' : ''}`}
-        aria-label={ariaLabel}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </a>
-
-      <button
-        className="absolute bottom-3 left-3 w-8 h-8 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/30 dark:hover:bg-zinc-800/80 z-10 touch-manipulation"
-        onMouseEnter={() => onMouseEnter(logoKey)}
-        onMouseLeave={onMouseLeave}
-        onClick={e => {
-          e.preventDefault();
-          e.stopPropagation();
-          onInfoClick(logoKey);
-        }}
-        aria-label={`Show ${info.title} information`}
-      >
-        <ArrowUpRight className="w-4 h-4 text-zinc-500" />
-      </button>
-
-      <InfoTooltip info={info} isVisible={isActive} />
-    </div>
-  );
-}
-
-export function LogosWidget({ className = '' }: LogosWidgetProps) {
+export function LogosWidget({ className = '' }: Props) {
   const { isEditMode } = useWidgetEdit();
-  const [hoveredInfo, setHoveredInfo] = useState<string | null>(null);
-  const [clickedInfo, setClickedInfo] = useState<string | null>(null);
+  const [activeKey, setActiveKey] = useState<string | null>(null);
 
-  const logoInfo: Record<string, LogoInfo> = {
-    htb: {
-      title: '🏆 HackTheBurgh',
+  const logos: Logo[] = [
+    {
+      key: 'htb',
+      title: 'HackTheBurgh',
       description: 'Organiser of the largest Scotland Hackathon',
+      href: 'https://hacktheburgh.com/',
+      ariaLabel: 'Visit HackTheBurgh hackathon website',
+      icon: Htb,
     },
-    projectshare: {
-      title: '💻 Project share',
+    {
+      key: 'projectshare',
+      title: 'Project share',
       description:
         'Community where enthusiastic students bring their projects to life',
+      href: 'https://projectshare.comp-soc.com/',
+      ariaLabel: 'Visit ProjectShare platform by CompSoc',
+      icon: ProjectShare,
     },
-  };
-
-  const activeInfo = clickedInfo || hoveredInfo;
-
-  const handleInfoClick = (logoKey: string) => {
-    if (isEditMode) return;
-    setClickedInfo(clickedInfo === logoKey ? null : logoKey);
-    setHoveredInfo(null);
-  };
-
-  const handleMouseEnter = (logoKey: string) => {
-    if (isEditMode || clickedInfo) return;
-    setHoveredInfo(logoKey);
-  };
-
-  const handleMouseLeave = () => {
-    if (clickedInfo) return;
-    setHoveredInfo(null);
-  };
-
-  const handleBackdropClose = () => {
-    setClickedInfo(null);
-    setHoveredInfo(null);
-  };
+  ];
 
   return (
     <>
-      <BackdropOverlay isVisible={!!activeInfo} onClose={handleBackdropClose} />
+      <AnimatePresence>
+        {activeKey && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-30 backdrop-blur-md dark:bg-black/20 bg-black/5"
+            onClick={() => setActiveKey(null)}
+            role="button"
+            aria-label="Close information overlay"
+          />
+        )}
+      </AnimatePresence>
 
       <MediumWidgetLayout className={className} isBackground={false}>
         <div
@@ -179,45 +102,35 @@ export function LogosWidget({ className = '' }: LogosWidgetProps) {
           role="region"
           aria-label="Partner organizations and projects"
         >
-          <LogoContainer
-            logoKey="htb"
-            href="https://hacktheburgh.com/"
-            ariaLabel="Visit HackTheBurgh hackathon website"
-            info={logoInfo.htb}
-            isActive={activeInfo === 'htb'}
-            isEditMode={isEditMode}
-            onInfoClick={handleInfoClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Htb
-              className={`w-[60%] h-[60%] transition-transform duration-300 ${
-                activeInfo === 'htb' ? 'scale-110' : 'group-hover:scale-105'
-              }`}
-              showHoverColor={activeInfo === 'htb'}
-            />
-          </LogoContainer>
+          {logos.map(logo => (
+            <div
+              key={logo.key}
+              className={`relative w-1/2 max-w-xs h-full ${activeKey === logo.key ? 'z-40' : ''}`}
+              onMouseEnter={() => !isEditMode && setActiveKey(logo.key)}
+              onMouseLeave={() => setActiveKey(null)}
+            >
+              <a
+                href={logo.href}
+                className={`w-full h-full bg-zinc-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none transition-all duration-200 ease-out-cubic motion-reduce:transition-none hover:scale-105 ${
+                  !isEditMode ? 'cursor-pointer' : ''
+                }`}
+                aria-label={logo.ariaLabel}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <logo.icon
+                  className="w-[60%] h-[60%] transition-colors duration-200 ease-out-cubic motion-reduce:transition-none"
+                  showHoverColor={activeKey === logo.key}
+                />
+              </a>
 
-          <LogoContainer
-            logoKey="projectshare"
-            href="https://projectshare.comp-soc.com/"
-            ariaLabel="Visit ProjectShare platform by CompSoc"
-            info={logoInfo.projectshare}
-            isActive={activeInfo === 'projectshare'}
-            isEditMode={isEditMode}
-            onInfoClick={handleInfoClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <ProjectShare
-              className={`w-[60%] h-[60%] transition-transform duration-300 ${
-                activeInfo === 'projectshare'
-                  ? 'scale-110'
-                  : 'group-hover:scale-105'
-              }`}
-              showHoverColor={activeInfo === 'projectshare'}
-            />
-          </LogoContainer>
+              <Tooltip
+                title={logo.title}
+                description={logo.description}
+                isVisible={activeKey === logo.key}
+              />
+            </div>
+          ))}
         </div>
       </MediumWidgetLayout>
     </>

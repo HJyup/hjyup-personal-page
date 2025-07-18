@@ -101,8 +101,9 @@
   }
 
   body {
-    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica,
-      Arial, sans-serif;
+    font-family:
+      'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial,
+      sans-serif;
     @apply bg-background text-foreground;
   }
 
@@ -116,5 +117,42 @@
     background: rgba(59, 130, 246, 0.4);
     color: rgb(191, 219, 254);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 
+ * Custom hover animations that respect touch devices
+ * Following animation guidelines: only enable hover effects on devices with hover capability
+ */
+@layer utilities {
+  /* Disable hover animations on touch devices */
+  @media (hover: none) {
+    .hover\:scale-\[1\.01\]:hover,
+    .hover\:scale-\[1\.02\]:hover,
+    .hover\:scale-105:hover,
+    .hover\:scale-110:hover,
+    .group-hover\:scale-105,
+    .group-hover\:translate-x-1 {
+      transform: none !important;
+    }
+  }
+
+  /* Enable precise hover animations only on devices with fine pointers */
+  @media (hover: hover) and (pointer: fine) {
+    .hover-precise\:scale-\[1\.01\]:hover {
+      transform: scale(1.01);
+    }
+
+    .hover-precise\:scale-\[1\.02\]:hover {
+      transform: scale(1.02);
+    }
+
+    .hover-precise\:scale-105:hover {
+      transform: scale(1.05);
+    }
+
+    .hover-precise\:scale-110:hover {
+      transform: scale(1.1);
+    }
   }
 }

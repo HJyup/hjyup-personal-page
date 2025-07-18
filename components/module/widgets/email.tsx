@@ -30,15 +30,15 @@ export function EmailWidget({
             </div>
             <button
               onClick={handleSendEmail}
-              className="rounded-md text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200"
+              className="rounded-md text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none"
               title="Send email"
             >
               <Send className="w-[1.2rem] h-[1.2rem]" />
             </button>
           </div>
           <div className="flex items-center gap-6 ">
-            <ArrowUpWideNarrowIcon className="w-[1.2rem] h-[1.2rem] text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 hover:cursor-pointer" />
-            <FolderOutputIcon className="w-[1.2rem] h-[1.2rem] text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 hover:cursor-pointer" />
+            <ArrowUpWideNarrowIcon className="w-[1.2rem] h-[1.2rem] text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
+            <FolderOutputIcon className="w-[1.2rem] h-[1.2rem] text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
           </div>
         </div>
 

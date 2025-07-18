@@ -27,7 +27,7 @@ export function PhotosMapsWidget({ className = '' }: PhotosMapsWidgetProps) {
       >
         {/* Photos Widget */}
         <div
-          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl overflow-hidden group relative ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
+          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl overflow-hidden group relative ${!isEditMode ? 'cursor-pointer transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none hover:scale-[1.01]' : ''}`}
           role="button"
           tabIndex={0}
           aria-label="View photo gallery"
@@ -37,10 +37,10 @@ export function PhotosMapsWidget({ className = '' }: PhotosMapsWidgetProps) {
               src={featuredPhoto.src}
               alt={featuredPhoto.alt}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
             />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-200 ease motion-reduce:transition-none" />
             <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
               <div className="flex items-center gap-2 text-white">
                 <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -52,7 +52,7 @@ export function PhotosMapsWidget({ className = '' }: PhotosMapsWidgetProps) {
 
         {/* Maps Widget */}
         <div
-          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex flex-col justify-between p-4 sm:p-5 group relative overflow-hidden ${!isEditMode ? 'cursor-pointer transition-all duration-300 hover:scale-[1.01]' : ''}`}
+          className={`w-1/2 max-w-xs h-full bg-gray-100 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl flex flex-col justify-between p-4 sm:p-5 group relative overflow-hidden ${!isEditMode ? 'cursor-pointer transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none hover:scale-[1.01]' : ''}`}
           role="button"
           tabIndex={0}
           aria-label="View maps"

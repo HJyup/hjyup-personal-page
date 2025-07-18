@@ -45,7 +45,7 @@ export function MusicWidget({
         aria-label={`Music player - ${title} by ${artist}`}
       >
         <Image
-          className={`rounded-lg sm:rounded-xl shadow-lg aspect-square w-32 md:w-36 lg:w-40 xl:w-44 flex-shrink-0 object-cover transition-transform duration-300 ${
+          className={`rounded-lg sm:rounded-xl shadow-lg aspect-square w-32 md:w-36 lg:w-40 xl:w-44 flex-shrink-0 object-cover transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none ${
             isPlaying ? 'scale-105' : 'scale-100'
           }`}
           src={albumArt}
@@ -72,7 +72,7 @@ export function MusicWidget({
           <button
             onClick={handlePlayPause}
             onKeyDown={handleKeyDown}
-            className={`text-white text-sm sm:text-base rounded-full gap-2 flex justify-center items-center mt-2 px-3 py-1 sm:px-4 sm:py-1.5 transition-all duration-300 min-w-0 transform active:scale-95 focus:outline-none ${
+            className={`text-white text-sm sm:text-base rounded-full gap-2 flex justify-center items-center mt-2 px-3 py-1 sm:px-4 sm:py-1.5 transition-colors duration-200 ease motion-reduce:transition-none min-w-0 transform active:scale-95 focus:outline-none ${
               isPlaying
                 ? 'bg-blue-500 hover:bg-blue-600 shadow-lg'
                 : 'bg-zinc-400 dark:bg-zinc-600 hover:bg-zinc-500 dark:hover:bg-zinc-500'
@@ -82,13 +82,13 @@ export function MusicWidget({
           >
             {isPlaying ? (
               <PauseIcon
-                className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 transition-transform duration-200"
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 transition-transform duration-200 ease-out-quad motion-reduce:transition-none"
                 fill="white"
                 aria-hidden="true"
               />
             ) : (
               <PlayIcon
-                className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 transition-transform duration-200"
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white flex-shrink-0 transition-transform duration-200 ease-out-quad motion-reduce:transition-none"
                 fill="white"
                 aria-hidden="true"
               />

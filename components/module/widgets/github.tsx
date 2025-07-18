@@ -77,7 +77,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
           </div>
           <a
             href="https://github.com/HJyup"
-            className="hover:cursor-pointer hover:scale-110 transition-all duration-300"
+            className="hover:cursor-pointer hover:scale-110 transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none"
             target="_blank"
             rel="noopener noreferrer"
           >
