@@ -7,7 +7,6 @@ import { EmailWidget } from '../widgets/email';
 import { GithubWidget } from '../widgets/github';
 import { LogosWidget } from '../widgets/logos';
 import { MusicWidget } from '../widgets/music';
-import { NotesWidget } from '../widgets/notes';
 
 export const widgetRegistry: Partial<
   Record<WidgetComponentType, ComponentType>
@@ -16,9 +15,7 @@ export const widgetRegistry: Partial<
   'github-card': GithubWidget,
   'email-card': EmailWidget,
   'music-card': MusicWidget,
-  'notes-card': NotesWidget,
   'projects-logo-card': LogosWidget,
-  // 'contact-card': ContactWidget,
 };
 
 export function WidgetMapper({

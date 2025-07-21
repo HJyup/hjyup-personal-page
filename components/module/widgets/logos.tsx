@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Htb from '@/components/ui/icons/htb';
 import ProjectShare from '@/components/ui/icons/project-share';
 import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
-import { useWidgetEdit } from '@/provider/widget-edit-provider';
 
 interface Logo {
   title: string;
@@ -56,7 +55,6 @@ function Tooltip({
 }
 
 export function LogosWidget({ className = '' }: Props) {
-  const { isEditMode } = useWidgetEdit();
   const [activeKey, setActiveKey] = useState<string | null>(null);
 
   const logos: Logo[] = [
@@ -106,14 +104,12 @@ export function LogosWidget({ className = '' }: Props) {
             <div
               key={logo.key}
               className={`relative w-1/2 max-w-xs h-full ${activeKey === logo.key ? 'z-40' : ''}`}
-              onMouseEnter={() => !isEditMode && setActiveKey(logo.key)}
+              onMouseEnter={() => setActiveKey(logo.key)}
               onMouseLeave={() => setActiveKey(null)}
             >
               <a
                 href={logo.href}
-                className={`w-full h-full bg-zinc-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none transition-all duration-200 ease-out-cubic motion-reduce:transition-none hover:scale-105 ${
-                  !isEditMode ? 'cursor-pointer' : ''
-                }`}
+                className="w-full h-full bg-zinc-100 dark:bg-[hsl(0,0%,10%)] rounded-2xl sm:rounded-3xl flex justify-center items-center group focus:outline-none transition-all duration-200 ease-out-cubic motion-reduce:transition-none hover:scale-105 cursor-pointer"
                 aria-label={logo.ariaLabel}
                 target="_blank"
                 rel="noopener noreferrer"
