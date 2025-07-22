@@ -58,15 +58,15 @@ export function MusicWidget({
         />
         <div className="flex flex-col items-start text-left w-full min-w-0 flex-1">
           <div
-            className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm mb-2"
+            className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm mb-1"
             aria-live="polite"
           >
             {isPlaying ? 'NOW PLAYING' : 'PAUSED'}
           </div>
-          <h3 className="text-zinc-900 dark:text-zinc-100 text-lg sm:text-xl font-medium truncate w-full mb-1">
+          <h3 className="text-zinc-900 dark:text-zinc-100 text-base sm:text-lg font-medium truncate w-full">
             {title}
           </h3>
-          <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg truncate w-full mb-3">
+          <p className="text-zinc-600 dark:text-zinc-300 text-sm sm:text-base truncate w-full mb-3">
             {artist}
           </p>
           <button

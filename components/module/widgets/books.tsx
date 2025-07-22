@@ -133,13 +133,13 @@ const HighlightedBook = ({
       <div className="flex flex-col gap-0.5 flex-1 min-w-0">
         <motion.h3
           layoutId={`book-title-${book.id}`}
-          className="text-zinc-900 dark:text-zinc-100 font-semibold text-sm sm:text-base md:text-lg leading-tight"
+          className="text-zinc-900 dark:text-zinc-100 font-semibold text-sm md:text-base leading-tight"
         >
           {book.title}
         </motion.h3>
         <motion.p
           layoutId={`book-author-${book.id}`}
-          className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm md:text-base"
+          className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm"
         >
           {book.author}
         </motion.p>
@@ -151,7 +151,7 @@ const HighlightedBook = ({
             href={book.amazonUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-xs sm:text-sm md:text-base font-medium hover:underline transition-colors"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-xs md:text-sm font-medium hover:underline transition-colors"
           >
             View on Amazon
           </a>
@@ -226,7 +226,7 @@ const BookList = ({
             width={120}
             height={180}
             draggable={false}
-            className="w-16 h-24 md:w-16 md:h-28 lg:w-20 lg:h-32 rounded-md shadow-sm"
+            className="w-16 h-24 md:w-16 md:h-28 lg:w-[5.6rem] lg:h-[9rem] rounded-md shadow-sm"
           />
         </motion.div>
       ))}
