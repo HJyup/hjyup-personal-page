@@ -9,11 +9,12 @@ export const BLOG: ListItem[] = [
     href: '/posts/portfolio',
   },
   {
-    id: 'bookshelf',
-    title: 'Bookshelf',
-    date: '18-07-2025',
+    id: 'animations',
+    title: 'Animations',
+    date: 'Coming soon',
     colour: 'yellow',
-    href: '/posts/bookshelf',
+    isBlurred: true,
+    isDisabled: true,
   },
   {
     id: 'other-stuff',

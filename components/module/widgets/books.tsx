@@ -19,7 +19,6 @@ type Book = {
   id: string;
   title: string;
   author: string;
-  description: string;
   imageUrl: string;
   amazonUrl: string;
   status: BookStatus;
@@ -30,8 +29,6 @@ const BOOKS: Book[] = [
     id: 'design-everyday-things',
     title: 'The Design of Everyday Things',
     author: 'Don Norman',
-    description:
-      'A fundamental book about design principles that shape our daily interactions with objects and interfaces.',
     imageUrl:
       'https://m.media-amazon.com/images/I/41rHjQCElcL._SY445_SX342_.jpg',
     amazonUrl:
@@ -42,8 +39,6 @@ const BOOKS: Book[] = [
     id: 'creative-selection',
     title: 'Creative Selection',
     author: 'Ken Kocienda',
-    description:
-      "Inside story of Apple's design process and creative decision making from a software engineer who worked on Safari and iOS.",
     imageUrl: 'https://m.media-amazon.com/images/I/71AiWmqkN2L._SY522_.jpg',
     amazonUrl:
       'https://www.amazon.com/Creative-Selection-Inside-Apples-Process/dp/1250194466',
@@ -53,8 +48,6 @@ const BOOKS: Book[] = [
     id: 'software-engineer-google',
     title: 'Software Engineering at Google',
     author: 'Titus Winters, Tom Manshreck, Hyrum Wright',
-    description:
-      'Lessons learned from programming at scale, covering testing, code review, and software architecture.',
     imageUrl:
       'https://m.media-amazon.com/images/I/410MEGnUOCL._SY445_SX342_.jpg',
     amazonUrl:
@@ -65,8 +58,6 @@ const BOOKS: Book[] = [
     id: 'designing-data-intensive-apps',
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
-    description:
-      'Deep dive into the principles and practicalities of data systems, from databases to stream processing.',
     imageUrl: 'https://m.media-amazon.com/images/I/91YfNb49PLL._SY522_.jpg',
     amazonUrl:
       'https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321',
@@ -76,8 +67,6 @@ const BOOKS: Book[] = [
     id: 'art-of-doing-science',
     title: 'The Art of Doing Science and Engineering',
     author: 'Richard W. Hamming',
-    description:
-      "A legendary mathematician's perspective on creative thinking and problem-solving in scientific work.",
     imageUrl: 'https://m.media-amazon.com/images/I/41hZEEzw30L._SY522_.jpg',
     amazonUrl:
       'https://www.amazon.com/Art-Doing-Science-Engineering-Learning/dp/1732265178',
@@ -135,21 +124,18 @@ const HighlightedBook = ({
         />
       </motion.div>
 
-      <div className="flex flex-col gap-2 min-w-0 flex-1">
-        <span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium tracking-wide">
+      <div className="flex flex-col min-w-0 flex-1">
+        <span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium tracking-wide mb-2">
           {book.status}
         </span>
         <a
           href={book.amazonUrl}
-          className="font-semibold text-base sm:text-lg leading-tight text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition-colors"
+          className="font-semibold text-base sm:text-lg leading-tight text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition-colors mb-1"
         >
           {book.title}
         </a>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-500">
           by {book.author}
-        </p>
-        <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3">
-          {book.description}
         </p>
       </div>
     </motion.div>
@@ -182,7 +168,7 @@ const BookList = ({
   return (
     <motion.div
       ref={scrollRef}
-      className="flex gap-4 overflow-x-auto items-center scrollbar-hide pb-2 h-full"
+      className="flex gap-3 overflow-x-auto items-center scrollbar-hide pb-2 h-full px-2"
       onScroll={handleScroll}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

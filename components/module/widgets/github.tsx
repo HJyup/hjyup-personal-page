@@ -33,11 +33,11 @@ function GithubWidgetItem({
   return (
     <article
       className={cn(
-        'text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mb-1 sm:mb-3',
+        'text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mb-3',
         className,
       )}
     >
-      <div className="flex items-center gap-2 mb-1">
+      <div className="flex items-center gap-2 mb-2">
         <a
           href={link}
           className="text-zinc-700 dark:text-zinc-300 text-md hover:underline"
@@ -61,14 +61,14 @@ export function GithubWidget({ className = '' }: { className?: string }) {
   return (
     <MediumWidgetLayout className={className}>
       <div
-        className=" h-full w-full p-4 sm:p-5 lg:p-6 flex flex-col rounded-2xl sm:rounded-3xl"
+        className="h-full w-full p-4 sm:p-5 lg:p-6 flex flex-col rounded-2xl sm:rounded-3xl"
         role="region"
         aria-label="GitHub repositories showcase"
       >
-        <header className="flex items-center justify-between w-full mb-3 sm:mb-4">
-          <div className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base flex items-center gap-2 sm:gap-3">
+        <header className="flex items-center justify-between w-full mb-4">
+          <div className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base flex items-center gap-3">
             <FolderIcon
-              className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-700 dark:text-zinc-300"
+              className="w-3 h-3 sm:w-4 sm:h-4 text-zinc-700 dark:text-zinc-300"
               fill="currentColor"
               aria-hidden="true"
             />
@@ -90,7 +90,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
           </a>
         </header>
         <div
-          className="flex flex-col gap-1 flex-1 overflow-hidden"
+          className="flex flex-col gap-0.5 flex-1 overflow-hidden"
           role="list"
           aria-label="Repository list"
         >

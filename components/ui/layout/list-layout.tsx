@@ -60,13 +60,13 @@ export function ListLayout({
               {item.href ? (
                 <a
                   href={item.href}
-                  className="hover:underline text-sm sm:text-base truncate dark:text-zinc-300"
+                  className="hover:underline text-sm md:text-base truncate dark:text-zinc-300"
                 >
                   {item.title}
                 </a>
               ) : (
                 <span
-                  className={`text-sm sm:text-base truncate dark:text-zinc-300 ${
+                  className={`text-sm md:text-base truncate dark:text-zinc-300 ${
                     item.isBlurred ? 'blur-[6px]' : ''
                   }`}
                 >

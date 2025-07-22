@@ -40,12 +40,12 @@ export function MusicWidget({
   return (
     <MediumWidgetLayout className={className}>
       <div
-        className=" h-full w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6"
+        className="h-full w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 flex flex-row items-center gap-4 sm:gap-5 lg:gap-6"
         role="region"
         aria-label={`Music player - ${title} by ${artist}`}
       >
         <Image
-          className={`rounded-lg sm:rounded-xl shadow-lg aspect-square w-32 md:w-36 lg:w-40 xl:w-44 flex-shrink-0 object-cover transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none ${
+          className={`rounded-lg sm:rounded-xl shadow-lg aspect-square w-32 lg:w-36 xl:w-40 flex-shrink-0 object-cover transition-transform duration-200 ease-out-cubic motion-reduce:transition-none motion-reduce:transform-none ${
             isPlaying ? 'scale-105' : 'scale-100'
           }`}
           src={albumArt}
@@ -58,21 +58,21 @@ export function MusicWidget({
         />
         <div className="flex flex-col items-start text-left w-full min-w-0 flex-1">
           <div
-            className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm"
+            className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm mb-2"
             aria-live="polite"
           >
             {isPlaying ? 'NOW PLAYING' : 'PAUSED'}
           </div>
-          <h3 className="text-zinc-900 dark:text-zinc-100 text-lg sm:text-xl font-medium truncate w-full">
+          <h3 className="text-zinc-900 dark:text-zinc-100 text-lg sm:text-xl font-medium truncate w-full mb-1">
             {title}
           </h3>
-          <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg truncate w-full">
+          <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg truncate w-full mb-3">
             {artist}
           </p>
           <button
             onClick={handlePlayPause}
             onKeyDown={handleKeyDown}
-            className={`text-white text-sm sm:text-base rounded-full gap-2 flex justify-center items-center mt-2 px-3 py-1 sm:px-4 sm:py-1.5 transition-colors duration-200 ease motion-reduce:transition-none min-w-0 transform active:scale-95 focus:outline-none ${
+            className={`text-white text-sm sm:text-base rounded-full gap-2 flex justify-center items-center px-3 py-1 sm:px-4 sm:py-1.5 transition-colors duration-200 ease motion-reduce:transition-none min-w-0 transform active:scale-95 focus:outline-none ${
               isPlaying
                 ? 'bg-blue-500 hover:bg-blue-600 shadow-lg'
                 : 'bg-zinc-400 dark:bg-zinc-600 hover:bg-zinc-500 dark:hover:bg-zinc-500'

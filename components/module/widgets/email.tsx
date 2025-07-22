@@ -36,14 +36,14 @@ export function EmailWidget({
               <Send className="w-[1.2rem] h-[1.2rem]" />
             </button>
           </div>
-          <div className="flex items-center gap-6 ">
+          <div className="flex items-center gap-6">
             <ArrowUpWideNarrowIcon className="w-[1.2rem] h-[1.2rem] text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
             <FolderOutputIcon className="w-[1.2rem] h-[1.2rem] text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
           </div>
         </div>
 
         <div className="pl-4 pt-4 flex flex-col gap-3 flex-1">
-          <div className="flex gap-1 items-center border-b border-gray-200 dark:border-zinc-700 pb-1 mb-2">
+          <div className="flex gap-1 items-center border-b border-gray-200 dark:border-zinc-700 pb-1 mb-3">
             <div className="text-sm text-gray-500 dark:text-zinc-400 min-w-fit">
               To:
             </div>
@@ -52,7 +52,7 @@ export function EmailWidget({
             </div>
           </div>
 
-          <div className="flex gap-1 items-center border-b border-gray-200 dark:border-zinc-700 pb-1 mb-2">
+          <div className="flex gap-1 items-center border-b border-gray-200 dark:border-zinc-700 pb-1 mb-3">
             <div className="text-sm text-gray-500 dark:text-zinc-400 min-w-fit">
               Subject:
             </div>

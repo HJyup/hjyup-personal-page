@@ -85,7 +85,7 @@ export function LogosWidget({ className = '' }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="fixed inset-0 z-30 backdrop-blur-md dark:bg-black/20 bg-black/5"
             onClick={() => setActiveKey(null)}
             role="button"
@@ -96,7 +96,7 @@ export function LogosWidget({ className = '' }: Props) {
 
       <MediumWidgetLayout className={className} isBackground={false}>
         <div
-          className="h-full flex items-center justify-center gap-3"
+          className="h-full flex items-center justify-center gap-4"
           role="region"
           aria-label="Partner organizations and projects"
         >
