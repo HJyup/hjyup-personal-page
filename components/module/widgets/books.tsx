@@ -91,7 +91,7 @@ const HighlightedBook = ({
   <>
     <motion.button
       onClick={onClear}
-      className="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
       aria-label="Clear selected book"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -99,46 +99,65 @@ const HighlightedBook = ({
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
-      <ImBook className="w-5 h-5 text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors" />
+      <svg
+        className="w-3 h-3 sm:w-4 sm:h-4 text-zinc-600 dark:text-zinc-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
     </motion.button>
-
-    <motion.div
-      className="flex gap-4 items-center w-full"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={spring}
-    >
+    <div className="flex flex-row items-center gap-3 sm:gap-4 lg:gap-6 h-full">
       <motion.div
         layoutId={`book-image-${book.id}`}
         className="flex-shrink-0"
-        transition={spring}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
       >
         <Image
           src={book.imageUrl}
           alt={book.title}
-          width={288}
-          height={432}
+          width={120}
+          height={180}
           draggable={false}
-          className="w-24 h-36 lg:w-32 lg:h-48 rounded-md shadow-sm"
+          className="w-[5.5rem] h-32 lg:w-[7.5rem] lg:h-44 rounded-md shadow-sm"
         />
       </motion.div>
-
-      <div className="flex flex-col min-w-0 flex-1">
-        <span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium tracking-wide mb-2">
-          {book.status}
-        </span>
-        <a
-          href={book.amazonUrl}
-          className="font-semibold text-base sm:text-lg leading-tight text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition-colors mb-1"
+      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+        <motion.h3
+          layoutId={`book-title-${book.id}`}
+          className="text-zinc-900 dark:text-zinc-100 font-semibold text-sm sm:text-base md:text-lg leading-tight"
         >
           {book.title}
-        </a>
-        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-500">
-          by {book.author}
-        </p>
+        </motion.h3>
+        <motion.p
+          layoutId={`book-author-${book.id}`}
+          className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm md:text-base"
+        >
+          {book.author}
+        </motion.p>
+        <motion.div
+          layoutId={`book-status-${book.id}`}
+          className="flex items-center gap-2 mt-2"
+        >
+          <a
+            href={book.amazonUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-xs sm:text-sm md:text-base font-medium hover:underline transition-colors"
+          >
+            View on Amazon
+          </a>
+        </motion.div>
       </div>
-    </motion.div>
+    </div>
   </>
 );
 
@@ -168,7 +187,7 @@ const BookList = ({
   return (
     <motion.div
       ref={scrollRef}
-      className="flex gap-3 overflow-x-auto items-center scrollbar-hide pb-2 h-full px-2"
+      className="flex gap-2 sm:gap-4 overflow-x-auto items-center scrollbar-hide pb-2 h-full px-2 sm:px-3"
       onScroll={handleScroll}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -207,7 +226,7 @@ const BookList = ({
             width={120}
             height={180}
             draggable={false}
-            className="w-24 h-36 rounded-md shadow-sm"
+            className="w-16 h-24 md:w-16 md:h-28 lg:w-20 lg:h-32 rounded-md shadow-sm"
           />
         </motion.div>
       ))}
@@ -233,7 +252,7 @@ export function BooksWidget({ className = '' }: { className?: string }) {
         <div
           role="region"
           aria-label="Books reading tracker"
-          className="relative flex items-center gap-4 p-4 sm:p-5 lg:p-6 h-full w-full"
+          className="relative flex items-center gap-3 sm:gap-4 lg:gap-6 p-3 sm:p-4 lg:p-6 h-full w-full"
         >
           <AnimatePresence mode="wait" initial={false}>
             {selected ? (

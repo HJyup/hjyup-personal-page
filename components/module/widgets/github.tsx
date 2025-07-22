@@ -33,11 +33,11 @@ function GithubWidgetItem({
   return (
     <article
       className={cn(
-        'text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mb-3',
+        'text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mb-2',
         className,
       )}
     >
-      <div className="flex items-center gap-2 mb-2">
+      <div className="flex items-center gap-2 mb-0.5">
         <a
           href={link}
           className="text-zinc-700 dark:text-zinc-300 text-md hover:underline"
@@ -65,7 +65,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
         role="region"
         aria-label="GitHub repositories showcase"
       >
-        <header className="flex items-center justify-between w-full mb-4">
+        <header className="flex items-center justify-between w-full mb-3">
           <div className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base flex items-center gap-3">
             <FolderIcon
               className="w-3 h-3 sm:w-4 sm:h-4 text-zinc-700 dark:text-zinc-300"
