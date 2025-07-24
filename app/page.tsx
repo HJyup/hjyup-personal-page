@@ -19,10 +19,10 @@ export default function Page() {
               About
             </h2>
             <p className="text-sm sm:text-base lg:text-lg mt-3 xl:w-2/3 lg:w-3/4 md:w-5/6 w-full leading-relaxed dark:text-zinc-300">
-              CS student at University of Edinburgh and software developer at
+              CS student at University of Edinburgh and Software Developer at
               Solidgate. I'm passionate about building products that are not
               only functional but also beautiful and easy to use. This is my
-              third iteration of my portfolio. Built with love and care.
+              third iteration of my portfolio.
             </p>
           </header>
 
@@ -32,13 +32,19 @@ export default function Page() {
               title="Experience"
               items={EXPERIENCE}
             />
-            <ListLayout id="blog-heading" title="Blog" items={BLOG} />
+            <ListLayout id="blog-heading" title="Posts" items={BLOG} />
           </main>
         </div>
       </div>
 
       <section aria-label="Interactive widgets showcase">
         <WidgetGrid />
+      </section>
+
+      <section>
+        <p className="text-muted-foreground text-xs md:text-sm text-center mt-16">
+          Built with love and care.
+        </p>
       </section>
     </div>
   );

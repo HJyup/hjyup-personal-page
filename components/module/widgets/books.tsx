@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { ImBook } from 'react-icons/im';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -78,7 +77,7 @@ const spring = {
   type: 'spring' as const,
   damping: 30,
   stiffness: 200,
-  mass: 1,
+  mass: 2,
 };
 
 const HighlightedBook = ({
@@ -91,12 +90,12 @@ const HighlightedBook = ({
   <>
     <motion.button
       onClick={onClear}
-      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full transition-colors cursor-pointer"
       aria-label="Clear selected book"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={spring}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.9 }}
     >
       <svg
@@ -133,17 +132,35 @@ const HighlightedBook = ({
       <div className="flex flex-col gap-0.5 flex-1 min-w-0">
         <motion.h3
           layoutId={`book-title-${book.id}`}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            ...spring,
+            delay: 0.1,
+          }}
           className="text-zinc-900 dark:text-zinc-100 font-semibold text-sm md:text-base leading-tight"
         >
           {book.title}
         </motion.h3>
         <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            ...spring,
+            delay: 0.15,
+          }}
           layoutId={`book-author-${book.id}`}
           className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm"
         >
           {book.author}
         </motion.p>
         <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            ...spring,
+            delay: 0.2,
+          }}
           layoutId={`book-status-${book.id}`}
           className="flex items-center gap-2 mt-2"
         >
@@ -189,9 +206,6 @@ const BookList = ({
       ref={scrollRef}
       className="flex gap-2 sm:gap-4 overflow-x-auto items-center scrollbar-hide pb-2 h-full px-2 sm:px-3"
       onScroll={handleScroll}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
       transition={spring}
     >
       {BOOKS.map((book, index) => (
@@ -201,7 +215,7 @@ const BookList = ({
           onClick={() => onSelect(book)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{
             opacity: 1,
             y: 0,
@@ -212,7 +226,6 @@ const BookList = ({
           }}
           exit={{
             opacity: 0,
-            y: 40,
             transition: {
               ...spring,
               delay: (BOOKS.length - index - 1) * 0.05,

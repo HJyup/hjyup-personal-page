@@ -90,7 +90,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
           </a>
         </header>
         <div
-          className="flex flex-col gap-0.5 flex-1 overflow-hidden"
+          className="flex flex-col gap-0.5 flex-1 overflow-y-scroll scrollbar-hide"
           role="list"
           aria-label="Repository list"
         >
