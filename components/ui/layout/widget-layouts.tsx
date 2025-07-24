@@ -13,7 +13,7 @@ export function BigWidgetLayout({
 }: WidgetLayoutProps) {
   return (
     <div
-      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)] ' : ''} h-[24.75rem] md:h-[28.75rem] lg:h-[32.75rem] max-w-2xl mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
+      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)] ' : ''} h-[20rem] sm:h-[22rem] md:h-[24rem] lg:h-[26rem] xl:h-[29.5rem] max-w-2xl mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
     >
       {children}
     </div>
@@ -27,7 +27,7 @@ export function MediumWidgetLayout({
 }: WidgetLayoutProps) {
   return (
     <div
-      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)]' : ''} h-[12rem] md:h-[14rem] lg:h-[16rem] max-w-2xl mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
+      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)]' : ''} h-[10rem] sm:h-[11rem] md:h-[12rem] lg:h-[13rem] xl:h-[14rem] max-w-2xl mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
     >
       {children}
     </div>
@@ -41,7 +41,7 @@ export function SmallWidgetLayout({
 }: WidgetLayoutProps) {
   return (
     <div
-      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)]' : ''} h-40 sm:h-44 lg:h-48 xl:h-52 2xl:h-56 max-w-xs mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
+      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)]' : ''} h-[8rem] sm:h-[9rem] md:h-[10rem] lg:h-[11rem] xl:h-[12rem] 2xl:h-[13rem] max-w-xs mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
     >
       {children}
     </div>
