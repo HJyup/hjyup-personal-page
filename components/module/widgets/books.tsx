@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -178,34 +178,10 @@ const HighlightedBook = ({
   </>
 );
 
-const BookList = ({
-  onSelect,
-  scrollPosition,
-  onScrollPositionChange,
-}: {
-  onSelect: (b: Book) => void;
-  scrollPosition: number;
-  onScrollPositionChange: (position: number) => void;
-}) => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollLeft = scrollPosition;
-    }
-  }, [scrollPosition]);
-
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      onScrollPositionChange(scrollRef.current.scrollLeft);
-    }
-  };
-
+const BookList = ({ onSelect }: { onSelect: (b: Book) => void }) => {
   return (
     <motion.div
-      ref={scrollRef}
       className="flex gap-2 sm:gap-4 overflow-x-auto items-center scrollbar-hide pb-2 h-full px-2 sm:px-3"
-      onScroll={handleScroll}
       transition={spring}
     >
       {BOOKS.map((book, index) => (
@@ -249,7 +225,6 @@ const BookList = ({
 
 export function BooksWidget({ className = '' }: { className?: string }) {
   const [selected, setSelected] = useState<Book | null>(BOOKS[0]);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleClearSelection = () => {
     setSelected(null);
@@ -271,11 +246,7 @@ export function BooksWidget({ className = '' }: { className?: string }) {
             {selected ? (
               <HighlightedBook book={selected} onClear={handleClearSelection} />
             ) : (
-              <BookList
-                onSelect={handleSelectBook}
-                scrollPosition={scrollPosition}
-                onScrollPositionChange={setScrollPosition}
-              />
+              <BookList onSelect={handleSelectBook} />
             )}
           </AnimatePresence>
         </div>
