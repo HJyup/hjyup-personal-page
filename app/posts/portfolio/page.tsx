@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 import { MusicWidget } from '@/components/module/widgets/music';
 import PostsLayout from '@/components/ui/layout/posts';
@@ -41,74 +41,46 @@ export const metadata: Metadata = {
 };
 
 // Reusable Components
-interface SectionProps {
-  title: string;
-  children: ReactNode;
+const Text = ({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
   className?: string;
-}
+}) => (
+  <p
+    className={`text-sm sm:text-base dark:text-zinc-300 leading-relaxed ${className}`}
+  >
+    {children}
+  </p>
+);
 
-const Section = ({ title, children, className = '' }: SectionProps) => {
-  return (
-    <section className={className}>
-      <h2 className="text-muted-foreground text-xs sm:text-sm mt-12 sm:mt-16">
-        {title}
-      </h2>
-      <div className="mt-6">{children}</div>
-    </section>
-  );
-};
-
-interface TextProps {
-  children: ReactNode;
+const Heading = ({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
   className?: string;
-}
+}) => (
+  <h2
+    className={`text-muted-foreground text-xs sm:text-sm mt-12 sm:mt-16 ${className}`}
+  >
+    {children}
+  </h2>
+);
 
-const Text = ({ children, className = '' }: TextProps) => {
-  return (
-    <p
-      className={`text-sm md:text-base dark:text-zinc-300 leading-7 sm:leading-8 max-w-3xl ${className}`}
-    >
-      {children}
-    </p>
-  );
-};
-
-interface SubsectionProps {
-  title: string;
-  children: ReactNode;
+const Section = ({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
   className?: string;
-}
-
-const Subsection = ({ title, children, className = '' }: SubsectionProps) => {
-  return (
-    <div className={className}>
-      <h3 className="text-sm md:text-base font-medium dark:text-zinc-300 mb-3">
-        {title}
-      </h3>
-      {children}
-    </div>
-  );
-};
-
-interface ContentGroupProps {
-  children: ReactNode;
-  spacing?: 'tight' | 'normal' | 'loose';
-}
-
-const ContentGroup = ({ children, spacing = 'normal' }: ContentGroupProps) => {
-  const spacingClasses = {
-    tight: 'space-y-4',
-    normal: 'space-y-6',
-    loose: 'space-y-8',
-  };
-
-  return <div className={spacingClasses[spacing]}>{children}</div>;
-};
+}) => <section className={className}>{children}</section>;
 
 const PortfolioPage = () => {
   return (
     <PostsLayout>
-      <section>
+      <Section>
         <h1 className="text-muted-foreground text-base sm:text-lg">
           About this website
         </h1>
@@ -116,42 +88,62 @@ const PortfolioPage = () => {
           A fresh take on portfolio design. Balancing minimalism with
           personality using widget-based interactions.
         </Text>
-      </section>
-
-      <Section title="The journey">
-        <ContentGroup spacing="loose">
-          <Subsection title="Previous iterations">
-            <Text>
-              I originally planned to redesign my portfolio once a year. But in
-              my first year of university, I did it twice. One version was an
-              over-engineered interactive book; the other was so minimal it
-              lacked identity. Neither felt right.
-            </Text>
-          </Subsection>
-
-          <Subsection title="Finding direction">
-            <Text>
-              This version was more deliberate. I wanted something clean and
-              structured but also personal and expressive. It became the
-              foundation for everything that followed.
-            </Text>
-          </Subsection>
-        </ContentGroup>
       </Section>
 
-      <Section title="Why widgets?">
-        <Text>
-          While working on my laptop, I just payed close attention to how
-          widgets present information. They are modular, compact, and
-          expressive. That sparked the idea: what if my entire portfolio worked
-          like a widget layout? Perfect for showcasing projects and other pieces
-          of my life.
-        </Text>
-        <MusicWidget className="mt-6" />
+      <Section>
+        <Heading>The journey</Heading>
+        <div className="mt-6 space-y-8">
+          <Text>
+            I originally planned to redesign my portfolio once a year. But in my
+            first year of university, I did it twice. One version was an
+            over-engineered interactive book; the other was so minimal it lacked
+            identity. Neither felt right.
+          </Text>
+          <Text>
+            Before this concept, I explored a "playful" portfolio but it didn't
+            feel like me.
+          </Text>
+          <div>
+            <Image
+              className="rounded-lg border border-gray-200 dark:border-zinc-900 hidden dark:block"
+              src="/posts/prev-page-dark.png"
+              alt="Portfolio"
+              width={1000}
+              height={600}
+            />
+            <Image
+              className="rounded-lg border border-gray-200 dark:border-zinc-900 block dark:hidden"
+              src="/posts/prev-page-white.png"
+              alt="Portfolio"
+              width={1000}
+              height={600}
+            />
+            <p className="text-xs text-center text-zinc-500 dark:text-zinc-400">
+              This was almost my current portfolio
+            </p>
+          </div>
+        </div>
       </Section>
 
-      <Section title="Why it works">
-        <ContentGroup>
+      <Section>
+        <Heading>Why widgets?</Heading>
+        <div className="mt-6 space-y-8">
+          <Text>
+            While working on my laptop, I just paid close attention to how
+            widgets present information.
+          </Text>
+          <Text>
+            They are modular, compact, and expressive. That sparked the idea:
+            what if my entire portfolio worked like a widget layout? Perfect for
+            showcasing projects and other pieces of my life.
+          </Text>
+          <MusicWidget className="mt-6" />
+        </div>
+      </Section>
+
+      <Section>
+        <Heading>Why it works</Heading>
+        <div className="mt-6 space-y-6">
           <Text>It felt very interactive, expressive, and scalable.</Text>
           <Text>
             I wanted this page to blend my experience as a developer with my
@@ -164,33 +156,19 @@ const PortfolioPage = () => {
             The widget system also allows for dynamic interactions—you can
             actually edit and rearrange them in real-time.
           </Text>
-        </ContentGroup>
+        </div>
       </Section>
 
-      <Section title="Main principles">
-        <ContentGroup>
-          <Subsection title="Atomic thinking">
-            <Text>
-              Each widget is a reusable component with its own purpose—projects,
-              music, photography, personal elements.
-            </Text>
-          </Subsection>
-          <Subsection title="Personal + Professional">
-            <Text>
-              Blending developer experience with life—music I love, photos I
-              capture, projects I build.
-            </Text>
-          </Subsection>
-        </ContentGroup>
-      </Section>
-
-      <Section title="What's next">
-        <Text>
-          I'm actively building new widgets and refining their interactivity. As
-          more features are added, I'm also exploring better UX patterns to make
-          everything feel intuitive and engaging. It's a fun process. Check back
-          soon for updates!
-        </Text>
+      <Section>
+        <Heading>What's next</Heading>
+        <div className="mt-6 space-y-8">
+          <Text>
+            I'm actively building new widgets and refining their interactivity.
+            As more features are added, I'm also exploring better UX patterns to
+            make everything feel intuitive and engaging. It's a fun process.
+          </Text>
+          <Text>Check back soon for updates!</Text>
+        </div>
       </Section>
     </PostsLayout>
   );
