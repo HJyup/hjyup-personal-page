@@ -45,7 +45,7 @@ function Tooltip({
           <p className="text-lg md:text-xl font-medium text-zinc-950 dark:text-zinc-50 drop-shadow-sm">
             {title}
           </p>
-          <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 mt-2 drop-shadow-sm">
+          <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 mt-2 drop-shadow-sm">
             {description}
           </p>
         </motion.div>
