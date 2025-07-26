@@ -1,6 +1,14 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 
+import FlexDirection from '@/components/module/animations/flexDirection';
+import {
+  Body,
+  Heading,
+  Link,
+  Photo,
+  Section,
+  Text,
+} from '@/components/module/posts';
 import { MusicWidget } from '@/components/module/widgets/music';
 import PostsLayout from '@/components/ui/layout/posts';
 
@@ -40,43 +48,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Reusable Components
-const Text = ({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <p
-    className={`text-sm sm:text-base dark:text-zinc-300 leading-relaxed ${className}`}
-  >
-    {children}
-  </p>
-);
-
-const Heading = ({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <h2
-    className={`text-muted-foreground text-xs sm:text-sm mt-12 sm:mt-16 ${className}`}
-  >
-    {children}
-  </h2>
-);
-
-const Section = ({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => <section className={className}>{children}</section>;
-
 const PortfolioPage = () => {
   return (
     <PostsLayout>
@@ -92,83 +63,113 @@ const PortfolioPage = () => {
 
       <Section>
         <Heading>The journey</Heading>
-        <div className="mt-6 space-y-8">
+        <Body>
           <Text>
-            I originally planned to redesign my portfolio once a year. But in my
-            first year of university, I did it twice. One version was an
-            over-engineered interactive book; the other was so minimal it lacked
-            identity. Neither felt right.
+            I originally planned to redesign my portfolio once a year, but in my
+            first year of university, I iterated on it twice. One version
+            experimented with a highly interactive book, but the complexity
+            overshadowed the actual content. Another version went in the
+            opposite direction — overly minimal.
           </Text>
           <Text>
-            Before this concept, I explored a "playful" portfolio but it didn't
-            feel like me.
+            I also tried a more “playful” concept, but it felt like I was
+            chasing a cool design rather than creating something that
+            represented me and my skills.
           </Text>
-          <div>
-            <Image
-              className="rounded-lg border border-gray-200 dark:border-zinc-900 hidden dark:block"
-              src="/posts/prev-page-dark.png"
-              alt="Portfolio"
-              width={1000}
-              height={600}
-            />
-            <Image
-              className="rounded-lg border border-gray-200 dark:border-zinc-900 block dark:hidden"
-              src="/posts/prev-page-white.png"
-              alt="Portfolio"
-              width={1000}
-              height={600}
-            />
-            <p className="text-xs text-center text-zinc-500 dark:text-zinc-400">
-              This was almost my current portfolio
-            </p>
-          </div>
-        </div>
+          <Photo
+            lightSrc="/posts/prev-page-dark.png"
+            darkSrc="/posts/prev-page-white.png"
+            alt="Portfolio"
+            width={1000}
+            height={600}
+            caption="This iteration nearly became my current portfolio"
+          />
+          <Text>
+            These iterations taught me a simple truth: great design balances
+            clarity with character. This version is built on that principle — a
+            flexible, purposeful framework that feels like me.
+          </Text>
+        </Body>
       </Section>
 
       <Section>
         <Heading>Why widgets?</Heading>
-        <div className="mt-6 space-y-8">
+        <Body>
           <Text>
-            While working on my laptop, I just paid close attention to how
-            widgets present information.
+            While working on my laptop, I noticed how elegantly widgets present
+            information. They’re modular, compact, and expressive, which sparked
+            the idea: what if my entire portfolio felt like a widget layout?
           </Text>
           <Text>
-            They are modular, compact, and expressive. That sparked the idea:
-            what if my entire portfolio worked like a widget layout? Perfect for
-            showcasing projects and other pieces of my life.
+            This approach became the perfect way to showcase projects and
+            glimpses of my life — concise and interactive.
           </Text>
           <MusicWidget className="mt-6" />
-        </div>
+        </Body>
       </Section>
 
       <Section>
-        <Heading>Why it works</Heading>
-        <div className="mt-6 space-y-6">
-          <Text>It felt very interactive, expressive, and scalable.</Text>
+        <Heading>Design decisions</Heading>
+        <Body>
           <Text>
-            I wanted this page to blend my experience as a developer with my
-            actual life - what music I love, what photos I take (because I
-            really enjoy photography), and of course, the projects I build. I
-            think I found a solid balance between personal and professional, and
-            I'm genuinely proud of how it turned out.
+            I began by recreating widgets from scratch, starting with the music
+            widget. I liked how each widget had its own style and autonomy,
+            independent of the interface.
           </Text>
           <Text>
-            The widget system also allows for dynamic interactions—you can
-            actually edit and rearrange them in real-time.
+            After feedback, I unified the background color to bring visual
+            cohesion while letting personality shine through content and
+            microinteractions — reducing visual noise.
           </Text>
-        </div>
+          <Text>
+            The two-column layout, with ample white space, makes the main page
+            more balanced and easy to scan. I prioritised key widgets at the
+            top, arranging supporting content beneath.
+          </Text>
+          <Text>
+            The Posts section draws inspiration from various pages on{' '}
+            <Link href="https://minimal.gallery/tag/personal/page/1/">
+              Minimal Gallery
+            </Link>{' '}
+            and from my friend{' '}
+            <Link href="https://tomasmaillo.com/">Tomas Maillo</Link> , both of
+            which emphasise minimal yet visually engaging layouts.
+          </Text>
+        </Body>
+      </Section>
+
+      <Section>
+        <Heading>Tech behind it</Heading>
+        <Body>
+          <Text>
+            I built this project with Next.js and Tailwind CSS. A flexible stack
+            with strong SEO control and room for future database-driven
+            features.
+          </Text>
+          <Text>
+            For microinteractions, I use Framer Motion — a powerful library for
+            smooth, purposeful animations. Its layout transitions are unmatched,
+            and for anyone interested in how it works under the hood, I
+            recommend{' '}
+            <Link href="https://www.nan.fyi/magic-motion">
+              Nanda Syahrasyad’s blog
+            </Link>
+            .
+          </Text>
+          <FlexDirection />
+        </Body>
       </Section>
 
       <Section>
         <Heading>What's next</Heading>
-        <div className="mt-6 space-y-8">
+        <Body>
           <Text>
-            I'm actively building new widgets and refining their interactivity.
-            As more features are added, I'm also exploring better UX patterns to
-            make everything feel intuitive and engaging. It's a fun process.
+            I’m actively building new widgets, refining interactivity, and
+            exploring better UX patterns to make the site more intuitive and
+            engaging.
           </Text>
           <Text>Check back soon for updates!</Text>
-        </div>
+        </Body>
       </Section>
     </PostsLayout>
   );
