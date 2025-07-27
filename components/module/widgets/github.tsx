@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FolderIcon } from 'lucide-react';
+import { IoFolderOutline } from 'react-icons/io5';
 
 import GithubIcon from '@/components/ui/icons/github';
 import { MediumWidgetLayout } from '@/components/ui/layout/widget-layouts';
@@ -67,11 +67,7 @@ export function GithubWidget({ className = '' }: { className?: string }) {
       >
         <header className="flex items-center justify-between w-full mb-3">
           <div className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base flex items-center gap-3">
-            <FolderIcon
-              className="w-3 h-3 sm:w-4 sm:h-4 text-zinc-700 dark:text-zinc-300"
-              fill="currentColor"
-              aria-hidden="true"
-            />
+            <IoFolderOutline className="w-3 h-3 sm:w-4 sm:h-4 text-zinc-700 dark:text-zinc-300" />
             <span className="text-zinc-900 dark:text-zinc-100 font-bold text-base sm:text-lg">
               {GITHUB_WIDGET.length}
             </span>

@@ -10,7 +10,7 @@ import {
   Text,
 } from '@/components/module/posts';
 import { MusicWidget } from '@/components/module/widgets/music';
-import PostsLayout from '@/components/ui/layout/posts';
+import { PostsLayout } from '@/components/ui/layout/posts-layout';
 
 export const metadata: Metadata = {
   title: 'About This Website | Danyil Butov',
@@ -72,7 +72,7 @@ const PortfolioPage = () => {
             opposite direction — overly minimal.
           </Text>
           <Text>
-            I also tried a more “playful” concept, but it felt like I was
+            I also tried a more "playful" concept, but it felt like I was
             chasing a cool design rather than creating something that
             represented me and my skills.
           </Text>
@@ -86,7 +86,7 @@ const PortfolioPage = () => {
           />
           <Text>
             These iterations taught me a simple truth: great design balances
-            clarity with character. This version is built on that principle — a
+            clarity with character. This version is built on that principle. A
             flexible, purposeful framework that feels like me.
           </Text>
         </Body>
@@ -97,12 +97,12 @@ const PortfolioPage = () => {
         <Body>
           <Text>
             While working on my laptop, I noticed how elegantly widgets present
-            information. They’re modular, compact, and expressive, which sparked
+            information. They're modular, compact, and expressive, which sparked
             the idea: what if my entire portfolio felt like a widget layout?
           </Text>
           <Text>
             This approach became the perfect way to showcase projects and
-            glimpses of my life — concise and interactive.
+            glimpses of my life. Concise and interactive.
           </Text>
           <MusicWidget className="mt-6" />
         </Body>
@@ -118,8 +118,8 @@ const PortfolioPage = () => {
           </Text>
           <Text>
             After feedback, I unified the background color to bring visual
-            cohesion while letting personality shine through content and
-            microinteractions — reducing visual noise.
+            cohesion and reduce visual noise while letting personality shine
+            through content and microinteractions.
           </Text>
           <Text>
             The two-column layout, with ample white space, makes the main page
@@ -147,12 +147,11 @@ const PortfolioPage = () => {
             features.
           </Text>
           <Text>
-            For microinteractions, I use Framer Motion — a powerful library for
-            smooth, purposeful animations. Its layout transitions are unmatched,
-            and for anyone interested in how it works under the hood, I
-            recommend{' '}
+            For interactivity, I used Framer Motion, a powerful library for
+            smooth animations. Its layout transitions are unmatched. For anyone
+            interested in how it works under the hood, I recommend{' '}
             <Link href="https://www.nan.fyi/magic-motion">
-              Nanda Syahrasyad’s blog
+              Nanda Syahrasyad's blog
             </Link>
             .
           </Text>
@@ -164,7 +163,7 @@ const PortfolioPage = () => {
         <Heading>What's next</Heading>
         <Body>
           <Text>
-            I’m actively building new widgets, refining interactivity, and
+            I'm actively building new widgets, refining interactivity, and
             exploring better UX patterns to make the site more intuitive and
             engaging.
           </Text>

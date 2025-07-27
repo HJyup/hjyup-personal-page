@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowUpWideNarrowIcon, FolderOutputIcon, Send } from 'lucide-react';
+import { IoIosSend } from 'react-icons/io';
+import { IoArrowUp, IoFolderOutline } from 'react-icons/io5';
 
 import { BigWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
@@ -33,12 +34,12 @@ export function EmailWidget({
               className="rounded-md text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none"
               title="Send email"
             >
-              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+              <IoIosSend className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
-            <ArrowUpWideNarrowIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
-            <FolderOutputIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
+            <IoArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
+            <IoFolderOutline className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
           </div>
         </div>
 

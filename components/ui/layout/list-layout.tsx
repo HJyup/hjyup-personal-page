@@ -44,10 +44,10 @@ export function ListLayout({
 }: ListLayoutProps) {
   return (
     <section aria-labelledby={id} className={`w-full lg:w-1/2 ${className}`}>
-      <div className="text-muted-foreground text-xs sm:text-sm mt-8 sm:mt-12 lg:mt-12">
+      <div className="text-muted-foreground text-xs sm:text-sm mb-3">
         {title}
       </div>
-      <div className="flex flex-col gap-3 mt-3">
+      <div className="flex flex-col gap-3">
         {items.map(item => (
           <div
             key={item.id}

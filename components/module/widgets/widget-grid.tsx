@@ -38,12 +38,12 @@ export function WidgetGrid() {
   );
 
   return (
-    <div className="scroll-mt-20 flex flex-col items-center w-full my-6 sm:my-8 md:my-10 lg:my-12 xl:my-16">
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 w-full max-w-7xl">
+    <div className="w-full mt-8 lg:mt-12">
+      <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full max-w-7xl mx-auto">
         {columnsArray.map(([colIndex, columnWidgets]) => (
           <div
             key={colIndex}
-            className="flex flex-col gap-3 sm:gap-4 lg:gap-6 w-full sm:w-1/2"
+            className="flex flex-col gap-4 lg:gap-6 w-full sm:w-1/2"
           >
             {columnWidgets.map(widget => (
               <div key={widget.id}>
