@@ -5,15 +5,7 @@ export interface ListItem {
   title: string;
   href?: string;
   date: string;
-  colour:
-    | 'pink'
-    | 'blue'
-    | 'green'
-    | 'yellow'
-    | 'purple'
-    | 'orange'
-    | 'red'
-    | 'gray';
+  colour?: 'pink' | 'blue' | 'green' | 'yellow' | 'purple' | 'orange' | 'red';
   isBlurred?: boolean;
   isDisabled?: boolean;
 }
@@ -26,7 +18,6 @@ const colourClassMap = {
   purple: 'bg-purple-500',
   orange: 'bg-orange-500',
   red: 'bg-red-500',
-  gray: 'bg-gray-500',
 };
 
 interface ListLayoutProps {
@@ -44,37 +35,40 @@ export function ListLayout({
 }: ListLayoutProps) {
   return (
     <section aria-labelledby={id} className={`w-full lg:w-1/2 ${className}`}>
-      <div className="text-muted-foreground text-xs sm:text-sm mb-3">
+      <div className="text-sm mb-6 text-zinc-900 dark:text-zinc-50">
         {title}
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         {items.map(item => (
           <div
             key={item.id}
             className={`flex items-center justify-between ${item.isDisabled ? 'select-none' : ''}`}
           >
-            <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-              <div
-                className={`${colourClassMap[item.colour]} w-1.5 h-1.5 rounded-full flex-shrink-0`}
-              />
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+              {item.colour && (
+                <div
+                  className={`${colourClassMap[item.colour]} w-1.5 h-1.5 rounded-full flex-shrink-0`}
+                />
+              )}
               {item.href ? (
                 <a
                   href={item.href}
-                  className="hover:underline text-sm md:text-base truncate dark:text-zinc-300"
+                  className="hover:underline text-sm truncate text-zinc-700 dark:text-zinc-300"
                 >
                   {item.title}
                 </a>
               ) : (
                 <span
-                  className={`text-sm md:text-base truncate dark:text-zinc-300 ${
+                  className={`text-sm truncate text-zinc-700 dark:text-zinc-300 ${
                     item.isBlurred ? 'blur-[6px]' : ''
                   }`}
                 >
                   {item.title}
                 </span>
               )}
+              <div className="flex-grow border-b border-dotted border-zinc-300 dark:border-zinc-700 mx-3" />
             </div>
-            <div className="text-muted-foreground text-xs flex-shrink-0 ml-2">
+            <div className="text-muted-foreground text-xs flex-shrink-0 ml-3">
               {item.date}
             </div>
           </div>

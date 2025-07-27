@@ -9,7 +9,6 @@ import {
   Text,
 } from '@/components/module/posts';
 import { MusicWidget } from '@/components/module/widgets/music';
-import { PostsLayout } from '@/components/ui/layout/posts-layout';
 
 export const metadata: Metadata = {
   title: 'About This Website | Danyil Butov',
@@ -49,9 +48,9 @@ export const metadata: Metadata = {
 
 const PortfolioPage = () => {
   return (
-    <PostsLayout>
+    <>
       <Section>
-        <h1 className="text-muted-foreground text-base sm:text-lg">
+        <h1 className="text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
           About this website
         </h1>
         <Text className="mt-4">
@@ -168,7 +167,7 @@ const PortfolioPage = () => {
           <Text>Check back soon for updates!</Text>
         </Body>
       </Section>
-    </PostsLayout>
+    </>
   );
 };
 

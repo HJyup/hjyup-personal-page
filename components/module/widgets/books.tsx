@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { IoBookmarks } from 'react-icons/io5';
+import { IoList } from 'react-icons/io5';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -139,19 +139,11 @@ const HighlightedBook = ({
         layoutId={`book-status-${book.id}`}
         className="flex items-center gap-2"
       >
-        <a
-          href={book.amazonUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-3 py-1.5 bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white text-xs font-medium rounded-lg transition-colors"
-        >
-          Amazon
-        </a>
         <button
           onClick={onClear}
-          className="px-3 py-1.5 bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-lg transition-colors"
+          className="px-3 py-1.5 bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-700 dark:text-zinc-300 text-xs rounded-lg transition-colors flex justify-center items-center gap-2"
         >
-          Full list
+          <IoList className="w-3 h-3 sm:w-4 sm:h-4" /> All books
         </button>
       </motion.div>
     </div>

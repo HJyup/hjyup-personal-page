@@ -13,7 +13,7 @@ export function BigWidgetLayout({
 }: WidgetLayoutProps) {
   return (
     <div
-      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)] ' : ''} h-[22rem] lg:h-[26rem] xl:h-[29.5rem] max-w-2xl mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
+      className={`${isBackground ? 'bg-zinc-100 dark:bg-[hsl(0,0%,10%)] ' : ''} h-[22rem] lg:h-[26rem] xl:h-[30rem] max-w-2xl mx-auto rounded-2xl sm:rounded-3xl break-inside-avoid transition-all duration-300 ${className}`}
     >
       {children}
     </div>

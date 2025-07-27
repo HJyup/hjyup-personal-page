@@ -25,7 +25,7 @@ function WidgetMapper({
   const Component = widgetRegistry[type];
   if (!Component) {
     return (
-      <div className="bg-zinc-200 dark:bg-zinc-800 h-[20rem] sm:h-[22rem] md:h-[24rem] lg:h-[26rem] xl:h-[28rem] 2xl:h-[30rem] w-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6" />
+      <div className="bg-zinc-200 dark:bg-zinc-800 h-[20rem] sm:h-[22rem] md:h-[24rem] lg:h-[26rem] xl:h-[28rem] 2xl:h-[30rem] w-full rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10" />
     );
   }
   return <Component />;
@@ -38,12 +38,12 @@ export function WidgetGrid() {
   );
 
   return (
-    <div className="w-full mt-8 lg:mt-12">
-      <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full max-w-7xl mx-auto">
+    <div className="w-full">
+      <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 w-full max-w-7xl mx-auto">
         {columnsArray.map(([colIndex, columnWidgets]) => (
           <div
             key={colIndex}
-            className="flex flex-col gap-4 lg:gap-6 w-full sm:w-1/2"
+            className="flex flex-col gap-6 lg:gap-8 w-full sm:w-1/2"
           >
             {columnWidgets.map(widget => (
               <div key={widget.id}>

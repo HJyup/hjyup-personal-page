@@ -27,8 +27,6 @@ export const MainLayout = ({
         >
           {children}
         </div>
-
-        <Footer />
       </div>
     </div>
   );

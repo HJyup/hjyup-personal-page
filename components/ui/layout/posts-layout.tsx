@@ -1,6 +1,8 @@
 import { IoArrowBack } from 'react-icons/io5';
 import Link from 'next/link';
 
+import { Footer } from './footer';
+
 interface PostsLayoutProps {
   children: React.ReactNode;
   className?: string;
@@ -22,6 +24,7 @@ export function PostsLayout({ children, className = '' }: PostsLayoutProps) {
           </div>
 
           <div className="space-y-8 sm:space-y-12">{children}</div>
+          <Footer />
         </div>
       </div>
     </div>
