@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 
-import FlexDirection from '@/components/module/animations/flexDirection';
 import {
   Body,
   Heading,
@@ -155,7 +154,6 @@ const PortfolioPage = () => {
             </Link>
             .
           </Text>
-          <FlexDirection />
         </Body>
       </Section>
 

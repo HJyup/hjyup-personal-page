@@ -224,13 +224,7 @@ export function BooksWidget({ className = '' }: { className?: string }) {
         >
           <AnimatePresence mode="wait" initial={false}>
             {selected ? (
-              <>
-                <IoBookmarks className="absolute top-4 right-4 md:top-5 md:right-5 lg:top-6 lg:right-6 w-5 h-5 text-zinc-500 dark:text-zinc-400" />
-                <HighlightedBook
-                  book={selected}
-                  onClear={handleClearSelection}
-                />
-              </>
+              <HighlightedBook book={selected} onClear={handleClearSelection} />
             ) : (
               <BookList onSelect={handleSelectBook} />
             )}
