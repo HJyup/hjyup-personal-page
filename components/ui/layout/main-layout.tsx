@@ -1,5 +1,3 @@
-import { Footer } from './footer';
-
 interface MainLayoutProps {
   children: React.ReactNode;
   maxWidth?: 'xl' | '2xl' | '4xl' | '5xl' | '7xl';

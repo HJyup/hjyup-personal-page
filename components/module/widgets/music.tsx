@@ -130,7 +130,9 @@ function LibraryControl({ isOpen, onToggle, onClose }: VolumeControlProps) {
     >
       <IoMenu className="w-6 h-6 text-zinc-500 dark:text-zinc-400" />
       {isOpen && (
-        <span className="text-zinc-500 dark:text-zinc-400">Melodrama</span>
+        <span className="text-zinc-500 dark:text-zinc-400 text-sm">
+          Melodrama
+        </span>
       )}
     </motion.div>
   );
@@ -144,7 +146,7 @@ function Controls() {
       <AnimatePresence mode="popLayout">
         <motion.div
           key="control-buttons"
-          className="flex justify-between w-full gap-4"
+          className="flex justify-between w-full gap-2"
         >
           <LibraryControl
             isOpen={isLibraryOpen}

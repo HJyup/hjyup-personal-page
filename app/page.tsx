@@ -12,20 +12,6 @@ export default function Page() {
           <h1 className="text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
             Danyil Butov
           </h1>
-          <div className="flex items-center gap-6">
-            <a
-              href="https://www.linkedin.com/in/danyil-butov/"
-              className="text-zinc-700 dark:text-zinc-300 text-sm hover:underline"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/HJyup"
-              className="text-zinc-700 dark:text-zinc-300 text-sm hover:underline"
-            >
-              GitHub
-            </a>
-          </div>
         </div>
         <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300">
           Software Developer
