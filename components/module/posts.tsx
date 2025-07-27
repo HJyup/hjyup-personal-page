@@ -8,7 +8,7 @@ export const Text = ({
   className?: string;
 }) => (
   <p
-    className={`text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed ${className}`}
+    className={`text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed ${className}`}
   >
     {children}
   </p>
@@ -46,7 +46,7 @@ export const Photo = ({
       width={width}
       height={height}
     />
-    <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-2">
+    <p className="text-sm sm:text-base text-center text-zinc-600 dark:text-zinc-400 mt-2">
       {caption}
     </p>
   </div>
@@ -60,7 +60,7 @@ export const Heading = ({
   className?: string;
 }) => (
   <h2
-    className={`text-zinc-900 dark:text-zinc-50 text-xs sm:text-sm mt-12 sm:mt-16 ${className}`}
+    className={`text-zinc-900 dark:text-zinc-50 text-sm sm:text-base font-medium mt-12 sm:mt-16 ${className}`}
   >
     {children}
   </h2>
@@ -92,7 +92,7 @@ export const Link = ({
   href: string;
 }) => (
   <a
-    className={`bg-gray-100 dark:bg-gray-900 p-0.5 rounded-md px-1 gap-1 text-blue-500 hover:underline whitespace-nowrap ${className}`}
+    className={`bg-zinc-100 dark:bg-zinc-800 p-0.5 rounded-md px-1 gap-1 text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 whitespace-nowrap transition-colors ${className}`}
     href={href}
     target="_blank"
     rel="noopener noreferrer"

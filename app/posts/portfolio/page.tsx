@@ -50,7 +50,7 @@ const PortfolioPage = () => {
   return (
     <>
       <Section>
-        <h1 className="text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+        <h1 className="text-zinc-900 dark:text-zinc-50 text-lg sm:text-xl font-medium">
           About this website
         </h1>
         <Text className="mt-4">
