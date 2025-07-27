@@ -38,8 +38,8 @@ export function EmailWidget({
             </button>
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
-                      <IoArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
-          <IoFolderOutline className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
+            <IoArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
+            <IoFolderOutline className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
           </div>
         </div>
 
