@@ -8,7 +8,7 @@ export const Text = ({
   className?: string;
 }) => (
   <p
-    className={`text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed ${className}`}
+    className={`text-base sm:text-lg text-zinc-900 dark:text-zinc-50 leading-relaxed ${className}`}
   >
     {children}
   </p>
@@ -46,7 +46,7 @@ export const Photo = ({
       width={width}
       height={height}
     />
-    <p className="text-sm sm:text-base text-center text-zinc-600 dark:text-zinc-400 mt-2">
+    <p className="text-sm sm:text-base text-center text-muted-foreground mt-2">
       {caption}
     </p>
   </div>
@@ -60,7 +60,7 @@ export const Heading = ({
   className?: string;
 }) => (
   <h2
-    className={`text-zinc-900 dark:text-zinc-50 text-sm sm:text-base font-medium mt-12 sm:mt-16 ${className}`}
+    className={`text-muted-foreground text-sm sm:text-base mt-12 sm:mt-16 ${className}`}
   >
     {children}
   </h2>

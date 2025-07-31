@@ -53,14 +53,14 @@ const PortfolioPage = () => {
         <h1 className="text-zinc-900 dark:text-zinc-50 text-lg sm:text-xl font-medium">
           About this website
         </h1>
-        <Text className="mt-4">
+        <Text className="mt-4 text-zinc-700 dark:text-zinc-300">
           A fresh take on portfolio design. Balancing minimalism with
           personality using widget-based interactions.
         </Text>
       </Section>
 
       <Section>
-        <Heading>The journey</Heading>
+        <Heading>Iterations</Heading>
         <Body>
           <Text>
             I originally planned to redesign my portfolio once a year, but in my
@@ -84,8 +84,7 @@ const PortfolioPage = () => {
           />
           <Text>
             These iterations taught me a simple truth: great design balances
-            clarity with character. This version is built on that principle. A
-            flexible, purposeful framework that feels like me.
+            clarity with character.
           </Text>
         </Body>
       </Section>

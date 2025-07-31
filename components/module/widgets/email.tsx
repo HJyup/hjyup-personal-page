@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { IoIosSend } from 'react-icons/io';
-import { IoArrowUp, IoFolderOutline } from 'react-icons/io5';
 
 import { BigWidgetLayout } from '@/components/ui/layout/widget-layouts';
 
@@ -21,7 +20,7 @@ export function EmailWidget({
 
   return (
     <BigWidgetLayout className={className}>
-      <div className="w-[90%] bg-white dark:bg-zinc-900 h-[90%] rounded-t-2xl sm:rounded-t-3xl flex flex-col relative overflow-hidden">
+      <div className="w-[90%] bg-white dark:bg-zinc-900 h-[90%] rounded-t-2xl sm:rounded-t-3xl flex flex-col relative overflow-hidden border border-b-0 border-zinc-200/60 dark:border-zinc-800/60">
         <div className="bg-zinc-200/30 dark:bg-zinc-800/20 w-full h-10 sm:h-12 flex px-4 sm:px-6 items-center justify-between border-b border-zinc-200 dark:border-zinc-700">
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="flex gap-1.5 sm:gap-2 justify-center">
@@ -29,6 +28,8 @@ export function EmailWidget({
               <div className="bg-yellow-500 rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3" />
               <div className="bg-green-500 rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3" />
             </div>
+          </div>
+          <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleSendEmail}
               className="rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none"
@@ -37,13 +38,9 @@ export function EmailWidget({
               <IoIosSend className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <IoArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
-            <IoFolderOutline className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors duration-200 ease motion-reduce:transition-none hover:cursor-pointer" />
-          </div>
         </div>
 
-        <div className="pl-3 sm:pl-4 pt-3 sm:pt-4 flex flex-col gap-2 sm:gap-3 flex-1">
+        <div className="px-3 sm:px-4 pt-3 sm:pt-4 flex flex-col gap-2 sm:gap-3 flex-1">
           <div className="flex gap-1 items-center border-b border-zinc-200 dark:border-zinc-700 pb-1 mb-2 sm:mb-3">
             <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 min-w-fit">
               To:

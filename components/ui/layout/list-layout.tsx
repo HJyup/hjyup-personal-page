@@ -35,7 +35,7 @@ export function ListLayout({
 }: ListLayoutProps) {
   return (
     <section aria-labelledby={id} className={`w-full lg:w-1/2 ${className}`}>
-      <div className="text-sm sm:text-base mb-6 text-zinc-900 dark:text-zinc-50 font-medium">
+      <div className="text-sm sm:text-base mb-6 text-muted-foreground">
         {title}
       </div>
       <div className="flex flex-col gap-4">
@@ -53,13 +53,13 @@ export function ListLayout({
               {item.href ? (
                 <a
                   href={item.href}
-                  className="hover:underline underline-offset-2 text-sm sm:text-base truncate text-zinc-700 dark:text-zinc-300"
+                  className="hover:underline underline-offset-2 text-sm sm:text-base truncate text-zinc-900 dark:text-zinc-50"
                 >
                   {item.title}
                 </a>
               ) : (
                 <span
-                  className={`text-sm sm:text-base truncate text-zinc-700 dark:text-zinc-300 ${
+                  className={`text-sm sm:text-base truncate text-zinc-900 dark:text-zinc-50 ${
                     item.isBlurred ? 'blur-[6px]' : ''
                   }`}
                 >
