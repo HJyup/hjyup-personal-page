@@ -3,9 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 
-import { MainLayout } from '@/components/ui/layout/main-layout';
-
-import { ThemeProvider } from '../provider/theme-provider';
+import { ThemeProvider } from '@/provider/theme-provider';
 
 import './globals.css';
 
@@ -103,6 +101,7 @@ export default function RootLayout({
             __html: JSON.stringify(structuredData),
           }}
         />
+        <title>Danyil Butov</title>
       </head>
       <body>
         <ThemeProvider
@@ -111,7 +110,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MainLayout>{children}</MainLayout>
+          {children}
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />

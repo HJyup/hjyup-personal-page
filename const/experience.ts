@@ -1,25 +1,47 @@
-import { ListItem } from '@/components/ui/layout/list-layout';
+import { WidgetId } from '@/types/widgets';
 
-export const EXPERIENCE: ListItem[] = [
+export interface ExperienceItem {
+  id: WidgetId;
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  status: 'active' | 'inactive';
+  statusColor: 'green' | 'red' | 'violet';
+  href: string;
+}
+
+export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: 'solidgate',
-    title: 'Solidgate',
+    title: 'Software developer',
+    company: 'Solidgate',
+    period: '2023 - Present',
+    description:
+      'Building internal financial tools and pricing systems at a global payment processor.',
+    status: 'active',
+    statusColor: 'green',
     href: 'https://solidgate.com',
-    date: '2023 - Present',
-    colour: 'green',
   },
   {
-    id: 'project-share',
-    title: 'Vice President of Project Share',
-    href: 'https://projectshare.comp-soc.com/',
-    date: '2025 - Present',
-    colour: 'purple',
-  },
-  {
-    id: 'comp-soc',
-    title: 'Committee Member of Comp Soc',
+    id: 'comp-soc' as WidgetId,
+    title: 'Committee member',
+    company: 'Comp-soc',
+    period: '2025 - Present',
+    description:
+      "Organise Scotland's largest student hackathon (400+ participants) and maintain the society's website.",
+    status: 'active',
+    statusColor: 'red',
     href: 'https://comp-soc.com/',
-    date: '2025 - Present',
-    colour: 'red',
+  },
+  {
+    id: 'project-share' as WidgetId,
+    title: 'Committee member',
+    company: 'Project Share',
+    period: '2025 - Present',
+    description: 'Host student-led project sharing sessions.',
+    status: 'active',
+    statusColor: 'violet',
+    href: 'https://projectshare.comp-soc.com/',
   },
 ];

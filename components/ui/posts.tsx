@@ -1,3 +1,4 @@
+import { GoArrowUpRight } from 'react-icons/go';
 import Image from 'next/image';
 
 export const Text = ({
@@ -8,7 +9,7 @@ export const Text = ({
   className?: string;
 }) => (
   <p
-    className={`text-base sm:text-lg text-zinc-900 dark:text-zinc-50 leading-relaxed ${className}`}
+    className={`text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed ${className}`}
   >
     {children}
   </p>
@@ -46,9 +47,7 @@ export const Photo = ({
       width={width}
       height={height}
     />
-    <p className="text-sm sm:text-base text-center text-muted-foreground mt-2">
-      {caption}
-    </p>
+    <p className="text-xs text-center text-muted-foreground mt-2">{caption}</p>
   </div>
 );
 
@@ -59,9 +58,7 @@ export const Heading = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <h2
-    className={`text-muted-foreground text-sm sm:text-base mt-12 sm:mt-16 ${className}`}
-  >
+  <h2 className={`text-muted-foreground text-xs mt-10 ${className}`}>
     {children}
   </h2>
 );
@@ -92,11 +89,11 @@ export const Link = ({
   href: string;
 }) => (
   <a
-    className={`bg-zinc-100 dark:bg-zinc-800 p-0.5 rounded-md px-1 gap-1 text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 whitespace-nowrap transition-colors ${className}`}
+    className={`py-0.5 rounded-md text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 whitespace-nowrap transition-colors inline-flex w-fit items-center ${className}`}
     href={href}
     target="_blank"
     rel="noopener noreferrer"
   >
-    {children}
+    {children} <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
   </a>
 );

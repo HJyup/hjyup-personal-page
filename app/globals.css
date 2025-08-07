@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Removing `@layer base` fixes dark mode */
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Snow white */
+    --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
     --muted: 240 4.8% 95.9%;
@@ -48,7 +47,7 @@
   }
 
   .dark {
-    --background: 0 0% 7%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 91%;
 
     --muted: 240 3.7% 15.9%;

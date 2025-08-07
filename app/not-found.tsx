@@ -1,29 +1,61 @@
-import React from 'react';
+import { GoArrowUpRight } from 'react-icons/go';
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col pt-16 sm:pt-20 md:pt-24 justify-center px-4 sm:px-6 lg:px-8 mb-20">
-      <div className="flex flex-col w-full items-center h-full">
-        <div className="w-full max-w-6xl">
-          <div className="text-center">
-            <div className="text-zinc-600 dark:text-zinc-400 text-lg sm:text-xl">
-              404
-            </div>
-            <div className="text-xl sm:text-2xl lg:text-3xl text-zinc-900 dark:text-zinc-50 font-medium mt-2">
-              Page not found
-            </div>
-            <div className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg mt-4 max-w-md mx-auto">
-              The page you're looking for doesn't exist.
-            </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+      <div className="flex justify-end items-center w-full pt-14 md:py-16 px-8 md:px-24">
+        <main className="flex flex-col max-w-xl justify-center min-h-[calc(100vh-8rem)]">
+          <h1 className="text-zinc-900 dark:text-zinc-50 text-base md:text-lg font-medium">
+            404
+          </h1>
+
+          <div className="text-xs md:text-base text-zinc-700 dark:text-zinc-300 mt-0.5 w-full">
+            Page not found
           </div>
 
-          <div className="flex justify-center mt-8">
+          <h2 className="text-xs mt-10 text-muted-foreground w-full">
+            What happened?
+          </h2>
+          <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-zinc-900 dark:text-zinc-50 leading-relaxed">
+            The page you&apos;re looking for doesn&apos;t exist or has been
+            moved.
+          </p>
+
+          <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-zinc-900 dark:text-zinc-50 leading-relaxed">
+            But while you&apos;re here, feel free to learn more about this
+            website and how it was built!
+          </p>
+
+          <h2 className="text-xs mt-10 text-muted-foreground w-full">
+            Navigate
+          </h2>
+          <div className="mt-4 flex flex-col gap-3">
             <a
               href="/"
-              className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors underline underline-offset-4"
+              className="text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
             >
               Return to homepage
+              <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
             </a>
+            <a
+              href="/posts/about"
+              className="text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
+            >
+              Read my blog
+              <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+            </a>
+          </div>
+        </main>
+      </div>
+
+      <div className="hidden md:block h-screen w-1/2 fixed right-0 overflow-hidden">
+        <div className="absolute top-0 left-0 h-full w-[50px] bg-gradient-to-r from-background to-transparent z-20" />
+        <div className="flex items-center justify-center h-full text-muted-foreground">
+          <div className="text-center max-w-sm px-8">
+            <p className="text-xs leading-relaxed">
+              This space is usually filled with interactive widgets on the main
+              page. Navigate back to explore them!
+            </p>
           </div>
         </div>
       </div>

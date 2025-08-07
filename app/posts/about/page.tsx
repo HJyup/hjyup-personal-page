@@ -7,8 +7,7 @@ import {
   Photo,
   Section,
   Text,
-} from '@/components/module/posts';
-import { MusicWidget } from '@/components/module/widgets/music';
+} from '@/components/ui/posts';
 
 export const metadata: Metadata = {
   title: 'About This Website | Danyil Butov',
@@ -50,12 +49,12 @@ const PortfolioPage = () => {
   return (
     <>
       <Section>
-        <h1 className="text-zinc-900 dark:text-zinc-50 text-lg sm:text-xl font-medium">
+        <h1 className="text-zinc-900 dark:text-zinc-50 text-base md:text-lg font-medium">
           About this website
         </h1>
         <Text className="mt-4 text-zinc-700 dark:text-zinc-300">
-          A fresh take on portfolio design. Balancing minimalism with
-          personality using widget-based interactions.
+          A fresh take on portfolio design, balancing minimalism with
+          personality through widget-based interactions.
         </Text>
       </Section>
 
@@ -63,28 +62,28 @@ const PortfolioPage = () => {
         <Heading>Iterations</Heading>
         <Body>
           <Text>
-            I originally planned to redesign my portfolio once a year, but in my
-            first year of university, I iterated on it twice. One version
-            experimented with a highly interactive book, but the complexity
-            overshadowed the actual content. Another version went in the
-            opposite direction — overly minimal.
+            I planned to redesign my portfolio once a year, but in my first year
+            of university I ended up iterating twice. One version explored a
+            highly interactive book format, but the complexity distracted from
+            the content. Another went in the opposite direction and became too
+            minimal.
           </Text>
           <Text>
             I also tried a more "playful" concept, but it felt like I was
-            chasing a cool design rather than creating something that
+            chasing an interesting look rather than something that truly
             represented me and my skills.
           </Text>
           <Photo
-            lightSrc="/posts/prev-page-dark.png"
-            darkSrc="/posts/prev-page-white.png"
+            lightSrc="/posts/prev-iter-2-dark.png"
+            darkSrc="/posts/prev-iter-2-light.png"
             alt="Portfolio"
             width={1000}
             height={600}
             caption="This iteration nearly became my current portfolio"
           />
           <Text>
-            These iterations taught me a simple truth: great design balances
-            clarity with character.
+            These experiments taught me something important: great design
+            balances clarity with character.
           </Text>
         </Body>
       </Section>
@@ -93,15 +92,10 @@ const PortfolioPage = () => {
         <Heading>Why widgets?</Heading>
         <Body>
           <Text>
-            While working on my laptop, I noticed how elegantly widgets present
-            information. They're modular, compact, and expressive, which sparked
-            the idea: what if my entire portfolio felt like a widget layout?
+            While working on my laptop I noticed how elegantly widgets present
+            information. They are modular, compact, and expressive. That sparked
+            the idea: what if my entire portfolio worked like a widget layout?
           </Text>
-          <Text>
-            This approach became the perfect way to showcase projects and
-            glimpses of my life. Concise and interactive.
-          </Text>
-          <MusicWidget className="mt-6" />
         </Body>
       </Section>
 
@@ -109,19 +103,27 @@ const PortfolioPage = () => {
         <Heading>Design decisions</Heading>
         <Body>
           <Text>
-            I began by recreating widgets from scratch, starting with the music
-            widget. I liked how each widget had its own style and autonomy,
-            independent of the interface.
+            I started by recreating widgets from scratch, beginning with the
+            music widget. Each one had its own style and autonomy, independent
+            of the interface.
           </Text>
           <Text>
-            After feedback, I unified the background color to bring visual
-            cohesion and reduce visual noise while letting personality shine
-            through content and microinteractions.
+            After feedback, I unified the background color to create cohesion
+            and reduce visual noise, letting personality come through in the
+            content and micro-interactions.
           </Text>
           <Text>
-            The two-column layout, with ample white space, makes the main page
-            more balanced and easy to scan. I prioritised key widgets at the
-            top, arranging supporting content beneath.
+            The first iteration used a two-column layout with plenty of white
+            space, which made the main page balanced and easy to scan. I placed
+            the key widgets at the top and arranged supporting content below.
+            Over time, I realised I wanted to combine a “CV” style text layout
+            with highly interactive widgets that naturally drew attention.
+          </Text>
+          <Text>
+            This became an interesting challenge: how to create a concise
+            interface that merged two different design approaches. The result is
+            the current version of the website, where widgets remain an
+            important part of the design but work in support of the text.
           </Text>
           <Text>
             The Posts section draws inspiration from various pages on{' '}

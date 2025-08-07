@@ -1,27 +1,23 @@
-import { ListItem } from '@/components/ui/layout/list-layout';
+import { WidgetId } from '@/types/widgets';
 
-export const BLOG: ListItem[] = [
+export interface BlogPost {
+  id: WidgetId;
+  title: string;
+  description: string;
+  link: string;
+}
+
+export const BLOG_POSTS: BlogPost[] = [
   {
-    id: 'website-build',
+    id: 'about',
     title: 'About this website',
-    date: '03-07-2025',
-    href: '/posts/portfolio',
-    colour: 'blue',
+    description: 'How i came up with the idea',
+    link: '/posts/about',
   },
   {
     id: 'animations',
-    title: 'Animations',
-    date: 'Coming soon',
-    isBlurred: true,
-    isDisabled: true,
-    colour: 'yellow',
-  },
-  {
-    id: 'other-stuff',
-    title: 'The other stuff',
-    date: 'Coming soon',
-    isBlurred: true,
-    isDisabled: true,
-    colour: 'green',
+    title: 'Animations & Retrospectives',
+    description: "Some thoughts on Emil Kowalski's course and some experiments",
+    link: '/posts/animations',
   },
 ];
