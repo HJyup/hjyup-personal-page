@@ -91,12 +91,6 @@ export default function Page() {
         </header>
       </div>
 
-      <div className="space-y-4 md:hidden p-8 h-fit pb-14">
-        <CardWidget />
-        <BooksWidget />
-        <MusicWidget />
-      </div>
-
       <div
         className="fixed h-screen w-1/2 right-0 overflow-hidden hidden md:block"
         ref={refs.container}
