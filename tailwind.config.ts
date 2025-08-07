@@ -91,7 +91,6 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       transitionTimingFunction: {
-        // Ease-out curves (best for elements entering screen or user interactions)
         'ease-out-quad': 'cubic-bezier(.25, .46, .45, .94)',
         'ease-out-cubic': 'cubic-bezier(.215, .61, .355, 1)',
         'ease-out-quart': 'cubic-bezier(.165, .84, .44, 1)',
@@ -99,7 +98,6 @@ module.exports = {
         'ease-out-expo': 'cubic-bezier(.19, 1, .22, 1)',
         'ease-out-circ': 'cubic-bezier(.075, .82, .165, 1)',
 
-        // Ease-in-out curves (smooth for elements moving within screen)
         'ease-in-out-quad': 'cubic-bezier(.455, .03, .515, .955)',
         'ease-in-out-cubic': 'cubic-bezier(.645, .045, .355, 1)',
         'ease-in-out-quart': 'cubic-bezier(.77, 0, .175, 1)',
@@ -107,7 +105,6 @@ module.exports = {
         'ease-in-out-expo': 'cubic-bezier(1, 0, 0, 1)',
         'ease-in-out-circ': 'cubic-bezier(.785, .135, .15, .86)',
 
-        // Ease-in curves (generally avoided but available)
         'ease-in-quad': 'cubic-bezier(.55, .085, .68, .53)',
         'ease-in-cubic': 'cubic-bezier(.550, .055, .675, .19)',
         'ease-in-quart': 'cubic-bezier(.895, .03, .685, .22)',

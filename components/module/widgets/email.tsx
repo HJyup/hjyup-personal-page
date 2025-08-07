@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { IoIosSend } from 'react-icons/io';
+import { HTMLMotionProps } from 'framer-motion';
 
-import { BigWidgetLayout } from '@/components/ui/layout/widget-layouts';
+import { WidgetLayout } from '@/components/ui/layout/widget-layout';
 
-export function EmailWidget({
-  className = 'flex items-end justify-center',
-}: {
-  className?: string;
-}) {
+export const EmailWidget = forwardRef<
+  HTMLDivElement,
+  { className?: string } & HTMLMotionProps<'div'>
+>(({ className = 'flex items-end justify-center', ...motionProps }, ref) => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
@@ -19,8 +19,12 @@ export function EmailWidget({
   };
 
   return (
-    <BigWidgetLayout className={className}>
-      <div className="w-[90%] bg-white dark:bg-zinc-900 h-[90%] rounded-t-2xl sm:rounded-t-3xl flex flex-col relative overflow-hidden border border-b-0 border-zinc-200/60 dark:border-zinc-800/60">
+    <WidgetLayout
+      ref={ref}
+      className={`${className} w-full h-full flex items-end !pb-0 !px-6`}
+      {...motionProps}
+    >
+      <div className="bg-white dark:bg-zinc-900 h-[95%] w-full rounded-t-2xl sm:rounded-t-3xl flex flex-col relative overflow-hidden border border-b-0 border-zinc-200/60 dark:border-zinc-800/60">
         <div className="bg-zinc-200/30 dark:bg-zinc-800/20 w-full h-10 sm:h-12 flex px-4 sm:px-6 items-center justify-between border-b border-zinc-200 dark:border-zinc-700">
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="flex gap-1.5 sm:gap-2 justify-center">
@@ -42,23 +46,23 @@ export function EmailWidget({
 
         <div className="px-3 sm:px-4 pt-3 sm:pt-4 flex flex-col gap-2 sm:gap-3 flex-1">
           <div className="flex gap-1 items-center border-b border-zinc-200 dark:border-zinc-700 pb-1 mb-2 sm:mb-3">
-            <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 min-w-fit">
+            <div className="text-xs text-zinc-600 dark:text-zinc-400 min-w-fit">
               To:
             </div>
-            <div className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+            <div className="text-xs text-zinc-700 dark:text-zinc-300">
               danyil.butov.tech@gmail.com
             </div>
           </div>
 
           <div className="flex gap-1 items-center border-b border-zinc-200 dark:border-zinc-700 pb-1 mb-2 sm:mb-3">
-            <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 min-w-fit">
+            <div className="text-xs text-zinc-600 dark:text-zinc-400 min-w-fit">
               Subject:
             </div>
             <input
               type="text"
               value={subject}
               onChange={e => setSubject(e.target.value)}
-              className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 bg-transparent border-none outline-none flex-1 placeholder:text-zinc-500 dark:placeholder:text-zinc-500"
+              className="text-xs text-zinc-700 dark:text-zinc-300 bg-transparent border-none outline-none flex-1 placeholder:text-zinc-500 dark:placeholder:text-zinc-500"
               placeholder="Enter subject..."
             />
           </div>
@@ -67,12 +71,14 @@ export function EmailWidget({
             <textarea
               value={message}
               onChange={e => setMessage(e.target.value)}
-              className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 bg-transparent border-none outline-none flex-1 resize-none placeholder:text-zinc-500 dark:placeholder:text-zinc-500"
+              className="text-xs text-zinc-700 dark:text-zinc-300 bg-transparent border-none outline-none flex-1 resize-none placeholder:text-zinc-500 dark:placeholder:text-zinc-500"
               placeholder="Type your message here..."
             />
           </div>
         </div>
       </div>
-    </BigWidgetLayout>
+    </WidgetLayout>
   );
-}
+});
+
+EmailWidget.displayName = 'EmailWidget';
