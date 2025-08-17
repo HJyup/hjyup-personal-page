@@ -50,12 +50,16 @@ const CardWidget = forwardRef<
       <div className="w-full space-y-1 sm:space-y-1.5">
         <div className="flex justify-between">
           <p className="text-xs sm:text-sm text-muted-foreground">Subtotal</p>
-          <p className="text-xs sm:text-sm font-medium text-zinc-400">$99.86</p>
+          <p className="text-xs sm:text-sm font-medium text-neutral-400">
+            $99.86
+          </p>
         </div>
 
         <div className="flex justify-between">
           <p className="text-xs sm:text-sm text-muted-foreground">VAT</p>
-          <p className="text-xs sm:text-sm font-medium text-zinc-400">$10.00</p>
+          <p className="text-xs sm:text-sm font-medium text-neutral-400">
+            $10.00
+          </p>
         </div>
 
         <div className="flex justify-between pt-1 border-t border-border">

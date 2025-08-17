@@ -49,10 +49,10 @@ const PortfolioPage = () => {
   return (
     <>
       <Section>
-        <h1 className="text-zinc-900 dark:text-zinc-50 text-base md:text-lg font-medium">
+        <h1 className="text-neutral-900 dark:text-neutral-50 text-base md:text-lg font-medium">
           About this website
         </h1>
-        <Text className="mt-4 text-zinc-700 dark:text-zinc-300">
+        <Text className="mt-4 text-neutral-700 dark:text-neutral-300">
           A fresh take on portfolio design, balancing minimalism with
           personality through widget-based interactions.
         </Text>

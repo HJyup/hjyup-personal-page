@@ -59,7 +59,7 @@ function BookInfo({ title, author, url }: BookInfoProps) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-zinc-900 dark:text-zinc-100 text-base font-medium truncate w-full hover:underline flex items-center gap-1"
+        className="text-neutral-900 dark:text-neutral-100 text-base font-medium truncate w-full hover:underline flex items-center gap-1"
       >
         {title} <GoArrowUpRight className="w-4 h-4" />
       </a>
@@ -83,7 +83,7 @@ export const BooksWidget = forwardRef<
       className={`${className} h-full w-full relative flex flex-col justify-between overflow-hidden`}
       {...motionProps}
     >
-      <FaBookOpen className="absolute top-4 right-4 md:top-5 md:right-5 lg:top-6 lg:right-6 w-5 h-5 text-zinc-500 dark:text-zinc-400 z-[2]" />
+      <FaBookOpen className="absolute top-4 right-4 md:top-5 md:right-5 lg:top-6 lg:right-6 w-5 h-5 text-neutral-500 dark:text-neutral-400 z-[2]" />
 
       <div className="items-center space-y-3">
         <BookImage
@@ -104,7 +104,7 @@ export const BooksWidget = forwardRef<
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-zinc-200/50 dark:bg-[hsl(0,0%,15%)] h-10 px-5 rounded-full flex items-center font-medium justify-center gap-3 shadow-sm w-full z-[2] relative overflow-hidden hover:cursor-pointer"
+        className="bg-neutral-200/50 dark:bg-[hsl(0,0%,15%)] h-10 px-5 rounded-full flex items-center font-medium justify-center gap-3 shadow-sm w-full z-[2] relative overflow-hidden hover:cursor-pointer"
       >
         <AnimatePresence mode="popLayout" initial={false}>
           {isOpen ? (
@@ -115,7 +115,7 @@ export const BooksWidget = forwardRef<
               animate="animate"
               exit="initial"
               transition={TRANSITION_CONFIG}
-              className="text-zinc-900 dark:text-zinc-50 flex items-center gap-2"
+              className="text-neutral-900 dark:text-neutral-50 flex items-center gap-2"
             >
               Close
             </motion.p>
@@ -127,7 +127,7 @@ export const BooksWidget = forwardRef<
               animate="animate"
               exit="exit"
               transition={TRANSITION_CONFIG}
-              className="text-zinc-900 dark:text-zinc-50 flex items-center gap-2"
+              className="text-neutral-900 dark:text-neutral-50 flex items-center gap-2"
             >
               <FaSignature className="w-5 h-5" /> Thoughts
             </motion.p>
@@ -143,7 +143,7 @@ export const BooksWidget = forwardRef<
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}
             transition={TRANSITION_CONFIG}
-            className="absolute inset-0 bg-zinc-50 dark:bg-[hsl(0,0%,5%)] w-full h-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6"
+            className="absolute inset-0 bg-neutral-100 dark:bg-[hsl(0,0%,5%)] w-full h-full rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6"
           >
             <div className="flex items-center gap-2 font-medium mb-5">
               <FaSignature className="w-5 h-5" /> Thoughts

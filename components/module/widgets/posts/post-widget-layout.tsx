@@ -19,11 +19,11 @@ const PostWidgetLayout = forwardRef<
       <div>
         <a
           href={link}
-          className="text-zinc-900 dark:text-zinc-50 text-lg font-medium flex items-center gap-2 hover:underline hover:cursor-pointer"
+          className="text-neutral-900 dark:text-neutral-50 text-lg font-medium flex items-center gap-2 hover:underline hover:cursor-pointer"
         >
           {title} <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
         </a>
-        <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-1">
           {description}
         </p>
       </div>

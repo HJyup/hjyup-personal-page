@@ -23,7 +23,7 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           draggable={false}
           priority
           sizes="300px"
-          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-zinc-800 z-[1] pointer-events-none
+          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-neutral-800 z-[1] pointer-events-none
              opacity-0 dark:opacity-100 transition-opacity duration-150"
         />
 
@@ -35,7 +35,7 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           draggable={false}
           priority
           sizes="300px"
-          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-zinc-800 pointer-events-none
+          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-neutral-800 pointer-events-none
              opacity-0 dark:opacity-100 transition-[opacity,transform] duration-300 ease-out will-change-transform group-hover:-translate-y-[40px]"
         />
 
@@ -47,7 +47,7 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           draggable={false}
           priority
           sizes="300px"
-          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-zinc-200 z-[1] pointer-events-none
+          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-neutral-200 z-[1] pointer-events-none
              opacity-100 dark:opacity-0 transition-opacity duration-150"
         />
 
@@ -59,7 +59,7 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           draggable={false}
           priority
           sizes="300px"
-          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-zinc-200 pointer-events-none
+          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-neutral-200 pointer-events-none
              opacity-100 dark:opacity-0 transition-[opacity,transform] duration-300 ease-out will-change-transform group-hover:-translate-y-[40px]"
         />
       </PostWidgetLayout>

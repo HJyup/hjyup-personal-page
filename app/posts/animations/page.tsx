@@ -1,14 +1,6 @@
-import { FaInfo } from 'react-icons/fa';
 import type { Metadata } from 'next';
 
-import {
-  Body,
-  Heading,
-  Link,
-  Photo,
-  Section,
-  Text,
-} from '@/components/ui/posts';
+import { Body, Heading, Section, Text } from '@/components/ui/posts';
 export const metadata: Metadata = {
   title: 'Animations & Retrospectives | Danyil Butov',
   description:
@@ -37,10 +29,10 @@ const AnimationsPage = () => {
   return (
     <>
       <Section>
-        <h1 className="text-zinc-900 dark:text-zinc-50 text-base md:text-lg font-medium">
+        <h1 className="text-neutral-900 dark:text-neutral-50 text-base md:text-lg font-medium">
           Animations & Retrospectives
         </h1>
-        <Text className="mt-4 text-zinc-700 dark:text-zinc-300">
+        <Text className="mt-4 text-neutral-700 dark:text-neutral-300">
           Reflections on Emil Kowalski's animation course and my own experiments
           with motion design.
         </Text>

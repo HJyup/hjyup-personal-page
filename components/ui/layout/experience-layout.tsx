@@ -39,7 +39,7 @@ export function ExperienceLayout({
                 className={`${MAP_STATUS_COLOR[e.statusColor]} w-1.5 h-1.5 rounded-full`}
               />
               <a
-                className="text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
+                className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
                 onMouseEnter={hover(e.id)}
                 href={e.href}
                 target="_blank"

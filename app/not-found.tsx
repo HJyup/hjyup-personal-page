@@ -5,23 +5,23 @@ export default function NotFound() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       <div className="flex justify-end items-center w-full pt-14 md:py-16 px-8 md:px-24">
         <main className="flex flex-col max-w-xl justify-center min-h-[calc(100vh-8rem)]">
-          <h1 className="text-zinc-900 dark:text-zinc-50 text-base md:text-lg font-medium">
+          <h1 className="text-neutral-900 dark:text-neutral-50 text-base md:text-lg font-medium">
             404
           </h1>
 
-          <div className="text-xs md:text-base text-zinc-700 dark:text-zinc-300 mt-0.5 w-full">
+          <div className="text-xs md:text-base text-neutral-700 dark:text-neutral-300 mt-0.5 w-full">
             Page not found
           </div>
 
           <h2 className="text-xs mt-10 text-muted-foreground w-full">
             What happened?
           </h2>
-          <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-zinc-900 dark:text-zinc-50 leading-relaxed">
+          <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-neutral-900 dark:text-neutral-50 leading-relaxed">
             The page you&apos;re looking for doesn&apos;t exist or has been
             moved.
           </p>
 
-          <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-zinc-900 dark:text-zinc-50 leading-relaxed">
+          <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-neutral-900 dark:text-neutral-50 leading-relaxed">
             But while you&apos;re here, feel free to learn more about this
             website and how it was built!
           </p>
@@ -32,14 +32,14 @@ export default function NotFound() {
           <div className="mt-4 flex flex-col gap-3">
             <a
               href="/"
-              className="text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
+              className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
             >
               Return to homepage
               <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
             </a>
             <a
               href="/posts/about"
-              className="text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
+              className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
             >
               Read my blog
               <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />

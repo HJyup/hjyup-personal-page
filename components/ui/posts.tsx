@@ -9,7 +9,7 @@ export const Text = ({
   className?: string;
 }) => (
   <p
-    className={`text-xs md:text-sm text-zinc-900 dark:text-zinc-50 leading-relaxed ${className}`}
+    className={`text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed ${className}`}
   >
     {children}
   </p>
@@ -34,14 +34,14 @@ export const Photo = ({
 }) => (
   <div className={`${className} flex flex-col items-center`}>
     <Image
-      className="rounded-lg border border-gray-200 dark:border-zinc-900 hidden dark:block"
+      className="rounded-lg border border-gray-200 dark:border-neutral-900 hidden dark:block"
       src={lightSrc}
       alt={alt}
       width={width}
       height={height}
     />
     <Image
-      className="rounded-lg border border-gray-200 dark:border-zinc-900 block dark:hidden"
+      className="rounded-lg border border-gray-200 dark:border-neutral-900 block dark:hidden"
       src={darkSrc}
       alt={alt}
       width={width}

@@ -14,7 +14,7 @@ export const WidgetLayout = forwardRef<
   return (
     <motion.div
       ref={ref}
-      className={`${isBackground ? 'bg-zinc-50 dark:bg-[hsl(0,0%,5%)]' : ''} h-[20rem] aspect-square rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 ${className}`}
+      className={`${isBackground ? 'bg-neutral-100 dark:bg-[hsl(0,0%,5%)]' : ''} h-[20rem] aspect-square rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 ${className}`}
       {...motionProps}
     >
       {children}
@@ -35,7 +35,7 @@ export const WithBackdrop = ({
         {backdropCondition && (
           <motion.div
             key={`backdrop-${backdropCondition}`}
-            className="absolute inset-0 bg-white/70 dark:bg-black/70 z-10"
+            className="absolute inset-0 bg-background/70 dark:bg-background/80 z-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
