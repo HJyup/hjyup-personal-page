@@ -14,7 +14,7 @@ const BackLink = () => {
         href="/"
         className="flex items-center gap-2 hover:underline underline-offset-2 w-full hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
       >
-        <IoArrowBack className="w-4 h-4" />
+        <IoArrowBack className="w-3 h-3 md:w-4 md:h-4" />
         Back
       </Link>
     </div>

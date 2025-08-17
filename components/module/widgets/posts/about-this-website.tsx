@@ -21,7 +21,10 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           width={300}
           height={300}
           draggable={false}
-          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-zinc-800 hidden dark:block z-[1] pointer-events-none"
+          priority
+          sizes="300px"
+          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-zinc-800 z-[1] pointer-events-none
+             opacity-0 dark:opacity-100 transition-opacity duration-150"
         />
 
         <Image
@@ -30,7 +33,10 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           width={300}
           height={300}
           draggable={false}
-          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-zinc-800 hidden dark:block transition-transform duration-300 ease-out will-change-transform group-hover:-translate-y-[40px] pointer-events-none"
+          priority
+          sizes="300px"
+          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-zinc-800 pointer-events-none
+             opacity-0 dark:opacity-100 transition-[opacity,transform] duration-300 ease-out will-change-transform group-hover:-translate-y-[40px]"
         />
 
         <Image
@@ -39,7 +45,10 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           width={300}
           height={300}
           draggable={false}
-          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-zinc-200 block z-[1] dark:hidden pointer-events-none"
+          priority
+          sizes="300px"
+          className="object-cover absolute bottom-[-5%] left-[15%] rounded-2xl border border-zinc-200 z-[1] pointer-events-none
+             opacity-100 dark:opacity-0 transition-opacity duration-150"
         />
 
         <Image
@@ -48,7 +57,10 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           width={300}
           height={300}
           draggable={false}
-          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-zinc-200 block dark:hidden transition-transform duration-300 ease-out will-change-transform group-hover:-translate-y-[40px] pointer-events-none"
+          priority
+          sizes="300px"
+          className="object-cover absolute bottom-[-5%] left-[15%] scale-95 rounded-2xl border border-zinc-200 pointer-events-none
+             opacity-100 dark:opacity-0 transition-[opacity,transform] duration-300 ease-out will-change-transform group-hover:-translate-y-[40px]"
         />
       </PostWidgetLayout>
     );

@@ -7,7 +7,7 @@ export const CompSoc = forwardRef<HTMLDivElement, { className?: string }>(
     return (
       <WidgetLayout
         ref={ref}
-        className={`flex items-center justify-center transition-all duration-200 hover:scale-105 ${className}`}
+        className={`flex items-center justify-center transition-all hover:cursor-pointer duration-200 hover:scale-105 ${className}`}
       >
         <svg
           width="200"

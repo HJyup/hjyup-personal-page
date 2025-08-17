@@ -51,14 +51,14 @@ export default function Page() {
           <div className="text-xs md:text-base text-zinc-700 dark:text-zinc-300 mt-0.5 w-full flex gap-4">
             <a
               onMouseEnter={hover('github')}
-              href="https://github.com/danyilbutov"
+              href="https://github.com/HJyup"
               className="hover:underline flex items-center gap-1"
             >
               Github <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
             </a>
             <a
               onMouseEnter={hover('email')}
-              href="mailto:danyilbutov@gmail.com"
+              href="mailto:danyil.butov.tech@gmail.com"
               className="hover:underline flex items-center gap-1"
             >
               Email <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />

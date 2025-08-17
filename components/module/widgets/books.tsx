@@ -38,14 +38,15 @@ const SPAN_VARIANTS = {
 
 function BookImage({ src, alt, title, author }: BookImageProps) {
   return (
-    <div className="w-fit">
+    <div className="relative w-32 h-[192px] md:w-24 md:h-[144px]">
       <Image
         src={src}
         alt={`${alt} - ${title} by ${author}`}
-        width={180}
-        height={270}
+        fill
+        priority
+        sizes="(min-width: 768px) 96px, 128px"
+        className="object-cover rounded-md shadow-lg"
         draggable={false}
-        className="rounded-md shadow-lg w-32 md:w-24"
       />
     </div>
   );

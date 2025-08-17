@@ -18,7 +18,7 @@ const CardWidget = forwardRef<
     >
       <motion.div
         whileHover={{
-          scale: 0.98,
+          scale: 1.02,
           transition: {
             type: 'spring',
             duration: 0.2,
@@ -26,7 +26,7 @@ const CardWidget = forwardRef<
           },
         }}
         whileTap={{
-          scale: 0.95,
+          scale: 0.98,
           transition: {
             type: 'spring',
             duration: 0.2,
@@ -34,7 +34,7 @@ const CardWidget = forwardRef<
             stiffness: 300,
           },
         }}
-        className="w-full bg-gradient-to-t from-[#101010] to-[#1d1d1d] shadow-lg aspect-[1.586/1] rounded-2xl sm:rounded-3xl font-mono p-6 gap-6 flex flex-col relative"
+        className="w-full bg-gradient-to-t from-[#101010] to-[#1d1d1d] shadow-lg aspect-[1.586/1] rounded-2xl sm:rounded-3xl font-mono p-6 gap-6 flex flex-col relative hover:cursor-pointer"
       >
         <SolidGateLogo />
         <div className="text-muted-foreground select-none">
