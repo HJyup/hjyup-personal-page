@@ -92,7 +92,6 @@ const CardWidget = forwardRef<
               stiffness: 400,
               damping: 25,
               mass: 0.8,
-              delay: 0.1,
             }}
             className="w-full space-y-1 sm:space-y-1.5 mt-5"
           >
