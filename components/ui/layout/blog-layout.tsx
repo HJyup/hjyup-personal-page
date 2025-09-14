@@ -27,7 +27,7 @@ export function BlogLayout({ posts, hover }: BlogLayoutProps) {
             onMouseEnter={hover(post.id)}
             className="hover:underline"
           >
-            <LinkBlock>{post.title}</LinkBlock>
+            <LinkBlock className="text-xs md:text-sm">{post.title}</LinkBlock>
           </a>
           <p className="text-xs md:text-sm mt-1 text-muted-foreground leading-relaxed">
             {post.description}

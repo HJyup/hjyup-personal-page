@@ -44,7 +44,7 @@ export function ExperienceLayout({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <LinkBlock>
+                <LinkBlock className="text-xs md:text-sm">
                   {e.title} at {e.company}
                 </LinkBlock>
               </a>

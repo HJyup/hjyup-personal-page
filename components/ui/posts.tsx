@@ -94,6 +94,6 @@ export const Link = ({
     target="_blank"
     rel="noopener noreferrer"
   >
-    {children} <GoArrowUpRight className="w-2 h-2 md:w-3 md:h-3 mt-[2px]" />
+    {children} <GoArrowUpRight className="w-3 h-3 mt-[2px]" />
   </a>
 );

@@ -29,7 +29,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     company: 'Comp-soc',
     period: '2025 - Present',
     description:
-      "Organise Scotland's largest student hackathon (400+ participants) and maintain the society's website.",
+      "Organise Scotland's largest student hackathon\u00A0(400+\u00A0participants) and maintain the society's website.",
     status: 'active',
     statusColor: 'red',
     href: 'https://comp-soc.com/',
