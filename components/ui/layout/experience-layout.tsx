@@ -1,5 +1,4 @@
-import { GoArrowUpRight } from 'react-icons/go';
-
+import LinkBlock from '@/components/module/LinkBlock';
 import type { WidgetId } from '@/types/widgets';
 
 interface ExperienceItem {
@@ -27,7 +26,7 @@ export function ExperienceLayout({
   hover: (id: WidgetId) => () => void;
 }) {
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-4 w-full">
       <h2 className="text-xs mt-10 text-muted-foreground w-full mb-4">
         Experience
       </h2>
@@ -39,14 +38,15 @@ export function ExperienceLayout({
                 className={`${MAP_STATUS_COLOR[e.statusColor]} w-1.5 h-1.5 rounded-full`}
               />
               <a
-                className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
+                className="hover:underline"
                 onMouseEnter={hover(e.id)}
                 href={e.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {e.title} at {e.company}{' '}
-                <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+                <LinkBlock>
+                  {e.title} at {e.company}
+                </LinkBlock>
               </a>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">

@@ -8,17 +8,17 @@ The interface is powered by a **modular, widget-based system** that’s easy to 
 
 # Features
 
-* **Light & Dark Mode** – Instantly switch themes with smooth, polished transitions.
-* **Interactive Animations** – Each widget features its own subtle, purposeful motion.
-* **Performance-Focused** – Fast load times and GPU-accelerated animations.
+- **Light & Dark Mode** – Instantly switch themes with smooth, polished transitions.
+- **Interactive Animations** – Each widget features its own subtle, purposeful motion.
+- **Performance-Focused** – Fast load times and GPU-accelerated animations.
 
 ## Tech Stack
 
-* **Framework:** Next.js (App Router)
-* **Styling:** Tailwind CSS
-* **Animations:** Framer Motion
-* **Type Safety:** TypeScript
-* **Package Manager:** pnpm
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Type Safety:** TypeScript
+- **Package Manager:** pnpm
 
 ## Installation
 
@@ -31,12 +31,11 @@ pnpm dev
 
 ## Roadmap
 
-* [ ] More widgets!!!
-* [ ] Improved widget customization (desktop & mobile)
-* [ ] Performance profiling for low-end devices
-* [ ] SEO enhancements
+- [ ] More widgets!!!
+- [ ] Improved widget customization (desktop & mobile)
+- [ ] Performance profiling for low-end devices
+- [ ] SEO enhancements
 
 ## License
 
 This project is licensed under the MIT License — feel free to use it as inspiration or a starting point for your own portfolio.
-

@@ -1,9 +1,8 @@
 'use client';
-
-import { GoArrowUpRight } from 'react-icons/go';
 import { motion } from 'framer-motion';
 
 import { ColumnWithBackdrop } from '@/components/module/column-with-backdrop';
+import LinkBlock from '@/components/module/LinkBlock';
 import { BooksWidget } from '@/components/module/widgets/books';
 import CardWidget from '@/components/module/widgets/card';
 import { CompSoc } from '@/components/module/widgets/compSoc';
@@ -52,16 +51,16 @@ export default function Page() {
             <a
               onMouseEnter={hover('github')}
               href="https://github.com/HJyup"
-              className="hover:underline flex items-center gap-1"
+              className="hover:underline"
             >
-              Github <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+              <LinkBlock>Github</LinkBlock>
             </a>
             <a
               onMouseEnter={hover('email')}
               href="mailto:danyil.butov.tech@gmail.com"
-              className="hover:underline flex items-center gap-1"
+              className="hover:underline"
             >
-              Email <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+              <LinkBlock>Email</LinkBlock>
             </a>
           </div>
 

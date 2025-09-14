@@ -1,4 +1,4 @@
-import { GoArrowUpRight } from 'react-icons/go';
+import LinkBlock from '@/components/module/LinkBlock';
 
 export default function NotFound() {
   return (
@@ -30,19 +30,11 @@ export default function NotFound() {
             Navigate
           </h2>
           <div className="mt-4 flex flex-col gap-3">
-            <a
-              href="/"
-              className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
-            >
-              Return to homepage
-              <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+            <a href="/" className="hover:underline">
+              <LinkBlock>Return to homepage</LinkBlock>
             </a>
-            <a
-              href="/posts/about"
-              className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit flex items-center gap-1 hover:underline"
-            >
-              Read my blog
-              <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+            <a href="/posts/about" className="hover:underline">
+              <LinkBlock>Read my blog</LinkBlock>
             </a>
           </div>
         </main>

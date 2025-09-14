@@ -1,3 +1,4 @@
+import LinkBlock from '@/components/module/LinkBlock';
 import { WidgetId } from '@/types/widgets';
 
 interface BlogPost {
@@ -14,7 +15,7 @@ interface BlogLayoutProps {
 
 export function BlogLayout({ posts, hover }: BlogLayoutProps) {
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-4 w-full">
       <h2 className="text-xs mt-10 text-muted-foreground w-full mb-4">Posts</h2>
       {posts.map(post => (
         <div
@@ -24,9 +25,9 @@ export function BlogLayout({ posts, hover }: BlogLayoutProps) {
           <a
             href={post.link}
             onMouseEnter={hover(post.id)}
-            className="text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed w-fit hover:underline"
+            className="hover:underline"
           >
-            {post.title}
+            <LinkBlock>{post.title}</LinkBlock>
           </a>
           <p className="text-xs md:text-sm mt-1 text-muted-foreground leading-relaxed">
             {post.description}

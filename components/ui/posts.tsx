@@ -89,11 +89,11 @@ export const Link = ({
   href: string;
 }) => (
   <a
-    className={`py-0.5 rounded-md text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 whitespace-nowrap transition-colors inline-flex w-fit items-center ${className}`}
+    className={`py-0.5 rounded-md text-blue-600 dark:text-blue-400 hover:underline underline-offset-2 whitespace-nowrap transition-colors inline-flex w-fit ${className}`}
     href={href}
     target="_blank"
     rel="noopener noreferrer"
   >
-    {children} <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+    {children} <GoArrowUpRight className="w-2 h-2 md:w-3 md:h-3 mt-[2px]" />
   </a>
 );

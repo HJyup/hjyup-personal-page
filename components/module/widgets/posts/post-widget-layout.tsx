@@ -1,8 +1,9 @@
 import { forwardRef, ReactNode } from 'react';
-import { GoArrowUpRight } from 'react-icons/go';
 import { HTMLMotionProps } from 'framer-motion';
 
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
+
+import LinkBlock from '../../LinkBlock';
 
 const PostWidgetLayout = forwardRef<
   HTMLDivElement,
@@ -17,11 +18,8 @@ const PostWidgetLayout = forwardRef<
   return (
     <WidgetLayout ref={ref} className={className} {...motionProps}>
       <div>
-        <a
-          href={link}
-          className="text-neutral-900 dark:text-neutral-50 text-lg font-medium flex items-center gap-2 hover:underline hover:cursor-pointer"
-        >
-          {title} <GoArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+        <a href={link} className="hover:underline hover:cursor-pointer">
+          <LinkBlock>{title}</LinkBlock>
         </a>
         <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-1">
           {description}

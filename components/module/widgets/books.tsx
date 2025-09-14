@@ -3,12 +3,13 @@
 import React, { forwardRef, useState } from 'react';
 import { FaBookOpen } from 'react-icons/fa';
 import { FaSignature } from 'react-icons/fa6';
-import { GoArrowUpRight } from 'react-icons/go';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import Image from 'next/image';
 
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
 import { BOOKS } from '@/const/books';
+
+import LinkBlock from '../LinkBlock';
 
 interface BookImageProps {
   src: string;
@@ -61,7 +62,7 @@ function BookInfo({ title, author, url }: BookInfoProps) {
         rel="noopener noreferrer"
         className="text-neutral-900 dark:text-neutral-100 text-base font-medium truncate w-full hover:underline flex items-center gap-1"
       >
-        {title} <GoArrowUpRight className="w-4 h-4" />
+        <LinkBlock>{title}</LinkBlock>
       </a>
       <p className="text-muted-foreground text-sm truncate w-full mb-3">
         {author}
