@@ -47,7 +47,7 @@ export default function Page() {
             </h1>
           </div>
 
-          <div className="text-xs md:text-base text-neutral-700 dark:text-neutral-300 mt-0.5 w-full flex gap-4">
+          <div className="text-xs md:text-base text-neutral-700 dark:text-neutral-300 mt-0.5 w-full flex gap-4 mb-5">
             <a
               onMouseEnter={hover('github')}
               href="https://github.com/HJyup"
@@ -64,10 +64,9 @@ export default function Page() {
             </a>
           </div>
 
-          <h2 className="text-xs mt-10 text-muted-foreground w-full">About</h2>
           <p className="text-xs md:text-sm mt-4 w-full md:w-5/6 text-neutral-900 dark:text-neutral-50 leading-relaxed">
-            Software developer passionate about user-centric design. I enjoy
-            building seamless, functional products that feel intuitive to use.
+            Welcome to my webpage! Here I showcase the things I’ve built and
+            learned. Software developer passionate about user-centric design.
           </p>
 
           <div className="flex flex-col gap-2 w-full">

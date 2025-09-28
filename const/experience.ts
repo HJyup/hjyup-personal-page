@@ -18,7 +18,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     company: 'Solidgate',
     period: '2023 - Present',
     description:
-      'Building internal financial tools and pricing systems at a global payment processor.',
+      'Building a global payments orchestration platform for thousands of merchants in 150+ countries.',
     status: 'active',
     statusColor: 'green',
     href: 'https://solidgate.com',
@@ -29,7 +29,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     company: 'Comp-soc',
     period: '2025 - Present',
     description:
-      "Organise Scotland's largest student hackathon\u00A0(400+\u00A0participants) and maintain the society's website.",
+      "Organise Scotland's largest student hackathon\u00A0(200+\u00A0participants) and maintain the society's website.",
     status: 'active',
     statusColor: 'red',
     href: 'https://comp-soc.com/',

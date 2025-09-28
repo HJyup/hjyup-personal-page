@@ -1,4 +1,3 @@
-import LinkBlock from '@/components/module/LinkBlock';
 import { WidgetId } from '@/types/widgets';
 
 interface BlogPost {
@@ -25,9 +24,9 @@ export function BlogLayout({ posts, hover }: BlogLayoutProps) {
           <a
             href={post.link}
             onMouseEnter={hover(post.id)}
-            className="hover:underline"
+            className="hover:underline text-xs md:text-sm cursor-pointer"
           >
-            <LinkBlock className="text-xs md:text-sm">{post.title}</LinkBlock>
+            {post.title}
           </a>
           <p className="text-xs md:text-sm mt-1 text-muted-foreground leading-relaxed">
             {post.description}

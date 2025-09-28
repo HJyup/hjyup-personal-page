@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 
 import { cn } from '@/lib/utils';
@@ -6,7 +7,7 @@ const LinkBlock = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) => {
   return (

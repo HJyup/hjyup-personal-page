@@ -4,9 +4,10 @@ import React, { forwardRef } from 'react';
 
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
 
-const CONTRIBUTION_DATA = Array(31)
-  .fill(null)
-  .map(() => (Math.random() > 0.25 ? (Math.random() > 0.5 ? 2 : 1) : 0));
+const CONTRIBUTION_DATA = [
+  2, 1, 2, 0, 1, 2, 1, 1, 2, 0, 2, 1, 0, 2, 2, 1, 1, 2, 0, 1, 2, 0, 2, 1, 2, 1,
+  0, 1, 2, 0, 2,
+];
 
 type Props = { className?: string } & React.HTMLAttributes<HTMLDivElement>;
 

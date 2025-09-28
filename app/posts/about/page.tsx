@@ -74,8 +74,8 @@ const PortfolioPage = () => {
             represented me and my skills.
           </Text>
           <Photo
-            lightSrc="/posts/prev-iter-2-dark.png"
-            darkSrc="/posts/prev-iter-2-light.png"
+            lightSrc="/posts/project-dark.webp"
+            darkSrc="/posts/project-light.webp"
             alt="Portfolio"
             width={1000}
             height={600}
@@ -133,26 +133,6 @@ const PortfolioPage = () => {
             and from my friend{' '}
             <Link href="https://tomasmaillo.com/">Tomas Maillo</Link> , both of
             which emphasise minimal yet visually engaging layouts.
-          </Text>
-        </Body>
-      </Section>
-
-      <Section>
-        <Heading>Tech behind it</Heading>
-        <Body>
-          <Text>
-            I built this project with Next.js and Tailwind CSS. A flexible stack
-            with strong SEO control and room for future database-driven
-            features.
-          </Text>
-          <Text>
-            For interactivity, I used Framer Motion, a powerful library for
-            smooth animations. Its layout transitions are unmatched. For anyone
-            interested in how it works under the hood, I recommend{' '}
-            <Link href="https://www.nan.fyi/magic-motion">
-              Nanda Syahrasyad's blog
-            </Link>
-            .
           </Text>
         </Body>
       </Section>

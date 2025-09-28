@@ -95,7 +95,7 @@ export const MusicWidget = forwardRef<HTMLDivElement, MusicWidgetProps>(
     {
       title = 'Cosmic Love',
       artist = 'Florence + The Machine',
-      albumArt = 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4d/b6/73/4db6730b-ffb5-2147-c374-05edec48c7d0/10UMGIM04103.rgb.jpg/416x416bb.webp',
+      albumArt = 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4d/b6/73/4db6730b-ffb5-2147-c374-05edec48c7d0/10UMGIM04103.rgb.jpg/256x256bb.webp',
       albumArtAlt = 'Album cover',
       className = '',
     },

@@ -2,7 +2,6 @@
 
 import { forwardRef, useState } from 'react';
 import { RiVisaLine } from 'react-icons/ri';
-import * as SliderPrimitive from '@radix-ui/react-slider';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
@@ -20,52 +19,28 @@ const CardWidget = forwardRef<
       {...motionProps}
     >
       <AnimatePresence mode="popLayout" initial={false}>
-        {isTapped && (
-          <motion.div
-            key="slider"
-            initial={{ height: 0, opacity: 0, y: 30 }}
-            animate={{ height: 'auto', opacity: 1, y: 0 }}
-            exit={{ height: 0, opacity: 0, y: 30 }}
-            transition={{
-              type: 'spring',
-              stiffness: 400,
-              damping: 30,
-              mass: 0.8,
-            }}
-            className="mb-4"
-          >
-            <Slider onComplete={() => setIsTapped(false)} />
-          </motion.div>
-        )}
-
         <motion.div
           layout
           whileHover={{
             scale: 1.02,
             transition: {
               type: 'spring',
-              stiffness: 400,
-              damping: 25,
-              mass: 0.8,
+              duration: 0.2,
             },
           }}
           whileTap={{
             scale: 0.98,
             transition: {
               type: 'spring',
-              stiffness: 600,
-              damping: 25,
-              mass: 0.8,
+              duration: 0.2,
             },
           }}
           animate={{
-            y: isTapped ? 20 : 0,
+            y: isTapped ? 50 : 0,
           }}
           transition={{
             type: 'spring',
-            stiffness: 300,
-            damping: 30,
-            mass: 1,
+            duration: 0.6,
           }}
           className="w-full bg-gradient-to-t from-[#101010] to-[#1d1d1d] shadow-lg aspect-[1.586/1] rounded-2xl sm:rounded-3xl font-mono p-6 gap-6 flex flex-col relative hover:cursor-pointer"
           onClick={() => setIsTapped(!isTapped)}
@@ -89,9 +64,7 @@ const CardWidget = forwardRef<
             exit={{ opacity: 0, y: -30 }}
             transition={{
               type: 'spring',
-              stiffness: 400,
-              damping: 25,
-              mass: 0.8,
+              duration: 0.4,
             }}
             className="w-full space-y-1 sm:space-y-1.5 mt-5"
           >
@@ -189,46 +162,5 @@ function SolidGateLogo() {
 }
 
 CardWidget.displayName = 'CardWidget';
-
-function Slider({ onComplete }: { onComplete: () => void }) {
-  const [value, setValue] = useState([0]);
-  const handleValueChange = (newValue: number[]) => {
-    setValue(newValue);
-    if (newValue[0] >= 99) {
-      setValue([100]);
-      onComplete();
-      setTimeout(() => {
-        setValue([0]);
-      }, 200);
-    }
-  };
-
-  const opacity = Math.max(0, 1 - value[0] / 100);
-
-  return (
-    <div className="px-2">
-      <SliderPrimitive.Root
-        value={value}
-        onValueChange={handleValueChange}
-        max={100}
-        step={1}
-        className="relative flex items-center w-full h-12 rounded-full border border-white/10 bg-neutral-200/60 dark:bg-neutral-800/50 backdrop-blur"
-      >
-        <SliderPrimitive.Track className="relative h-full w-full rounded-full bg-transparent">
-          <SliderPrimitive.Range className="absolute h-full bg-white/70 dark:bg-white/10 rounded-full" />
-        </SliderPrimitive.Track>
-
-        <span
-          className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-neutral-600 pointer-events-none select-none"
-          style={{ opacity }}
-        >
-          Slide to pay
-        </span>
-
-        <SliderPrimitive.Thumb className="w-16 h-12 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.25)] flex items-center justify-center cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-transparent" />
-      </SliderPrimitive.Root>
-    </div>
-  );
-}
 
 export default CardWidget;

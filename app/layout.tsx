@@ -53,40 +53,6 @@ export const viewport: Viewport = {
   ],
 };
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Danyil Butov',
-  jobTitle: 'Software Developer',
-  description:
-    'CS student at University of Edinburgh and software developer at Solidgate',
-  url: 'https://danyilbutov.com',
-  worksFor: [
-    {
-      '@type': 'Organization',
-      name: 'Solidgate',
-    },
-  ],
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'University of Edinburgh',
-  },
-  knowsAbout: [
-    'Software Development',
-    'Web Development',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'UI/UX Design',
-    'Computer Science',
-  ],
-  sameAs: [
-    'https://github.com/HJyup',
-    'https://www.linkedin.com/in/danyil-butov/',
-    'https://www.instagram.com/danyilbutov/',
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -95,12 +61,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
         <title>Danyil Butov</title>
       </head>
       <body>
