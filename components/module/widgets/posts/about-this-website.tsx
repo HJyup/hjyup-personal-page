@@ -8,42 +8,39 @@ type Props = { className?: string } & HTMLAttributes<HTMLDivElement>;
 
 const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
   ({ className }, ref) => {
-    const baseImageProps = {
-      width: 300,
-      height: 300,
-      draggable: false,
-      sizes: '300px',
-      className:
-        'object-cover absolute bottom-[-5%] left-[15%] rounded-2xl pointer-events-none',
-    };
-
     return (
       <PostWidgetLayout
         ref={ref}
         link="posts/about"
-        className={clsx('relative overflow-hidden', className)}
+        className={clsx('flex flex-col justify-between', className)}
         title="About this website"
         description="How I came up with the idea"
       >
         <Image
-          {...baseImageProps}
           src="/posts/main-dark.webp"
           alt="About this website"
+          width={300}
+          height={300}
+          draggable={false}
+          sizes="300px"
           priority
           className={clsx(
-            baseImageProps.className,
-            'border border-neutral-800 z-[1] opacity-0 dark:opacity-100 transition-opacity duration-150',
+            'object-cover pointer-events-none rounded-md',
+            'border border-neutral-800 z-[1] hidden dark:block',
           )}
         />
 
         <Image
-          {...baseImageProps}
           src="/posts/project-light.webp"
           alt="About this website"
+          width={300}
+          height={300}
+          draggable={false}
+          sizes="300px"
           priority
           className={clsx(
-            baseImageProps.className,
-            'border border-neutral-200 z-[1] opacity-100 dark:opacity-0 transition-opacity duration-150',
+            'object-cover pointer-events-none rounded-md',
+            'border border-neutral-200 z-[1] block dark:hidden',
           )}
         />
       </PostWidgetLayout>
