@@ -21,13 +21,8 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           alt="About this website"
           width={300}
           height={300}
-          draggable={false}
           sizes="300px"
-          priority
-          className={clsx(
-            'object-cover pointer-events-none rounded-md',
-            'border border-neutral-800 z-[1] hidden dark:block',
-          )}
+          className="object-cover pointer-events-none rounded-md border border-neutral-800 hidden dark:block"
         />
 
         <Image
@@ -35,13 +30,8 @@ const AboutThisWebsite = forwardRef<HTMLDivElement, Props>(
           alt="About this website"
           width={300}
           height={300}
-          draggable={false}
           sizes="300px"
-          priority
-          className={clsx(
-            'object-cover pointer-events-none rounded-md',
-            'border border-neutral-200 z-[1] block dark:hidden',
-          )}
+          className="object-cover pointer-events-none rounded-md border border-neutral-200 block dark:hidden"
         />
       </PostWidgetLayout>
     );
