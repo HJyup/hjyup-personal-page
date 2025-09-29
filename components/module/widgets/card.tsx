@@ -42,7 +42,7 @@ const CardWidget = forwardRef<
             type: 'spring',
             duration: 0.6,
           }}
-          className="w-full bg-gradient-to-t from-[#101010] to-[#1d1d1d] shadow-lg aspect-[1.586/1] rounded-2xl sm:rounded-3xl font-mono p-6 gap-6 flex flex-col relative hover:cursor-pointer"
+          className="w-full z-[2] bg-gradient-to-t from-[#101010] to-[#1d1d1d] shadow-lg aspect-[1.586/1] rounded-2xl sm:rounded-3xl font-mono p-6 gap-6 flex flex-col relative hover:cursor-pointer"
           onClick={() => setIsTapped(!isTapped)}
         >
           <SolidGateLogo />
@@ -59,9 +59,9 @@ const CardWidget = forwardRef<
         {!isTapped && (
           <motion.div
             key="payment-info"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
+            exit={{ opacity: 0, y: -40 }}
             transition={{
               type: 'spring',
               duration: 0.4,
