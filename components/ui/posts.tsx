@@ -9,7 +9,7 @@ export const Text = ({
   className?: string;
 }) => (
   <p
-    className={`text-xs md:text-sm text-neutral-900 dark:text-neutral-50 leading-relaxed ${className}`}
+    className={`text-xs md:text-sm text-neutral-900 dark:text-neutral-200 leading-relaxed ${className}`}
   >
     {children}
   </p>

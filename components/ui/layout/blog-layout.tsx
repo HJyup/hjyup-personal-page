@@ -19,18 +19,20 @@ export function BlogLayout({ posts, hover }: BlogLayoutProps) {
       {posts.map(post => (
         <div
           key={post.id}
-          className="cursor-pointer bg-neutral-100 dark:bg-[hsl(0,0%,5%)] px-4 py-2 md:px-6 md:py-3 rounded-lg md:rounded-xl"
+          className="group cursor-pointer flex items-center gap-4 bg-neutral-100 dark:bg-[hsl(0,0%,5%)] px-5 py-3 md:px-7 md:py-4 rounded-lg md:rounded-xl"
         >
-          <a
-            href={post.link}
-            onMouseEnter={hover(post.id)}
-            className="hover:underline text-xs md:text-sm cursor-pointer"
-          >
-            {post.title}
-          </a>
-          <p className="text-xs md:text-sm mt-1 text-muted-foreground leading-relaxed">
-            {post.description}
-          </p>
+          <div>
+            <a
+              href={post.link}
+              onMouseEnter={hover(post.id)}
+              className="hover:underline text-xs md:text-sm cursor-pointer"
+            >
+              {post.title}
+            </a>
+            <p className="text-xs md:text-sm mt-1 text-muted-foreground leading-relaxed">
+              {post.description}
+            </p>
+          </div>
         </div>
       ))}
     </div>

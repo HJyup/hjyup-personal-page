@@ -18,7 +18,7 @@ import { BLOG_POSTS } from '@/const/blog';
 import { EXPERIENCE_DATA } from '@/const/experience';
 import { useHoverController } from '@/lib/use-hover-controller';
 
-const HOVER_DELAY = 300;
+const HOVER_DELAY = 220;
 
 export default function Page() {
   const {

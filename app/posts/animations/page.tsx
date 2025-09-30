@@ -30,11 +30,11 @@ const AnimationsPage = () => {
     <>
       <Section>
         <h1 className="text-neutral-900 dark:text-neutral-50 text-base md:text-lg font-medium">
-          Animations & Retrospectives
+          Animations
         </h1>
         <Text className="mt-4 text-neutral-700 dark:text-neutral-300">
-          Reflections on Emil Kowalski's animation course and my own experiments
-          with motion design.
+          How to build animations that feel good. Some thoughts and
+          restrospectives on building and crafting animations.
         </Text>
       </Section>
 

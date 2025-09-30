@@ -1,7 +1,37 @@
+'use client';
+
 import { forwardRef } from 'react';
-import { HTMLMotionProps } from 'framer-motion';
+import { HTMLMotionProps, motion } from 'framer-motion';
 
 import PostWidgetLayout from './post-widget-layout';
+
+function OverlappingSquares() {
+  const colors = [
+    'bg-blue-400',
+    'bg-blue-500',
+    'bg-blue-600',
+    'bg-blue-700',
+    'bg-blue-800',
+  ];
+
+  return (
+    <div>
+      <div className="relative flex justify-center">
+        {colors.map((cls, i) => (
+          <motion.div
+            key={i}
+            style={{ zIndex: i + 1 }}
+            className={`w-36 h-36 rounded-xl shadow-md ${cls} ${
+              i < colors.length - 1 ? '-mr-[5.5rem]' : ''
+            }`}
+            whileHover={{ y: -20 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const AnimationsAndRetrospectives = forwardRef<
   HTMLDivElement,
@@ -10,37 +40,12 @@ const AnimationsAndRetrospectives = forwardRef<
   <PostWidgetLayout
     ref={ref}
     link="posts/animations"
-    className={`relative overflow-hidden ${className}`}
-    title="Animations & Retrospectives"
-    description="Some thoughts on Emil Kowalewski's course and some experiments"
+    className={`relative overflow-hidden flex flex-col justify-between ${className}`}
+    title="Animations"
+    description="How to build animations that feel better."
     {...motionProps}
   >
-    <div className="absolute bottom-0 left-0 w-full">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 644 188">
-        <path
-          stroke="#0090FF"
-          strokeWidth="2"
-          d="M1 118.5s82.308-15.501 113.735-29 74.769-1.713 121.217-12c37.596-8.328 58.517-15.006 93.781-30.5 80.146-35.215 123.213-16 154.141-24.5S635.97.849 644 1.5"
-        ></path>
-        <path
-          fill="url(#paint0_linear_540_31)"
-          d="M113.912 89.012C82.437 102.511 1 118.01 1 118.01V188h643V1.023c-8.043-.65-129.399 12.499-160.375 20.998-30.976 8.498-74.11-10.714-154.38 24.496-35.319 15.493-56.272 22.17-93.927 30.497-46.52 10.286-89.93-1.5-121.406 11.998"
-        ></path>
-        <defs>
-          <linearGradient
-            id="paint0_linear_540_31"
-            x1="322.5"
-            x2="322.5"
-            y1="1"
-            y2="188"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#138EED" stopOpacity="0.4"></stop>
-            <stop offset="1" stopColor="#058FFB" stopOpacity="0"></stop>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
+    <OverlappingSquares />
   </PostWidgetLayout>
 ));
 

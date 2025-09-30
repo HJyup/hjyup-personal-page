@@ -10,14 +10,14 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'about',
-    title: 'About this website',
-    description: 'How i came up with the idea',
+    title: 'About This Website',
+    description: 'Design overview of how this site was built.',
     link: '/posts/about',
   },
   {
     id: 'animations',
-    title: 'Animations & Retrospectives',
-    description: "Some thoughts on Emil Kowalski's course and some experiments",
+    title: 'Animations',
+    description: 'How to build animations that feel better.',
     link: '/posts/animations',
   },
 ];
