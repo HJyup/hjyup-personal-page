@@ -32,7 +32,6 @@ export const useWidgetMeasure = (): WidgetMeasureReturn => {
     'comp-soc': compSocRef,
     'project-share': projectShareRef,
     books: booksRef,
-    tools: booksRef,
     music: musicRef,
   };
 
@@ -56,7 +55,6 @@ export const useWidgetMeasure = (): WidgetMeasureReturn => {
       bottom: 0,
     },
     music: musicBounds,
-    tools: aboutBounds,
   };
 
   return { refs, bounds };

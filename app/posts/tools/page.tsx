@@ -83,7 +83,6 @@ const ToolsPage = () => {
         </Text>
       </Section>
 
-      {/* --- Tech --- */}
       <Section>
         <Heading>Tech</Heading>
         <Body>
@@ -138,7 +137,6 @@ const ToolsPage = () => {
         </Body>
       </Section>
 
-      {/* --- Productivity --- */}
       <Section>
         <Heading>Productivity</Heading>
         <Body>
@@ -215,7 +213,6 @@ const ToolsPage = () => {
         </Body>
       </Section>
 
-      {/* --- Other --- */}
       <Section>
         <Heading>Other</Heading>
         <Body>

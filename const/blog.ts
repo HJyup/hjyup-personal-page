@@ -15,7 +15,7 @@ export const BLOG_POSTS: BlogPost[] = [
     link: '/posts/about',
   },
   {
-    id: 'tools',
+    id: 'books',
     title: 'What I use',
     description: 'Things I use every day from tech to productivity.',
     link: '/posts/tools',
