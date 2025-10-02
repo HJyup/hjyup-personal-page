@@ -4,6 +4,36 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'assets-global.website-files',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 's3-eu-west-1.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jim-nielsen.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'is1-ssl.mzstatic.com',
         port: '',
         pathname: '/**',
@@ -23,6 +53,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'scontent-lhr8-1.cdninstagram.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'registry.npmmirror.com',
         port: '',
         pathname: '/**',
       },

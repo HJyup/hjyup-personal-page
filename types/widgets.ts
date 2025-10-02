@@ -6,6 +6,7 @@ export const WIDGET_IDS = [
   'solidgate',
   'music',
   'animations',
+  'tools',
   'container',
   'project-share',
   'comp-soc',

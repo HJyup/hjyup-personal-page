@@ -1,4 +1,5 @@
 'use client';
+
 import { motion } from 'framer-motion';
 
 import { ColumnWithBackdrop } from '@/components/module/column-with-backdrop';
@@ -33,10 +34,10 @@ export default function Page() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-      <div className="flex justify-end items-center w-full py-14 md:py-16 6 px-8 md:px-24">
+      <div className="flex justify-end items-center w-full md:min-h-screen">
         <header
           id="about"
-          className="flex flex-col max-w-xl justify-center md:min-h-screen"
+          className="flex flex-col max-w-3xl justify-center py-14 md:py-16 6 px-8 md:px-24"
         >
           <div className="flex justify-between">
             <h1
@@ -86,6 +87,10 @@ export default function Page() {
           <ExperienceLayout experiences={EXPERIENCE_DATA} hover={hover} />
 
           <BlogLayout posts={BLOG_POSTS} hover={hover} />
+
+          <div className="text-xs mt-24 text-muted-foreground w-full mb-4 text-center">
+            With Love, Dan &lt;3
+          </div>
         </header>
       </div>
 
