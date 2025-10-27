@@ -24,10 +24,7 @@ export default function Page() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       <div className="flex justify-end items-center w-full md:min-h-screen">
-        <div
-          id="about"
-          className="flex flex-col max-w-3xl justify-center py-14 md:py-16 6 px-8 md:px-24"
-        >
+        <div className="flex flex-col max-w-3xl justify-center py-14 md:py-16 6 px-8 md:px-24">
           <div className="flex justify-between">
             <h1
               onMouseEnter={hover('books')}
