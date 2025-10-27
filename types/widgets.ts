@@ -7,8 +7,8 @@ export const WIDGET_IDS = [
   'music',
   'animations',
   'container',
-  'project-share',
-  'comp-soc',
+  'projectShare',
+  'compSoc',
 ] as const;
 
 export type WidgetId = (typeof WIDGET_IDS)[number];

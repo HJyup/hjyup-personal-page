@@ -1,13 +1,12 @@
 'use client';
 
 import { useCallback } from 'react';
-import type { RectReadOnly } from 'react-use-measure';
 
 import { useHoverCenter } from '@/lib/use-hover-center';
 import { useWidgetMeasure } from '@/lib/use-widget-measure';
 import type { WidgetId } from '@/types/widgets';
 
-const DEFAULT_BOUNDS: RectReadOnly = {
+const DEFAULT_BOUNDS = {
   width: 0,
   height: 0,
   left: 0,
@@ -19,15 +18,15 @@ const DEFAULT_BOUNDS: RectReadOnly = {
 };
 
 export function useHoverController(opts?: {
-  initial?: WidgetId;
-  delay?: number;
+  initial: WidgetId;
+  delay: number;
 }) {
   const { refs, bounds } = useWidgetMeasure();
   const { offsetX, offsetY, hoveredWidget, onHover } = useHoverCenter<WidgetId>(
     {
       containerBounds: bounds.container,
-      initialWidget: opts?.initial ?? null,
-      delay: opts?.delay ?? 300,
+      initialWidget: opts?.initial,
+      delay: opts?.delay,
     },
   );
 

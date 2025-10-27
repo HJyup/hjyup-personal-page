@@ -14,7 +14,7 @@ export interface ExperienceItem {
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: 'solidgate',
-    title: 'Software developer',
+    title: 'Software Engineer',
     company: 'Solidgate',
     period: '2023 - Present',
     description:
@@ -24,22 +24,23 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     href: 'https://solidgate.com',
   },
   {
-    id: 'comp-soc' as WidgetId,
-    title: 'Committee member',
+    id: 'compSoc',
+    title: '2nd Year Representative',
     company: 'Comp-soc',
     period: '2025 - Present',
     description:
-      "Organise Scotland's largest student hackathon\u00A0(200+\u00A0participants) and maintain the society's website.",
+      "Organised Scotland's largest student hackathon and maintain the society's website.",
     status: 'active',
     statusColor: 'red',
     href: 'https://comp-soc.com/',
   },
   {
-    id: 'project-share' as WidgetId,
+    id: 'projectShare',
     title: 'Committee member',
     company: 'Project Share',
     period: '2025 - Present',
-    description: 'Host student-led project sharing sessions.',
+    description:
+      'Help students share personal tech projects, exchange advice, and inspire each other to turn ideas into reality.',
     status: 'active',
     statusColor: 'violet',
     href: 'https://projectshare.comp-soc.com/',

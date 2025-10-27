@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
 import { BOOKS } from '@/const/books';
 
-import LinkBlock from '../LinkBlock';
+import LinkBlock from '../link-block';
 
 interface BookImageProps {
   src: string;
@@ -102,8 +102,8 @@ export const BooksWidget = forwardRef<
       </div>
 
       <motion.button
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
         onClick={() => setIsOpen(!isOpen)}
         className="bg-neutral-200/50 dark:bg-[hsl(0,0%,15%)] h-10 px-5 rounded-full flex items-center font-medium justify-center gap-3 shadow-sm w-full z-[2] relative overflow-hidden hover:cursor-pointer"
       >

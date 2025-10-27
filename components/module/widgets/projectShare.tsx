@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import LinkBlock from '@/components/module/LinkBlock';
+import LinkBlock from '@/components/module/link-block';
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
 
 export const ProjectShare = forwardRef<HTMLDivElement, { className?: string }>(

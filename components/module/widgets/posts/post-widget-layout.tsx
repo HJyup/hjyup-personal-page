@@ -3,7 +3,7 @@ import { HTMLMotionProps } from 'framer-motion';
 
 import { WidgetLayout } from '@/components/ui/layout/widget-layout';
 
-import LinkBlock from '../../LinkBlock';
+import LinkBlock from '../../link-block';
 
 const PostWidgetLayout = forwardRef<
   HTMLDivElement,

@@ -1,18 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
-import { ColumnWithBackdrop } from '@/components/module/column-with-backdrop';
-import LinkBlock from '@/components/module/LinkBlock';
-import { BooksWidget } from '@/components/module/widgets/books';
-import CardWidget from '@/components/module/widgets/card';
-import { CompSoc } from '@/components/module/widgets/compSoc';
-import { EmailWidget } from '@/components/module/widgets/email';
-import { GithubWidget } from '@/components/module/widgets/github';
-import { MusicWidget } from '@/components/module/widgets/music';
-import AboutThisWebsite from '@/components/module/widgets/posts/about-this-website';
-import AnimationsAndRetrospectives from '@/components/module/widgets/posts/animationsAndRetrospective';
-import { ProjectShare } from '@/components/module/widgets/projectShare';
+import LinkBlock from '@/components/module/link-block';
+import WidgetsPanel from '@/components/module/widgets-panel';
 import { BlogLayout } from '@/components/ui/layout/blog-layout';
 import { ExperienceLayout } from '@/components/ui/layout/experience-layout';
 import { BLOG_POSTS } from '@/const/blog';
@@ -35,7 +24,7 @@ export default function Page() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       <div className="flex justify-end items-center w-full md:min-h-screen">
-        <header
+        <div
           id="about"
           className="flex flex-col max-w-3xl justify-center py-14 md:py-16 6 px-8 md:px-24"
         >
@@ -91,61 +80,14 @@ export default function Page() {
           <div className="text-xs mt-24 text-muted-foreground w-full mb-4 text-center">
             With Love, Dan &lt;3
           </div>
-        </header>
+        </div>
       </div>
 
-      <div
-        className="fixed h-screen w-1/2 right-0 overflow-hidden hidden md:block"
-        ref={refs.container}
-      >
-        <div className="absolute top-0 left-0 h-full w-[50px] bg-gradient-to-r from-background to-transparent z-20" />
-        <motion.div
-          className="flex flex-row items-center justify-center w-max gap-4 h-full"
-          {...motionProps}
-        >
-          <ColumnWithBackdrop
-            className="ml-8"
-            hoveredWidget={hoveredWidget}
-            items={[
-              { id: 'about', component: <AboutThisWebsite ref={refs.about} /> },
-              { id: 'books', component: <BooksWidget ref={refs.books} /> },
-              { id: 'email', component: <EmailWidget ref={refs.email} /> },
-            ]}
-          />
-
-          <ColumnWithBackdrop
-            hoveredWidget={hoveredWidget}
-            items={[
-              {
-                id: 'project-share',
-                component: <ProjectShare ref={refs['project-share']} />,
-              },
-              {
-                id: 'solidgate',
-                component: <CardWidget ref={refs.solidgate} />,
-              },
-              { id: 'music', component: <MusicWidget ref={refs.music} /> },
-            ]}
-          />
-
-          <ColumnWithBackdrop
-            hoveredWidget={hoveredWidget}
-            items={[
-              { id: 'github', component: <GithubWidget ref={refs.github} /> },
-              {
-                id: 'comp-soc',
-                component: <CompSoc ref={refs['comp-soc']} />,
-              },
-              {
-                id: 'animations',
-                component: (
-                  <AnimationsAndRetrospectives ref={refs.animations} />
-                ),
-              },
-            ]}
-          />
-        </motion.div>
-      </div>
+      <WidgetsPanel
+        refs={refs}
+        motionProps={motionProps}
+        selectedWidget={hoveredWidget}
+      />
     </div>
   );
 }

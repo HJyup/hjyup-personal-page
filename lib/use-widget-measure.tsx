@@ -29,8 +29,8 @@ export const useWidgetMeasure = (): WidgetMeasureReturn => {
     email: emailRef,
     animations: animationsRef,
     container: containerRef,
-    'comp-soc': compSocRef,
-    'project-share': projectShareRef,
+    compSoc: compSocRef,
+    projectShare: projectShareRef,
     books: booksRef,
     music: musicRef,
   };
@@ -42,8 +42,8 @@ export const useWidgetMeasure = (): WidgetMeasureReturn => {
     email: emailBounds,
     animations: animationsBounds,
     container: containerBounds,
-    'comp-soc': compSocBounds,
-    'project-share': projectShareBounds,
+    compSoc: compSocBounds,
+    projectShare: projectShareBounds,
     books: {
       width: 0,
       height: 0,

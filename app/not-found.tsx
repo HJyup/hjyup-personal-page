@@ -1,4 +1,4 @@
-import LinkBlock from '@/components/module/LinkBlock';
+import LinkBlock from '@/components/module/link-block';
 
 export default function NotFound() {
   return (
