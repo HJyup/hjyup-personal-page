@@ -2,15 +2,17 @@ import { LucideIcon, SparklesIcon } from 'lucide-react';
 import { motion, Transition } from 'motion/react';
 
 import {
-  FolderBackBlue,
-  FolderBackGreen,
-  FolderBackPurple,
-} from './icons/folder-back';
+  FolderBack as FolderBackBlue,
+  FolderFront as FolderFrontBlue,
+} from './folder-icons/blue';
 import {
-  FolderFrontBlue,
-  FolderFrontGreen,
-  FolderFrontPurple,
-} from './icons/folder-front';
+  FolderBack as FolderBackGreen,
+  FolderFront as FolderFrontGreen,
+} from './folder-icons/green';
+import {
+  FolderBack as FolderBackPurple,
+  FolderFront as FolderFrontPurple,
+} from './folder-icons/purple';
 
 export const FOLDER_TRANSITION: Transition = {
   type: 'spring',
@@ -66,7 +68,7 @@ const FolderPack = ({
         <div
           className="
             absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2
-            w-[90%] h-[50%] bg-zinc-50 z-10 rounded-sm group-hover:top-[47%] duration-200 shadow-lg
+            w-[90%] h-[50%] bg-zinc-50 z-10 rounded-sm group-hover:top-[50%] duration-200 shadow-lg
           "
         />
 

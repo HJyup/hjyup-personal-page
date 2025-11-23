@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata, Viewport } from 'next';
+import { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 
 import { ThemeProvider } from '@/provider/theme-provider';
@@ -16,13 +16,6 @@ export const metadata: Metadata = {
 const geist = Geist({
   subsets: ['latin'],
 });
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'hsl(0, 0%, 100%)' },
-    { media: '(prefers-color-scheme: dark)', color: 'hsl(0, 0%, 0%)' },
-  ],
-};
 
 export default function RootLayout({
   children,
