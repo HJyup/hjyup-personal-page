@@ -6,7 +6,7 @@ import FolderPack from '@/components/folder-pack';
 
 export default function Home() {
   return (
-    <main className="min-h-screen py-16 px-12 flex flex-col items-center bg-black">
+    <main className="min-h-screen py-16 px-12 flex flex-col items-center">
       <div className="max-w-lg">
         <p className="uppercase text-zinc-800 dark:text-zinc-50 text-sm">
           Danyil Butov
