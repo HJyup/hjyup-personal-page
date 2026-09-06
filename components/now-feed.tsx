@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import Image from 'next/image';
 
+import { AutoplayVideo } from '@/components/autoplay-video';
+
 type NowMedia = {
   src: string;
   /** Describes the still, or the clip, for anyone who cannot see it. */
@@ -195,15 +197,9 @@ function Media({
     // Silent, looping, and decorative. Reduced motion gets controls instead of
     // a clip that starts moving on its own.
     return (
-      <video
-        aria-label={media.alt}
-        draggable={false}
-        autoPlay={!reduce}
-        loop
-        muted
-        playsInline
+      <AutoplayVideo
+        label={media.alt}
         controls={Boolean(reduce)}
-        preload="metadata"
         className="h-full w-full object-cover"
       >
         {/* Declared rather than left to the extension: a .MOV holding H.264 is
@@ -212,7 +208,7 @@ function Media({
           src={media.src}
           type={media.src.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
         />
-      </video>
+      </AutoplayVideo>
     );
   }
 

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { AutoplayVideo } from '@/components/autoplay-video';
 import { HoverList, type HoverRow } from '@/components/hover-list';
 
 export type Project = {
@@ -44,15 +45,10 @@ export function ProjectList({ items }: { items: Project[] }) {
         {(project.preview || project.video) && (
           <div className="overflow-hidden rounded-xl bg-neutral-100 p-5 sm:p-8 dark:bg-[color-mix(in_srgb,#262626_30%,hsl(var(--background)))]">
             {project.video ? (
-              <video
+              <AutoplayVideo
                 src={project.video}
-                draggable={false}
                 poster={project.preview}
-                autoPlay
-                loop
-                muted
-                playsInline
-                aria-label={`${project.name} preview`}
+                label={`${project.name} preview`}
                 className="w-full rounded-md border border-black/5 shadow-[0_6px_18px_-5px_rgba(0,0,0,0.22)] dark:border-white/10"
               />
             ) : project.preview ? (
