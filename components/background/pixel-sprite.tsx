@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export type Shade = 'strong' | 'medium' | 'faint' | 'trunk';
+type Shade = 'strong' | 'medium' | 'faint' | 'trunk';
 
 export type SceneTone =
   | 'cat'
@@ -13,7 +13,7 @@ export type SceneTone =
   | 'cloud-night';
 
 /** Each sprite can tune these shared shades through its local scene palette. */
-export const SHADES: Record<Shade, string> = {
+const SHADES: Record<Shade, string> = {
   strong: 'fill-scene-strong',
   medium: 'fill-scene-medium',
   faint: 'fill-scene-faint',
@@ -25,7 +25,7 @@ export const SHADES: Record<Shade, string> = {
  * background shows through. `#` reads as near, `-` and `+` as mid, and
  * `*` and `o` as far off. `|` gives trunks and sun rays a separate shade.
  */
-export const GLYPHS: Record<string, Shade> = {
+const GLYPHS: Record<string, Shade> = {
   '#': 'strong',
   '|': 'trunk',
   '+': 'medium',
@@ -76,7 +76,7 @@ export function toRect({ glyph, x, y, width }: Run) {
 }
 
 /** Sizes the canvas in whole pixels, so the art never lands on a half pixel. */
-export function spriteStyle(rows: string[]) {
+function spriteStyle(rows: string[]) {
   return {
     width: `calc(${rows[0].length} * var(--pixel))`,
     height: `calc(${rows.length} * var(--pixel))`,

@@ -1,7 +1,7 @@
 import { CopyButton } from '@/components/copy-button';
 import { highlightCode } from '@/lib/highlight-code';
 
-export type TerminalProps = { command: string };
+type TerminalProps = { command: string };
 
 /** Displays a command for copying; it never executes it. */
 export async function Terminal({ command }: TerminalProps) {

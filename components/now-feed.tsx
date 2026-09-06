@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import Image from 'next/image';
 
-export type NowPhoto = {
+type NowMedia = {
   src: string;
   /** Describes the still, or the clip, for anyone who cannot see it. */
   alt: string;
@@ -19,7 +19,7 @@ export type NowEntry = {
   date: string;
   subtitle: string;
   description: string;
-  photos?: NowPhoto[];
+  photos?: NowMedia[];
 };
 
 export const anchorFor = (entry: NowEntry) => `now-${entry.id}`;
@@ -144,7 +144,7 @@ export function NowFeed({ entries, onActive }: NowFeedProps) {
   );
 }
 
-function Photos({ photos }: { photos: NowPhoto[] }) {
+function Photos({ photos }: { photos: NowMedia[] }) {
   const reduce = useReducedMotion();
   const [first] = photos;
 
@@ -187,7 +187,7 @@ function Media({
   reduce,
   sizes,
 }: {
-  media: NowPhoto;
+  media: NowMedia;
   reduce: boolean | null;
   sizes: string;
 }) {

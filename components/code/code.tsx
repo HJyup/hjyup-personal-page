@@ -3,7 +3,7 @@ import { type BundledLanguage } from 'shiki';
 import { CopyButton } from '@/components/copy-button';
 import { highlightCode } from '@/lib/highlight-code';
 
-export type CodeProps = {
+type CodeProps = {
   code: string;
   language?: BundledLanguage | 'text';
   /** First visible line number, useful for excerpts. */

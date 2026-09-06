@@ -1,6 +1,6 @@
 import { HoverList, type HoverRow } from '@/components/hover-list';
 
-export type WorkItem = {
+type WorkItem = {
   company: string;
   role: string;
   team: string;
