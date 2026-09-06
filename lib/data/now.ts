@@ -10,7 +10,7 @@ export const NOW: NowEntry[] = [
     date: 'July 2026',
     subtitle: 'Google Hackathon 2026',
     description:
-      'At the Google King\u2019s Cross office, building an agent that helps people reach the authorities in an emergency. I also started using Go a lot (funnily enough, mentioning that language in a Google post) and it finally clicked for me. Just finished a reconciliation worker at Wise to solve drift with notifications.',
+      'At the Google King\u2019s Cross office, building an agent that helps people reach the authorities in an emergency. I also started using Go a lot and it finally clicked for me. Just finished a reconciliation worker at Wise to solve drift with notifications.',
     photos: [
       {
         src: '/now/july-1.webp',
