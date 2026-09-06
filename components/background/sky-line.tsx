@@ -5,7 +5,7 @@ import {
   type SceneTone,
   toRect,
   toRuns,
-} from '@/components/pixel-sprite';
+} from '@/components/background/pixel-sprite';
 
 /**
  * Glyphs pick a shade and, for a few, a behaviour: `#` is the still, bright

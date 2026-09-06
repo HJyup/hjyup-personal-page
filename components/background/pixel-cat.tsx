@@ -1,4 +1,4 @@
-import { PixelSvg, toRect, toRuns } from '@/components/pixel-sprite';
+import { PixelSvg, toRect, toRuns } from '@/components/background/pixel-sprite';
 
 /**
  * The cat is a solid silhouette and the eyes are painted back on in the page

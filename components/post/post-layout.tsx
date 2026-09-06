@@ -1,8 +1,8 @@
 import { type ReactNode } from 'react';
 import Link from 'next/link';
 
-import { PageShell } from '@/components/page-shell';
-import { PostBody } from '@/components/post-body';
+import { PageShell } from '@/components/background/page-shell';
+import { PostBody } from '@/components/post/post-body';
 
 type PostLayoutProps = {
   title: string;

@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 
-import { SkyLine } from '@/components/sky-line';
-import { TreeLine } from '@/components/tree-line';
+import { SkyLine } from '@/components/background/sky-line';
+import { TreeLine } from '@/components/background/tree-line';
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (

@@ -1,10 +1,10 @@
-import { PixelCat } from '@/components/pixel-cat';
+import { PixelCat } from '@/components/background/pixel-cat';
 import {
   PixelSvg,
   type SceneTone,
   toRect,
   toRuns,
-} from '@/components/pixel-sprite';
+} from '@/components/background/pixel-sprite';
 
 /** A plant moves as one connected silhouette; rocks and pebbles stay still. */
 const SWAYS = new Set(['#', '*']);
