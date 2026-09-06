@@ -1,14 +1,14 @@
 import { type Metadata } from 'next';
 import Image from 'next/image';
 
-import { Code } from '@/components/code';
+import { Code } from '@/components/code/code';
+import { Terminal } from '@/components/code/terminal';
 import {
   ArchitectureDiagram,
   PipelineDiagram,
-} from '@/components/patchdock-diagrams';
-import { PostLayout } from '@/components/post-layout';
+} from '@/components/post/patchdock-diagrams';
+import { PostLayout } from '@/components/post/post-layout';
 import { Reference } from '@/components/reference';
-import { Terminal } from '@/components/terminal';
 
 const subtitle =
   'How I created infrastructure to run agents across repositories while limiting their control';
@@ -151,7 +151,7 @@ retries:
         </p>
         <figure className="bleed mt-4">
           <Image
-            src="/images/patchdock_usage.png"
+            src="/projects/patchdock_usage.png"
             draggable={false}
             alt="The dock main window listing runs and their current progress"
             width={2326}

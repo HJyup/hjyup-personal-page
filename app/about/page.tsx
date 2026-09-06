@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 
-import { PostLayout } from '@/components/post-layout';
+import { PostLayout } from '@/components/post/post-layout';
 
 export const metadata: Metadata = {
   title: 'About this webpage · Danyil Butov',

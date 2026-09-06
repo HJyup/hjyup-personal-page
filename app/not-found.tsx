@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import { PixelSvg, toRuns } from '@/components/pixel-sprite';
-import { SkyLine } from '@/components/sky-line';
-import { TreeLine } from '@/components/tree-line';
+import { PixelSvg, toRuns } from '@/components/background/pixel-sprite';
+import { SkyLine } from '@/components/background/sky-line';
+import { TreeLine } from '@/components/background/tree-line';
 import { ArrowRightIcon } from '@/components/ui/arrow-right';
 
 /**
