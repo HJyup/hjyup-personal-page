@@ -32,8 +32,8 @@ const ppMori = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'App',
-  description: 'A Next.js application',
+  title: 'Danyil Butov',
+  description: 'Personal webpage of Danyil Butov',
 };
 
 export const viewport: Viewport = {
