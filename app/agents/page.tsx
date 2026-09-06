@@ -26,9 +26,18 @@ export default function AgentsPage() {
         <p>
           Coding agents have become part of how many of us build software. As a
           student, I’m still sceptical about leaning on them too heavily, so I
-          deliberately limited how much I used them. I started with tools like
-          NotebookLM to support my learning, then began experimenting on my own
-          projects.
+          deliberately limit how much I use them. Last year I started with tools
+          like NotebookLM to support my learning. This year, during the
+          internship and my work (I have been working full time as a software
+          engineer through my degree), I began experimenting on real code.
+        </p>
+
+        <p>
+          The same question kept coming back:{' '}
+          <span className="text-primary">
+            in the grand scheme of things, which changes are worth handing to an
+            agent entirely, if any? Can you fully rely on one in any situation?
+          </span>
         </p>
         <p>
           <span
@@ -36,7 +45,7 @@ export default function AgentsPage() {
             aria-describedby="reference-tactical-strategic-programming"
           >
             John Ousterhout’s distinction between tactical and strategic
-            programming
+            programming tried to
             <sup
               className="ml-0.5 text-[10px] text-neutral-400"
               aria-hidden="true"
@@ -44,7 +53,7 @@ export default function AgentsPage() {
               1
             </sup>{' '}
           </span>{' '}
-          helped me think about that balance. Tactical programming prioritises
+          helping me answer this question. Tactical programming prioritises
           getting a feature or fix working quickly; strategic programming
           invests in a design that stays easy to change over time.
         </p>
@@ -57,16 +66,24 @@ export default function AgentsPage() {
           strategic programming in more depth.
         </Reference>
         <p>
-          That framing is what let me hand the tactical work over. Once I know
-          what I want to build and have written the design down, the questions
-          that actually matter (architecture, longevity, how this will need to
-          change later) are already settled. What’s left is a sequence of small,
-          well-scoped changes, and that is where current models do well. Some
-          features still take shape gradually rather than arriving fully
-          specified, but I kept hitting the same pattern: the change was clear
-          in my head, and the only real cost was the time to type it out.
+          These paradigms of “shipping” are not interchangeable; they complement
+          each other. In my opinion, every piece of strategic programming has
+          its own tactical parts. Through that lens, I started thinking about
+          how I could use agents for the tactical work once the strategic part
+          is settled.
         </p>
-        <p></p>
+      </section>
+      <section>
+        <h2>Problems that can be trivially solved</h2>
+        <p>
+          I start every big project with a design document: answering the
+          architectural questions first, then decomposing the problem into
+          subparts that add up to the larger solution. Those subparts can get
+          small enough that once the ambiguities are resolved, the change is
+          trivial and the only thing left to pay is the time to type it out. In
+          the era of coding agents, that class of problem sounds like a good one
+          to hand over.
+        </p>
         <p>
           Reading about{' '}
           <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">
@@ -78,9 +95,10 @@ export default function AgentsPage() {
         </p>
         <p>
           That’s where the idea for Patchdock came from. What if each repository
-          could define its own agents and execution environment, with clear
-          limits? Different repositories have different needs, and a small
-          project doesn’t need the most capable model for every task.
+          could predefine its own pipeline of agents, without being locked to a
+          vendor, running any LLM provider within clear limits? Different
+          repositories have different needs, and a small project doesn’t need
+          the most capable model for every task.
         </p>
         <p>
           The idea was to give those agents a fixed loop: plan, execute, review.
@@ -146,8 +164,8 @@ retries:
         </p>
         <Terminal command={'dock "Fix failing test in reviewer schema sdk"'} />
         <p>
-          All running pipelines can be seen through TUI using dock watch
-          command.
+          All running pipelines can be seen in the TUI with the{' '}
+          <code>dock watch</code> command.
         </p>
         <figure className="bleed mt-4">
           <Image

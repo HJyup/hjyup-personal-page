@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 
-export type ReferenceProps = {
+type ReferenceProps = {
   /** ID on the word, sentence, or paragraph this note belongs to. */
   targetId: string;
   number?: number | string;
