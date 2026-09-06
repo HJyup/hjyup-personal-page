@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
     --muted: 240 4.8% 95.9%;
@@ -20,6 +20,11 @@
     --input: 240 5.9% 90%;
 
     --primary: 240 5.9% 10%;
+    --scene-strong: 213 48% 68%;
+    --scene-medium: 211 42% 79%;
+    --scene-faint: 212 38% 88%;
+    --scene-trunk: 214 30% 77%;
+    --scene-ground: 212 30% 94%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 4.8% 95.9%;
@@ -63,6 +68,11 @@
     --input: 240 3.7% 15.9%;
 
     --primary: 0 0% 98%;
+    --scene-strong: 214 40% 43%;
+    --scene-medium: 216 36% 31%;
+    --scene-faint: 214 32% 20%;
+    --scene-trunk: 215 28% 26%;
+    --scene-ground: 214 26% 10%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -101,8 +111,8 @@
 
   body {
     font-family:
-      'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial,
-      sans-serif;
+      var(--font-pp-mori), 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue',
+      Helvetica, Arial, sans-serif;
     @apply bg-background text-foreground;
   }
 
@@ -119,12 +129,152 @@
   }
 }
 
+/* Local sprite palettes keep colour hierarchy independent of animation.
+   The cat is the focal point; foliage, stone and sky recede in separate steps. */
+@layer components {
+  .profile-link {
+    @apply inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-sm text-blue-600 transition-colors duration-150 hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-4 focus-visible:ring-offset-background dark:text-blue-400 dark:hover:text-blue-300;
+  }
+
+  .profile-link-icon {
+    @apply inline-flex size-3.5 shrink-0 -translate-y-px items-center justify-center;
+  }
+
+  [data-scene='cat'] {
+    --scene-strong: 214 59% 49%;
+    --scene-trunk: var(--scene-strong);
+  }
+
+  [data-scene='tree-far'] {
+    --scene-strong: 210 35% 79%;
+  }
+
+  [data-scene='sun'] {
+    --scene-strong: 207 59% 70%;
+    --scene-trunk: 210 47% 85%;
+  }
+
+  [data-scene='cloud'] {
+    --scene-medium: 211 48% 86%;
+  }
+
+  [data-scene='cloud-small'] {
+    --scene-medium: 209 36% 92%;
+  }
+
+  .dark [data-scene='cat'] {
+    --scene-strong: 207 69% 73%;
+  }
+
+  .dark [data-scene='tree-far'] {
+    --scene-strong: 216 30% 28%;
+  }
+
+  .dark [data-scene='moon'] {
+    --scene-strong: 209 52% 70%;
+  }
+
+  .dark [data-scene='stars'] {
+    --scene-strong: 211 48% 59%;
+    --scene-medium: 215 38% 40%;
+    --scene-faint: 218 30% 25%;
+  }
+
+  .dark [data-scene='cloud-night'] {
+    --scene-faint: 214 32% 13%;
+  }
+
+  /* `draggable={false}` covers Chrome and Firefox; Safari needs this as well
+     before it stops offering pictures and clips as drag payloads. */
+  img,
+  video {
+    -webkit-user-drag: none;
+  }
+}
+
 @layer utilities {
+  /* Lets a figure grow past the prose column by --bleed-max on each side. The
+     cap shrinks with the available gutter, so narrow viewports get no bleed at
+     all rather than a horizontal scrollbar. */
+  .bleed {
+    --bleed-max: 10%;
+    margin-inline: calc(
+      -1 * max(0px, min(var(--bleed-max), (100vw - 100%) / 2 - 1rem))
+    );
+  }
+  /* For a figure laid out as a row, which needs the extra width to breathe. */
+  .bleed-wide {
+    --bleed-max: 25%;
+  }
+  /* Keeps the left edge on the text column and runs the right edge out to the
+     viewport, so a scrolling strip slides off the page rather than stopping at
+     a boundary of its own. */
+  .bleed-r {
+    margin-right: calc(-1 * max(0px, (100vw - 100%) / 2));
+  }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Stepped motion stops at its resting frame; the meteor's resting frame is
+     hidden, so it simply never fires. */
+  .animate-tree-sway,
+  .animate-pixel-sway,
+  .animate-pixel-twinkle,
+  .animate-pixel-blink,
+  .animate-pixel-flick,
+  .animate-pixel-shoot {
+    animation: none;
+  }
+
+  /* Clouds are placed by their animation, so pause rather than remove it:
+     each holds at its own start offset and the sky stays populated. */
+  .animate-pixel-drift {
+    animation-play-state: paused;
+  }
+}
+
+@layer components {
+  .snippet {
+    --snippet-text: #404040;
+    --snippet-muted: #737373;
+    --snippet-accent: #2563eb;
+    color: var(--snippet-text);
+  }
+
+  .dark .snippet {
+    --snippet-text: #d4d4d4;
+    --snippet-muted: #a3a3a3;
+    --snippet-accent: #60a5fa;
+  }
+
+  .post-reference {
+    position: relative;
+    margin-top: 12px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 12px;
+    line-height: 20px;
+    color: #a3a3a3;
+  }
+
+  .dark .post-reference {
+    color: #737373;
+  }
+
+  @media (min-width: 1280px) {
+    .post-reference[data-positioned='true'] {
+      position: absolute;
+      top: var(--reference-top, 0px);
+      left: var(--reference-left, calc(100% + 32px));
+      width: 200px;
+      margin: 0;
+    }
   }
 }
